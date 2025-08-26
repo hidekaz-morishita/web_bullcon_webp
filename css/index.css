@@ -1,3 +1,6 @@
+/*==================================
+  共通スタイル
+==================================*/
 .section-title {
     text-align: center;
     margin-bottom: 60px;
@@ -73,10 +76,9 @@
 }
 
 .slider-item:first-of-type {
-    opacity: 1; /* 初期表示のスライド */
+    opacity: 1;
 }
 
-/* 左右の操作ボタン */
 .slider-control {
     position: absolute;
     top: 50%;
@@ -104,7 +106,6 @@
     right: 0;
 }
 
-/* ページネーション（点） */
 .hero-pagination {
     position: absolute;
     bottom: 20px;
@@ -134,36 +135,108 @@
 }
 
 /*==================================
-  新着情報セクション
+  各コンテンツセクション
 ==================================*/
-/* 分割コンテンツコンテナ */
 .main-content {
     margin: 0 auto;
     max-width: 1300px;
 }
-/* 分割コンテンツコンテナ */
-.split-content-container {
-    display: flex;
-    flex-direction: column; /* 垂直方向に並べる */
-    gap: 80px; /* セクション間の余白 */
-    padding-top: 20px;
-}
 
-.news-section-title {
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-
+/*==================================
+  お知らせセクション
+==================================*/
 .news-section {
     margin-top: 20px;
 }
 
+.split-content-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 100px;
+    padding-top: 20px;
+    width: 100%;
+}
+
+.product-announce-section,
+.announce-section {
+    flex: 0 0 40%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-announce-section {
+    position: relative;
+}
+
+.product-announce-section::after {
+    content: none;
+}
+
+.news-section-title {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    text-align: left;
+}
+
+#products-announce-placeholder,
+#announce-placeholder {
+    width: 100%;
+    align-self: flex-start;
+}
+
+.news-list-item {
+    display: flex;
+    /* 日付とタイトルを横並びにする */
+    flex-direction: row;
+    align-items: baseline; /* ベースラインで揃える */
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+    text-decoration: none;
+    color: #000;
+    transition: background-color 0.3s ease;
+}
+
+.news-list-item:hover {
+    background-color: #f5f5f5;
+}
+
+.news-list-item time {
+    font-size: 14px;
+    color: #888;
+    margin-right: 15px; /* 日付とタイトルの間にスペースを追加 */
+    flex-shrink: 0;
+}
+
+.news-list-item .news-title {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000;
+}
+
+.new-window-icon {
+    width: 12px;
+    height: auto;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.news-list-item.non-clickable {
+    cursor: default;
+    background-color: transparent;
+}
+
 .news-button-container {
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     margin-top: 20px;
+    width: 100%;
+    align-self: flex-end;
 }
 
 .news-button {
@@ -172,6 +245,7 @@
     color: #000;
     font-weight: 600;
     border-bottom: 1px solid #333;
+    text-decoration: none;
 }
 
 .news-button:hover {
@@ -180,98 +254,72 @@
     transform: translateY(-2px); 
 }
 
-@media (min-width: 992px) {
-    .split-content-container {
-        flex-direction: row; /* 992px以上の画面幅で横並びに変更 */
-    }
-}
-
-/* 製品の新着情報セクション */
-.product-news-section .news-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-.product-news-section .news-list a {
-    height: 100%; /* 親要素(Gridコンテナ)の高さに合わせる */
-}
-
-/* 新着情報セクション */
-.announce-section .announce-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-.announce-section .announce-list a {
-    height: 100%; 
-}
-
-
 /*==================================
-  製品セクション (修正版)
+  製品セクション 
 ==================================*/
 .products-section {
-    padding: 80px 0; /* 上下の余白 */
+    padding: 80px 0;
 }
 
 .product-showcase {
     display: flex;
-    flex-direction: column; /* 縦に並べる */
-    gap: 50px; /* 各製品間の余白 */
+    flex-direction: column;
+    gap: 50px;
 }
 
 .product-item {
     display: flex;
-    flex-direction: column; /* デフォルトは縦並び */
+    flex-direction: column;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
 }
 
 @media (min-width: 768px) {
     .product-item {
-        flex-direction: row; /* 画面が広い場合は横並び */
-    }
-
-    /* 奇数番目のアイテムは、画像が左側に来るように */
-    .product-item:nth-child(odd) {
         flex-direction: row;
     }
 
-    /* 偶数番目のアイテムは、画像が右側に来るように */
     .product-item:nth-child(even) {
         flex-direction: row-reverse;
     }
 }
 
-.product-image {
-    flex-basis: 66.666%; /* 親要素の2/3の幅 */
+.product-item .product-image {
+    flex-basis: 66.666%;
     overflow: hidden;
 }
 
-.product-image img {
+.product-item .product-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.product-text-content {
-    flex-basis: 33.333%; /* 親要素の1/3の幅 */
+.product-item .product-text-content {
+    flex-basis: 33.333%;
     padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.product-text-content h3 {
+.product-item .product-text-content h3 {
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 10px;
 }
 
-.product-text-content p {
+.product-item .product-text-content p {
     font-size: 16px;
     color: #555;
     line-height: 1.6;
@@ -289,11 +337,10 @@
     text-align: left;
 }
 
-/* リンクテキストの下に下線を作成 */
 .product-link::after {
     content: '';
     position: absolute;
-    bottom: -3px; /* テキストからの余白を調整 */
+    bottom: -3px;
     left: 0;
     width: 100px;
     height: 1px;
@@ -303,64 +350,13 @@
 
 .product-link:hover {
     color: #00479d;
-    background-color: transparent; /* 背景色を透明に戻す */
-    transform: none; /* ホバー時の変形を無効化 */
+    background-color: transparent;
+    transform: none;
 }
 
 .product-link:hover::after {
-    width: 100%; /* ホバー時は下線を元の幅に戻す */
-    background-color: #00479d;
-}
-
-
-/*==================================
-  企業情報セクション
-==================================*/
-
-.about-section {
-    padding: 60px 0;
-}
-
-.about-flex {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-}
-
-.about-image {
-    flex-shrink: 0;
-    width: 20%;
-}
-
-.about-image img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.about-text  {
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-
-.company-button {
-    display: inline-block;
-    margin-top: 100px;
-    padding: 15px 40px; 
     background-color: #00479d;
-    color: #fff;
-    border-radius: 5px;
-    font-weight: 700;
-    border: 1px solid #00479d;
-    transition: all 0.3s ease;
-}
-
-.company-button:hover {
-    background-color: #fff;
-    color: #00479d;
-    transform: translateY(-2px); 
 }
 
 /*==================================

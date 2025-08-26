@@ -1,4 +1,8 @@
+const NEWS_API_URL_FOR_DETAIL = '../../api/get_news.php';
+
 // news_list_page.js の中身
+let newsData = []; // ニュースデータを格納するグローバル変数
+
 document.addEventListener('DOMContentLoaded', () => {
     const newsListSection = document.getElementById('news-section-placeholder');
     
@@ -51,6 +55,22 @@ document.addEventListener('DOMContentLoaded', () => {
         renderNews();
     });
 
-    // 初回表示
-    renderNews();
+    // ニュースデータを取得する非同期関数
+    const fetchNews = async () => {
+        try {
+            const response = await fetch(NEWS_API_URL_FOR_DETAIL);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            newsData = await response.json();
+            console.log('取得したニュースデータ:', newsData); // データの確認
+            renderNews(); // データを取得後、レンダリングを開始
+        } catch (error) {
+            console.error('ニュースデータの取得に失敗しました:', error);
+            newsListSection.innerHTML = '<p>ニュースの読み込みに失敗しました。時間をおいて再度お試しください。</p>';
+        }
+    };
+
+    // 初回実行
+    fetchNews();
 });

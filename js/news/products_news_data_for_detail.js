@@ -1,4 +1,8 @@
+const PRODUCTS_NEWS_API_URL_FOR_DETAIL = '../../api/get_products_news.php';
+
 // news_list_page.js の中身
+let productsNewsData = []; // ニュースデータを格納するグローバル変数
+
 document.addEventListener('DOMContentLoaded', () => {
     const newsListSection = document.getElementById('products-news-section-placeholder');
     
@@ -13,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const renderNews = () => {
         // 表示するお知らせの配列を切り出し
-        const displayedNews = productNewsData.slice(0, itemsToShow);
+        const displayedNews = productsNewsData.slice(0, itemsToShow);
 
         const newsListHtml = displayedNews.map(news => {
             const itemTag = news.url ? 'a' : 'div';
@@ -36,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         // 全てのお知らせが表示されたらボタンを非表示にする
-        if (itemsToShow < productNewsData.length) {
+        if (itemsToShow < productsNewsData.length) {
             newsListSection.parentElement.appendChild(loadMoreButton);
         } else {
             if (loadMoreButton.parentNode) {
@@ -51,6 +55,22 @@ document.addEventListener('DOMContentLoaded', () => {
         renderNews();
     });
 
-    // 初回表示
-    renderNews();
+    // ニュースデータを取得する非同期関数
+    const fetchNews = async () => {
+        try {
+            const response = await fetch(PRODUCTS_NEWS_API_URL_FOR_DETAIL);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            productsNewsData = await response.json();
+            console.log('取得したニュースデータ:', productsNewsData); // データの確認
+            renderNews(); // データを取得後、レンダリングを開始
+        } catch (error) {
+            console.error('ニュースデータの取得に失敗しました:', error);
+            newsListSection.innerHTML = '<p>ニュースの読み込みに失敗しました。時間をおいて再度お試しください。</p>';
+        }
+    };
+
+    // 初回実行
+    fetchNews();
 });
