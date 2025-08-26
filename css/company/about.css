@@ -3,8 +3,9 @@
 ==================================*/
 .campany-container {
     max-width: 800px;
-    margin:0 auto;
+    margin: 0 auto;
 }
+
 .company-flex {
     display: flex;
     gap: 50px;
@@ -66,9 +67,25 @@
 
 .office-title {
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 500; /* 太さを少し抑える */
+    color: #444; /* 落ち着いた色に変更 */
     text-align: center;
     margin-bottom: 30px;
+    padding-bottom: 10px;
+    position: relative;
+    letter-spacing: 0.05em; /* 字間を少し広げる */
+}
+
+/* シンプルな下線を追加 */
+.office-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: #999; /* 控えめなグレーに変更 */
 }
 
 /* レスポンシブ対応 */

@@ -38,9 +38,10 @@ a:hover {
 .section-title-en {
     display: block;
     font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: #00479d;
+    font-weight: 500; /* 太さを少し抑える */
+    letter-spacing: 0.2em; /* 字間を広げて洗練された印象に */
+    color: #666; /* 落ち着いたグレーに変更 */
+    text-transform: uppercase; /* 大文字にして統一感を出す */
 }
 
 .section-title-jp {
@@ -50,6 +51,7 @@ a:hover {
     margin-top: 5px;
     position: relative;
     padding-bottom: 10px;
+    color: #333; /* より濃い色で引き締める */
 }
 
 .section-title-jp::after {
@@ -58,9 +60,9 @@ a:hover {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px; 
-    height: 3px;
-    background-color: #00479d;
+    width: 80px; /* 下線の長さを少し長くする */
+    height: 1px; /* 下線を細くする */
+    background-color: #333; /* 下線の色を調整 */
 }
 
 .button-container {
@@ -71,18 +73,21 @@ a:hover {
 .button {
     display: inline-block;
     padding: 15px 40px; 
-    background-color: #00479d;
+    background-color: #333; /* 暗い色に変更 */
     color: #fff;
-    border-radius: 5px;
-    font-weight: 700;
-    border: 1px solid #00479d;
+    border-radius: 50px; /* 角を大きく丸くする */
+    font-weight: 500; /* フォントを少し細くする */
+    border: 1px solid #333;
     transition: all 0.3s ease;
+    text-transform: uppercase; /* 大文字にする */
+    letter-spacing: 0.1em; /* 字間を広げる */
 }
 
 .button:hover {
-    background-color: #fff;
-    color: #00479d;
-    transform: translateY(-2px); 
+    background-color: transparent; /* 背景を透明に */
+    color: #000; /* テキストを黒に */
+    transform: translateY(-5px); /* ホバーで少し大きく浮かせる */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* ホバー時に影を追加 */
 }
 
 .new_window_icon {

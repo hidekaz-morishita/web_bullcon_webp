@@ -29,3 +29,41 @@
     margin: 0;
     color: #bbb;
 }
+
+/*==================================
+  一番上に戻るボタン
+==================================*/
+.to-top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px; /* アイコンが大きく見えるように */
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.to-top-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .to-top-button {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
