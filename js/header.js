@@ -11,32 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const headerPlaceholder = document.getElementById('header-placeholder');
             
             if (headerPlaceholder) {
-                // DOMParserを使ってHTML文字列を解析
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(data, 'text/html');
                 const headerContent = doc.body.innerHTML;
 
-                // 既存のコンテンツをクリアしてからヘッダーを挿入
                 headerPlaceholder.innerHTML = headerContent;
 
-                // ヘッダーの初期化とイベントリスナーを再設定
-                const topContainer = document.querySelector('.header-top');
-                const bottomContainer = document.querySelector('.header-bottom');
-                const mobileNav = document.querySelector('.mobile-nav');
-
-                if (topContainer && bottomContainer) {
-                    initializeDropdowns(bottomContainer);
-                    initializeDropdownImages(bottomContainer);
-                    initializeHeaderScroll(topContainer, bottomContainer);
-                }
-                
-                const hamburgerMenu = document.querySelector('.hamburger-menu');
-                if (hamburgerMenu && mobileNav) {
-                    hamburgerMenu.addEventListener('click', () => {
-                        hamburgerMenu.classList.toggle('is-active');
-                        mobileNav.classList.toggle('is-visible');
-                    });
-                }
+                initializeHeaderFunctions();
             } else {
                 console.error("Error: Element with id 'header-placeholder' not found.");
             }
@@ -48,9 +29,56 @@ document.addEventListener('DOMContentLoaded', () => {
                 headerPlaceholder.innerHTML = '<p>ヘッダーの読み込みに失敗しました。</p>';
             }
         });
-        
+
     //==================================
-    // 製品ページの機能
+    // ヘッダー関連の機能を初期化する関数
+    //==================================
+    function initializeHeaderFunctions() {
+        const topContainer = document.querySelector('.header-top');
+        const bottomContainer = document.querySelector('.header-bottom');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const overlay = document.querySelector('.mobile-nav-overlay'); // ★オーバーレイ要素を取得★
+
+        if (topContainer && bottomContainer) {
+            initializeDropdowns(bottomContainer);
+            initializeDropdownImages(bottomContainer);
+            initializeHeaderScroll(topContainer, bottomContainer);
+        }
+
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        if (hamburgerMenu && mobileNav) {
+            // メニューを開く関数
+            const openMenu = () => {
+                hamburgerMenu.classList.add('is-active');
+                mobileNav.classList.add('is-visible');
+                overlay.classList.add('is-visible'); // ★オーバーレイを表示★
+                document.body.style.overflow = 'hidden';
+            };
+
+            // メニューを閉じる関数
+            const closeMenu = () => {
+                hamburgerMenu.classList.remove('is-active');
+                mobileNav.classList.remove('is-visible');
+                overlay.classList.remove('is-visible'); // ★オーバーレイを非表示★
+                document.body.style.overflow = '';
+            };
+
+            // ハンバーガーボタンのクリックイベント
+            hamburgerMenu.addEventListener('click', () => {
+                if (mobileNav.classList.contains('is-visible')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+
+            // ★オーバーレイのクリックでメニューを閉じる★
+            overlay.addEventListener('click', closeMenu);
+        }
+    }
+    
+    //==================================
+    // 製品ページの機能（変更なし）
     //==================================
     const categoryTabs = document.querySelectorAll('.category-tab');
     const productItems = document.querySelectorAll('.product-item');
