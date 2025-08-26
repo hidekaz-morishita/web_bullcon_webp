@@ -181,9 +181,10 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-left: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 80px;
+    padding-left: 80px;
     
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
@@ -196,17 +197,18 @@
 
 /* 画像とテキストのスタイル */
 #dropdown-image {
-    width: 180px;
+    width: 250px;
     height: auto;
     object-fit: contain;
     margin-bottom: 15px;
 }
 
 #dropdown-description {
-    font-size: 1em;
+    font-size: 1.1em;
     color: #fff;
     margin-top: 10px;
     line-height: 1.5;
+    text-align: left;
 }
 
 .dropdown-list {

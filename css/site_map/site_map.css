@@ -1,0 +1,99 @@
+/*==================================
+  サイトマップ専用スタイル (リスト版)
+==================================*/
+.sitemap-container {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+/* タイトルと説明文の共通スタイル */
+.section-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-title-en {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: #aaa;
+    text-transform: uppercase;
+}
+
+.section-title-jp {
+    display: block;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+    color: #333;
+}
+
+.section-title-jp::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background-color: #00479d;
+}
+
+/* ツリー構造の基本スタイル */
+.sitemap-tree,
+.sitemap-tree ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* 階層ごとのインデントと色分け */
+.sitemap-tree > li {
+    background-color: #f0f0f0; /* トップ階層の背景色 */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.sitemap-tree li ul {
+    background-color: #fff;
+    padding: 10px 0 10px 20px;
+    margin-top: 10px;
+    border-left: 2px solid #ccc;
+    margin-left: 10px;
+}
+
+.sitemap-tree li ul li {
+    padding-left: 15px;
+    position: relative;
+}
+
+.sitemap-tree li ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00479d;
+    font-size: 1.2em;
+}
+
+
+/* リストアイテムのスタイル */
+.sitemap-tree li a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sitemap-tree li a:hover {
+    background-color: #eef7ff;
+    color: #00479d;
+}

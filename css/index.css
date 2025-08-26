@@ -263,7 +263,7 @@
 .product-showcase {
     display: grid;
     /* 横に最大3つ表示し、4つ目以降は次の行に折り返す */
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 30px;
     align-items: start;
     justify-content: center; /* グリッド全体を中央に配置 */
