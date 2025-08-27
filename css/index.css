@@ -111,26 +111,23 @@
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
+    gap: 8px;
     z-index: 20;
-    background-color: rgba(0, 0, 0, 0.3); 
-    padding: 8px 15px; 
-    border-radius: 20px; 
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 6px 10px;
 }
 
 .pagination-dot {
-    width: 12px;
-    height: 12px;
+    width: 25px; 
+    height: 8px;
     background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, width 0.3s ease;
     z-index: 21;
 }
 
 .pagination-dot.active {
     background-color: #fff;
+    width: 35px; 
 }
 
 /*==================================
@@ -269,16 +266,6 @@
     justify-content: center; /* グリッド全体を中央に配置 */
 }
 
-@media (max-width: 992px) { /* 画面サイズが小さい場合は2列に */
-    .product-showcase {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) { /* さらに小さい画面では1列に */
-    
-}
-
 .product-item {
     display: flex;
     flex-direction: column;
@@ -373,6 +360,6 @@
         padding-left: 10px;
     }
     .product-showcase {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }

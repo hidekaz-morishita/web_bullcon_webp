@@ -1,0 +1,243 @@
+/* 基本的なリセット */
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ヘッダーのスタイル */
+.site-header {
+    background-color: #2c3e50; /* ダークネイビー */
+    color: #ecf0f1; /* 明るいグレー */
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.site-header h1 a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.site-header h1 a:hover {
+    color: #3498db; /* ライトブルー */
+}
+
+.site-header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.site-header nav ul li {
+    margin-left: 20px;
+}
+
+.site-header nav ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.site-header nav ul li a:hover {
+    color: #3498db;
+}
+
+/* メインコンテンツのスタイル */
+.search-page-main {
+    padding: 40px 0;
+}
+
+.page-title {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.page-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #3498db;
+    margin: 10px auto 0;
+}
+
+/* 検索フォームのスタイル */
+.search-section {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom: 40px;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    max-width: 500px;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.search-button {
+    padding: 12px 25px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-button:hover {
+    background-color: #2980b9; /* 少し濃いブルー */
+    transform: translateY(-2px);
+}
+
+.search-button:active {
+    transform: translateY(0);
+}
+
+/* 検索結果のスタイル */
+.results-section {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.results-title {
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+.results-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.results-list li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.results-list li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.results-list li a {
+    color: #34495e; /* ダークグレー */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    display: block;
+}
+
+.results-list li a:hover {
+    color: #3498db;
+    text-decoration: underline;
+}
+
+.no-results {
+    text-align: center;
+    color: #e74c3c; /* 赤色 */
+    font-size: 1.1em;
+    padding: 20px;
+    border: 1px solid #e74c3c;
+    background-color: #fce4e4;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-results .fas {
+    margin-right: 10px;
+    font-size: 1.3em;
+}
+
+/* フッターのスタイル */
+.site-footer {
+    background-color: #34495e; /* ダークグレー */
+    color: #ecf0f1;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .site-header .container {
+        flex-direction: column;
+    }
+
+    .site-header nav ul {
+        margin-top: 15px;
+    }
+
+    .site-header nav ul li {
+        margin: 0 10px;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .search-input {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-button {
+        width: 100%;
+    }
+}

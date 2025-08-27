@@ -138,9 +138,9 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
     z-index: 920;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
     
     visibility: hidden;
     opacity: 0;
@@ -171,7 +171,7 @@
 }
 
 .dropdown-border {
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 /* ドロップダウン内のコンテナ（右側：画像とテキスト） */
@@ -205,7 +205,7 @@
 
 #dropdown-description {
     font-size: 1.1em;
-    color: #fff;
+    color: #333;
     margin-top: 10px;
     line-height: 1.5;
     text-align: left;
@@ -229,7 +229,7 @@
 .dropdown-list li a {
     display: block;
     padding: 10px 0;
-    color: #fff;
+    color: #333;
     text-decoration: none;
 }
 
@@ -254,16 +254,16 @@
 
 @media (max-width: 768px) {
     .mobile-nav-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒 */
-    z-index: 980; /* ナビゲーションより下、他のコンテンツより上に配置 */
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease, visibility 0s 0.3s;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒 */
+        z-index: 980; /* ナビゲーションより下、他のコンテンツより上に配置 */
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0s 0.3s;
     }
 
     .mobile-nav-overlay.is-visible {
@@ -282,6 +282,7 @@
         padding: 0;
         background: none;
         border: none;
+        align-items: center;
     }
     
     .hamburger-menu span {
@@ -294,7 +295,7 @@
     
     /* ハンバーガーメニューのアニメーション */
     .hamburger-menu.is-active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+        transform: rotate(42deg) translate(0px, 13px);
     }
     
     .hamburger-menu.is-active span:nth-child(2) {
@@ -302,7 +303,7 @@
     }
     
     .hamburger-menu.is-active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
+        transform: rotate(-42deg) translate(0px, -13px);
     }
     
     /* ヘッダー全体の幅を画面幅に合わせる */
@@ -342,13 +343,12 @@
     /* モバイル用ナビゲーション */
     .mobile-nav {
         position: fixed;
-        top: 0;
         left: 0;
         width: 100%;
-        height: 40%;
+        height: auto;
         background-color: rgba(0, 0, 0, 0.9);
         z-index: 990;
-        padding-top: 20px;
+        padding: 20px 0;
         overflow-y: auto;
     }
     

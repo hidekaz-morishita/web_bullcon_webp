@@ -99,3 +99,13 @@ a:hover {
     margin-left: 10x;
     height: 10px;
 }
+
+/*==================================
+  Responsive Design (Mobile)
+==================================*/
+@media (max-width: 768px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

@@ -18,13 +18,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 1. ヘッダー全体を一時的にplaceholder内に挿入
                 headerPlaceholder.innerHTML = headerContent;
                 
-                // ★ここを修正しました★
                 // 2. header-bottom要素を取得し、placeholderの直後に移動
                 const headerBottom = headerPlaceholder.querySelector('.header-bottom');
                 if (headerBottom) {
                     headerPlaceholder.after(headerBottom);
                 }
                 
+                // 3. モバイルナビゲーションの位置を調整
+                const headerTop = document.querySelector('.header-top');
+                const mobileNav = document.querySelector('.mobile-nav');
+                const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+                
+                if (headerTop && mobileNav) {
+                    const setMobileNavPosition = () => {
+                        mobileNav.style.top = `${headerTop.offsetHeight}px`;
+                        mobileNavOverlay.style.top = `${headerTop.offsetHeight}px`;
+                    };
+                    setMobileNavPosition();
+                    window.addEventListener('resize', setMobileNavPosition);
+                }
+
                 initializeHeaderFunctions();
             } else {
                 console.error("Error: Element with id 'header-placeholder' not found.");
