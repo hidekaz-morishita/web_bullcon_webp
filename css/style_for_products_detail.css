@@ -1,13 +1,24 @@
 /*==================================
   グローバルスタイル
 ==================================*/
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 :target {
     scroll-margin-top: 80px;
 }
 
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px 20px 30px 20px;
+}
+
 body {
     font-family: 'Noto Sans JP', sans-serif;
-    line-height: 1.6;
+    line-height: 1.8;
     color: #333;
     background-color: #fffdfd;
     margin: 0;
@@ -23,11 +34,6 @@ a:hover {
     opacity: 0.7;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
 
 .button-container {
     text-align: center;
@@ -36,18 +42,22 @@ a:hover {
 
 .button {
     display: inline-block;
-    padding: 12px 30px;
-    background-color: #00479d;
+    padding: 15px 40px; 
+    background-color: #333; /* 暗い色に変更 */
     color: #fff;
-    border-radius: 5px;
-    font-weight: 700;
-    border: 1px solid #00479d;
-    transition: background-color 0.3s ease;
+    border-radius: 50px; /* 角を大きく丸くする */
+    font-weight: 500; /* フォントを少し細くする */
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+    text-transform: uppercase; /* 大文字にする */
+    letter-spacing: 0.1em; /* 字間を広げる */
 }
 
 .button:hover {
-    background-color: #fff;
-    color: #00479d;
+    background-color: transparent; /* 背景を透明に */
+    color: #000; /* テキストを黒に */
+    transform: translateY(-5px); /* ホバーで少し大きく浮かせる */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* ホバー時に影を追加 */
 }
 
 
@@ -55,27 +65,9 @@ a:hover {
   レスポンシブ対応
 ==================================*/
 @media (max-width: 768px) {
-    .section-title-jp {
-        font-size: 28px;
-    }
-
-    .hero {
-        height: 300px;
-    }
-
-    .hero-text {
-        font-size: 1.5rem;
-    }
-
-    .about-flex {
-        flex-direction: column;
-    }
-
-    .about-image {
-        width: 100%;
-    }
-
-    .about-text .section-title {
-        text-align: center;
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
     }
 }

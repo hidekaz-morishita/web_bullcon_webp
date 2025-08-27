@@ -271,7 +271,7 @@
     flex-direction: column;
     background-color: transparent;
     border-radius: 0;
-    box-shadow: none;
+    box-shadow:  0 2px 5px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     text-decoration: none;
     color: #333;
@@ -310,7 +310,7 @@
 }
 
 .product-item .product-text-content h3 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     margin-bottom: 10px;
 }
@@ -361,5 +361,10 @@
     }
     .product-showcase {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .product-item .product-text-content h3 {
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 10px;
     }
 }
