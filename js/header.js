@@ -15,8 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 const doc = parser.parseFromString(data, 'text/html');
                 const headerContent = doc.body.innerHTML;
 
+                // 1. ヘッダー全体を一時的にplaceholder内に挿入
                 headerPlaceholder.innerHTML = headerContent;
-
+                
+                // ★ここを修正しました★
+                // 2. header-bottom要素を取得し、placeholderの直後に移動
+                const headerBottom = headerPlaceholder.querySelector('.header-bottom');
+                if (headerBottom) {
+                    headerPlaceholder.after(headerBottom);
+                }
+                
                 initializeHeaderFunctions();
             } else {
                 console.error("Error: Element with id 'header-placeholder' not found.");
@@ -37,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const topContainer = document.querySelector('.header-top');
         const bottomContainer = document.querySelector('.header-bottom');
         const mobileNav = document.querySelector('.mobile-nav');
-        const overlay = document.querySelector('.mobile-nav-overlay'); // ★オーバーレイ要素を取得★
+        const overlay = document.querySelector('.mobile-nav-overlay');
 
         if (topContainer && bottomContainer) {
             initializeDropdowns(bottomContainer);
@@ -47,23 +55,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const hamburgerMenu = document.querySelector('.hamburger-menu');
         if (hamburgerMenu && mobileNav) {
-            // メニューを開く関数
             const openMenu = () => {
                 hamburgerMenu.classList.add('is-active');
                 mobileNav.classList.add('is-visible');
-                overlay.classList.add('is-visible'); // ★オーバーレイを表示★
+                overlay.classList.add('is-visible');
                 document.body.style.overflow = 'hidden';
             };
 
-            // メニューを閉じる関数
             const closeMenu = () => {
                 hamburgerMenu.classList.remove('is-active');
                 mobileNav.classList.remove('is-visible');
-                overlay.classList.remove('is-visible'); // ★オーバーレイを非表示★
+                overlay.classList.remove('is-visible');
                 document.body.style.overflow = '';
             };
 
-            // ハンバーガーボタンのクリックイベント
             hamburgerMenu.addEventListener('click', () => {
                 if (mobileNav.classList.contains('is-visible')) {
                     closeMenu();
@@ -72,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // ★オーバーレイのクリックでメニューを閉じる★
             overlay.addEventListener('click', closeMenu);
         }
     }
