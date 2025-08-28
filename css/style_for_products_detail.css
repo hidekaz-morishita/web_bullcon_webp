@@ -1,0 +1,73 @@
+/*==================================
+  グローバルスタイル
+==================================*/
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+:target {
+    scroll-margin-top: 80px;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px 20px 30px 20px;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.8;
+    color: #333;
+    background-color: #fffdfd;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #00479d;
+    transition: opacity 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+
+.button-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 40px; 
+    background-color: #333; /* 暗い色に変更 */
+    color: #fff;
+    border-radius: 50px; /* 角を大きく丸くする */
+    font-weight: 500; /* フォントを少し細くする */
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+    text-transform: uppercase; /* 大文字にする */
+    letter-spacing: 0.1em; /* 字間を広げる */
+}
+
+.button:hover {
+    background-color: transparent; /* 背景を透明に */
+    color: #000; /* テキストを黒に */
+    transform: translateY(-5px); /* ホバーで少し大きく浮かせる */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* ホバー時に影を追加 */
+}
+
+
+/*==================================
+  レスポンシブ対応
+==================================*/
+@media (max-width: 768px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+}

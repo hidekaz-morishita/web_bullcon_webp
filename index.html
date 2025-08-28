@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bullcon - フジ電機工業株式会社 | カーライフをもっと楽しく、もっと快適に。</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
@@ -25,155 +26,136 @@
 <main>
     <section class="hero">
         <div class="hero-slider">
-            <div class="slider-item" style="background-image: url('/images/slide_banner/sample.jpg');">
-                <a href="TVing/TVing.htm" target="_blank"></a>
+            <div class="slider-item" style="background-image: url('./images/slide_banner/hero1.jpg');">
+                <a href="./html/products/TVing/TVing.htm" target="_blank"></a>
             </div>
-            <div class="slider-item" style="background-image: url('/images/slide_banner/sample.jpg');">
-                <a href="sph/sph.htm" target="_blank"></a>
+            <div class="slider-item" style="background-image: url('./images/slide_banner/hero1.jpg');">
+                <a href="./html/products/TVing/TVing.htm" target="_blank"></a>
             </div>
-            <div class="slider-item" style="background-image: url('/images/slide_banner/av-sample.jpg');">
-                <a href="cdv/cdv01.htm" target="_blank"></a>
+            <div class="slider-item" style="background-image: url('./images/slide_banner/hero1.jpg');">
+                <a href="./html/products/TVing/TVing.htm" target="_blank"></a>
             </div>
+            <!--<button class="slider-control prev-button"><span>&lt;</span></button>
+            <button class="slider-control next-button"><span>&gt;</span></button>-->
+            
         </div>
+        <div class="hero-pagination"></div>
     </section>
 
-    <section class="products-section container">
-        <h2 class="section-title">
-            <span class="section-title-en">PRODUCTS</span>
-            <span class="section-title-jp">製品情報</span>
-        </h2>
-        <div class="products-grid">
-            <article class="product-card">
-                <a href="/html/products/TVing/TVing.htm">
-                    <figure class="product-figure">
-                        <img src="/images/products/sample.jpg" alt="FreeTVing / Telenaving">
-                    </figure>
-                    <div class="product-text">
-                        <h3>テレビキット</h3>
-                        <p>走行中でもTV/ナビ操作を可能にする人気製品</p>
+    <div class="container main-content">
+        <section class="news-section">
+            <div class="split-content-container">
+                <section class="product-announce-section" id="product-announce-section">
+                    <div class="news-section-title">製品新着情報</div>
+                    <div id="products-announce-placeholder"></div>
+                    <div class="news-button-container">
+                        <a href="./html/news/products_news.html" class="news-button">一覧はこちら <img src="./images/common/new_window_icon.png" class="new-window-icon"></a>
+                    </div>
+                </section>
+
+                <section class="announce-section" id="announce-news-section">
+                    <div class="news-section-title">NEWS & TOPICS</div>
+                    <div id="announce-placeholder"></div>
+                    <div class="news-button-container">
+                        <a href="./html/news/topic_news.html" class="news-button">一覧はこちら <img src="./images/common/new_window_icon.png" class="new-window-icon"></a>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <h2 class="section-title">
+                <span class="section-title-en">PRODUCTS</span>
+                <span class="section-title-jp">製品情報</span>
+            </h2>
+            
+            <div class="product-showcase">
+                <a href="./html/products/products.html?category=freeTV" class="product-item">
+                    <div class="product-image">
+                        <img src="./images/products/free_tving.jpg" alt="Free TVing シリーズ">
+                    </div>
+                    <div class="product-text-content">
+                        <h3>Free TVing シリーズ</h3>
                     </div>
                 </a>
-            </article>
-            <article class="product-card">
-                <a href="/html/products/magicone/magicone.html">
-                    <figure class="product-figure">
-                        <img src="/images/products/sample.jpg" alt="MAGICONE">
-                    </figure>
-                    <div class="product-text">
-                        <h3>MAGICONE</h3>
-                        <p>車種別専用設計の純正風ナビゲーションシステム</p>
+                <a href="./html/products/products.html?category=magicone" class="product-item">
+                    <div class="product-image">
+                        <img src="./images/products/magicone_rear_moniter_unit.jpg" alt="マジコネ シリーズ">
+                    </div>
+                    <div class="product-text-content">
+                        <h3>マジコネ シリーズ</h3>
                     </div>
                 </a>
-            </article>
-            <article class="product-card">
-                <a href="/html/products/accessory/accessory.html">
-                    <figure class="product-figure">
-                        <img src="/images/products/sample.jpg" alt="カーアクセサリー">
-                    </figure>
-                    <div class="product-text">
+                <a href="./html/products/products.html?category=led_bulb" class="product-item">
+                    <div class="product-image">
+                        <img src="./images/products/led_headlamp_glorious_d.jpg" alt="LED バルブ/ルームランプ">
+                    </div>
+                    <div class="product-text-content">
+                        <h3>LED バルブ/ルームランプ</h3>
+                    </div>
+                </a>
+                <a href="./html/products/products.html?category=av_accessory" class="product-item">
+                    <div class="product-image">
+                        <img src="./images/products/dvd-cd_player.jpg" alt="AVアクセサリー">
+                    </div>
+                    <div class="product-text-content">
+                        <h3>AVアクセサリー</h3>
+                    </div>
+                </a>
+                <a href="./html/products/products.html?category=car_accessory" class="product-item">
+                    <div class="product-image">
+                        <img src="./images/products/smart_phone_holder.jpg" alt="カーアクセサリー">
+                    </div>
+                    <div class="product-text-content">
                         <h3>カーアクセサリー</h3>
-                        <p>様々な機能を拡張する便利なアクセサリー</p>
                     </div>
                 </a>
-            </article>
-        </div>
-        <div class="button-container">
-            <a href="/html/products/products.html" class="button">製品一覧を見る</a>
-        </div>
-    </section>
-
-    <section class="product-news-section" id="product-news-section">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="section-title-en">PRODUCT NEWS</span>
-                <span class="section-title-jp">製品の新着情報</span>
-            </h2>
-            <ul class="news-list">
-                <li><a href="/products/news/20240805.html"><span>2024.08.05</span>新製品「〇〇ドライブレコーダー」の販売を開始しました。</a></li>
-                <li><a href="/products/news/20240720.html"><span>2024.07.20</span>「テレビキット」に新車種が適合しました。</a></li>
-                <li><a href="/products/news/20240615.html"><span>2024.06.15</span>「スマホホルダー」のラインナップを拡充しました。</a></li>
-            </ul>
+                <a href="./html/products/products.html?category=camera" class="product-item">
+                    <div class="product-image">
+                        <img src="./images/products/high_resolution_compact_camera.jpg" alt="カメラ類">
+                    </div>
+                    <div class="product-text-content">
+                        <h3>カメラ類</h3>
+                    </div>
+                </a>
+                <a href="./html/products/products.html?category=monitor" class="product-item">
+                    <div class="product-image">
+                        <img src="./images/products/on_dash_monitor.jpg" alt="モニター類">
+                    </div>
+                    <div class="product-text-content">
+                        <h3>モニター類</h3>
+                    </div>
+                </a>
+                <a href="./html/products/products.html?category=hdmi_usb" class="product-item">
+                    <div class="product-image">
+                        <img src="./images/products/hdmi_convert_unit.jpg" alt="USB/HDMI類">
+                    </div>
+                    <div class="product-text-content">
+                        <h3>USB/HDMI関係</h3>
+                    </div>
+                </a>
+                <a href="./html/products/products.html?category=power_supply" class="product-item">
+                    <div class="product-image">
+                        <img src="./images/products/option_connecter_harnece.jpg" alt="電源関係">
+                    </div>
+                    <div class="product-text-content">
+                        <h3>電源関係</h3>
+                    </div>
+                </a>
+            </div>
             <div class="button-container">
-                <a href="/html/news/products_news.html" class="button">製品の新着情報一覧</a>
+                <a href="./html/products/products.html" class="button">製品一覧を見る</a>
             </div>
-        </div>
-    </section>
-    
-    <section class="news-section" id="announce-news-section">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="section-title-en">NEWS & TOPICS</span>
-                <span class="section-title-jp">ニュース&トピック</span>
-            </h2>
-            <ul class="news-list">
-                <li><a href="/news/20240801.html"><span>2024.08.01</span>夏季休業のお知らせ</a></li>
-                <li><a href="/news/20240725.html"><span>2024.07.25</span>ウェブサイトをリニューアルしました。</a></li>
-                <li><a href="/news/20240710.html"><span>2024.07.10</span>代表取締役社長の交代に関するお知らせ</a></li>
-            </ul>
-            <div class="button-container">
-                <a href="/html/news/topic_news.html" class="button">新着情報一覧</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="about-section">
-        <div class="container">
-            <div class="about-flex">
-                <div class="about-image">
-                    <img src="images/sample.jpg" alt="フジ電機工業の企業イメージ">
-                </div>
-                <div class="about-text">
-                    <h2 class="section-title">
-                        <span class="section-title-en">ABOUT US</span>
-                        <span class="section-title-jp">企業情報</span>
-                    </h2>
-                    <p>フジ電機工業は、お客様のカーライフを豊かにするための製品を開発・提供しています。長年にわたり培ってきた技術力と品質へのこだわりで、安心・安全・快適なドライブをサポートします。</p>
-                    <a href="/html/company/about.html" class="button">会社概要はこちら</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 </main>
 
 <div id="footer-placeholder"></div>
 
-<script>
-    fetch('/html/_header.html')
-    .then(response => {
-        if (!response.ok) {
-            // レスポンスが成功でなければエラーを投げる
-            throw new Error('Failed to load header: ' + response.statusText);
-        }
-        return response.text();
-    })
-    .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-    })
-    .catch(error => {
-        console.error('Error fetching header:', error);
-        // エラー発生時の代替処理（例: エラーメッセージを表示）
-        document.getElementById('header-placeholder').innerHTML = '<p>ヘッダーの読み込みに失敗しました。</p>';
-    });
-
-    // フッターの読み込み
-    fetch('/html/_footer.html')
-    .then(response => {
-        if (!response.ok) {
-            // レスポンスが成功でなければエラーを投げる
-            throw new Error('Failed to load footer: ' + response.statusText);
-        }
-        return response.text();
-    })
-    .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
-    })
-    .catch(error => {
-        console.error('Error fetching footer:', error);
-        // エラー発生時の代替処理
-        document.getElementById('footer-placeholder').innerHTML = '<p>フッターの読み込みに失敗しました。</p>';
-    });
-</script>
-
-    <script src="js/script.js"></script>
+<script src="./js/header.js"></script>
+<script src="./js/footer.js"></script>
+<script src="./js/index_script.js"></script>
+<script src="./js/news/products_news_data_for_top.js"></script>
+<script src="./js/news/news_data_for_top.js"></script>
 </body>
 </html>

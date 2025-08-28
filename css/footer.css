@@ -29,3 +29,42 @@
     margin: 0;
     color: #bbb;
 }
+
+/*==================================
+  一番上に戻るボタン
+==================================*/
+.back-to-top {
+    position: fixed;
+    /* bottom: 20px; この行はJavaScriptで設定するため削除 */
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    bottom: var(--back-to-top-bottom, 20px);
+    border: none;
+}
+
+.back-to-top:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        right: 15px;
+    }
+}

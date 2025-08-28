@@ -1,151 +1,274 @@
 /*==================================
-  製品一覧ページ
+  全体レイアウト（サイドバー含む）
 ==================================*/
-
 .products-section {
-    padding: 60px 0;
+    padding: 0 20px;
+}
+
+.products-main-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-bottom: 80px;
+}
+
+.sidebar {
+    flex: 0 0 250px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ddd;
+}
+
+.products-content {
+    flex: 1;
 }
 
 /*==================================
-  カテゴリセレクター
+  カテゴリセレクター（サイドバー用）
 ==================================*/
-.category-selector {
+.category-selector-sidebar {
     display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.category-tab {
-    background-color: #f0f0f0;
-    color: #555;
+.category-selector-sidebar .category-tab {
+    width: 100%;
+    text-align: left;
+    background-color: transparent;
     border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
+    padding: 10px 15px;
+    border-radius: 4px;
     font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
+    font-weight: normal;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.category-tab.active,
-.category-tab:hover {
+.category-selector-sidebar .category-tab.active,
+.category-selector-sidebar .category-tab:hover {
     background-color: #00479d;
     color: #fff;
 }
 
 /*==================================
-  製品グリッドとアイテム
+  製品グリッドとアイテム（カード表示）
 ==================================*/
 .products-grid {
-    display: grid;
-    gap: 30px;
-    /* 3つの列を作成し、各列の幅を均等にする */
-    grid-template-columns: repeat(3, minmax(280px, 1fr));
-    margin-top: 40px;
-    justify-content: center; /* グリッド全体を中央寄せにする */
+    display: grid; /* flexからgridへ */
+    grid-template-columns: repeat(5, 1fr); /* ★追加: PCでは1行5列 */
+    gap: 20px;
+    margin-top: 0;
 }
 
 .product-item {
+    padding: 15px;
+    text-align: center; /* タイトルなどを中央に */
     background-color: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     transition: box-shadow 0.3s ease;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
 }
 
 .product-item a {
+    display: block; /* flexを無効化 */
     text-decoration: none;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.product-item:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.product-item img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    margin-bottom: 15px;
-    border-radius: 8px;
+    color: inherit;
 }
 
 .product-image-container {
-    margin: 5px 5px 0;
+    width: 100%; /* 親要素の幅いっぱいに */
+    padding-bottom: 100%; /* 縦横比を1:1に保つ */
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.product-item img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* コンテナに合わせる */
+    height: 100%; /* コンテナに合わせる */
+    object-fit: contain;
+    border-radius: 4px;
 }
 
 .product-title {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin: 0 15px 10px;
-}
-
-.product-description {
-    font-size: 0.9em;
-    color: #666;
-    margin: 0 15px 20px;
-    flex-grow: 1;
-}
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* セクションタイトルは他のページと共通化することを推奨します */
-.section-title {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.section-title-en {
-    display: block;
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #00479d;
-    letter-spacing: 0.1em;
-}
-
-.section-title-jp {
-    display: block;
-    font-size: 2.5em;
-    font-weight: bold;
+    margin: 5px 0; /* マージン調整 */
     color: #333;
+    font-size: 1em;
 }
 
-/* ダミー要素は非表示に */
-.product-item-dummy {
-    display: none;
+.product-details {
+    padding: 0; /* パディングをリセット */
+    text-align: left;
+    font-size: 0.9em;
 }
 
-@media (max-width: 768px) {
-    .products-section {
-        padding: 40px 0;
-    }
+/*==================================
+  モバイル用スライドインメニュー
+==================================*/
+.mobile-menu-container {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease-in-out;
+    z-index: 100;
+}
+
+.mobile-menu-container.is-open {
+    left: 0;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.mobile-menu-title {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.close-menu-btn {
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.mobile-category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-category-list li button {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 15px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.mobile-category-list li button:hover,
+.mobile-category-list li button.active {
+    background-color: #f0f0f0;
+}
+
+/* メニューを開いたときの背景オーバーレイ */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s linear;
+    z-index: 90;
+}
+
+.mobile-menu-overlay.is-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+/*==================================
+  レスポンシブ対応
+==================================*/
+
+@media (max-width: 1200px) {
+    /* モバイル表示時のグリッドレイアウト */
     .products-grid {
-        gap: 20px;
-        /* スマートフォンでは1列表示に */
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr); /* 1行2列に変更 */
+    }    
+}
+
+@media (max-width: 992px) {
+    /* PC用サイドバーを非表示に */
+    .sidebar {
+        display: none;
     }
-    .section-title-jp {
-        font-size: 2em;
+
+    /* ボタンを左側から突き出すように配置 */
+    .mobile-menu-toggle {
+        display: block;
+        position: absolute;
+        top: 130px;
+        left: 100%;
+        transform: translateX(0);
+        z-index: 110;
+        width: 10px;
+        text-align: left;
+        background-color: rgba(0, 0, 0, 0.05);
+        border: 1px solid #ddd;
+        border-left: none;
+        padding: 15px 15px;
+        font-size: 1.1em;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 0 4px 4px 0;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
-    .category-selector {
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 20px;
-        margin-bottom: 20px;
+
+    /* ボタンの矢印アイコンにアニメーションを追加 */
+    .mobile-menu-toggle::after {
+        content: '›';
+        font-size: 1.5em;
+        line-height: 1;
+        transition: transform 0.3s ease;
     }
-    .category-tab {
-        padding: 8px 15px;
+
+    /* メニューが開いているとき（.is-activeクラスが付いているとき）の矢印 */
+    .mobile-menu-toggle.is-active::after {
+        transform: rotate(180deg);
+    }
+    
+    /* モバイル表示時のグリッドレイアウト */
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr); /* 1行2列に変更 */
+    }
+
+    .product-details {
+        line-height: 1.1;
+    }
+}
+
+/* PC表示ではモバイル用メニューを非表示に */
+@media (min-width: 993px) {
+    .mobile-menu-toggle {
+        display: none;
+    }
+    .mobile-menu-container,
+    .mobile-menu-overlay {
+        display: none;
     }
 }

@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>製品一覧 | Bullcon - フジ電機工業株式会社</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/products/products.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="../../css/products/products.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
@@ -20,363 +20,591 @@
     <section class="products-section">
         <div class="container">
             <h2 class="section-title">
-                <span class="section-title-jp">製品一覧</span>
                 <span class="section-title-en">PRODUCTS</span>
+                <span class="section-title-jp">製品一覧</span>
             </h2>
 
-            <div class="category-selector">
-                <button class="category-tab active" data-category="all">すべて</button>
-                <button class="category-tab" data-category="category1">カテゴリA</button>
-                <button class="category-tab" data-category="category2">カテゴリB</button>
-                <button class="category-tab" data-category="category3">カテゴリC</button>
-            </div>
+            <div class="products-main-layout">
+                <aside class="sidebar">
+                    <h3 class="sidebar-title">カテゴリから探す</h3>
+                    <div class="category-selector-sidebar">
+                        <button class="category-tab active" data-category="all">すべて</button>
+                        <button class="category-tab" data-category="freeTV">フリーテレビング</button>
+                        <button class="category-tab" data-category="magicone">マジコネ</button>
+                        <button class="category-tab" data-category="led_bulb">LEDバルブ/ルームランプ</button>
+                        <button class="category-tab" data-category="av_accessory">AVアクセサリー</button>
+                        <button class="category-tab" data-category="car_accessory">カーアクセサリー</button>
+                        <button class="category-tab" data-category="camera">カメラ</button>
+                        <button class="category-tab" data-category="monitor">モニター</button>
+                        <button class="category-tab" data-category="hdmi_usb">HDMI・USB関係</button>
+                        <button class="category-tab" data-category="power_supply">電源関係</button>
+                    </div>
+                </aside>
 
-            <div class="products-grid">
-                <div class="product-item category2">
-                    <a href="TVing/TVing.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/TV_s2.gif" alt="フリーテレビングシリーズ">
-                        </div>
-                        <h3 class="product-title">フリーテレビングシリーズ</h3>
-                        <p class="product-description">車両標準装着テレビ/メーカーオプションテレビ/ディーラーオプションテレビを走行中に視聴可能に</p>
-                    </a>
+                <div id="mobile-category-menu" class="mobile-menu-container">
+                    <button id="mobile-menu-toggle-btn" class="mobile-menu-toggle"></button>
+                    <div class="mobile-menu-header">
+                        <h3 class="mobile-menu-title">カテゴリ</h3>
+                        <button id="close-menu-btn" class="close-menu-btn">&times;</button>
+                    </div>
+                    <ul class="mobile-category-list">
+                        <li><button class="category-tab-mobile active" data-category="all">すべて</button></li>
+                        <li><button class="category-tab-mobile" data-category="freeTV">フリーテレビング</button></li>
+                        <li><button class="category-tab-mobile" data-category="magicone">マジコネ</button></li>
+                        <li><button class="category-tab-mobile" data-category="led_bulb">LEDバルブ/ルームランプ</button></li>
+                        <li><button class="category-tab-mobile" data-category="av_accessory">AVアクセサリー</button></li>
+                        <li><button class="category-tab-mobile" data-category="car_accessory">カーアクセサリー</button></li>
+                        <li><button class="category-tab-mobile" data-category="camera">カメラ</button></li>
+                        <li><button class="category-tab-mobile" data-category="monitor">モニター</button></li>
+                        <li><button class="category-tab-mobile" data-category="hdmi_usb">HDMI・USB関係</button></li>
+                        <li><button class="category-tab-mobile" data-category="power_supply">電源関係</button></li>
+                    </ul>
                 </div>
-                <div class="product-item category1">
-                    <a href="sph/sph.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_sph_s2.gif" alt="スマートフォンホルダー">
+                <div class="mobile-menu-overlay"></div>
+
+                <div class="products-content">
+                    <div class="products-grid">
+                        <!-- free tving -->
+                        <div class="product-item freeTV">
+                            <a href="../../html/products/TVing/TVing.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/free_tving_auto.jpg" alt="フリーテレビング オートタイプ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">フリーテレビング オートタイプ</h3>
+                                    <p class="product-description">装着すると走行中のテレビなどの映像視聴可能になります。<br>（一部は目的地設定などのナビゲーション操作も可能）</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">スマートフォンホルダー</h3>
-                        <p class="product-description">マグネット式ワイヤレス充電機能 有り/無しと、アーム挟み込みのユニバーサル式 3種のラインナップ</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="glh-h/glh-h.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_glh-h_s2.gif" alt="LEDヘッドランプ グロリアス Hｼﾘｰｽﾞ">
+                        <div class="product-item freeTV">
+                            <a href="../../html/products/TVing/TVing.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/free_tving_switch.jpg" alt="フリーテレビング 切り替えタイプ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">フリーテレビング 切り替えタイプ</h3>
+                                    <p class="product-description">スイッチを操作すると走行中のテレビ視聴可能になります。<br>（一部は目的地設定などのナビゲーション操作も可能）</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">LEDヘッドランプ グロリアス Hｼﾘｰｽﾞ</h3>
-                        <p class="product-description">ハーネスレスで純正球のように取付・使用が可能</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="glh-dsr/glh-dsr.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_glh-h_s2.gif" alt="LEDヘッドランプ グロリアス Dｼﾘｰｽﾞ">
+                        <div class="product-item freeTV">
+                            <a href="../../html/products/TVing/TVing.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/free_tving_tv_navi.jpg" alt="フリーテレビングシリーズ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">フリーテレビングテレナビング</h3>
+                                    <p class="product-description">走行中のテレビなどの映像視聴や目的地設定などのナビゲーション操作が可能になります。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">LEDヘッドランプ グロリアス Dｼﾘｰｽﾞ</h3>
-                        <p class="product-description">HID(D2S/D2R/D4S/D4R)換装用 LEDヘッドランプ グロリアスシリーズが登場</p>
-                    </a>
-                </div>
-                <div class="product-item category1">
-                    <a href="hlc/hlc.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/hlc_s2.gif" alt="ヘッドライトコントローラー">
+                        <!-- magicone -->
+                        <div class="product-item magicone">
+                            <a href="../../html/products/MAGICONE/magicone.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/magicone_back_camera_unit.jpg" alt="マジコネ バックカメラ接続ユニット">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">マジコネ バックカメラ接続ユニット</h3>
+                                    <p class="product-description">純正バックカメラ・全周囲カメラの映像を市販ナビゲーションに表示します。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">ヘッドライトコントローラー</h3>
-                        <p class="product-description">薄暮時や夜間の駐停車、信号待ち停車時にヘッドライトを自動で消灯</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="fis/fis.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_fis_c1.gif" alt="フリーアイドリングストップ">
+                        <div class="product-item magicone">
+                            <a href="../../html/products/MAGICONE/magicone.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/magicone_back_camera_harness.jpg" alt="マジコネ バックカメラ接続ハーネス">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">マジコネ バックカメラ接続ハーネス</h3>
+                                    <p class="product-description">市販バックカメラ映像を純正ナビゲーションに表示します。<br>市販バックカメラ映像を車両中継ハーネスを使用して市販ナビゲーションに表示します。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">フリーアイドリングストップ</h3>
-                        <p class="product-description">アイドリングストップ機能のキャンセル操作を自動化</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="blh_head/blh_head.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_led_head_comfort_f2.gif" alt="LED ヘッドランプ コンフォート">
+                        <div class="product-item magicone">
+                            <a href="../../html/products/MAGICONE/magicone.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/magicone_vtr_harness.jpg" alt="マジコネ VTRハーネス">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">マジコネ VTRハーネス</h3>
+                                    <p class="product-description">外部入力機器映像（ＶＴＲ）をナビゲーションやモニターに表示します。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">LED ヘッドランプ コンフォート</h3>
-                        <p class="product-description">LEDモジュールを効率的に冷却する熱伝導率の高い金属筐体を採用したスマートなデザイン</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="clh_head/clh_head.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_led_head_comfort2_f2.gif" alt="LED ヘッドランプ コンフォート2">
+                        <div class="product-item magicone">
+                            <a href="../../html/products/MAGICONE/magicone.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/magicone_rear_moniter_unit.jpg" alt="マジコネ リアモニター接続ユニット">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">マジコネ リアモニター接続ユニット</h3>
+                                    <p class="product-description">リアモニター出力機能付きナビゲーションと純正後席ディスプレイを接続します。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">LED ヘッドランプ コンフォート2</h3>
-                        <p class="product-description">ドライバーユニット内臓型のオールインワンボディ、放熱効率を向上させさらに長寿命に</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="ebs/ebs.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_ebs_f2.gif" alt="ユーロブリンカーシステム">
+                        <div class="product-item magicone">
+                            <a href="../../html/products/MAGICONE/magicone.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/magicone_rear_moniter_harness.jpg" alt="マジコネ リアモニター接続ハーネス">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">マジコネ リアモニター接続ハーネス</h3>
+                                    <p class="product-description">ナビゲーションとリアモニターを接続します。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">ユーロブリンカーシステム</h3>
-                        <p class="product-description">ウインカーレバーを軽くワンクリックするだけでウインカーを数回だけ点滅させることが出来ます</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="sdlct/sdlct.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_r34_c1_s2.gif" alt="車速ドアロックシステム">
+                        <!-- led bulb -->
+                         <div class="product-item led_bulb">
+                            <a href="../../html/products/LED_BULB/glh-h/glh-h.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/led_headlamp_glorious_h.jpg" alt="LEDヘッドランプ グロリアス Hｼﾘｰｽﾞ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">LEDヘッドランプ グロリアス Hｼﾘｰｽﾞ</h3>
+                                    <p class="product-description">ハロゲンランプ（H4/H11）交換用LEDヘッドランプ。<br>20,000lm / 6,000K</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">車速ドアロックシステム</h3>
-                        <p class="product-description">車速約20km/hで自動的にドアロック、不用意なドア開閉を防ぎます</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="hyper_led_bulb/hyper_led_bulb.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_hyper_led_bulb_f2.gif" alt="ハイパーLEDバルブ">
+                        <div class="product-item led_bulb">
+                            <a href="../../html/products/LED_BULB/glh-dsr/glh-dsr.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/led_headlamp_glorious_d.jpg" alt="LEDヘッドランプ グロリアス Dｼﾘｰｽﾞ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">LEDヘッドランプ グロリアス Dｼﾘｰｽﾞ</h3>
+                                    <p class="product-description">純正HID（D2/D4）換装用LEDヘッドランプ<br>40,000lm / 6,000K</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">ハイパーLEDバルブ</h3>
-                        <p class="product-description">高品質高輝度LEDを使用することで、「視認性の向上」「長寿命」「バッテリー負荷の軽減」を実現</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="speed_auto_lock/speed_auto_lock.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_r36_c1_f2.gif" alt="車速感応式ドアロックシステム">
+                        <div class="product-item led_bulb">
+                            <a href="../../html/products/LED_BULB/blh_head/blh_head.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/led_headlamp_comfort.jpg" alt="LED ヘッドランプ コンフォート">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">LED ヘッドランプ コンフォート</h3>
+                                    <p class="product-description">ハロゲンランプ（HIR2）交換用LEDヘッドランプ<br>3,000lm / 6,000K</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">車速感応式ドアロックシステム</h3>
-                        <p class="product-description">シフトを"D"レンジに入れ走り出すと15~20km/hで自動ドアロック、"P"レンジに入れると自動でアンロックします</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="led_bulb_revo/led_bulb_revo.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_r44_c18_f2.gif" alt="LEDフォグバルブ">
+                        <div class="product-item led_bulb">
+                            <a href="../../html/products/LED_BULB/clh_head/clh_head.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/led_headlamp_comfort2.jpg" alt="LED ヘッドランプ コンフォート2">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">LED ヘッドランプ コンフォート2</h3>
+                                    <p class="product-description">ハロゲンランプ（H4）交換用LEDヘッドランプ<br>3,200lm / 6,000K</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">LEDフォグバルブ</h3>
-                        <p class="product-description">従来のハロゲンバルブと同等以上の光量を放ち、夜間や雨天時の走行にも良好な視界を確保できます</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="light_crew/light_crew.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_r38_c1_f2.gif" alt="ライトクルー">
+                        <div class="product-item led_bulb">
+                            <a href="../../html/products/LED_BULB/hyper_led_bulb/hyper_led_bulb.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/hyper_led_room_lamp.jpg" alt="ハイパーLEDバルブ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">ハイパーLEDバルブ</h3>
+                                    <p class="product-description">バックランプ・ウィンカーランプ・テールランプ・ブレーキランプ対応LEDバルブ<br>［T16シングル］［T20シングル］［S25シングル］［S25ダブル］［T20ピン違い］［S25ピン角違い］［メタルクラッド抵抗器］</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">ライトクルー</h3>
-                        <p class="product-description">周囲の明るさに応じて、スモール/ヘッドライトを自動で点灯・消灯</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="door_safety_lamp/door_safety_lamp.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_door_safety_lamp_f2.gif" alt="ドアセーフティランプ">
+                        <div class="product-item led_bulb">
+                            <a href="../../html/products/LED_BULB/led_bulb_revo/led_bulb_revo.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/led_fog_bulb.jpg" alt="LEDフォグバルブ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">LEDフォグバルブ</h3>
+                                    <p class="product-description">ハロゲンバルブ交換用LEDフォグバルブ<br>［H8/H11］［H16」［PSX26W］</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">ドアセーフティランプ</h3>
-                        <p class="product-description">ドア側面から強烈な光を後方へ照射し、追突防止に効果的</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="door_mirror/door_mirror.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_r40_c1_f2.gif" alt="オートドアミラーコントローラー">
+                         <div class="product-item led_bulb">
+                            <a href="../../html/products/LED_BULB/licenselamp/licenselamp.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/nissan_serena_lisence_lamp.jpg" alt="日産セレナ［Ｃ２７］専用ライセンスランプ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">日産セレナ［Ｃ２７］専用ライセンスランプ</h3>
+                                    <p class="product-description">日産セレナ［C27］のライセンスランプをLEDに交換できます。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">オートドアミラーコントローラー</h3>
-                        <p class="product-description">リモコンキー/ACC連動でドアミラーを自動格納</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="licenselamp/licenselamp.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_licenselamp_f2.gif" alt="日産セレナ［Ｃ２７］専用ライセンスランプ">
+                        <div class="product-item led_bulb">
+                            <a href="../../html/products/LED_BULB/superledlamp/super_led_lamp.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/super_led_room_lamp.jpg" alt="スーパーLEDランプ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">スーパーLEDルームランプ</h3>
+                                    <p class="product-description">ルームランプ・ポジションランプ・ライセンスランプ対応LEDランプ<br>［T10 クリアレンズ付き］［T10］［G14］［T10×31/T8×28］［T6.3×30］</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">日産セレナ［Ｃ２７］専用ライセンスランプ</h3>
-                        <p class="product-description">この製品に関する簡単な説明文が入ります。商品の特徴や魅力をお伝えします。</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="answer_system/answer_system.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_r42_c1_f2.gif" alt="ドアロックアンサーシステム">
+                        <div class="product-item led_bulb">
+                            <a href="../../html/products/LED_BULB/super_led_roomlamp2/super_led_roomlamp2.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/super_led_room_lamp2.jpg" alt="スーパーLEDルームランプ2">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">スーパーLEDルームランプ2</h3>
+                                    <p class="product-description">車種専用別専用LEDルームランプセット</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">ドアロックアンサーシステム</h3>
-                        <p class="product-description">この製品に関する簡単な説明文が入ります。商品の特徴や魅力をお伝えします。</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="superledlamp/super_led_lamp.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_r38_c18_f2.gif" alt="スーパーLEDランプ">
+                        <div class="product-item led_bulb">
+                            <a href="../../html/products/LED_BULB/premium_led_lamp_plate/premium_led_lamp_plate.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/premium_super_led_lamp.jpg" alt="プレミアムスーパーLEDランプ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">プレミアムスーパーLEDランプ</h3>
+                                    <p class="product-description">プレートタイプのLEDルームランプ<br>［35㎜×50㎜］［35㎜×35㎜］［19㎜×39㎜］［17㎜×25㎜］</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">スーパーLEDランプ</h3>
-                        <p class="product-description">この製品に関する簡単な説明文が入ります。商品の特徴や魅力をお伝えします。</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="super_led_roomlamp2/super_led_roomlamp2.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_r34_c18_f2.gif" alt="スーパーLEDルームランプ2">
+                        <div class="product-item led_bulb">
+                            <a href="../../html/products/LED_BULB/door_safety_lamp/door_safety_lamp.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/door_safety_lamp.jpg" alt="ドアセーフティランプ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">ドアセーフティランプ</h3>
+                                    <p class="product-description">ドア側面にLEDを設置し、後方へ照射。追突防止に効果的です。</p>
+                                </div>
+                            </a>
+                        </div> 
+                        <!-- av accessory -->
+                        <div class="product-item av_accessory">
+                            <a href="../../html/products/av_accessory/cdv/cdv01.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/dvd-cd_player.jpg" alt="DVD・CDプレイヤー">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">DVD・CDプレイヤー</h3>
+                                    <p class="product-description">トヨタ/レクサス車のUSBポートに接続するだけで、ディスプレイオーディオでDVD/CDが楽しめます。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">スーパーLEDルームランプ2</h3>
-                        <p class="product-description">この製品に関する簡単な説明文が入ります。商品の特徴や魅力をお伝えします。</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="brake4/brake4.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_r46_c18_f2.gif" alt="ブレーキ4灯化ユニット">
+                        <div class="product-item av_accessory">
+                            <a href="../../html/products/AV_ACCESSORY/swc-exc/swc-exc.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/steering_switch_unit.jpg" alt="ステアリングスイッチ切替ユニット">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">ステアリングスイッチ切替ユニット</h3>
+                                    <p class="product-description">純正ステアリングスイッチで市販ナビゲーションが操作できます。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">ブレーキ4灯化ユニット</h3>
-                        <p class="product-description">ブレーキランプの発光面を増やすことで視認性を高め、後続車へブレーキ操作をアピール</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="one_touch/one_touch.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_r46_c1_f2.gif" alt="ワンタッチ電源">
+                        <div class="product-item av_accessory">
+                            <a href="../../html/products/AV_ACCESSORY/steering_sw/steering_sw.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/steering_switch_controller.jpg" alt="ステアリングスイッチコントローラー">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">ステアリングスイッチコントローラー</h3>
+                                    <p class="product-description">純正ステアリングスイッチを利用して、外部入力機器の操作ができます。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">ワンタッチ電源</h3>
-                        <p class="product-description">電源/イグニッション/ACCラインなどの取り出しに大変便利</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="premium_led_lamp_plate/premium_led_lamp_plate.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_r36_c18_f2.gif" alt="プレミアムスーパーLEDランプ">
+                        <div class="product-item av_accessory">
+                            <a href="../../html/products/AV_ACCESSORY/hole_sw/hole_sw.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/service_hall_switch.jpg" alt="サービスホールスイッチ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">サービスホールスイッチ</h3>
+                                    <p class="product-description">対応製品に付属の「LEDスイッチ」を「サービスホールスイッチ」へ変更できます。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">プレミアムスーパーLEDランプ</h3>
-                        <p class="product-description">LEDの中でも「日亜製高輝度LED」を採用することで「色ムラ」「明るさのばらつき」「点灯不良, 短寿命」がなく純白光を実現</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="eopspt/eopspt.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_eopspt_s2.gif" alt="USB・HDMI延長ケーブル(SPｼﾘｰｽﾞ)">
+                        <!-- car accessory -->
+                        <div class="product-item car_accessory">
+                            <a href="../../html/products/CAR_ACCESSORY/sph/sph.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/smart_phone_holder.jpg" alt="スマートフォンホルダー">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">スマートフォンホルダー</h3>
+                                    <p class="product-description">12タイプの中から好みや用途に合わせて選べる便利なスマートフォンホルダー</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">USB・HDMI延長ケーブル(SPｼﾘｰｽﾞ)</h3>
-                        <p class="product-description">USB-HDMIポートを手の届く場所へ移設できる延長ケーブル</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="eophzt/eophz.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/car_accessory_eophztu_s2.gif" alt="USB・HDMI延長ケーブル(HZｼﾘｰｽﾞ)">
+                        <div class="product-item car_accessory">
+                            <a href="../../html/products/CAR_ACCESSORY/light_crew/light_crew.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/light_crew.jpg" alt="オートライトユニット ライトクルー">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">オートライトユニット ライトクルー</h3>
+                                    <p class="product-description">周囲の明るさに応じてスモールライト/ヘッドライトを自動点灯＆消灯します。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">USB・HDMI延長ケーブル(HZｼﾘｰｽﾞ)</h3>
-                        <p class="product-description">USB-HDMIポートを手の届く場所へ移設できる延長ケーブル</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="magicone/magicone.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/entertainment_r34_c13_s2.gif" alt="マジコネ">
+                        <div class="product-item car_accessory">
+                            <a href="../../html/products/CAR_ACCESSORY/door_mirror/door_mirror.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/auto_door_mirror_controller.jpg" alt="オートドアミラーコントローラー">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">オートドアミラーコントローラー</h3>
+                                    <p class="product-description">ロック/アンロックやACCに連動してドアミラーを自動格納＆復帰します。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">マジコネ</h3>
-                        <p class="product-description">バックカメラ/VTR/リアモニターなど簡単接続で愛車のエンターテイメントを快適に</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="cdv/cdv01.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/cdv_s2.gif" alt="DVD・CDプレイヤー">
+                        
+                        <div class="product-item car_accessory">
+                            <a href="../../html/products/CAR_ACCESSORY/hlc/hlc.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/headlight_controller.jpg" alt="ヘッドライトコントローラー">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">ヘッドライトコントローラー</h3>
+                                    <p class="product-description">薄暮時や夜間の駐停車、信号待ち停車時にヘッドライトを自動で消灯します。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">DVD・CDプレイヤー</h3>
-                        <p class="product-description">トヨタ/レクサス者のUSBに繋ぐだけでディスプレイオーディオでCD/DVDが楽しめる</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="av-fbc/av-fbc.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/camera_s2.gif" alt="高解像度カメラシリーズ">
+                        <div class="product-item car_accessory">
+                            <a href="../../html/products/CAR_ACCESSORY/fis/fis.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/free_idling_strop.jpg" alt="フリーアイドリングストップ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">フリーアイドリングストップ</h3>
+                                    <p class="product-description">アイドリングストップ機能のキャンセル操作を自動化します。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">高解像度カメラシリーズ</h3>
-                        <p class="product-description">車両周辺の映像を高解像度でモニター出力します</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="av-m0/av-m0.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/monitor_s2.gif" alt="小型ワイドモニターシリーズ">
+                        
+                        <div class="product-item car_accessory">
+                            <a href="../../html/products/CAR_ACCESSORY/ebs/ebs.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/euro_blinker_system.jpg" alt="ユーロブリンカーシステム">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">ユーロブリンカーシステム</h3>
+                                    <p class="product-description">ウィンカーレバーを軽くワンクリックすると自動的にウィンカーを数回だけ点滅させます。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">小型ワイドモニターシリーズ</h3>
-                        <p class="product-description">オンダッシュ、ルームミラーなどお好みの位置に増設する小型モニター</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="AV-CS-Link/AV-CS-Link.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/entertainment_r40_c2_s2.gif" alt="カメラセレクター">
+                        <div class="product-item car_accessory">
+                            <a href="../../html/products/CAR_ACCESSORY/sdlct/sdlct.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/speed_door_lock_system.jpg" alt="車速ドアロックシステム">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">車速ドアロックシステム</h3>
+                                    <p class="product-description">車種専用タイプ。車速約20km/hで自動的にドアロック、Pレンジでアンロックします。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">カメラセレクター</h3>
-                        <p class="product-description">バックカメラに追加で最大2台のカメラを増設</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="av-hdm01/av-hdm01.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/HDM01_s2.gif" alt="HDMI変換ユニット">
+                        <div class="product-item car_accessory">
+                            <a href="../../html/products/CAR_ACCESSORY/speed_auto_lock/speed_auto_lock.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/speed_sensitive_door_lock_system.jpg" alt="車速感応式ドアロックシステム">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">車速感応式ドアロックシステム</h3>
+                                    <p class="product-description">汎用配線タイプ。車速約15～20km/hで自動的にドアロック、Pレンジでアンロックします。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">HDMI変換ユニット</h3>
-                        <p class="product-description">スマートフォンなどのストリーミング映像や音楽を車載モニターで視聴できます</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="eopusbca/eopusbca.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/entertainment_eopusbca_s2.gif" alt="USB変換ケーブル">
+                        <div class="product-item car_accessory">
+                            <a href="../../html/products/CAR_ACCESSORY/answer_system/answer_system.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/door_lock_answer_system.jpg" alt="ドアロックアンサーシステム">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">ドアロックアンサーシステム</h3>
+                                    <p class="product-description">リモコンドアロックで、ハザードやサウンドが連動します。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">USB変換ケーブル</h3>
-                        <p class="product-description">USB Type-CポートをUSB Type-Aポートに変換させ、最大5V/3Vでの急速充電を可能に</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="magicone/av-dh06/av-dh06.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/avdh06_s2.gif" alt="HDMI Type-Eハーネス">
+                        <div class="product-item car_accessory">
+                            <a href="../../html/products/CAR_ACCESSORY/brake4/brake4.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/brake4.jpg" alt="ブレーキ4灯化ユニット">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">ブレーキ4灯化ユニット</h3>
+                                    <p class="product-description">ブレーキランプの発光面を増やすことで視認性を高め、後続車へブレーキ操作をアピール</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">HDMI Type-Eハーネス</h3>
-                        <p class="product-description">HDMIハーネス(Type-A)の外部機器をHDMI(Type-E)入力端子搭載のナビゲーションに接続できます</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="eopdc/eopdc.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/entertainment_r40_c13_s2.gif" alt="USB電源コンバータ">
+                        <!-- camera -->
+                        <div class="product-item camera">
+                            <a href="../../html/products/CAMERA/av-fbc/av-fbc01r/av-fbc01r.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/high_resolution_compact_camera.jpg" alt="高解像度 小型カメラ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">高解像度 小型カメラ</h3>
+                                    <p class="product-description">１２２万画素の小型カメラ。バックカメラ、フロントカメラに対応</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">USB電源コンバータ</h3>
-                        <p class="product-description">スマートフォン/タブレットなどの充電ができるUSB電源増設ユニット</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="swc-exc/swc-exc.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/swc-exc_s2.gif" alt="ステアリングスイッチ切替ユニット">
+                        <div class="product-item camera">
+                            <a href="../../html/products/CAMERA/av-fbc/av-fbc02r/av-fbc02r.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/high_resolution_embedded_camera.jpg" alt="高解像度 埋め込み小型カメラ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">高解像度 埋め込み小型カメラ</h3>
+                                    <p class="product-description">９２万画素の埋め込みカメラ。バックカメラ、サイドカメラ、フロントカメラに対応</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">ステアリングスイッチ切替ユニット</h3>
-                        <p class="product-description">純正ステアリングスイッチでナビ・チューナーを楽々操作</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="steering_sw/steering_sw.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/entertainment_r42_c28_s2.gif" alt="ステアリングスイッチコントローラー">
+                        <div class="product-item camera">
+                            <a href="../../html/products/CAMERA/av-fbc/av-fbc03r/av-fbc03r.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/high_resolution_miniball_camera.jpg" alt="高解像度 広角度ミニボールカメラ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">高解像度 広角度ミニボールカメラ</h3>
+                                    <p class="product-description">９２万画素の広角度ミニボールカメラ。バックカメラ、サイドカメラ、フロントカメラに対応</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">ステアリングスイッチコントローラー</h3>
-                        <p class="product-description">純正ステアリングスイッチで市販ナビを操作可能に</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="hole_sw/hole_sw.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/hole_sw-av_s2.gif" alt="サービスホールスイッチ">
+                        <div class="product-item camera">
+                            <a href="../../html/products/CAMERA/AV-CS-Link/AV-CS-Link.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/camera_selector.jpg" alt="カメラセレクターシリーズ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">カメラセレクター</h3>
+                                    <p class="product-description">バックカメラ＋最大２台のカメラ映像を切り替えて使用できます。</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">サービスホールスイッチ</h3>
-                        <p class="product-description">対応製品に付属のLEDスイッチをサービスホールタイプへ変更できます</p>
-                    </a>
-                </div>
-                <div class="product-item category2">
-                    <a href="op_cn/op_cn.htm">
-                        <div class="product-image-container">
-                            <img src="../../images/products/op_cn_e_s2.gif" alt="オプションコネクターハーネス">
+                        <!-- monitor -->
+                        <div class="product-item monitor">
+                            <a href="../../html/products/MONITER/av-m01/av-m01.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/on_dash_monitor.jpg" alt="4.3インチ オンダッシュモニター">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">4.3インチ オンダッシュモニター</h3>
+                                    <p class="product-description">映像２系統入力、4.3インチモニター</p>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="product-title">オプションコネクターハーネス</h3>
-                        <p class="product-description">車両オプションコネクタから簡単・安全に電源や各種信号線の取り出しができます</p>
-                    </a>
+                        <div class="product-item monitor">
+                            <a href="../../html/products/MONITER/av-m02/av-m02.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/room_mirror_monitor.jpg" alt="4.3インチ ルームミラーモニター">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">4.3インチ ルームミラーモニター</h3>
+                                    <p class="product-description">映像２系統入力、4.3インチモニター内蔵のルームミラー型モニター</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-item monitor">
+                            <a href="../../html/products/MONITER/av-m03/av-m03.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/wide_view_monitor.jpg" alt="5インチ ワイドビューモニター">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">5インチ ワイドビューモニター</h3>
+                                    <p class="product-description">映像２系統入力、5インチモニター</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- hdmi/usb -->
+                        <div class="product-item hdmi_usb">
+                            <a href="../../html/products/HDMI_USB/eopspt/eopspt.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/usb-hdmi_sp.jpg" alt="USB・HDMI延長ケーブル(SPｼﾘｰｽﾞ)">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">USB・HDMI延長ケーブル(SPｼﾘｰｽﾞ)</h3>
+                                    <p class="product-description">サービスホールにUSB/HDMIポートを設置します。</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-item hdmi_usb">
+                            <a href="../../html/products/HDMI_USB/eophzt/eophz.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/usb-hdmi-hz.jpg" alt="USB・HDMI延長ケーブル(HZｼﾘｰｽﾞ)">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">USB・HDMI延長ケーブル(HZｼﾘｰｽﾞ)</h3>
+                                    <p class="product-description">純正USBパネルをUSB/HDMIパネルに換装します。</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-item hdmi_usb">
+                            <a href="../../html/products/HDMI_USB/av-hdm01/av-hdm01.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/hdmi_convert_unit.jpg" alt="HDMI変換ユニット">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">HDMI変換ユニット</h3>
+                                    <p class="product-description">HDMIデジタル映像・音声をRCAアナログ映像・音声に変換します。</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-item hdmi_usb">
+                            <a href="../../html/products/HDMI_USB/eopusbca/eopusbca.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/usb_convert_cable.jpg" alt="USB変換ケーブル">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">USB変換ケーブル</h3>
+                                    <p class="product-description">USB Type-CポートをUSB Type-Aポートへ変換させ、最大５V/３Aでの急速充電が可能になります。</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-item hdmi_usb">
+                            <a href="../../html/products/MAGICONE/VTR_H/av-dh06/av-dh06.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/hdmi_type-e.jpg" alt="HDMI Type-Eハーネス">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">HDMI Type-Eハーネス</h3>
+                                    <p class="product-description">HDMI（タイプE）入力端子搭載のナビゲーションにHDMI（タイプA）の外部機器を接続できます。</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-item hdmi_usb">
+                            <a href="../../html/products/HDMI_USB/eopdc/eopdc.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/usb_power_converter.jpg" alt="USB電源コンバータ">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">USB電源コンバータ</h3>
+                                    <p class="product-description">スマートフォン等を充電できるUSB電源増設ユニット</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- power -->
+                        <div class="product-item power_supply">
+                            <a href="../../html/products/POWER/op_cn/op_cn.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/option_connecter_harnece.jpg" alt="オプションコネクターハーネス">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">オプションコネクターハーネス</h3>
+                                    <p class="product-description">車両オプションコネクタから簡単・安全に電源や各種信号線を取り出しできます。</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-item power_supply">
+                            <a href="../../html/products/POWER/one_touch/one_touch.htm" target="_blank" rel="noopener noreferrer">
+                                <div class="product-image-container">
+                                    <img src="../../images/products/one_touch_power.jpg" alt="ワンタッチ電源">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">ワンタッチ電源</h3>
+                                    <p class="product-description">電源/イグニッション/ACCラインなどの取り出しに使用できます。</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="product-item-dummy"></div>
-                <div class="product-item-dummy"></div>
-                <div class="product-item-dummy"></div>
             </div>
         </div>
     </section>
@@ -384,44 +612,9 @@
 
 <div id="footer-placeholder"></div>
 
-<script>
-    fetch('/html/_header.html')
-    .then(response => {
-        if (!response.ok) {
-            // レスポンスが成功でなければエラーを投げる
-            throw new Error('Failed to load header: ' + response.statusText);
-        }
-        return response.text();
-    })
-    .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-    })
-    .catch(error => {
-        console.error('Error fetching header:', error);
-        // エラー発生時の代替処理（例: エラーメッセージを表示）
-        document.getElementById('header-placeholder').innerHTML = '<p>ヘッダーの読み込みに失敗しました。</p>';
-    });
-
-    // フッターの読み込み
-    fetch('/html/_footer.html')
-    .then(response => {
-        if (!response.ok) {
-            // レスポンスが成功でなければエラーを投げる
-            throw new Error('Failed to load footer: ' + response.statusText);
-        }
-        return response.text();
-    })
-    .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
-    })
-    .catch(error => {
-        console.error('Error fetching footer:', error);
-        // エラー発生時の代替処理
-        document.getElementById('footer-placeholder').innerHTML = '<p>フッターの読み込みに失敗しました。</p>';
-    });
-</script>
-
-<script src="/js/products.js"></script>
+<script src="../../js/header.js"></script>
+<script src="../../js/footer.js"></script>
+<script src="../../js/products/products.js"></script>
 
 </body>
 </html>

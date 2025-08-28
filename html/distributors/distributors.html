@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>販売店/代理店(法人)様 専用入口 - Bullcon | フジ電機工業株式会社</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/distributors/distributors.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="../../css/distributors/distributors.css">
 </head>
 <body>
 <div id="header-placeholder"></div>
@@ -56,49 +56,15 @@
             </div>
 
             <div class="button-area">
-                <a href="../kaiinsenyou/haisen.htm" class="button button-login">ログイン</a>
-                <a href="../form_index.htm" class="button button-register">新規登録申請</a>
+                <a href="./only_distributors.htm" class="button button-login">ログイン</a>
+                <a href="./regist_form.html" class="button button-register">新規登録申請</a>
             </div>
         </div>
     </main>
 
 <div id="footer-placeholder"></div>
 
-<script>
-    fetch('/html/_header.html')
-    .then(response => {
-        if (!response.ok) {
-            // レスポンスが成功でなければエラーを投げる
-            throw new Error('Failed to load header: ' + response.statusText);
-        }
-        return response.text();
-    })
-    .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-    })
-    .catch(error => {
-        console.error('Error fetching header:', error);
-        // エラー発生時の代替処理（例: エラーメッセージを表示）
-        document.getElementById('header-placeholder').innerHTML = '<p>ヘッダーの読み込みに失敗しました。</p>';
-    });
-
-    // フッターの読み込み
-    fetch('/html/_footer.html')
-    .then(response => {
-        if (!response.ok) {
-            // レスポンスが成功でなければエラーを投げる
-            throw new Error('Failed to load footer: ' + response.statusText);
-        }
-        return response.text();
-    })
-    .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
-    })
-    .catch(error => {
-        console.error('Error fetching footer:', error);
-        // エラー発生時の代替処理
-        document.getElementById('footer-placeholder').innerHTML = '<p>フッターの読み込みに失敗しました。</p>';
-    });
-</script>
+<script src="../../js/header.js"></script>
+<script src="../../js/footer.js"></script>
 </body>
 </html>
