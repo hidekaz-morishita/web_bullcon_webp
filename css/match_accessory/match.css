@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    box-sizing: border-box;
 }
 
 /* フォームと結果を上下に配置するコンテナ */
@@ -20,7 +21,7 @@
 }
 
 .result-area {
-    width: 100%; 
+    width: 100%;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -28,11 +29,34 @@
     /* スクロール設定 */
     max-height: 400px;
     overflow-y: auto;
+    overflow-x: auto; /* この行を追加 */
     padding: 20px;
     margin: 30px 0 30px 0;
     border: 1px solid #e9ecef;
     border-radius: 8px;
     text-align: left;
+    box-sizing: border-box; /* この行を追加 */
+}
+
+/* 年と月のセレクトボックスを横並びにするためのコンテナ */
+.year-month-group {
+    display: flex;
+    align-items: center; /* 垂直方向の中央揃え */
+    gap: 10px; /* 要素間の隙間を設定 */
+}
+
+/* スラッシュ（/）のスタイル */
+.year-month-group span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* フォームの各グループを縦に並べるためのFlexbox設定 */
+.form-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 /* フォームグループ、セレクトボックス、ボタンの既存のスタイル */
@@ -115,4 +139,47 @@ label {
 
 .part-result:last-child {
     border-bottom: none;
+}
+
+/* リザルトのスタイル */
+
+/* ヘッダー行の見出しのスタイル */
+.result-table thead tr:first-child th {
+    text-align: center; /* 中央揃えに設定 */
+    background-color: #e2e2e2;
+    font-size: 1.1em;
+    padding: 15px;
+}
+
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.result-table th,
+.result-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.result-table thead {
+    background-color: #f2f2f2;
+}
+
+.result-table th {
+    font-weight: bold;
+    color: #333;
+}
+
+/* 検索結果が見つからない場合のスタイル */
+.no-results {
+    color: orange;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    border: 1px dashed orange;
+    margin-top: 20px;
 }
