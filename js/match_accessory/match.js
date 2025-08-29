@@ -227,6 +227,7 @@ document.getElementById('search-button').addEventListener('click', async () => {
                         <td>${part.col20}</td>
                         <td>${part.col21}</td>
                         <td>${part.col22}</td>
+                        <td>${part.caution_list.replace(/[{}]/g, '').replace(/,/g, '<br>')}</td>
                     `;
                     tableBody.appendChild(row);
                 });
