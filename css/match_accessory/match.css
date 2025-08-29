@@ -27,7 +27,7 @@
     transform: translateX(-50%);
 
     /* スクロール設定 */
-    max-height: 400px;
+    max-height: 2000px;
     overflow-y: auto;
     overflow-x: auto; /* この行を追加 */
     padding: 20px;
@@ -156,6 +156,7 @@ label {
     border-collapse: collapse;
     margin-top: 20px;
     font-size: 0.9em;
+    overflow-x: auto;
 }
 
 .result-table th,
@@ -172,6 +173,7 @@ label {
 .result-table th {
     font-weight: bold;
     color: #333;
+    white-space: nowrap
 }
 
 /* 検索結果が見つからない場合のスタイル */
