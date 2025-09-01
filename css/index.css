@@ -42,7 +42,8 @@
 ==================================*/
 .hero {
     position: relative;
-    height: 800px;
+    height: 400px;
+    padding-top: 40px;
     color: #fff;
     text-align: center;
     display: flex;
@@ -53,7 +54,7 @@
 .hero-slider {
     position: relative;
     align-self: center;
-    width: 100%;
+    width: 80%;
     height: 100%;
     overflow: hidden;
 }
@@ -78,15 +79,15 @@
     opacity: 1;
 }
 
-/*.slider-control {
+.slider-control {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     border: none;
-    padding: 15px 10px;
-    margin: 15px 10px;
+    padding: 10px 8px;
+    margin: 10px 5px;
     cursor: pointer;
     z-index: 10;
     font-size: 32px;
@@ -103,7 +104,7 @@
 
 .next-button {
     right: 0;
-}*/
+}
 
 .hero-pagination {
     position: absolute;
