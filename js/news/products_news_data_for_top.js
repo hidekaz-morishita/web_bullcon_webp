@@ -11,7 +11,7 @@ const renderProductsNewsForTop = () => {
     }
 
     // 最新3件のお知らせを取得
-    const latestNews = productsNewsData.slice(0, 3);
+    const latestNews = productsNewsData.slice(0, 5);
 
     let newsHtml = '';
     latestNews.forEach(news => {
@@ -22,9 +22,10 @@ const renderProductsNewsForTop = () => {
 
         newsHtml += `
             <${itemTag} ${hrefAttribute} class="news-list-item ${news.url ? '' : 'non-clickable'}">
-                <time datetime="${news.date}">${news.date}</time>
-                <span class="news-title">${news.title}</span>
-                ${icon}
+                <div class="news-main-line">
+                    <time datetime="${news.date}">${news.date}</time>
+                    <span class="news-title">${news.title}${icon}</span>
+                </div>
             </${itemTag}>
         `;
     });
@@ -41,6 +42,29 @@ const fetchProductsNewsForTop = async () => {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         productsNewsData = await response.json();
+        /*productsNewsData = [
+            {
+                "id": 3,
+                "date": "2027-08-22",
+                "title": "ああああ",
+                "summary": "ｔｔｔｔｔ",
+                "url": ""
+            },
+            {
+                "id": 1,
+                "date": "2025-08-22",
+                "title": "test＿ホームページをリニューアルしました。",
+                "summary": "テストです",
+                "url": "/web_test/html/products/CAR_ACCESSORY/sph/sph.htm"
+            },
+            {
+                "id": 2,
+                "date": "2025-08-22",
+                "title": "test",
+                "summary": "てｓつぇｔｓつぇつぇ",
+                "url": ""
+            }
+        ]; // test*/
         console.log('取得したニュースデータ:', productsNewsData); // データの確認
         renderProductsNewsForTop(); // データを取得後、レンダリングを開始
     } catch (error) {

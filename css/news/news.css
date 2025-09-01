@@ -7,9 +7,14 @@
     flex-direction: column;
     gap: 20px;
     padding: 20px 0;
-
     max-width: 800px;
     margin: 0 auto;
+}
+
+.news-main-line {
+    display: flex;
+    align-items: center; /* 要素を垂直方向の中央に揃える */
+    margin-bottom: 5px; /* サマリーとの間に余白を追加 */
 }
 
 /* もっと見るボタンのスタイル */
@@ -34,7 +39,8 @@
 }
 
 .news-list-item {
-    display: block;
+    display: flex;
+    flex-direction: column; /* ★この設定で、子要素を縦に並べます */
     padding: 20px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
@@ -51,12 +57,11 @@
     border-color: #00479d;
 }
 
-
 .news-list-item time {
-    display: block;
     font-size: 14px;
     color: #888;
-    margin-bottom: 5px;
+    margin-right: 15px;
+    flex-shrink: 0;
 }
 
 .news-list-item .news-title {
@@ -64,10 +69,24 @@
     font-weight: bold;
     line-height: 1.5;
     margin-bottom: 5px;
+    flex-grow: 1; /* 残りのスペースを埋めて、アイコンを右に寄せる */
 }
 
-.news-list-item .news-summary {
+.new-window-icon {
+    width: 12px;
+    height: auto;
+    margin-left: 5px;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.news-summary {
     font-size: 14px;
     color: #666;
     line-height: 1.6;
+}
+
+.news-list-item.non-clickable {
+    cursor: default;
+    background-color: transparent;
 }

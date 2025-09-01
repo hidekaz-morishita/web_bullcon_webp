@@ -26,9 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             return `
                 <${itemTag} ${hrefAttribute} class="news-list-item ${news.url ? '' : 'non-clickable'}">
-                    <time datetime="${news.date}">${news.date}</time>
-                    <span class="news-title">${news.title} ${icon}</span>
-                    <p class="news-summary">${news.summary}</p>
+                    <div class="news-main-line">
+                        <time datetime="${news.date}">${news.date}</time>
+                        <span class="news-title">${news.title}${icon}</span>
+                    </div>
+                    ${news.summary}
                 </${itemTag}>
             `;
         }).join('');
@@ -63,6 +65,59 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             productsNewsData = await response.json();
+        /*productsNewsData = [
+            {
+                "id": 3,
+                "date": "2027-08-22",
+                "title": "ああああ",
+                "summary": "ｔｔｔｔｔ",
+                "url": ""
+            },
+            {
+                "id": 1,
+                "date": "2025-08-22",
+                "title": "test＿ホームページをリニューアルしました。",
+                "summary": "テストです",
+                "url": "/web_test/html/products/CAR_ACCESSORY/sph/sph.htm"
+            },
+            {
+                "id": 2,
+                "date": "2025-08-22",
+                "title": "test",
+                "summary": "てｓつぇｔｓつぇつぇ",
+                "url": ""
+            },
+            {
+                "id": 1,
+                "date": "2025-08-22",
+                "title": "test＿ホームページをリニューアルしました。",
+                "summary": "テストです",
+                "url": "/web_test/html/products/CAR_ACCESSORY/sph/sph.htm"
+            },
+            {
+                "id": 2,
+                "date": "2025-08-22",
+                "title": "LED HEAD LAMP GLORIOUS の新発売",
+                "summary": `<div style="font-family: Arial, sans-serif; line-height: 1.6;">
+                    <p style="font-size: 12px; color: #e50020; font-weight: bold; margin-top: 0; margin-bottom: 20px;">
+                        <span style="font-size: 14px; font-weight: normal; color: #666;">（新製品）</span>
+                        驚異の明るさと長寿命！
+                    </p>
+
+                    <div style="margin-bottom: 16px;">
+                        <h4 style="font-size: 12px; color: #333;  margin-bottom: 10px;">ハロゲン交換タイプ</h4>
+                        <ul style="list-style: none; padding-left: 0; margin: 0;">
+                            <li style="margin-bottom: 5px;">
+                                <span style="font-size: 8px; color: #000;">LED HEAD LAMP GLORIOUS</span>
+                            </li>
+                            <li>
+                                <span style="font-size: 8px; color: #000;">【H4】【H11】</span>
+                            </li>
+                        </ul>
+                    </div>`,
+                "url": ""
+            }
+        ]; // test*/
             console.log('取得したニュースデータ:', productsNewsData); // データの確認
             renderNews(); // データを取得後、レンダリングを開始
         } catch (error) {
