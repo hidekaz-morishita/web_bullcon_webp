@@ -91,11 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     //==================================
-    // メガメニューの機能を初期化する関数
+    // メガメニューの機能を初期化する関数 (更新版)
     //==================================
     function initializeMegaMenu() {
         const navItemsWithDropdown = document.querySelectorAll('.nav-item.has-dropdown');
-        const dropdownMenus = document.querySelectorAll('.dropdown-menu');
         let activeDropdown = null;
         let timeoutId = null;
 
@@ -103,10 +102,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetDropdown = document.getElementById(navItem.dataset.dropdownTarget);
             
             navItem.addEventListener('mouseenter', () => {
-                if (timeoutId) clearTimeout(timeoutId);
-                dropdownMenus.forEach(menu => menu.classList.remove('is-visible'));
+                // ドロップダウンを非表示にしてから、新しいものを表示
+                if (activeDropdown) {
+                    activeDropdown.classList.remove('is-visible');
+                    const parentNavItem = document.querySelector(`.nav-item[data-dropdown-target="${activeDropdown.id}"]`);
+                    if (parentNavItem) {
+                        parentNavItem.classList.remove('is-active');
+                    }
+                }
+                
                 if (targetDropdown) {
                     targetDropdown.classList.add('is-visible');
+                    navItem.classList.add('is-active'); // 親アイテムにクラスを追加
                     activeDropdown = targetDropdown;
                     // メニュー表示時にボーダーの高さを調整
                     if (targetDropdown.id === 'product-dropdown') {
@@ -115,23 +122,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+            // 親要素からマウスが離れた時の処理
             navItem.addEventListener('mouseleave', () => {
                 timeoutId = setTimeout(() => {
-                    if (activeDropdown && !navItem.matches(':hover') && !activeDropdown.matches(':hover')) {
-                        activeDropdown.classList.remove('is-visible');
-                        activeDropdown = null;
+                    if (!navItem.matches(':hover') && (!activeDropdown || !activeDropdown.matches(':hover'))) {
+                        if (activeDropdown) {
+                            activeDropdown.classList.remove('is-visible');
+                            activeDropdown = null;
+                        }
+                        navItem.classList.remove('is-active'); // 親アイテムからクラスを削除
                     }
                 }, 150);
             });
-        });
 
-        dropdownMenus.forEach(menu => {
-            menu.addEventListener('mouseleave', () => {
-                if (activeDropdown) {
-                    activeDropdown.classList.remove('is-visible');
-                    activeDropdown = null;
-                }
-            });
+            // ドロップダウンメニューにマウスが入った時の処理
+            if (targetDropdown) {
+                targetDropdown.addEventListener('mouseenter', () => {
+                    clearTimeout(timeoutId);
+                    navItem.classList.add('is-active'); // 親アイテムにクラスを追加
+                });
+
+                // ドロップダウンメニューからマウスが離れた時の処理
+                targetDropdown.addEventListener('mouseleave', () => {
+                    if (activeDropdown) {
+                        activeDropdown.classList.remove('is-visible');
+                        activeDropdown = null;
+                    }
+                    navItem.classList.remove('is-active'); // 親アイテムからクラスを削除
+                });
+            }
         });
 
         const productCategories = document.getElementById('product-categories');
@@ -139,10 +158,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const imageContainer = document.querySelector('.dropdown-image-container');
 
         if (productCategories && subDropdownContainer && imageContainer) {
-            productCategories.addEventListener('mouseenter', (event) => {
-                const link = event.target.closest('.has-sub-list');
-                if (link) {
-                    const subList = link.querySelector('.sub-dropdown-menu');
+            // ドロップダウンリスト項目にマウスホバーイベントを追加
+            const listItemsWithSublist = productCategories.querySelectorAll('.has-sub-list');
+            listItemsWithSublist.forEach(listItem => {
+                listItem.addEventListener('mouseenter', () => {
+                    // 他のハイライトをリセット
+                    productCategories.querySelectorAll('li').forEach(li => li.classList.remove('is-hovered'));
+                    listItem.classList.add('is-hovered');
+                    
+                    const subList = listItem.querySelector('.sub-dropdown-menu');
                     if (subList) {
                         subDropdownContainer.innerHTML = subList.innerHTML;
                     } else {
@@ -150,8 +174,34 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     // 子リスト表示時にボーダーの高さを再調整
                     adjustDropdownBorderHeight(document.getElementById('product-dropdown'));
+                });
+            });
+
+            // サブドロップダウンコンテナにマウスが入った時の処理
+            subDropdownContainer.addEventListener('mouseenter', () => {
+                // 親のリストアイテムのハイライトを維持
+                const hoveredItem = productCategories.querySelector('li.is-hovered');
+                if (hoveredItem) {
+                    hoveredItem.classList.add('is-hovered');
                 }
-            }, true);
+            });
+
+            // サブドロップダウンコンテナからマウスが離れた時の処理
+            subDropdownContainer.addEventListener('mouseleave', () => {
+                // ハイライトを削除
+                productCategories.querySelectorAll('li').forEach(li => li.classList.remove('is-hovered'));
+                subDropdownContainer.innerHTML = '';
+                imageContainer.innerHTML = '';
+            });
+
+            // 画像コンテナにマウスが入った時の処理
+            imageContainer.addEventListener('mouseenter', () => {
+                 // 親のリストアイテムのハイライトを維持
+                const hoveredItem = productCategories.querySelector('li.is-hovered');
+                if (hoveredItem) {
+                    hoveredItem.classList.add('is-hovered');
+                }
+            });
 
             subDropdownContainer.addEventListener('mouseenter', (event) => {
                 const link = event.target.closest('a');

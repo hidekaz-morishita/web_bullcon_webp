@@ -90,16 +90,20 @@
     display: block;
 }
 
+/* ホバー時とアクティブ時の背景色とテキスト色 */
+.nav-item:hover > a,
+.nav-item:hover > .dropdown-toggle,
+.nav-item.is-active > a,
+.nav-item.is-active > .dropdown-toggle {
+    color: #00479d;
+}
+
 /* is-stuckクラスが付いている場合のナビゲーションリンクの色を変更 */
 .header-bottom.is-stuck .nav-item a,
 .header-bottom.is-stuck .dropdown-toggle {
     color: rgba(255, 255, 255, 0.8);;
 }
 
-.nav-item:hover > a,
-.nav-item:hover > .dropdown-toggle {
-    color: #00479d;
-}
 
 /* ナビゲーションリンクのフレックスコンテナ設定 */
 .nav-item > a,
@@ -149,9 +153,9 @@
     
     /* 3分割レイアウトのための追加設定 */
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
-    padding: 25px; /* 全体のパディングを設定 */
+    padding: 25px;
 }
 
 .dropdown-menu.is-visible {
@@ -161,19 +165,26 @@
     pointer-events: auto;
 }
 
+/* メガメニューの内部コンテナ（3列の親要素） */
+.dropdown-menu-inner {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* 左側: 製品カテゴリ */
 .dropdown-list-container {
-    width: 25%;
+    width: 30%;
     padding-right: 25px;
 }
 
 /* 新規追加: 真ん中の子製品リスト */
 .sub-dropdown-list-container {
-    width: 35%;
+    width: 30%;
     padding-right: 25px;
     padding-left: 25px;
 }
 
+/* 元のHTMLに存在する、非表示の子ドロップダウン */
 .sub-dropdown-menu {
     display: none;
 }
@@ -191,6 +202,12 @@
 /* 各コンテナの境界線 */
 .dropdown-border {
     border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* ホバー中のアイテムを強調するスタイル */
+.dropdown-list li.is-hovered {
+    background-color: #f0f0f0;
+    color: #00479d;
 }
 
 /* 画像とテキストのスタイル */
@@ -220,19 +237,34 @@
     align-items: flex-start;
 }
 
+.dropdown-list li,
+.sub-dropdown-list li {
+    width: 100%;
+}
+
+/* リスト内のリンクのクリック領域を均一にする */
 .dropdown-list li a,
 .sub-dropdown-list li a {
     display: block;
-    padding: 10px 0;
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
     color: #333;
     text-decoration: none;
     font-weight: bold;
 }
 
+/* ドロップダウンメニューのホバー中のリンクの背景色を変更 */
 .dropdown-list li a:hover,
 .sub-dropdown-list li a:hover {
     color: #00479d;
     text-decoration: underline;
+    background-color: #f0f0f0; /* ホバー時の背景色 */
+}
+
+/* 新着情報Dropdown */
+#news-dropdown {
+    justify-content: flex-start;
 }
 
 /*common*/
@@ -257,14 +289,21 @@
 }
 
 @media (max-width: 768px) {
+    /* モバイル表示でheader-topをstickyにする */
+    .header-top {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
     .mobile-nav-overlay {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒 */
-        z-index: 980; /* ナビゲーションより下、他のコンテンツより上に配置 */
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 980;
         visibility: hidden;
         opacity: 0;
         transition: opacity 0.3s ease, visibility 0s 0.3s;
@@ -352,7 +391,7 @@
         height: auto;
         background-color: rgba(0, 0, 0, 0.9);
         z-index: 990;
-        padding: 20px 0;
+        padding: 0;
         overflow-y: auto;
     }
     
@@ -364,17 +403,23 @@
         flex-direction: column;
         align-items: center;
         width: 100%;
+        gap: 0;
     }
     
     .mobile-nav .nav-item {
         width: 100%;
         text-align: center;
-        padding: 15px 0;
+        padding: 20px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .mobile-nav .nav-item:first-child {
+        padding-top: 20px;
     }
     
     .mobile-nav .nav-item:last-child {
         border-bottom: none;
+        padding-bottom: 20px;
     }
     
     .mobile-nav .nav-item a,
