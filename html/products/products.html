@@ -17,13 +17,34 @@
 <div id="header-placeholder"></div>
 
 <main>
-    <section class="products-section">
-        <div class="container">
+    <div id="mobile-category-menu" class="mobile-menu-container">
+        <button id="mobile-menu-toggle-btn" class="mobile-menu-toggle"></button>
+        <div class="mobile-menu-header">
+            <h3 class="mobile-menu-title">カテゴリ</h3>
+            <button id="close-menu-btn" class="close-menu-btn">&times;</button>
+        </div>
+        <ul class="mobile-category-list">
+            <li><button class="category-tab-mobile active" data-category="all">すべて</button></li>
+            <li><button class="category-tab-mobile" data-category="freeTV">フリーテレビング</button></li>
+            <li><button class="category-tab-mobile" data-category="magicone">マジコネ</button></li>
+            <li><button class="category-tab-mobile" data-category="led_bulb">LEDバルブ/ルームランプ</button></li>
+            <li><button class="category-tab-mobile" data-category="av_accessory">AVアクセサリー</button></li>
+            <li><button class="category-tab-mobile" data-category="car_accessory">カーアクセサリー</button></li>
+            <li><button class="category-tab-mobile" data-category="camera">カメラ</button></li>
+            <li><button class="category-tab-mobile" data-category="monitor">モニター</button></li>
+            <li><button class="category-tab-mobile" data-category="hdmi_usb">HDMI・USB関係</button></li>
+            <li><button class="category-tab-mobile" data-category="power_supply">電源関係</button></li>
+        </ul>
+    </div>
+    <div class="mobile-menu-overlay"></div>
+    <div class="container">
+        
+
+        <section class="products-section">
             <h2 class="section-title">
                 <span class="section-title-en">PRODUCTS</span>
                 <span class="section-title-jp">製品一覧</span>
             </h2>
-
             <div class="products-main-layout">
                 <aside class="sidebar">
                     <h3 class="sidebar-title">カテゴリから探す</h3>
@@ -40,27 +61,6 @@
                         <button class="category-tab" data-category="power_supply">電源関係</button>
                     </div>
                 </aside>
-
-                <div id="mobile-category-menu" class="mobile-menu-container">
-                    <button id="mobile-menu-toggle-btn" class="mobile-menu-toggle"></button>
-                    <div class="mobile-menu-header">
-                        <h3 class="mobile-menu-title">カテゴリ</h3>
-                        <button id="close-menu-btn" class="close-menu-btn">&times;</button>
-                    </div>
-                    <ul class="mobile-category-list">
-                        <li><button class="category-tab-mobile active" data-category="all">すべて</button></li>
-                        <li><button class="category-tab-mobile" data-category="freeTV">フリーテレビング</button></li>
-                        <li><button class="category-tab-mobile" data-category="magicone">マジコネ</button></li>
-                        <li><button class="category-tab-mobile" data-category="led_bulb">LEDバルブ/ルームランプ</button></li>
-                        <li><button class="category-tab-mobile" data-category="av_accessory">AVアクセサリー</button></li>
-                        <li><button class="category-tab-mobile" data-category="car_accessory">カーアクセサリー</button></li>
-                        <li><button class="category-tab-mobile" data-category="camera">カメラ</button></li>
-                        <li><button class="category-tab-mobile" data-category="monitor">モニター</button></li>
-                        <li><button class="category-tab-mobile" data-category="hdmi_usb">HDMI・USB関係</button></li>
-                        <li><button class="category-tab-mobile" data-category="power_supply">電源関係</button></li>
-                    </ul>
-                </div>
-                <div class="mobile-menu-overlay"></div>
 
                 <div class="products-content">
                     <div class="products-grid">
@@ -606,8 +606,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 </main>
 
 <div id="footer-placeholder"></div>

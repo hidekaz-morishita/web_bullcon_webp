@@ -11,6 +11,7 @@
 /* Header Sections */
 .header-top .header-inner {
     display: flex;
+    background-color: #fff;
     justify-content: space-between;
     align-items: center;
     max-width: 100%;
@@ -101,9 +102,15 @@
 /* is-stuckクラスが付いている場合のナビゲーションリンクの色を変更 */
 .header-bottom.is-stuck .nav-item a,
 .header-bottom.is-stuck .dropdown-toggle {
-    color: rgba(255, 255, 255, 0.8);;
+    color: rgba(255, 255, 255, 0.8);
 }
 
+.nav-item:hover .bottom_arrow_icon,
+.nav-item.is-active .bottom_arrow_icon {
+    filter: invert(1); /* 矢印アイコンの色を反転させる */
+    transform: rotate(180deg); /* 矢印アイコンを180度回転させる */
+    transition: transform 0.3s ease; /* スムーズなアニメーション効果を追加 */
+}
 
 /* ナビゲーションリンクのフレックスコンテナ設定 */
 .nav-item > a,
@@ -124,12 +131,6 @@
     height: auto;
     margin-top: 10px; 
     transition: transform 0.3s ease;
-}
-
-/* ホバー時に画像を回転させる */
-.nav-item.has-dropdown:hover .bottom_arrow_icon,
-.dropdown-menu.is-visible .bottom_arrow_icon {
-    transform: rotate(180deg);
 }
 
 /*==================================
@@ -224,6 +225,7 @@
     color: #333;
     line-height: 1.5;
     text-align: left;
+    width: 80%;
 }
 
 /* リストアイテムの共通スタイル */
@@ -294,6 +296,7 @@
         position: sticky;
         top: 0;
         z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .mobile-nav-overlay {

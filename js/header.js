@@ -18,11 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 headerPlaceholder.innerHTML = headerContent;
                 
                 const headerBottom = headerPlaceholder.querySelector('.header-bottom');
+                const headerTop = headerPlaceholder.querySelector('.header-top');
+                
                 if (headerBottom) {
                     headerPlaceholder.after(headerBottom);
                 }
                 
-                const headerTop = document.querySelector('.header-top');
+                if (headerTop) {
+                    headerPlaceholder.before(headerTop);
+                }
+
                 const mobileNav = document.querySelector('.mobile-nav');
                 const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
                 
@@ -196,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 画像コンテナにマウスが入った時の処理
             imageContainer.addEventListener('mouseenter', () => {
-                 // 親のリストアイテムのハイライトを維持
+                    // 親のリストアイテムのハイライトを維持
                 const hoveredItem = productCategories.querySelector('li.is-hovered');
                 if (hoveredItem) {
                     hoveredItem.classList.add('is-hovered');

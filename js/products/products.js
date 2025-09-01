@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // モバイル用スライドインメニュー
     //==================================
     const mobileMenu = document.getElementById('mobile-category-menu');
-    const menuOverlay = document.getElementById('mobile-menu-overlay');
+    const menuOverlay = document.querySelector('.mobile-menu-overlay');
     const mobileMenuToggleBtn = document.getElementById('mobile-menu-toggle-btn');
     const closeBtn = document.getElementById('close-menu-btn');
     let startX = 0;
@@ -115,4 +115,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuOverlay) {
         menuOverlay.addEventListener('click', closeMobileMenu);
     }
+
+    // ヘッダーの高さに基づいてモバイルメニューの位置を調整する関数
+    function setMobileMenuPosition() {
+        // ★★★重要★★★
+        // ここを、あなたのHTMLにある「固定ヘッダー」の要素に合うように変更してください。
+        // 例: <header class="main-header"> の場合は '.main-header'
+        // 例: <div id="site-header"> の場合は '#site-header'
+        const fixedHeader = document.querySelector('header-top'); 
+        
+        if (fixedHeader && mobileMenu && menuOverlay) {
+            const headerHeight = fixedHeader.offsetHeight;
+            
+            mobileMenu.style.top = `${headerHeight}px`;
+            mobileMenu.style.height = `calc(100vh - ${headerHeight}px)`;
+            
+            menuOverlay.style.top = `${headerHeight}px`;
+        }
+    }
+
+    // 初期ロード時とウィンドウのリサイズ時に呼び出す
+    setMobileMenuPosition();
+    window.addEventListener('resize', setMobileMenuPosition);
 });
