@@ -44,9 +44,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 100%;
     z-index: 1000;
-    
     background-color: #fff;
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,7 +53,6 @@
     z-index: 999;
     padding-top: 20px;
     padding-bottom: 10px;
-    
     transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
@@ -132,7 +129,7 @@
 }
 
 /*==================================
-  Dropdown Menu
+  Dropdown Menu (3-column layout)
 ==================================*/
 .dropdown-menu {
     position: absolute;
@@ -142,20 +139,19 @@
     background-color: rgba(255, 255, 255, 0.9);
     z-index: 920;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
-    
     visibility: hidden;
     opacity: 0;
     transform: translateY(-20px);
-    
     pointer-events: none;
-    
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.5s ease;
     max-height: 80vh;
     overflow-y: auto;
     
+    /* 3分割レイアウトのための追加設定 */
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    padding: 25px; /* 全体のパディングを設定 */
 }
 
 .dropdown-menu.is-visible {
@@ -165,54 +161,57 @@
     pointer-events: auto;
 }
 
-/* ドロップダウン内のコンテナ（左側：リスト） */
+/* 左側: 製品カテゴリ */
 .dropdown-list-container {
     width: 25%;
-    padding: 0 25px;
+    padding-right: 25px;
 }
 
+/* 新規追加: 真ん中の子製品リスト */
+.sub-dropdown-list-container {
+    width: 35%;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.sub-dropdown-menu {
+    display: none;
+}
+
+/* 右側: 画像と簡易テキスト */
+.dropdown-image-container {
+    width: 40%;
+    padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* 各コンテナの境界線 */
 .dropdown-border {
     border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-/* ドロップダウン内のコンテナ（右側：画像とテキスト） */
-.dropdown-image-container {
-    width: 75%;
-    height: auto;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding-top: 80px;
-    padding-left: 80px;
-    
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-/* ホバー時に表示するためのクラス */
-.dropdown-image-container.is-visible {
-    opacity: 1;
-}
-
 /* 画像とテキストのスタイル */
-#dropdown-image {
-    width: 250px;
+.dropdown-image-container img {
+    width: 100%;
+    max-width: 250px;
     height: auto;
     object-fit: contain;
     margin-bottom: 15px;
 }
 
-#dropdown-description {
+.dropdown-image-container p {
     font-size: 1.1em;
     color: #333;
-    margin-top: 10px;
     line-height: 1.5;
     text-align: left;
 }
 
-.dropdown-list {
+/* リストアイテムの共通スタイル */
+.dropdown-list,
+.sub-dropdown-list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -221,21 +220,19 @@
     align-items: flex-start;
 }
 
-.dropdown-list li {
-    width: 100%;
-    max-width: 250px; 
-    text-align: left; 
-}
-
-.dropdown-list li a {
+.dropdown-list li a,
+.sub-dropdown-list li a {
     display: block;
     padding: 10px 0;
     color: #333;
     text-decoration: none;
+    font-weight: bold;
 }
 
-.dropdown-list li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+.dropdown-list li a:hover,
+.sub-dropdown-list li a:hover {
+    color: #00479d;
+    text-decoration: underline;
 }
 
 /*common*/

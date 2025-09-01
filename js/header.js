@@ -15,16 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const doc = parser.parseFromString(data, 'text/html');
                 const headerContent = doc.body.innerHTML;
 
-                // 1. ヘッダー全体を一時的にplaceholder内に挿入
                 headerPlaceholder.innerHTML = headerContent;
                 
-                // 2. header-bottom要素を取得し、placeholderの直後に移動
                 const headerBottom = headerPlaceholder.querySelector('.header-bottom');
                 if (headerBottom) {
                     headerPlaceholder.after(headerBottom);
                 }
                 
-                // 3. モバイルナビゲーションの位置を調整
                 const headerTop = document.querySelector('.header-top');
                 const mobileNav = document.querySelector('.mobile-nav');
                 const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
@@ -61,8 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const overlay = document.querySelector('.mobile-nav-overlay');
 
         if (topContainer && bottomContainer) {
-            initializeDropdowns(bottomContainer);
-            initializeDropdownImages(bottomContainer);
+            initializeMegaMenu();
             initializeHeaderScroll(topContainer, bottomContainer);
         }
 
@@ -94,6 +90,117 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
+    //==================================
+    // メガメニューの機能を初期化する関数
+    //==================================
+    function initializeMegaMenu() {
+        const navItemsWithDropdown = document.querySelectorAll('.nav-item.has-dropdown');
+        const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+        let activeDropdown = null;
+        let timeoutId = null;
+
+        navItemsWithDropdown.forEach(navItem => {
+            const targetDropdown = document.getElementById(navItem.dataset.dropdownTarget);
+            
+            navItem.addEventListener('mouseenter', () => {
+                if (timeoutId) clearTimeout(timeoutId);
+                dropdownMenus.forEach(menu => menu.classList.remove('is-visible'));
+                if (targetDropdown) {
+                    targetDropdown.classList.add('is-visible');
+                    activeDropdown = targetDropdown;
+                    // メニュー表示時にボーダーの高さを調整
+                    if (targetDropdown.id === 'product-dropdown') {
+                        adjustDropdownBorderHeight(targetDropdown);
+                    }
+                }
+            });
+
+            navItem.addEventListener('mouseleave', () => {
+                timeoutId = setTimeout(() => {
+                    if (activeDropdown && !navItem.matches(':hover') && !activeDropdown.matches(':hover')) {
+                        activeDropdown.classList.remove('is-visible');
+                        activeDropdown = null;
+                    }
+                }, 150);
+            });
+        });
+
+        dropdownMenus.forEach(menu => {
+            menu.addEventListener('mouseleave', () => {
+                if (activeDropdown) {
+                    activeDropdown.classList.remove('is-visible');
+                    activeDropdown = null;
+                }
+            });
+        });
+
+        const productCategories = document.getElementById('product-categories');
+        const subDropdownContainer = document.querySelector('.sub-dropdown-list-container');
+        const imageContainer = document.querySelector('.dropdown-image-container');
+
+        if (productCategories && subDropdownContainer && imageContainer) {
+            productCategories.addEventListener('mouseenter', (event) => {
+                const link = event.target.closest('.has-sub-list');
+                if (link) {
+                    const subList = link.querySelector('.sub-dropdown-menu');
+                    if (subList) {
+                        subDropdownContainer.innerHTML = subList.innerHTML;
+                    } else {
+                        subDropdownContainer.innerHTML = '';
+                    }
+                    // 子リスト表示時にボーダーの高さを再調整
+                    adjustDropdownBorderHeight(document.getElementById('product-dropdown'));
+                }
+            }, true);
+
+            subDropdownContainer.addEventListener('mouseenter', (event) => {
+                const link = event.target.closest('a');
+                if (link) {
+                    const targetId = link.getAttribute('data-image-target');
+                    const dataElement = document.getElementById(targetId);
+                    if (dataElement) {
+                        imageContainer.innerHTML = dataElement.innerHTML;
+                    } else {
+                        imageContainer.innerHTML = '';
+                    }
+                }
+            }, true);
+
+            const productDropdown = document.getElementById('product-dropdown');
+            if (productDropdown) {
+                productDropdown.addEventListener('mouseleave', () => {
+                    subDropdownContainer.innerHTML = '';
+                    imageContainer.innerHTML = '';
+                });
+            }
+        }
+    }
+
+    //==================================
+    // ボーダーの高さを調整する新しい関数
+    //==================================
+    function adjustDropdownBorderHeight(dropdownMenu) {
+        const leftContainer = dropdownMenu.querySelector('.dropdown-list-container');
+        const middleContainer = dropdownMenu.querySelector('.sub-dropdown-list-container');
+        
+        if (leftContainer && middleContainer) {
+            // コンテナの高さをリセットして再計算
+            leftContainer.style.height = 'auto';
+            middleContainer.style.height = 'auto';
+
+            // 両方のコンテナの高さを取得
+            const leftHeight = leftContainer.offsetHeight;
+            const middleHeight = middleContainer.offsetHeight;
+
+            // 高い方の高さを設定
+            const maxHeight = Math.max(leftHeight, middleHeight);
+            
+            // `min-height`を使って、コンテンツが増えても対応できるようにする
+            leftContainer.style.minHeight = `${maxHeight}px`;
+            middleContainer.style.minHeight = `${maxHeight}px`;
+        }
+    }
+
     //==================================
     // 製品ページの機能（変更なし）
     //==================================
@@ -175,80 +282,4 @@ function initializeHeaderScroll(topContainer, bottomContainer) {
             bottomContainer.classList.remove('is-stuck');
         }
     });
-}
-
-function initializeDropdowns(container) {
-    const navItemsWithDropdown = container.querySelectorAll('.nav-item.has-dropdown');
-    const dropdownMenus = document.querySelectorAll('.dropdown-menu');
-    let activeDropdown = null;
-    let timeoutId = null;
-
-    navItemsWithDropdown.forEach(navItem => {
-        const targetId = navItem.dataset.dropdownTarget;
-        const targetDropdown = document.querySelector(`#${targetId}`);
-        navItem.addEventListener('mouseenter', () => {
-            if (timeoutId) {
-                clearTimeout(timeoutId);
-            }
-            dropdownMenus.forEach(menu => {
-                menu.classList.remove('is-visible');
-            });
-            if (targetDropdown) {
-                targetDropdown.classList.add('is-visible');
-                activeDropdown = targetDropdown;
-            }
-        });
-        navItem.addEventListener('mouseleave', () => {
-            timeoutId = setTimeout(() => {
-                if (activeDropdown && !navItem.matches(':hover') && !activeDropdown.matches(':hover')) {
-                    activeDropdown.classList.remove('is-visible');
-                    activeDropdown = null;
-                }
-            }, 150);
-        });
-    });
-    dropdownMenus.forEach(menu => {
-        menu.addEventListener('mouseleave', () => {
-            if (activeDropdown) {
-                activeDropdown.classList.remove('is-visible');
-                activeDropdown = null;
-            }
-        });
-    });
-}
-
-function initializeDropdownImages(container) {
-    const dropdownLinks = container.querySelectorAll('.dropdown-list a');
-    const dropdownImageContainer = document.querySelector('.dropdown-image-container');
-    const dropdownImage = dropdownImageContainer ? dropdownImageContainer.querySelector('img') : null;
-    const dropdownDescription = dropdownImageContainer ? dropdownImageContainer.querySelector('p') : null;
-
-    if (!dropdownImage || !dropdownDescription) return;
-
-    dropdownLinks.forEach(link => {
-        const imageUrl = link.getAttribute('data-image');
-        const description = link.getAttribute('data-description');
-        
-        link.addEventListener('mouseenter', () => {
-            if (imageUrl) {
-                dropdownImage.src = imageUrl;
-                dropdownDescription.textContent = description;
-                dropdownImageContainer.classList.add('is-visible');
-            }
-        });
-        
-        link.addEventListener('mouseleave', () => {
-            const isHoveringAnotherLink = Array.from(dropdownLinks).some(otherLink => otherLink.matches(':hover'));
-            if (!isHoveringAnotherLink) {
-                dropdownImageContainer.classList.remove('is-visible');
-            }
-        });
-    });
-
-    const productDropdown = container.querySelector('#product-dropdown');
-    if (productDropdown) {
-        productDropdown.addEventListener('mouseleave', () => {
-            dropdownImageContainer.classList.remove('is-visible');
-        });
-    }
 }
