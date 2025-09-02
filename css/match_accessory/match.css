@@ -1,3 +1,8 @@
+/*==================================
+適合検索ページ（match.html）用CSS
+==================================*/
+
+/* フォームと結果を包括するコンテナ */
 .match-container {
     width: 100%;
     display: flex;
@@ -13,58 +18,24 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    gap: 30px; /* フォームと結果エリア間の余白 */
 }
 
+/* フォームエリアの全体的なスタイル */
 .form-area {
     max-width: 500px;
     width: 100%;
-}
-
-.result-area {
-    width: 100%;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-
-    /* スクロール設定 */
-    max-height: 2000px;
-    overflow-y: auto;
-    overflow-x: auto; /* この行を追加 */
-    padding: 20px;
-    margin: 30px 0 30px 0;
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
-    text-align: left;
-    box-sizing: border-box; /* この行を追加 */
-}
-
-/* 年と月のセレクトボックスを横並びにするためのコンテナ */
-.year-month-group {
-    display: flex;
-    align-items: center; /* 垂直方向の中央揃え */
-    gap: 10px; /* 要素間の隙間を設定 */
-}
-
-/* スラッシュ（/）のスタイル */
-.year-month-group span {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
-}
-
-/* フォームの各グループを縦に並べるためのFlexbox設定 */
-.form-area {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-/* フォームグループ、セレクトボックス、ボタンの既存のスタイル */
+/* フォームの各グループを縦に並べるためのFlexbox設定 */
 .form-group {
-    margin-bottom: 20px;
     text-align: left;
 }
 
+/* ラベルの共通スタイル */
 label {
     display: block;
     margin-bottom: 8px;
@@ -72,6 +43,7 @@ label {
     color: #555;
 }
 
+/* セレクトボックスの共通スタイル */
 .form-select {
     width: 100%;
     padding: 12px;
@@ -100,6 +72,68 @@ label {
     cursor: not-allowed;
 }
 
+/* 年と月のセレクトボックスを横並びにするためのコンテナ */
+.year-month-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* スラッシュ（/）のスタイル */
+.year-month-group span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* ラジオボタンのグループスタイル */
+.option-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* ラジオボタンとラベルのスタイル */
+.option-group input[type="radio"] {
+    display: none; /* ラジオボタン自体は非表示 */
+}
+
+.option-group label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: normal; /* 親のlabelのfont-weightを上書き */
+    position: relative;
+    padding-left: 25px; /* カスタムデザインの余白 */
+    margin-bottom: 0;
+}
+
+.option-group label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background-color: #fff;
+}
+
+.option-group input[type="radio"]:checked + label::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #007bff;
+}
+
+/* ボタンのスタイル */
 .btn-primary {
     display: inline-block;
     width: 100%;
@@ -123,40 +157,26 @@ label {
     cursor: not-allowed;
 }
 
-.result-area h3 {
-    color: #005a87;
-    margin-bottom: 10px;
+/* 検索結果エリアの共通スタイル */
+.result-area {
+    width: 100%;
+    /* ページの横幅いっぱいに広がるよう調整 */
+    padding: 20px;
+    margin: 30px 0;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    text-align: left;
+    box-sizing: border-box;
+    /* テーブルの横スクロールを管理する */
+    overflow-x: auto;
 }
 
-.result-area p {
-    margin: 5px 0;
-}
-
-.part-result {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-}
-
-.part-result:last-child {
-    border-bottom: none;
-}
-
-/* リザルトのスタイル */
-
-/* ヘッダー行の見出しのスタイル */
-.result-table thead tr:first-child th {
-    text-align: center; /* 中央揃えに設定 */
-    background-color: #e2e2e2;
-    font-size: 1.1em;
-    padding: 15px;
-}
-
+/* テーブルのスタイル */
 .result-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
     font-size: 0.9em;
-    overflow-x: auto;
+    min-width: 1000px; /* テーブルが狭い画面で崩れないように最小幅を設定 */
 }
 
 .result-table th,
@@ -170,18 +190,36 @@ label {
     background-color: #f2f2f2;
 }
 
-.result-table th {
+/* ヘッダーセルのスタイル */
+.result-table thead th {
     font-weight: bold;
     color: #333;
-    white-space: nowrap
+    white-space: nowrap; /* テキストの折り返しを防ぐ */
+    text-align: center;
+    vertical-align: middle; /* 垂直方向の中央揃え */
+}
+
+/* 2行になったヘッダーの1行目の下線を非表示に */
+.result-table thead tr:first-child th {
+    border-bottom: none;
+}
+
+/* テーブルボディのセルスタイル */
+.result-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
 
 /* 検索結果が見つからない場合のスタイル */
-.no-results {
+#message-container {
     color: orange;
     font-weight: bold;
     text-align: center;
     padding: 20px;
     border: 1px dashed orange;
     margin-top: 20px;
+    display: none; /* 初期状態では非表示 */
+}
+
+#message-container.visible {
+    display: block;
 }

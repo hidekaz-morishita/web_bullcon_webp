@@ -20,6 +20,23 @@
             <div class="content-wrapper">
                 <div class="form-area">
                     <div class="form-group">
+                        <label for="product-select">製品名</label>
+                        <select id="product-select" class="form-select">
+                            <option value="">製品を選択してください</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>オプションタイプ</label>
+                        <div class="option-group">
+                            <input type="radio" id="maker-option" name="option-type" value="maker" checked>
+                            <label for="maker-option">メーカーオプション</label>
+                            <input type="radio" id="dealer-option" name="option-type" value="dealer">
+                            <label for="dealer-option">ディーラーオプション</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="maker-select">メーカー</label>
                         <select id="maker-select" class="form-select">
                             <option value="">メーカーを選択してください</option>
@@ -52,40 +69,8 @@
                     <p id="message-container">検索結果がここに表示されます。</p>
                     <div id="results-table-container" style="display: none;">
                         <table class="result-table">
-                            <thead>
-                                <tr>
-                                  <th colspan="4">車両情報</th>
-                                  <th colspan="12">FreeTVing TELENAVing （オートタイプ/切替タイプ）</th>
-                                  <th colspan="6">（TV：オート/ナビ：切替タイプ）</th>
-                                </tr>
-                                <tr>
-                                    <th>メーカー</th>
-                                    <th>車名</th>
-                                    <th>年式</th>
-                                    <th>型式</th>
-                                    <th>ナビ種類</th>
-                                    <th>オートタイプ品番</th>
-                                    <th>ナビ操作</th>
-                                    <th>自車位置</th>
-                                    <th>小型LEDｽｲｯﾁ切替ﾀｲﾌﾟ品番</th>
-                                    <th>ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ品番</th>
-                                    <th>ｽﾃｱﾘﾝｸﾞｽｲｯﾁ切替ﾀｲﾌﾟ品番</th>
-                                    <th>ナビ操作</th>
-                                    <th>自車位置</th>
-                                    <th>DVD視聴</th>
-                                    <th>取付場所</th>
-                                    <th>交換用ｵﾌﾟｼｮﾝｽｲｯﾁ品番</th>
-                                    <th>小型LEDｽｲｯﾁ切替ﾀｲﾌﾟ品番</th>
-                                    <th>ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ品番</th>
-                                    <th>DVD視聴</th>
-                                    <th>TV取付場所</th>
-                                    <th>ナビ取付場所</th>
-                                    <th>交換用ｵﾌﾟｼｮﾝｽｲｯﾁ</th>
-                                    <th>注意事項</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                </tbody>
+                            <thead></thead>
+                            <tbody></tbody>
                         </table>
                     </div>
                 </div>
