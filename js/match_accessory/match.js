@@ -1,10 +1,14 @@
 // match.js
+import { NOTES_DATA } from './caution_note.js'
 
 // データベースから車種情報を取得するAPIのURL
 const CARS_API_URL = '../../api/get_car_type.php';
 
 // 適合品番を検索するAPIの共通URL
 const MATCH_API_URL = '../../api/get_products_compatibility.php';
+
+// 月の固定データ
+const MONTHS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 
 // ★修正: 検索対象の製品情報と、それに紐づく適合表のカラム情報をオプションタイプ別に定義
 // 統一されたAPIを使用するため、個別のAPI URLはPRODUCTS_DATAから削除
@@ -68,20 +72,6 @@ const PRODUCTS_DATA = {
     },
     // 他の製品情報も同様に追加できます
 };
-
-// 月の固定データ
-const MONTHS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
-
-// ★追加: 注意書きデータの定義
-// データベースから取得したデータをここに貼り付けるか、別途APIから取得するロジックを実装してください。
-const NOTES_DATA = {
-    '1': 'この製品は特定のモデルのみに対応しています。',
-    '2': '取付には専門的な知識が必要です。',
-    '3': '〇〇ナビゲーションシステムには対応していません。',
-    '4': 'マイナーチェンジ後のモデルには適合しません。',
-    // 他の注意事項もここに追加
-};
-
 
 // Web APIから車種情報を取得
 const carsDataPromise = fetch(CARS_API_URL)
