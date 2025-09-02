@@ -64,13 +64,24 @@ const PRODUCTS_DATA = {
             { label: '注意事項', subHeaders: [
                 { key: 'col23', label: '備考' }
             ]}
-        ],
+        ]
     },
     // 他の製品情報も同様に追加できます
 };
 
 // 月の固定データ
 const MONTHS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+
+// ★追加: 注意書きデータの定義
+// データベースから取得したデータをここに貼り付けるか、別途APIから取得するロジックを実装してください。
+const NOTES_DATA = {
+    '1': 'この製品は特定のモデルのみに対応しています。',
+    '2': '取付には専門的な知識が必要です。',
+    '3': '〇〇ナビゲーションシステムには対応していません。',
+    '4': 'マイナーチェンジ後のモデルには適合しません。',
+    // 他の注意事項もここに追加
+};
+
 
 // Web APIから車種情報を取得
 const carsDataPromise = fetch(CARS_API_URL)
@@ -133,6 +144,7 @@ function updateSearchButtonState() {
 function resetResultArea() {
     const messageContainer = document.getElementById('message-container');
     const tableContainer = document.getElementById('results-table-container');
+    const notesContainer = document.getElementById('notes-list-container'); // ★追加
 
     if (messageContainer) {
         messageContainer.textContent = '検索結果がここに表示されます。';
@@ -140,6 +152,9 @@ function resetResultArea() {
     }
     if (tableContainer) {
         tableContainer.style.display = 'none';
+    }
+    if (notesContainer) { // ★追加
+        notesContainer.style.display = 'none';
     }
 }
 
@@ -296,6 +311,7 @@ document.getElementById('search-button').addEventListener('click', async () => {
             if (messageContainer) messageContainer.style.display = 'none';
             // 動的なテーブル生成関数を呼び出し、ヘッダー情報も渡す
             generateTable(partsData, headerData);
+            displayNotes(partsData); // ★追加: 注意書き一覧を表示
             if (tableContainer) tableContainer.style.display = 'block';
         } else {
             if (messageContainer) {
@@ -303,6 +319,7 @@ document.getElementById('search-button').addEventListener('click', async () => {
                 messageContainer.style.display = 'block';
             }
             if (tableContainer) tableContainer.style.display = 'none';
+            displayNotes([]); // ★追加: 結果がない場合は注意事項をクリア
         }
     } catch (error) {
         if (messageContainer) {
@@ -395,4 +412,41 @@ function generateTable(data, headerData) {
         });
         tbody.appendChild(row);
     });
+}
+
+
+// ★追加: 検索結果の注意事項を収集し、表示する関数
+function displayNotes(data) {
+    const notesContainer = document.getElementById('notes-list-container');
+    const uniqueNotes = new Set();
+
+    // データの各行から注意事項の番号を収集
+    data.forEach(item => {
+        const notesString = item['notes'];
+        if (notesString) {
+            // {}を除去し、カンマで分割して各番号を取得
+            const numbers = notesString.replace(/[{}]/g, '').split(',').filter(n => n.trim() !== '');
+            numbers.forEach(num => uniqueNotes.add(num.trim()));
+        }
+    });
+
+    // 収集した番号を昇順にソート
+    const sortedNotes = Array.from(uniqueNotes).sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
+
+    // HTML要素を生成して表示
+    if (sortedNotes.length > 0) {
+        let notesHtml = '<h3>注意事項</h3><ul>';
+        sortedNotes.forEach(num => {
+            const noteText = NOTES_DATA[num];
+            if (noteText) {
+                notesHtml += `<li>※${num}: ${noteText}</li>`;
+            }
+        });
+        notesHtml += '</ul>';
+        notesContainer.innerHTML = notesHtml;
+        notesContainer.style.display = 'block';
+    } else {
+        notesContainer.innerHTML = '';
+        notesContainer.style.display = 'none';
+    }
 }

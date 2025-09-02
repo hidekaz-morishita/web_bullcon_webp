@@ -230,3 +230,31 @@ label {
 #message-container.visible {
     display: block;
 }
+
+/* 注意事項リストのスタイル */
+#notes-list-container {
+    width: 100%; /* コンテナを親要素いっぱいに広げる */
+    margin-top: 20px; /* テーブルとの間に余白 */
+    text-align: left; /* コンテナ内のテキストを左寄せ */
+}
+
+#notes-list-container h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: left; /* h3要素を明示的に左寄せ */
+    color: rgb(255, 0, 0);
+}
+
+#notes-list-container ul {
+    list-style-type: none; /* デフォルトのリストマーカーを非表示 */
+    padding: 0;
+    margin: 0;
+    text-align: left; /* ul要素を明示的に左寄せ */
+}
+
+#notes-list-container li {
+    margin-bottom: 5px;
+    padding-left: 10px;
+    text-indent: -10px; /* 箇条書きのテキストを左にずらす */
+}
