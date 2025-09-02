@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origin: *'); // CORS対策のため追加
 header('Access-Control-Allow-Methods: GET');
 
 define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'match_products');
+define('DB_NAME', 'web_page');
 define('DB_USER', 'fuji23f6');
 define('DB_PASS', 'fuji-buru-');
 define('DB_PORT', '5432');
@@ -30,23 +30,25 @@ $selectedModel = $_GET['model'] ?? '';
 $selectedYear = $_GET['year'] ?? '';
 $selectedMonth = $_GET['month'] ?? '';
 
-// ★修正: 製品とオプションタイプからテーブル名と年式カラム名を動的に決定するマップ
+// ★修正: 製品とオプションタイプからテーブル名、年式カラム名、SQLクエリを動的に決定するマップ
 $PRODUCT_TABLE_MAP = [
     'televing' => [
         'maker' => [
-            'table' => 'televing',
-            'year_col' => 'col3',
+            'year_col' => 'year',
+            'sql' => "SELECT * FROM televing_maker WHERE maker = ? AND car_model LIKE ?",
+            'sql_pattern' => 'pattern_1', 
         ],
         'dealer' => [
-            'table' => 'televing',
-            'year_col' => 'col3',
+            'year_col' => 'col2', 
+            'sql' => "SELECT * FROM televing_dealer WHERE col1 = ?",
+            'sql_pattern' => 'pattern_2',
         ],
     ],
-    // 新しい製品を追加する場合の例:
     // 'new_product' => [
     //     'maker' => [
     //         'table' => 'products_new_product_maker',
-    //         'year_col' => 'custom_year_column', // 年式カラム名が異なる場合
+    //         'year_col' => 'custom_year_column',
+    //         'sql' => "SELECT * FROM products_new_product_maker WHERE col1 = ? AND col2 = ?",
     //     ],
     // ],
 ];
@@ -58,12 +60,16 @@ if (!isset($PRODUCT_TABLE_MAP[$selectedProduct][$selectedOption])) {
     exit;
 }
 
-// 動的にテーブル名と年式カラム名を決定
+// 動的にテーブル名、年式カラム名、SQLクエリを決定
 $config = $PRODUCT_TABLE_MAP[$selectedProduct][$selectedOption];
-$tableName = $config['table'];
 $yearColName = $config['year_col'];
+$sql = $config['sql'];
+$sqlPattern = $config['sql_pattern'];
 
 // ユーザーが選択した年月のタイムスタンプを作成
+if ($selectedProduct === 'televing' && $selectedOption === 'dealer') {
+    $selectedMonth = '01';
+}
 $userDateTimestamp = strtotime("{$selectedYear}-{$selectedMonth}-01");
 if ($userDateTimestamp === false) {
     http_response_code(400);
@@ -71,12 +77,15 @@ if ($userDateTimestamp === false) {
     exit;
 }
 
-// データベースから、メーカーとモデル名に一致するすべての適合データを取得
+// データベースから適合データを取得
 try {
-    // SQLクエリのテーブル名を動的に変更
-    $sql = "SELECT * FROM {$tableName} WHERE col1 = ? AND col2 = ?";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$selectedMaker, $selectedModel]);
+    // sqlパターンによって実行パラメータを分岐
+    if ($sqlPattern === 'pattern_1') {
+        $stmt->execute([$selectedMaker, "{$selectedModel}%"]);
+    } else if ($sqlPattern === 'pattern_2') {
+        $stmt->execute([$selectedMaker]); 
+    }
     $allPartsData = $stmt->fetchAll();
 } catch (PDOException $e) {
     http_response_code(500);
@@ -112,7 +121,7 @@ function isDateMatch($dateString, $userDateTimestamp) {
     $dateString = trim($dateString);
 
     // パターン1: 範囲指定（例: H27(2015)2～ R1(2019)12）
-    $regexRange = '/^([RH]\d+\((\d{4})\))(\d{1,2})\s*[〜～]\s*([RH]\d+\((\d{4})\))(\d{1,2})/';
+    $regexRange = '/^([RH]\d+\((\d{4})\))\/*(\d{1,2})\s*[〜～]\s*([RH]\d+\((\d{4})\))\/*(\d{1,2})/';
     if (preg_match($regexRange, $dateString, $matches)) {
         $startYear = $matches[2];
         $startMonth = $matches[3];
@@ -124,7 +133,7 @@ function isDateMatch($dateString, $userDateTimestamp) {
     }
 
     // パターン2: 〜以前（例: 〜H27(2015)2）
-    $regexTo = '/[〜～]\s*([RH]\d+\((\d{4})\))(\d{1,2})/';
+    $regexTo = '/[〜～]\s*([RH]\d+\((\d{4})\))\/*(\d{1,2})/';
     if (preg_match($regexTo, $dateString, $matches)) {
         $endYear = $matches[2];
         $endMonth = $matches[3];
@@ -133,7 +142,7 @@ function isDateMatch($dateString, $userDateTimestamp) {
     }
 
     // パターン3: 〜以降（例: R3(2020)8～）
-    $regexFrom = '/^([RH]\d+\((\d{4})\))(\d{1,2})\s*[〜～]/';
+    $regexFrom = '/^([RH]\d+\((\d{4})\))\/*(\d{1,2})\s*[〜～]/';
     if (preg_match($regexFrom, $dateString, $matches)) {
         $startYear = $matches[2];
         $startMonth = $matches[3];
@@ -141,7 +150,16 @@ function isDateMatch($dateString, $userDateTimestamp) {
         return $userDateTimestamp >= $startTimestamp;
     }
 
+    // パターン2-1: 2025(R7)年モデル
+    $regexYear = '/^(\d{4})\([RH]\d+/';
+    if (preg_match($regexYear, $dateString, $matches)) {
+        $startYear = $matches[1];
+        // ユーザーが選択した年を取得
+        $userYear = date('Y', $userDateTimestamp);
+        return $userYear == $startYear;
+    }
+    
     // どのパターンにも一致しない場合は、常に適合とみなす（またはfalseを返す）
-    return true;
+    return false;
 }
 ?>

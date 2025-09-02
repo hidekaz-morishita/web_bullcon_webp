@@ -1,13 +1,10 @@
 // match.js
-// このスクリプトは、2つのWeb APIエンドポイントと連携することを想定しています。
-// 1. 車種情報を取得するAPI (例: /api/get_car_type.php)
-// 2. 適合品番を検索するAPI (例: /api/get_match.php)
 
 // データベースから車種情報を取得するAPIのURL
 const CARS_API_URL = '../../api/get_car_type.php';
 
 // 適合品番を検索するAPIの共通URL
-const MATCH_API_URL = '../../api/get_match.php';
+const MATCH_API_URL = '../../api/get_products_compatibility.php';
 
 // ★修正: 検索対象の製品情報と、それに紐づく適合表のカラム情報をオプションタイプ別に定義
 // 統一されたAPIを使用するため、個別のAPI URLはPRODUCTS_DATAから削除
@@ -15,32 +12,33 @@ const PRODUCTS_DATA = {
     'FreeTVing': {
         name: 'フリーテレビング/テレナビング',
         productKey: 'televing', // APIに渡す製品識別子
-
         // メーカーオプションの結合ヘッダー定義
         makerHeader: [
-            { label: '共通情報', subHeaders: [
-                { key: 'col1', label: 'メーカー' },
-                { key: 'col2', label: '車名' },
-                { key: 'col3', label: '年式' },
-                { key: 'col4', label: '型式' },
-                { key: 'col5', label: 'ナビ種類' }
+            { label: '車両情報', subHeaders: [
+                { key: 'maker', label: 'メーカー' },
+                { key: 'car_model', label: '車名' },
+                { key: 'year', label: '年式' },
+                { key: 'model_number', label: '型式' },
+                { key: 'specification', label: '仕様' },
             ]},
-            { label: 'オートタイプ', subHeaders: [
-                { key: 'col6', label: '品番' },
-                { key: 'col7', label: 'ナビ操作' },
-                { key: 'col8', label: '自車位置' }
+            { label: 'フリーテレビング', subHeaders: [
+                { key: 'ft_auto_type', label: 'オートタイプ' },
+                { key: 'ft_auto_navigation_control', label: 'ナビ操作' },
+                { key: 'ft_auto_vehicle_position', label: '自車位置' },
+                { key: 'ft_led_switch_type', label: 'LEDスイッチ切替タイプ' },
+                { key: 'ft_service_hole_switch_type', label: 'サービスホールスイッチ切替タイプ' },
+                { key: 'ft_steering_switch_type', label: 'ステアリングスイッチ切替タイプ' },
+                { key: 'ft_led_sh_st_navigation_control', label: 'ナビ操作' },
+                { key: 'ft_led_sh_st_vehicle_position', label: '自車位置' },
+                { key: 'ft_led_sh_st_dvd_playback', label: 'DVD視聴' },
             ]},
-            { label: '切替タイプ', subHeaders: [
-                { key: 'col9', label: '小型LEDｽｲｯﾁ品番' },
-                { key: 'col10', label: 'ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ品番' },
-                { key: 'col11', label: 'ｽﾃｱﾘﾝｸﾞｽｲｯﾁ品番' },
-                { key: 'col12', label: 'ナビ操作' },
-                { key: 'col13', label: '自車位置' },
-                { key: 'col14', label: 'DVD視聴' },
-                { key: 'col15', label: '取付場所' }
+            { label: 'テレナビング', subHeaders: [
+                { key: 'nav_product_number', label: '品番 1' },
+                { key: 'nav_product_number_2', label: '品番 2' },
+                { key: 'nav_dvd_playback_2', label: 'DVD視聴' },
             ]},
             { label: '注意事項', subHeaders: [
-                { key: 'col23', label: '備考' }
+                { key: 'notes', label: '備考' }
             ]}
         ],
         // ディーラーオプションの結合ヘッダー定義
@@ -355,10 +353,43 @@ function generateTable(data, headerData) {
         allColumns.forEach(col => {
             const td = document.createElement('td');
             // 注意事項カラムは、文字列を加工して表示
-            if (col.key === 'col23') {
-                td.innerHTML = (item[col.key] || '').replace(/[{}]/g, '').replace(/,/g, '<br>');
-            } else {
-                td.textContent = item[col.key] || '';
+            if (col.key === 'notes') {
+                const parts = (item[col.key] || '').replace(/[{}]/g, '').split(',');
+                td.innerHTML = parts.map(part => `※${part}`).join('<br>');
+            } 
+            // 品番に税別、税込みを埋め込む
+            else if (col.key === 'ft_auto_type') {
+                const priceExclTax = `<span style="font-size: 0.8em;">税別: ${(item['ft_auto_price_excl_tax'] || '').replace('\\','￥')}</span>`;
+                const priceInclTax = `<span style="font-size: 0.8em;">税込: ${(item['ft_auto_price_incl_tax'] || '').replace('\\','￥')}</span>`;
+                td.innerHTML = `${item[col.key]}<br>${priceExclTax}<br>${priceInclTax}`;
+            }
+            else if (col.key === 'ft_led_switch_type') {
+                const priceExclTax = `<span style="font-size: 0.8em;">税別: ${(item['ft_led_price_excl_tax'] || '').replace('\\','￥')}</span>`;
+                const priceInclTax = `<span style="font-size: 0.8em;">税込: ${(item['ft_led_price_incl_tax'] || '').replace('\\','￥')}</span>`;
+                td.innerHTML = `${item[col.key]}<br>${priceExclTax}<br>${priceInclTax}`;
+            }
+            else if (col.key === 'ft_service_hole_switch_type') {
+                const priceExclTax = `<span style="font-size: 0.8em;">税別: ${(item['ft_service_hole_price_excl_tax'] || '').replace('\\','￥')}</span>`;
+                const priceInclTax = `<span style="font-size: 0.8em;">税込: ${(item['ft_service_hole_price_incl_tax'] || '').replace('\\','￥')}</span>`;
+                td.innerHTML = `${item[col.key]}<br>${priceExclTax}<br>${priceInclTax}`;
+            }
+            else if (col.key === 'ft_steering_switch_type') {
+                const priceExclTax = `<span style="font-size: 0.8em;">税別: ${(item['ft_steering_switch_price_excl_tax'] || '').replace('\\','￥')}</span>`;
+                const priceInclTax = `<span style="font-size: 0.8em;">税込: ${(item['ft_steering_switch_price_incl_tax'] || '').replace('\\','￥')}</span>`;
+                td.innerHTML = `${item[col.key]}<br>${priceExclTax}<br>${priceInclTax}`;
+            }
+            else if (col.key === 'nav_product_number') {
+                const navPriceExclTax = `<span style="font-size: 0.8em;">税別: ${(item['nav_price_excl_tax'] || '').replace('\\','￥')}</span>`;
+                const navPriceInclTax = `<span style="font-size: 0.8em;">税込: ${(item['nav_price_incl_tax'] || '').replace('\\','￥')}</span>`;
+                td.innerHTML = `${item[col.key]}<br>${navPriceExclTax}<br>${navPriceInclTax}`;
+            }
+            else if (col.key === 'nav_product_number_2') {
+                const navPriceExclTax2 = `<span style="font-size: 0.8em;">税別: ${(item['nav_price_excl_tax_2'] || '').replace('\\','￥')}</span>`;
+                const navPriceInclTax2 = `<span style="font-size: 0.8em;">税込: ${(item['nav_price_incl_tax_2'] || '').replace('\\','￥')}</span>`;
+                td.innerHTML = `${item[col.key]}<br>${navPriceExclTax2}<br>${navPriceInclTax2}`;
+            }
+            else {
+                td.innerHTML = (item[col.key] || '').replace(/\n/g, '<br>');
             }
             row.appendChild(td);
         });

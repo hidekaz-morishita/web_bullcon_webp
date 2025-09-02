@@ -194,9 +194,16 @@ label {
 .result-table thead th {
     font-weight: bold;
     color: #333;
-    white-space: nowrap; /* テキストの折り返しを防ぐ */
+    
     text-align: center;
     vertical-align: middle; /* 垂直方向の中央揃え */
+}
+
+.result-table td {
+    /* セルの最大幅を300pxに設定し、超過した場合は改行 */
+    max-width: 300px;
+    /* テキストがこの最大幅を超えた場合に折り返すようにする */
+    word-wrap: break-word;
 }
 
 /* 2行になったヘッダーの1行目の下線を非表示に */
