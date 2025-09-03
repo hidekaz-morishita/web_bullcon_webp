@@ -19,14 +19,14 @@
             </h2>
             <div class="content-wrapper">
                 <div class="form-area">
-                    <div class="form-group">
+                    <div class="form-group" id="product-group">
                         <label for="product-select">製品名</label>
                         <select id="product-select" class="form-select">
                             <option value="">製品を選択してください</option>
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" id="option-group" style="display: none;">
                         <label>オプションタイプ</label>
                         <div class="option-group">
                             <input type="radio" id="maker-option" name="option-type" value="maker" checked>
@@ -36,22 +36,22 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" id="maker-group" style="display: none;">
                         <label for="maker-select">メーカー</label>
                         <select id="maker-select" class="form-select">
                             <option value="">メーカーを選択してください</option>
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" id="model-group" style="display: none;">
                         <label for="model-select">車種</label>
                         <select id="model-select" class="form-select" disabled>
                             <option value="">車種を選択してください</option>
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label for="year-month-select">年式</label>
+                    <div class="form-group" id="year-month-group" style="display: none;">
+                        <label id="year-label" for="year-select">年式</label>
                         <div class="year-month-group">
                             <select id="year-select" class="form-select" disabled>
                                 <option value="">年</option>
@@ -81,6 +81,7 @@
     <div id="footer-placeholder"></div>
     <script src="../../js/header.js"></script>
     <script src="../../js/footer.js"></script>
+    <script type="module" src="../../js/match_accessory/const_additional_info.js"></script>
     <script type="module" src="../../js/match_accessory/car_model.js"></script>
     <script type="module" src="../../js/match_accessory/caution_note.js"></script>
     <script type="module" src="../../js/match_accessory/match.js"></script>
