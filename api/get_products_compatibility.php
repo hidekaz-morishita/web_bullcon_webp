@@ -39,8 +39,8 @@ $PRODUCT_TABLE_MAP = [
             'sql_pattern' => 'pattern_1', 
         ],
         'dealer' => [
-            'year_col' => 'col2', 
-            'sql' => "SELECT * FROM televing_dealer WHERE col1 = ?",
+            'year_col' => 'year', 
+            'sql' => "SELECT * FROM televing_dealer WHERE maker = ?",
             'sql_pattern' => 'pattern_2',
         ],
     ],
@@ -67,6 +67,7 @@ $sql = $config['sql'];
 $sqlPattern = $config['sql_pattern'];
 
 // ユーザーが選択した年月のタイムスタンプを作成
+// テレビングかつディーラーの場合はDBにモデル月の情報がないため1月を固定する
 if ($selectedProduct === 'televing' && $selectedOption === 'dealer') {
     $selectedMonth = '01';
 }

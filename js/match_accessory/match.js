@@ -1,8 +1,5 @@
-// match.js
-import { NOTES_DATA } from './caution_note.js'
-
-// データベースから車種情報を取得するAPIのURL
-const CARS_API_URL = '../../api/get_car_type.php';
+import { CAR_TYPE } from './car_model.js';
+import { NOTES_DATA } from './caution_note.js';
 
 // 適合品番を検索するAPIの共通URL
 const MATCH_API_URL = '../../api/get_products_compatibility.php';
@@ -10,13 +7,11 @@ const MATCH_API_URL = '../../api/get_products_compatibility.php';
 // 月の固定データ
 const MONTHS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 
-// ★修正: 検索対象の製品情報と、それに紐づく適合表のカラム情報をオプションタイプ別に定義
-// 統一されたAPIを使用するため、個別のAPI URLはPRODUCTS_DATAから削除
+// 検索対象の製品情報と、それに紐づく適合表のカラム情報をオプションタイプ別に定義
 const PRODUCTS_DATA = {
     'FreeTVing': {
         name: 'フリーテレビング/テレナビング',
-        productKey: 'televing', // APIに渡す製品識別子
-        // メーカーオプションの結合ヘッダー定義
+        productKey: 'televing',
         makerHeader: [
             { label: '車両情報', subHeaders: [
                 { key: 'maker', label: 'メーカー' },
@@ -26,81 +21,54 @@ const PRODUCTS_DATA = {
                 { key: 'specification', label: '仕様' },
             ]},
             { label: 'フリーテレビング', subHeaders: [
-                { key: 'ft_auto_type', label: 'オートタイプ' },
+                { key: 'ft_auto_type', label: 'オートタイプ', priceKeys: { excl: 'ft_auto_price_excl_tax', incl: 'ft_auto_price_incl_tax' } },
                 { key: 'ft_auto_navigation_control', label: 'ナビ操作' },
                 { key: 'ft_auto_vehicle_position', label: '自車位置' },
-                { key: 'ft_led_switch_type', label: 'LEDスイッチ切替タイプ' },
-                { key: 'ft_service_hole_switch_type', label: 'サービスホールスイッチ切替タイプ' },
-                { key: 'ft_steering_switch_type', label: 'ステアリングスイッチ切替タイプ' },
+                { key: 'ft_led_switch_type', label: 'LEDスイッチ切替タイプ', priceKeys: { excl: 'ft_led_price_excl_tax', incl: 'ft_led_price_incl_tax' } },
+                { key: 'ft_service_hole_switch_type', label: 'サービスホールスイッチ切替タイプ', priceKeys: { excl: 'ft_service_hole_price_excl_tax', incl: 'ft_service_hole_price_incl_tax' } },
+                { key: 'ft_steering_switch_type', label: 'ステアリングスイッチ切替タイプ', priceKeys: { excl: 'ft_steering_switch_price_excl_tax', incl: 'ft_steering_switch_price_incl_tax' } },
                 { key: 'ft_led_sh_st_navigation_control', label: 'ナビ操作' },
                 { key: 'ft_led_sh_st_vehicle_position', label: '自車位置' },
                 { key: 'ft_led_sh_st_dvd_playback', label: 'DVD視聴' },
             ]},
             { label: 'テレナビング', subHeaders: [
-                { key: 'nav_product_number', label: '品番 1' },
-                { key: 'nav_product_number_2', label: '品番 2' },
+                { key: 'nav_product_number', label: '品番 1', priceKeys: { excl: 'nav_price_excl_tax', incl: 'nav_price_incl_tax' } },
+                { key: 'nav_product_number_2', label: '品番 2', priceKeys: { excl: 'nav_price_excl_tax_2', incl: 'nav_price_incl_tax_2' } },
                 { key: 'nav_dvd_playback_2', label: 'DVD視聴' },
             ]},
             { label: '注意事項', subHeaders: [
                 { key: 'notes', label: '備考' }
             ]}
         ],
-        // ディーラーオプションの結合ヘッダー定義
         dealerHeader: [
-            { label: '共通情報', subHeaders: [
-                { key: 'col1', label: 'メーカー' },
-                { key: 'col2', label: '車名' },
-                { key: 'col3', label: '年式' },
-                { key: 'col4', label: '型式' },
-                { key: 'col5', label: 'ナビ種類' }
+            { label: 'モニター情報', subHeaders: [
+                { key: 'maker', label: 'メーカー' },
+                { key: 'year', label: 'モデル年' },
+                { key: 'model_number', label: 'モニター型番' },
             ]},
-            { label: '品番', subHeaders: [
-                { key: 'col16', label: '交換用ｵﾌﾟｼｮﾝｽｲｯﾁ品番' },
-                { key: 'col17', label: '小型LEDｽｲｯﾁ切替ﾀｲﾌﾟ品番' },
-                { key: 'col18', label: 'ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ品番' },
-                { key: 'col19', label: 'DVD視聴' }
+            { label: 'フリーテレビング', subHeaders: [
+                { key: 'ft_auto_type', label: 'オートタイプ', priceKeys: { excl: 'ft_auto_price_excl_tax', incl: 'ft_auto_price_incl_tax' } },
+                { key: 'ft_auto_navigation_control', label: 'ナビ操作' },
+                { key: 'ft_auto_vehicle_position', label: '自車位置' },
+                { key: 'ft_led_switch_type', label: 'LEDスイッチ切替タイプ', priceKeys: { excl: 'ft_led_price_excl_tax', incl: 'ft_led_price_incl_tax' } },
+                { key: 'ft_service_hole_switch_type', label: 'サービスホールスイッチ切替タイプ', priceKeys: { excl: 'ft_service_hole_price_excl_tax', incl: 'ft_service_hole_price_incl_tax' } },
+                { key: 'ft_steering_switch_type', label: 'ステアリングスイッチ切替タイプ', priceKeys: { excl: 'ft_steering_switch_price_excl_tax', incl: 'ft_steering_switch_price_incl_tax' } },
+                { key: 'ft_led_sh_st_navigation_control', label: 'ナビ操作' },
+                { key: 'ft_led_sh_st_vehicle_position', label: '自車位置' },
+                { key: 'ft_led_sh_st_dvd_playback', label: 'DVD視聴' },
             ]},
-            { label: '取付場所', subHeaders: [
-                { key: 'col20', label: 'TV' },
-                { key: 'col21', label: 'ナビ' },
-                { key: 'col22', label: '交換用ｽｲｯﾁ' }
+            { label: 'テレナビング', subHeaders: [
+                { key: 'nav_product_number', label: '品番 1', priceKeys: { excl: 'nav_price_excl_tax', incl: 'nav_price_incl_tax' } },
+                { key: 'nav_product_number_2', label: '品番 2', priceKeys: { excl: 'nav_price_excl_tax_2', incl: 'nav_price_incl_tax_2' } },
+                { key: 'nav_dvd_playback_2', label: 'DVD視聴' },
             ]},
             { label: '注意事項', subHeaders: [
-                { key: 'col23', label: '備考' }
+                { key: 'notes', label: '備考' }
             ]}
         ]
     },
-    // 他の製品情報も同様に追加できます
 };
 
-// Web APIから車種情報を取得
-const carsDataPromise = fetch(CARS_API_URL)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.text();
-    })
-    .then(text => {
-        try {
-            const data = JSON.parse(text);
-            const makers = Object.values(data);
-            console.log("データベースから取得したデータ:", data);
-            return makers;
-        } catch (e) {
-            console.error('Error parsing JSON:', e);
-            console.error('Server response:', text);
-            document.getElementById('message-container').textContent = '車種情報の取得に失敗しました。サーバーの応答が不正です。';
-            return null;
-        }
-    })
-    .catch(error => {
-        console.error('Error fetching car data:', error);
-        document.getElementById('message-container').textContent = `車種情報の取得に失敗しました: ${error.message}`;
-        return null;
-    });
-
-// フォームの選択肢を動的に生成する関数
 function populateOptions(selectElement, options, emptyOptionText) {
     selectElement.innerHTML = `<option value="">${emptyOptionText}</option>`;
     options.forEach(option => {
@@ -111,7 +79,6 @@ function populateOptions(selectElement, options, emptyOptionText) {
     });
 }
 
-// 検索ボタンの有効/無効を切り替える関数
 function updateSearchButtonState() {
     const selectedProduct = document.getElementById('product-select').value;
     const selectedMaker = document.getElementById('maker-select').value;
@@ -119,7 +86,6 @@ function updateSearchButtonState() {
     const selectedYear = document.getElementById('year-select').value;
     const selectedMonth = document.getElementById('month-select').value;
     const searchButton = document.getElementById('search-button');
-
     const isMakerOption = document.getElementById('maker-option').checked;
     const isDealerOption = document.getElementById('dealer-option').checked;
     
@@ -130,12 +96,10 @@ function updateSearchButtonState() {
     }
 }
 
-// 検索結果表示エリアをリセットする関数
 function resetResultArea() {
     const messageContainer = document.getElementById('message-container');
     const tableContainer = document.getElementById('results-table-container');
-    const notesContainer = document.getElementById('notes-list-container'); // ★追加
-
+    const notesContainer = document.getElementById('notes-list-container');
     if (messageContainer) {
         messageContainer.textContent = '検索結果がここに表示されます。';
         messageContainer.style.display = 'block';
@@ -143,60 +107,49 @@ function resetResultArea() {
     if (tableContainer) {
         tableContainer.style.display = 'none';
     }
-    if (notesContainer) { // ★追加
+    if (notesContainer) {
         notesContainer.style.display = 'none';
     }
 }
 
-// ページロード時に製品の選択肢を生成
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
     const productSelect = document.getElementById('product-select');
     const productNames = Object.values(PRODUCTS_DATA).map(p => p.name);
     populateOptions(productSelect, productNames, '製品を選択してください');
     
-    // 他の要素の初期化
-    const data = await carsDataPromise;
-    if (data) {
-        const makerNames = data.map(car => car.maker);
-        const makerSelect = document.getElementById('maker-select');
-        populateOptions(makerSelect, makerNames, 'メーカーを選択してください');
-    }
-
+    // 変更箇所
+    const makerNames = Object.keys(CAR_TYPE);
+    const makerSelect = document.getElementById('maker-select');
+    populateOptions(makerSelect, makerNames, 'メーカーを選択してください');
+    
     const monthSelect = document.getElementById('month-select');
     populateOptions(monthSelect, MONTHS, '月');
 });
 
-// 製品選択時のイベントリスナー
 document.getElementById('product-select').addEventListener('change', () => {
     resetResultArea();
     const productSelect = document.getElementById('product-select');
     const makerSelect = document.getElementById('maker-select');
-    
-    // 製品が選択されたら、メーカー選択を有効化
     makerSelect.disabled = !productSelect.value;
     updateSearchButtonState();
 });
 
-// メーカー選択時のイベントリスナー
+// 変更箇所
 document.getElementById('maker-select').addEventListener('change', async (event) => {
     resetResultArea();
     const selectedMaker = event.target.value;
-    const data = await carsDataPromise;
     const modelSelect = document.getElementById('model-select');
     const yearSelect = document.getElementById('year-select');
     const monthSelect = document.getElementById('month-select');
-
     modelSelect.innerHTML = '<option value="">車種を選択してください</option>';
     yearSelect.innerHTML = '<option value="">年</option>';
     monthSelect.value = '';
-
     modelSelect.disabled = !selectedMaker;
     yearSelect.disabled = true;
     monthSelect.disabled = true;
     updateSearchButtonState();
-
     if (selectedMaker) {
-        const selectedMakerData = data.find(car => car.maker === selectedMaker);
+        const selectedMakerData = CAR_TYPE[selectedMaker];
         if (selectedMakerData) {
             const modelNames = selectedMakerData.models.map(model => model.name);
             populateOptions(modelSelect, modelNames, '車種を選択してください');
@@ -204,23 +157,18 @@ document.getElementById('maker-select').addEventListener('change', async (event)
     }
 });
 
-// 車種選択時のイベントリスナー
-document.getElementById('model-select').addEventListener('change', async (event) => {
+document.getElementById('model-select').addEventListener('change', (event) => {
     resetResultArea();
     const selectedModelName = event.target.value;
     const selectedMaker = document.getElementById('maker-select').value;
-    const data = await carsDataPromise;
     const yearSelect = document.getElementById('year-select');
     const monthSelect = document.getElementById('month-select');
-    
     yearSelect.innerHTML = '<option value="">年</option>';
     monthSelect.disabled = true;
-
     yearSelect.disabled = !selectedModelName;
     updateSearchButtonState();
-
     if (selectedModelName) {
-        const selectedMakerData = data.find(car => car.maker === selectedMaker);
+        const selectedMakerData = CAR_TYPE[selectedMaker];
         if (selectedMakerData) {
             const selectedModel = selectedMakerData.models.find(model => model.name === selectedModelName);
             if (selectedModel) {
@@ -231,7 +179,6 @@ document.getElementById('model-select').addEventListener('change', async (event)
     }
 });
 
-// 年式選択時のイベントリスナー
 document.getElementById('year-select').addEventListener('change', async (event) => {
     resetResultArea();
     const selectedYear = event.target.value;
@@ -240,44 +187,33 @@ document.getElementById('year-select').addEventListener('change', async (event) 
     updateSearchButtonState();
 });
 
-// 月選択時のイベントリスナー
 document.getElementById('month-select').addEventListener('change', () => {
     resetResultArea();
     updateSearchButtonState();
 });
 
-// ラジオボタンの変更時に検索ボタンの状態を更新
 document.getElementById('maker-option').addEventListener('change', updateSearchButtonState);
 document.getElementById('dealer-option').addEventListener('change', updateSearchButtonState);
 
-
-// 適合品番検索ボタンのイベントリスナー
 document.getElementById('search-button').addEventListener('click', async () => {
     const selectedProduct = document.getElementById('product-select').value;
     const selectedMaker = document.getElementById('maker-select').value;
     const selectedModelName = document.getElementById('model-select').value;
     const selectedYearString = document.getElementById('year-select').value;
     const selectedMonth = document.getElementById('month-select').value;
-    
     const tableContainer = document.getElementById('results-table-container');
     const messageContainer = document.getElementById('message-container');
-
     const productInfo = Object.values(PRODUCTS_DATA).find(p => p.name === selectedProduct);
     if (!productInfo) {
         console.error('選択された製品が見つかりません。');
         return;
     }
     const productKey = productInfo.productKey;
-    
-    // 選択されたオプションタイプに基づいてAPIに渡すパラメータを設定
     const isMakerOption = document.getElementById('maker-option').checked;
     const optionKey = isMakerOption ? 'maker' : 'dealer';
     const headerData = isMakerOption ? productInfo.makerHeader : productInfo.dealerHeader;
-
     const yearMatch = selectedYearString.match(/(\d{4})/);
     const selectedYear = yearMatch ? yearMatch[1] : null;
-
-    // APIクエリ文字列を構築
     const query = `${MATCH_API_URL}?product=${productKey}&option=${optionKey}&maker=${selectedMaker}&model=${selectedModelName}&year=${selectedYear}&month=${selectedMonth}`;
     console.log(query);
     
@@ -291,7 +227,6 @@ document.getElementById('search-button').addEventListener('click', async () => {
 
     try {
         const response = await fetch(query);
-        
         if (!response.ok) {
             throw new Error(`検索に失敗しました。ステータス: ${response.status}`);
         }
@@ -299,9 +234,8 @@ document.getElementById('search-button').addEventListener('click', async () => {
 
         if (partsData.length > 0) {
             if (messageContainer) messageContainer.style.display = 'none';
-            // 動的なテーブル生成関数を呼び出し、ヘッダー情報も渡す
             generateTable(partsData, headerData);
-            displayNotes(partsData); // ★追加: 注意書き一覧を表示
+            displayNotes(partsData);
             if (tableContainer) tableContainer.style.display = 'block';
         } else {
             if (messageContainer) {
@@ -309,7 +243,7 @@ document.getElementById('search-button').addEventListener('click', async () => {
                 messageContainer.style.display = 'block';
             }
             if (tableContainer) tableContainer.style.display = 'none';
-            displayNotes([]); // ★追加: 結果がない場合は注意事項をクリア
+            displayNotes([]);
         }
     } catch (error) {
         if (messageContainer) {
@@ -320,18 +254,13 @@ document.getElementById('search-button').addEventListener('click', async () => {
     }
 });
 
-// ★修正: 検索結果から動的にテーブルを生成する関数
-// 2行のヘッダーを生成するように変更
 function generateTable(data, headerData) {
     const table = document.querySelector('.result-table');
     const thead = table.querySelector('thead');
     const tbody = table.querySelector('tbody');
-
-    // 既存のテーブルをクリア
     thead.innerHTML = '';
     tbody.innerHTML = '';
 
-    // 1行目のヘッダー（結合ヘッダー）を生成
     const mainHeaderRow = document.createElement('tr');
     headerData.forEach(header => {
         const th = document.createElement('th');
@@ -341,7 +270,6 @@ function generateTable(data, headerData) {
     });
     thead.appendChild(mainHeaderRow);
 
-    // 2行目のヘッダー（サブヘッダー）を生成
     const subHeaderRow = document.createElement('tr');
     headerData.forEach(header => {
         header.subHeaders.forEach(subHeader => {
@@ -352,50 +280,19 @@ function generateTable(data, headerData) {
     });
     thead.appendChild(subHeaderRow);
 
-    // テーブルボディを生成
     data.forEach(item => {
         const row = document.createElement('tr');
-        // ヘッダー情報からキーのフラットなリストを作成してボディを生成
         const allColumns = headerData.flatMap(header => header.subHeaders);
         allColumns.forEach(col => {
             const td = document.createElement('td');
-            // 注意事項カラムは、文字列を加工して表示
             if (col.key === 'notes') {
                 const parts = (item[col.key] || '').replace(/[{}]/g, '').split(',');
                 td.innerHTML = parts.map(part => `※${part}`).join('<br>');
-            } 
-            // 品番に税別、税込みを埋め込む
-            else if (col.key === 'ft_auto_type') {
-                const priceExclTax = `<span style="font-size: 0.8em;">税別: ${(item['ft_auto_price_excl_tax'] || '').replace('\\','￥')}</span>`;
-                const priceInclTax = `<span style="font-size: 0.8em;">税込: ${(item['ft_auto_price_incl_tax'] || '').replace('\\','￥')}</span>`;
+            } else if (col.priceKeys) {
+                const priceExclTax = `<span style="font-size: 0.8em;">税別: ${(item[col.priceKeys.excl] || '').replace('\\', '￥')}</span>`;
+                const priceInclTax = `<span style="font-size: 0.8em;">税込: ${(item[col.priceKeys.incl] || '').replace('\\', '￥')}</span>`;
                 td.innerHTML = `${item[col.key]}<br>${priceExclTax}<br>${priceInclTax}`;
-            }
-            else if (col.key === 'ft_led_switch_type') {
-                const priceExclTax = `<span style="font-size: 0.8em;">税別: ${(item['ft_led_price_excl_tax'] || '').replace('\\','￥')}</span>`;
-                const priceInclTax = `<span style="font-size: 0.8em;">税込: ${(item['ft_led_price_incl_tax'] || '').replace('\\','￥')}</span>`;
-                td.innerHTML = `${item[col.key]}<br>${priceExclTax}<br>${priceInclTax}`;
-            }
-            else if (col.key === 'ft_service_hole_switch_type') {
-                const priceExclTax = `<span style="font-size: 0.8em;">税別: ${(item['ft_service_hole_price_excl_tax'] || '').replace('\\','￥')}</span>`;
-                const priceInclTax = `<span style="font-size: 0.8em;">税込: ${(item['ft_service_hole_price_incl_tax'] || '').replace('\\','￥')}</span>`;
-                td.innerHTML = `${item[col.key]}<br>${priceExclTax}<br>${priceInclTax}`;
-            }
-            else if (col.key === 'ft_steering_switch_type') {
-                const priceExclTax = `<span style="font-size: 0.8em;">税別: ${(item['ft_steering_switch_price_excl_tax'] || '').replace('\\','￥')}</span>`;
-                const priceInclTax = `<span style="font-size: 0.8em;">税込: ${(item['ft_steering_switch_price_incl_tax'] || '').replace('\\','￥')}</span>`;
-                td.innerHTML = `${item[col.key]}<br>${priceExclTax}<br>${priceInclTax}`;
-            }
-            else if (col.key === 'nav_product_number') {
-                const navPriceExclTax = `<span style="font-size: 0.8em;">税別: ${(item['nav_price_excl_tax'] || '').replace('\\','￥')}</span>`;
-                const navPriceInclTax = `<span style="font-size: 0.8em;">税込: ${(item['nav_price_incl_tax'] || '').replace('\\','￥')}</span>`;
-                td.innerHTML = `${item[col.key]}<br>${navPriceExclTax}<br>${navPriceInclTax}`;
-            }
-            else if (col.key === 'nav_product_number_2') {
-                const navPriceExclTax2 = `<span style="font-size: 0.8em;">税別: ${(item['nav_price_excl_tax_2'] || '').replace('\\','￥')}</span>`;
-                const navPriceInclTax2 = `<span style="font-size: 0.8em;">税込: ${(item['nav_price_incl_tax_2'] || '').replace('\\','￥')}</span>`;
-                td.innerHTML = `${item[col.key]}<br>${navPriceExclTax2}<br>${navPriceInclTax2}`;
-            }
-            else {
+            } else {
                 td.innerHTML = (item[col.key] || '').replace(/\n/g, '<br>');
             }
             row.appendChild(td);
@@ -404,28 +301,22 @@ function generateTable(data, headerData) {
     });
 }
 
-
-// ★追加: 検索結果の注意事項を収集し、表示する関数
 function displayNotes(data) {
     const notesContainer = document.getElementById('notes-list-container');
     const uniqueNotes = new Set();
-
-    // データの各行から注意事項の番号を収集
     data.forEach(item => {
         const notesString = item['notes'];
         if (notesString) {
-            // {}を除去し、カンマで分割して各番号を取得
             const numbers = notesString.replace(/[{}]/g, '').split(',').filter(n => n.trim() !== '');
             numbers.forEach(num => uniqueNotes.add(num.trim()));
         }
     });
-
-    // 収集した番号を昇順にソート
     const sortedNotes = Array.from(uniqueNotes).sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
-
-    // HTML要素を生成して表示
+    let notesHtml = '<h3>注意事項</h3><ul>';
+    NOTES_DATA['common'].forEach(common_txt => {
+        notesHtml += `<li>※共通: ${common_txt}</li>`;
+    });
     if (sortedNotes.length > 0) {
-        let notesHtml = '<h3>注意事項</h3><ul>';
         sortedNotes.forEach(num => {
             const noteText = NOTES_DATA[num];
             if (noteText) {
