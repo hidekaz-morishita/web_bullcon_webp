@@ -254,7 +254,24 @@ label {
 }
 
 #notes-list-container li {
-    margin-bottom: 5px;
     padding-left: 10px;
     text-indent: -10px; /* 箇条書きのテキストを左にずらす */
+    font-size: 14px;
+}
+
+/* 注意事項リストのレイアウト調整 */
+#notes-list-container li {
+    display: grid;
+    grid-template-columns: 50px 1fr; /* 1列目を固定幅（50px）、2列目を可変幅に設定 */
+    gap: 5px; /* 番号とテキストの間の余白 */
+    margin-bottom: 5px;
+}
+
+#notes-list-container .note-number {
+    text-align: left;
+    padding-right: 5px;
+}
+
+#notes-list-container .note-text {
+    word-wrap: break-word; /* 長いテキストの折り返し */
 }
