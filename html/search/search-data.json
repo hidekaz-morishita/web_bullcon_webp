@@ -1,17 +1,82 @@
 [
   {
-    "title": "製品ページ",
-    "url": "/products.html",
-    "content": "当社の最新製品一覧。スマートフォン、タブレット、PCなど。製品の仕様や価格情報。"
+    "title": "製品一覧",
+    "url": "../products/products.html",
+    "keywords": ""
   },
   {
-    "title": "会社概要",
-    "url": "/about.html",
-    "content": "弊社の歴史、ビジョン、チームメンバーのご紹介。お問い合わせ先もこちら。"
+    "title": "製品新着情報",
+    "url": "../news/products_news.html",
+    "keywords": ""
   },
   {
-    "title": "ブログ記事：新しいデザインシステム",
-    "url": "/blog/new-design-system.html",
-    "content": "新しいデザインシステムについて。開発の背景、採用技術、今後の展望を詳しく解説。価格"
+    "title": "",
+    "url": "../",
+    "keywords": ""
+  },
+  {
+    "title": "",
+    "url": "../",
+    "keywords": ""
+  },
+  {
+    "title": "",
+    "url": "../",
+    "keywords": ""
+  },
+  {
+    "title": "",
+    "url": "../",
+    "keywords": ""
+  },
+  {
+    "title": "",
+    "url": "../",
+    "keywords": ""
+  },
+  {
+    "title": "",
+    "url": "../",
+    "keywords": ""
+  },
+  {
+    "title": "",
+    "url": "../",
+    "keywords": ""
+  },
+  {
+    "title": "",
+    "url": "../",
+    "keywords": ""
+  },
+  {
+    "title": "",
+    "url": "../",
+    "keywords": ""
+  },
+  {
+    "title": "",
+    "url": "../",
+    "keywords": ""
+  },
+  {
+    "title": "",
+    "url": "../",
+    "keywords": ""
+  },
+  {
+    "title": "",
+    "url": "../",
+    "keywords": ""
+  },
+  {
+    "title": "",
+    "url": "../",
+    "keywords": ""
+  },
+  {
+    "title": "",
+    "url": "../",
+    "keywords": ""
   }
 ]

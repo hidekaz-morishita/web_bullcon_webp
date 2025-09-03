@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const filteredResults = searchData.filter(item => 
       item.title.toLowerCase().includes(query) ||
-      item.content.toLowerCase().includes(query)
+      item.keywords.toLowerCase().includes(query)
     );
 
     if (filteredResults.length > 0) {
