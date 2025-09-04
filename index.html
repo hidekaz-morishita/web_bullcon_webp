@@ -42,29 +42,31 @@
     </section>
 
     <div class="container main-content">
-        <section class="news-section">
-            <div class="split-content-container">
-                <section class="product-announce-section" id="product-announce-section">
-                    <div class="news-section-title">製品新着情報</div>
-                    <div id="products-announce-placeholder"></div>
-                    <div class="news-button-container">
-                        <a href="./html/news/products_news.html" class="news-button">一覧はこちら <img src="./images/common/new_window_icon.png" class="new-window-icon"></a>
-                    </div>
-                </section>
 
-                <section class="announce-section" id="announce-news-section">
-                    <div class="news-section-title">NEWS & TOPICS</div>
-                    <div id="announce-placeholder"></div>
-                    <div class="news-button-container">
-                        <a href="./html/news/topic_news.html" class="news-button">一覧はこちら <img src="./images/common/new_window_icon.png" class="new-window-icon"></a>
-                    </div>
-                </section>
-            </div>
+        <section class="news-section">
+            <section class="announce-section">
+                <h2 class="section-title">
+                    <span class="section-title-jp">お知らせ</span>
+                </h2>
+                <div id="announcements-list"></div>
+                <div class="news-button-container">
+                    <a href="./html/news/announcements.html" class="news-button">一覧はこちら <img src="./images/common/new_window_icon.png" class="new-window-icon"></a>
+                </div>
+            </section>
+
+            <section class="product-announce-section">
+                <h2 class="section-title">
+                    <span class="section-title-jp">製品新着情報</span>
+                </h2>
+                <div id="products-announce-placeholder"></div>
+                <div class="news-button-container">
+                    <a href="./html/news/products_news.html" class="news-button">一覧はこちら <img src="./images/common/new_window_icon.png" class="new-window-icon"></a>
+                </div>
+            </section>
         </section>
 
         <section class="products-section">
             <h2 class="section-title">
-                <span class="section-title-en">PRODUCTS</span>
                 <span class="section-title-jp">製品情報</span>
             </h2>
             
@@ -154,7 +156,6 @@
 <script src="./js/header.js"></script>
 <script src="./js/footer.js"></script>
 <script src="./js/index_script.js"></script>
-<script src="./js/news/products_news_data_for_top.js"></script>
-<script src="./js/news/news_data_for_top.js"></script>
+<script src="./js/news/load_announcements_on_top.js"></script>
 </body>
 </html>

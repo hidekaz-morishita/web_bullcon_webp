@@ -15,6 +15,7 @@ html, body, ul {
     max-width: 100%;
     margin: 0 auto;
     padding: 10px 20px 30px 20px;
+    min-height: 60vh;
 }
 
 body {
@@ -23,6 +24,7 @@ body {
     color: #333;
     background-color: #fff;
     margin: 0;
+    height: 100%;
 }
 
 a {

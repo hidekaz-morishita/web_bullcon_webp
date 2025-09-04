@@ -1,0 +1,94 @@
+/* products_news.html専用のスタイル */
+
+/* セクション全体の余白と背景 */
+.products-news-section {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+/* コンテナの幅を中央揃え */
+.products-news-section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ページタイトルのスタイル */
+.products-news-section h1 {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+/* リスト全体のスタイル */
+#products-list {
+    list-style: none; /* リストの点や番号を非表示に */
+    padding: 0;
+    margin: 0;
+}
+
+/* 各製品情報アイテムのスタイル */
+.product-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+.product-item:hover {
+    transform: translateY(-5px); /* マウスホバーで少し浮かせる */
+}
+
+/* 日付のスタイル */
+.product-date {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #888;
+    background-color: #f0f0f0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* タイトルのスタイル */
+.product-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #0056b3;
+    margin-left: 10px;
+}
+
+/* 本文のスタイル */
+.product-fulltext-body {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #e0e0e0;
+}
+
+/* Newバッジのスタイル */
+.product-title .new-badge {
+    color: red;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* リンクのスタイル */
+.product-title a {
+    text-decoration: none; /* 下線を非表示に */
+    color: inherit;
+    transition: color 0.2s;
+}
+
+.product-title a:hover {
+    color: #007bff; /* ホバーで色を変える */
+}

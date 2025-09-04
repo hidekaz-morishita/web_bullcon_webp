@@ -4,17 +4,7 @@
 .section-title {
     text-align: center;
     margin-bottom: 20px;
-}
-
-.section-title-en {
-    display: block;
-    text-align: left;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    color: #aaa;
-    text-transform: uppercase;
-    padding-left: 5px;
+    width: 100%;
 }
 
 .section-title-jp {
@@ -146,42 +136,20 @@
     margin-top: 20px;
 }
 
-.split-content-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 100px;
-    padding-top: 20px;
-    width: 100%;
-}
-
-.product-announce-section,
-.announce-section {
-    flex: 0 0 40%;
-    max-width: 500px;
+.announce-section,
+.product-announce-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .product-announce-section {
     position: relative;
 }
 
-.product-announce-section::after {
-    content: none;
-}
 
-.news-section-title {
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    width: 100%;
-    text-align: left;
-}
-
-#products-announce-placeholder,
-#announce-placeholder {
+#announce-placeholder,
+#products-announce-placeholder{
     width: 100%;
     align-self: flex-start;
 }
@@ -270,6 +238,10 @@
 ==================================*/
 .products-section {
     padding: 80px 0;
+}
+
+.product-section .section-title .section-title-en {
+    padding-left: 30px;
 }
 
 .product-showcase {
@@ -362,15 +334,6 @@
     .pagination-dot {
         width: 10px;
         height: 10px;
-    }
-
-    .split-content-container {
-        display: grid;
-        gap: 20px;
-    }
-
-    .news-section-title {
-        padding-left: 10px;
     }
 
     .product-showcase {

@@ -1,0 +1,82 @@
+/* announcements-sectionの幅を調整し、中央寄せにする */
+.announcements-section {
+    background-color: #ffffff;
+    padding: 30px;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.announcements-title {
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+.announcements-list {
+    /* ●を非表示にする */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.announcements-list li {
+    padding: 12px 0;
+    /* 下線（ボーダー）をアイテムに直接適用 */
+    border-bottom: 1px solid #666;
+}
+
+.announcements-list li a {
+    /* Flexboxで日付とタイトルを横並びにする */
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    /* 文字を大きく */
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.announcements-list li a:hover {
+    color: #3498db;
+}
+
+/* 日付とタイトルを視覚的に分けるスタイル */
+/* JavaScriptで新しく追加された<span>要素にスタイルを適用 */
+.announcements-list .announcement-date {
+    display: inline-block;
+    min-width: 110px; /* 日付の表示幅を確保 */
+    margin-right: 30px; /* 空白を広げる */
+    color: #666;
+    font-size: 0.9em;
+    font-weight: bold;
+    flex-shrink: 0; /* タイトルが長くなっても幅を保持 */
+}
+
+/* --- レスポンシブ対応の追加 --- */
+@media (max-width: 768px) {
+    /* お知らせセクションの左右パディングを調整 */
+    .announcements-section {
+        padding: 20px 15px;
+    }
+
+    /* お知らせリストのパディングを調整 */
+    .announcements-list li {
+        padding: 12px 15px;
+    }
+
+    /* 日付とタイトルを縦並びに変更 */
+    .announcements-list li a {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* 日付のスタイルを調整 */
+    .announcements-list .announcement-date {
+        min-width: auto;
+        margin-right: 0;
+        margin-bottom: 5px; /* 日付とタイトルの間に余白を追加 */
+        font-size: 1em; /* 文字の大きさを調整 */
+    }
+}
