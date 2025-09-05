@@ -1,7 +1,7 @@
 [
   {
     "date": "2025年01月20日",
-    "title": "スズキディーラーオプション　2025年モデルナビゲーション[New]",
+    "title": "スズキディーラーオプション　2025年モデルナビゲーション",
     "brand": "トヨタ",
     "body": [
       { "type": "list", "items": [
@@ -33,9 +33,45 @@
     "body": [ { "type": "paragraph", "content": "フロンクス対応情報の本文..."}]
   },
   {
-    "date": "2024年11月11日",
+    "date": "2023年11月11日",
     "title": "DVD/CDプレーヤー（新製品）",
     "brand": "新製品情報",
+    "body": [ { "type": "paragraph", "content": "DVD/CDプレーヤーの本文..."}]
+  },
+  {
+    "date": "2020年11月19日",
+    "title": "フロンクス対応情報",
+    "brand": "スズキ",
+    "body": [ { "type": "paragraph", "content": "フロンクス対応情報の本文..."}]
+  },
+  {
+    "date": "2022年11月11日",
+    "title": "DVD/CDプレーヤー（新製品）",
+    "brand": "新製品情報",
+    "body": [ { "type": "paragraph", "content": "DVD/CDプレーヤーの本文..."}]
+  },
+  {
+    "date": "2020年11月19日",
+    "title": "フロンクス対応情報",
+    "brand": "スズキ",
+    "body": [ { "type": "paragraph", "content": "フロンクス対応情報の本文..."}]
+  },
+  {
+    "date": "2026年11月11日",
+    "title": "DVD/CDプレーヤー（新製品）",
+    "brand": "新製品情報",
+    "body": [ { "type": "paragraph", "content": "DVD/CDプレーヤーの本文..."}]
+  },
+  {
+    "date": "2026年11月11日",
+    "title": "DVD/CDプレーヤー（新製品）",
+    "brand": "新製品情報",
+    "body": [ { "type": "paragraph", "content": "DVD/CDプレーヤーの本文..."}]
+  },
+  {
+    "date": "1555年11月11日",
+    "title": "DVD/CDプレーヤー（新製品）",
+    "brand": "ホンダ",
     "body": [ { "type": "paragraph", "content": "DVD/CDプレーヤーの本文..."}]
   }
 ]

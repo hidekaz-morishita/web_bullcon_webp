@@ -1,24 +1,14 @@
+import { BRAND_STYLE } from './const_data.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const productsList = document.getElementById('products-list');
     const brandTabs = document.getElementById('brand-tabs');
     let allProductsData = []; // すべてのデータを保持する変数
+    let currentBrand = 'all'; // 現在表示中のブランドを追跡
 
     if (!productsList || !brandTabs) {
         return;
     }
-
-    // 企業イメージカラーとスタイルを定義したマップ (このコードには使用されていませんが、念のため残しています)
-    const brandStyles = {
-        'トヨタ': { color: '#e00021' },
-        'レクサス': { color: '#c0c0c0' },
-        'ホンダ': { color: '#e4002b' },
-        'マツダ': { color: '#a0122e' },
-        'スバル': { color: '#003366' },
-        'スズキ': { color: '#fcdb00' },
-        'ダイハツ': { color: '#ef3340' },
-        'ミツビシ': { color: '#800000' },
-        '新製品情報': { color: '#0c7edbff' }
-    };
 
     // 最初にすべてのデータを取得
     fetch('./products_news_data.json')
@@ -34,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const dateB = new Date(b.date.replace(/(\d{4})年(\d{1,2})月(\d{1,2})日/, '$1-$2-$3'));
                 return dateB - dateA;
             });
-            renderProducts('all'); // 初回は「すべて」を表示
+            renderProducts('all', 10); // 初回は「すべて」を表示し、10件に制限
         })
         .catch(error => {
             console.error('製品情報の読み込みに失敗しました:', error);
@@ -51,13 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             clickedTab.classList.add('active');
 
-            const brand = clickedTab.dataset.brand;
-            renderProducts(brand); // 選択されたブランドで表示を更新
+            currentBrand = clickedTab.dataset.brand;
+            renderProducts(currentBrand, 10); // 選択されたブランドで表示を更新（10件に制限）
         }
     });
 
     // フィルタリングと表示を管理する関数
-    function renderProducts(brand) {
+    function renderProducts(brand, limit = 0) {
         productsList.innerHTML = ''; // 一旦リストをクリア
 
         let filteredData;
@@ -67,15 +57,53 @@ document.addEventListener('DOMContentLoaded', () => {
             filteredData = allProductsData.filter(item => item.brand === brand);
         }
 
+        const moreButtonExists = document.querySelector('#show-more-button');
+        if (moreButtonExists) {
+            moreButtonExists.remove();
+        }
+
         // 現在の日付から2週間前の日付を計算
         const currentDate = new Date();
         const oneWeekAgo = new Date();
         oneWeekAgo.setDate(currentDate.getDate() - 14);
+
+        // 表示件数を制限
+        const displayData = limit > 0 ? filteredData.slice(0, limit) : filteredData;
         
         // フィルタリングされたデータをレンダリング
-        filteredData.forEach(item => {
+        displayData.forEach(item => {
             const li = document.createElement('li');
             li.classList.add('product-item');
+
+            // ブランドラベルの追加
+            const brandSpan = document.createElement('span');
+            brandSpan.classList.add('products-news-brand');
+            brandSpan.textContent = item.brand;
+            const style = BRAND_STYLE[item.brand];
+            if (style) {
+                Object.assign(brandSpan.style, {
+                    color: style.color,
+                    border: `2px solid ${style.color}`,
+                    display: 'inline-block', // CSSで制御する場合は削除
+                    padding: '0 8px',
+                    fontWeight: 'bold',
+                    borderRadius: '0',
+                    lineHeight: '20px',
+                    marginBottom: '15px'
+                });
+            } else {
+                Object.assign(brandSpan.style, {
+                    color: '#6c757d',
+                    border: '2px solid #6c757d',
+                    display: 'inline-block',
+                    padding: '0 8px',
+                    fontWeight: 'bold',
+                    borderRadius: '0',
+                    lineHeight: '20px',
+                    marginBottom: '5px'
+                });
+            }
+            li.appendChild(brandSpan);
 
             const dateSpan = document.createElement('span');
             dateSpan.classList.add('product-date');
@@ -83,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const titleSpan = document.createElement('span');
             titleSpan.classList.add('product-title');
+            titleSpan.textContent = item.title;
 
             // --- Newバッジ処理 - 日付で判定 ---
             const date_match = item.date.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
@@ -103,14 +132,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 titleSpan.appendChild(newBadge);
             }
-            // --- Newバッジのロジックここまで ---
 
-            // タイトルテキストから'[New]'タグを削除して設定
-            let newsTitle = item.title;
-            if (newsTitle.includes('[New]')) {
-                 newsTitle = newsTitle.replace('[New]', '').trim();
-            }
-            titleSpan.prepend(newsTitle);
+            // 日付とタイトルをまとめる
+            const headerDiv = document.createElement('div');
+            headerDiv.style.display = 'flex';
+            headerDiv.style.alignItems = 'center';
+            headerDiv.appendChild(dateSpan);
+            headerDiv.appendChild(titleSpan);
+            li.appendChild(headerDiv);
 
             // body部のレンダリング
             const bodyDiv = document.createElement('div');
@@ -146,20 +175,43 @@ document.addEventListener('DOMContentLoaded', () => {
                         const ul = document.createElement('ul');
                         ul.style.listStyle = "none";
                         block.items.forEach(itemText => {
-                            const li = document.createElement('li');
-                            li.textContent = itemText;
-                            ul.appendChild(li);
+                            const li_item = document.createElement('li'); 
+                            li_item.textContent = itemText;
+                            ul.appendChild(li_item);
                         });
                         bodyDiv.appendChild(ul);
                         break;
                 }
             });
-
-            li.appendChild(dateSpan);
-            li.appendChild(titleSpan);
             li.appendChild(bodyDiv);
-
+            
             productsList.appendChild(li);
         });
+
+        // 「もっと見る」ボタンの追加
+        if (filteredData.length > displayData.length) {
+            const moreButton = document.createElement('button');
+            moreButton.id = 'show-more-button';
+            moreButton.textContent = 'もっと見る';
+            
+            // ボタンのスタイル
+            Object.assign(moreButton.style, {
+                display: 'block',
+                width: '150px',
+                margin: '20px auto',
+                padding: '10px 20px',
+                fontSize: '16px',
+                cursor: 'pointer',
+                backgroundColor: '#3498db',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '5px'
+            });
+
+            moreButton.addEventListener('click', () => {
+                renderProducts(currentBrand, filteredData.length);
+            });
+            productsList.appendChild(moreButton);
+        }
     }
 });

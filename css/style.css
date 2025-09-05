@@ -106,8 +106,16 @@ a:hover {
   Responsive Design (Mobile)
 ==================================*/
 @media (max-width: 768px) {
-  .container {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
+    .container {
+        padding: 0 20px;
+    }
+
+    .body {
+        font-family: 'Noto Sans JP', sans-serif;
+        line-height: 1.4;
+        color: #333;
+        background-color: #fff;
+        margin: 0;
+        height: 100%;
+    }
 }

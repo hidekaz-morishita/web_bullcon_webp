@@ -1,21 +1,10 @@
+import { BRAND_STYLE } from './const_data.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const topProductsList = document.getElementById('top-products-news-list');
     if (!topProductsList) {
         return;
     }
-
-    // 企業イメージカラーとスタイルを定義したマップ
-    const brandStyles = {
-        'トヨタ': { color: '#e00021' },
-        'レクサス': { color: '#c0c0c0' },
-        'ホンダ': { color: '#e4002b' },
-        'マツダ': { color: '#a0122e' },
-        'スバル': { color: '#003366' },
-        'スズキ': { color: '#fcdb00' },
-        'ダイハツ': { color: '#ef3340' },
-        'ミツビシ': { color: '#800000' },
-        '新製品情報': { color: '#0c7edbff' }
-    };
 
     // JSONファイルを読み込む
     fetch('./html/news/products_news_data.json')
@@ -38,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const oneWeekAgo = new Date();
             oneWeekAgo.setDate(currentDate.getDate() - 14);
 
+            // 表示件数を10件に制限
             sortedData.slice(0, 10).forEach(item => {
                 const li = document.createElement('li');
                 li.classList.add('products-news-item');
@@ -65,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 // ブランド名に基づいてテキストカラーと枠線の色を適用
-                const style = brandStyles[item.brand];
+                const style = BRAND_STYLE[item.brand];
                 if (style) {
                     brandSpan.style.color = style.color;
                     brandSpan.style.border = `2px solid ${style.color}`;
@@ -87,27 +77,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Newバッジ処理 - 日付で判定
                 const date_match = item.date.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
-                let newsTitle = item.title;
-                if (date_match) {
-                    const announcementDate = new Date(date_match[1], date_match[2] - 1, date_match[3]);
-                    if (announcementDate > oneWeekAgo) {
-                        const newBadge = document.createElement('span');
-                        newBadge.textContent = 'New';
-                        
-                        Object.assign(newBadge.style, {
-                            color: '#fff',
-                            fontWeight: 'bold',
-                            fontSize: '12px',
-                            backgroundColor: 'red',
-                            borderRadius: '10px',
-                            padding: '1px 5px 3px 5px',
-                            marginLeft: '30px'
-                        });
-                        titleSpan.appendChild(newBadge); 
-                    }
+                const newsDate = date_match ? new Date(date_match[1], date_match[2] - 1, date_match[3]) : null;
+
+                if (newsDate && newsDate > oneWeekAgo) {
+                    const newBadge = document.createElement('span');
+                    newBadge.textContent = 'New';
+                    
+                    Object.assign(newBadge.style, {
+                        color: '#fff',
+                        fontWeight: 'bold',
+                        fontSize: '12px',
+                        backgroundColor: 'red',
+                        borderRadius: '10px',
+                        padding: '1px 5px 3px 5px',
+                        marginLeft: '30px'
+                    });
+                    titleSpan.appendChild(newBadge);
                 }
                 
                 // タイトルテキストから`[New]`タグを削除
+                let newsTitle = item.title;
                 if (newsTitle.includes('[New]')) {
                      newsTitle = newsTitle.replace('[New]', '').trim();
                 }
