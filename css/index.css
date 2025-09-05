@@ -122,7 +122,7 @@
 }
 
 /*==================================
-  各コンテンツセクション
+  ヒーローコンテンツ以下のセクション共通コンテナ
 ==================================*/
 .main-content {
     margin: 0 auto;
@@ -130,83 +130,10 @@
 }
 
 /*==================================
-  お知らせセクション
+  お知らせ・製品新着共通
 ==================================*/
 .news-section {
     margin-top: 20px;
-}
-
-.announce-section,
-.product-announce-section {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.product-announce-section {
-    position: relative;
-}
-
-
-#announce-placeholder,
-#products-announce-placeholder{
-    width: 100%;
-    align-self: flex-start;
-}
-
-.news-list-item {
-    display: flex;
-    flex-direction: column; /* ニュース項目全体を縦に並べる */
-    padding: 15px 0;
-    border-bottom: 1px solid #e0e0e0;
-    text-decoration: none;
-    color: #000;
-    transition: background-color 0.3s ease;
-}
-
-.news-list-item:hover {
-    background-color: #f5f5f5;
-}
-
-/* 日付、タイトル、アイコンを横に並べるためのコンテナ */
-.news-main-line {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px; /* サマリーとの間に少し余白を設ける */
-}
-
-.news-list-item time {
-    font-size: 14px;
-    color: #888;
-    margin-right: 15px;
-    flex-shrink: 0;
-}
-
-.news-list-item .news-title {
-    font-size: 16px;
-    line-height: 1.2;
-    color: #000;
-    flex-grow: 1; /* 残りのスペースを埋めて、アイコンを右に寄せる */
-}
-
-.new-window-icon {
-    width: 12px;
-    height: auto;
-    margin-left: 5px;
-    vertical-align: middle;
-    flex-shrink: 0;
-}
-
-.news-summary {
-    display: block;
-    color: #555;
-    font-size: 0.9em;
-    margin-top: 5px;
-}
-
-.news-list-item.non-clickable {
-    cursor: default;
-    background-color: transparent;
 }
 
 .news-button-container {
@@ -234,17 +161,163 @@
 }
 
 /*==================================
-  製品セクション
+  お知らせセクション(announcements)
+==================================*/
+.announce-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.announcements-list {
+    width: 60%;
+    list-style: none;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+.announcements-list li {
+    padding: 12px 0;
+    /* 下線（ボーダー）をアイテムに直接適用 */
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.announcements-list li a {
+    /* Flexboxで日付とタイトルを横並びにする */
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    /* 文字を大きく */
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.announcements-list li a:hover {
+    color: #3498db;
+}
+
+/* 日付とタイトルを視覚的に分けるスタイル */
+/* JavaScriptで新しく追加された<span>要素にスタイルを適用 */
+.announcements-list .announcement-date {
+    display: inline-block;
+    min-width: 110px; /* 日付の表示幅を確保 */
+    margin-right: 30px; /* 空白を広げる */
+    color: #666;
+    font-size: 0.9em;
+    font-weight: bold;
+    flex-shrink: 0; /* タイトルが長くなっても幅を保持 */
+}
+
+/* --- レスポンシブ対応の追加 --- */
+@media (max-width: 768px) {
+    /* お知らせセクションの左右パディングを調整 */
+    .announcements-section {
+        padding: 20px 15px;
+    }
+
+    /* お知らせリストのパディングを調整 */
+    .announcements-list li {
+        padding: 12px 15px;
+    }
+
+    /* 日付とタイトルを縦並びに変更 */
+    .announcements-list li a {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* 日付のスタイルを調整 */
+    .announcements-list .announcement-date {
+        min-width: auto;
+        margin-right: 0;
+        margin-bottom: 5px; /* 日付とタイトルの間に余白を追加 */
+        font-size: 1em; /* 文字の大きさを調整 */
+    }
+}
+
+
+/*==================================
+  製品新着情報セクション(products-news)
+==================================*/
+.products-news-section {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.products-news-section .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.top-products-news-list {
+    max-height: 600px;
+    overflow-y: auto; 
+    list-style: none;
+    padding: 0;
+}
+
+.products-news-section .products-news-item {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 0;
+    padding: 20px 0;
+    margin-bottom: 0;
+    box-shadow: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.products-news-section .products-news-brand {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.products-news-section .products-news-header {
+    display: flex;
+    align-items: center;
+}
+
+.products-news-section .products-news-date {
+    display: block;
+    font-size: 0.7rem;
+    color: #888;
+    background-color: #f0f0f0;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.products-news-section .products-news-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-left:30px;
+}
+
+.products-news-section .products-news-fulltext-body {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #e0e0e0;
+}
+
+.products-news-fulltext-body {
+    padding: 0 20px;
+}
+
+/*==================================
+  製品一覧セクション(products)
 ==================================*/
 .products-section {
     padding: 80px 0;
 }
 
-.product-section .section-title .section-title-en {
-    padding-left: 30px;
-}
-
-.product-showcase {
+.products-showcase {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 30px;
@@ -252,7 +325,7 @@
     justify-content: center;
 }
 
-.product-item {
+.products-item {
     display: flex;
     flex-direction: column;
     background-color: transparent;
@@ -265,44 +338,23 @@
     align-items: center;
 }
 
-.product-item:hover {
+.products-item:hover {
     transform: none;
     opacity: 0.8;
 }
 
-.product-item .product-image {
+.products-item .products-image {
     width: 100%;
     height: 150px;
     object-fit: contain;
     overflow: hidden;
 }
 
-.product-item .product-image img {
+.products-item .products-image img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     display: block;
-}
-
-.product-item .product-text-content {
-    padding: 20px 0 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align: center;
-}
-
-.product-item .product-text-content h3 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.product-item .product-text-content p {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 20px;
 }
 
 .button-container {
@@ -336,11 +388,11 @@
         height: 10px;
     }
 
-    .product-showcase {
+    .products-showcase {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .product-item .product-text-content h3 {
+    .products-item .products-text-content h3 {
         font-size: 14px;
         font-weight: 700;
         margin-bottom: 10px;

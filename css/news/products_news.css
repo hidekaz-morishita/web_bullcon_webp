@@ -25,7 +25,7 @@
 
 /* リスト全体のスタイル */
 #products-list {
-    list-style: none; /* リストの点や番号を非表示に */
+    list-style: none;
     padding: 0;
     margin: 0;
 }
@@ -42,7 +42,7 @@
 }
 
 .product-item:hover {
-    transform: translateY(-5px); /* マウスホバーで少し浮かせる */
+    transform: translateY(-5px);
 }
 
 /* 日付のスタイル */
@@ -60,7 +60,7 @@
 .product-title {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #0056b3;
+    color: #333;
     margin-left: 10px;
 }
 
@@ -70,25 +70,75 @@
     color: #555;
     line-height: 1.6;
     margin-top: 15px;
-    padding-top: 15px;
+    padding: 15px 20px 0 20px;
     border-top: 1px dashed #e0e0e0;
-}
-
-/* Newバッジのスタイル */
-.product-title .new-badge {
-    color: red;
-    font-size: 0.9rem;
-    font-weight: bold;
-    margin-left: 5px;
 }
 
 /* リンクのスタイル */
 .product-title a {
-    text-decoration: none; /* 下線を非表示に */
+    text-decoration: none;
     color: inherit;
     transition: color 0.2s;
 }
 
 .product-title a:hover {
-    color: #007bff; /* ホバーで色を変える */
+    color: #007bff;
+}
+
+/* タブメニュー全体のコンテナ */
+.tab-menu {
+    padding: 0;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+/* タブの段（1段目と2段目） */
+.tab-row {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* --- ここで下線を統一 --- */
+    border-bottom: 2px solid #e0e0e0;
+}
+
+/* 各タブアイテムのスタイル */
+.tab-item {
+    padding: 8px 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    background-color: transparent;
+    color: #333;
+    border: none;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s, font-weight 0.3s;
+}
+
+.tab-item:hover {
+    color: #007bff;
+}
+
+/* アクティブな（選択中の）タブのスタイル */
+.tab-item.active {
+    color: #333;
+    font-weight: bold;
+    position: relative; /* 下線を重ねるために必要 */
+}
+
+/* --- アクティブなタブに赤の下線を重ねる --- */
+.tab-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* 親要素のボーダーに重なるように調整 */
+    left: 0;
+    width: 100%;
+    height: 4px; /* 通常の下線より太くして目立たせる */
+    background-color: red;
 }

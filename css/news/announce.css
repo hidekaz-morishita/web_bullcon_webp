@@ -15,7 +15,6 @@
 }
 
 .announcements-list {
-    /* ●を非表示にする */
     list-style: none;
     padding: 0;
     margin: 0;
@@ -24,7 +23,7 @@
 .announcements-list li {
     padding: 12px 0;
     /* 下線（ボーダー）をアイテムに直接適用 */
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .announcements-list li a {
