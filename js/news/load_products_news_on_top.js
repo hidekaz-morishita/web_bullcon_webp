@@ -28,10 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             // 日付で並び替え（新しい順）
             const sortedData = data.sort((a, b) => {
-                const dateA = a.date.replace(/(\d{4})年(\d{1,2})月(\d{1,2})日/, '$1-$2-$3');
-                const dateB = b.date.replace(/(\d{4})年(\d{1,2})月(\d{1,2})日/, '$1-$2-$3');
-                return new Date(dateB) - new Date(dateA);
+                const dateA = new Date(a.date.replace(/(\d{4})年(\d{1,2})月(\d{1,2})日/, '$1-$2-$3'));
+                const dateB = new Date(b.date.replace(/(\d{4})年(\d{1,2})月(\d{1,2})日/, '$1-$2-$3'));
+                return dateB - dateA;
             });
+
+            // 現在の日付から2週間前の日付を計算
+            const currentDate = new Date();
+            const oneWeekAgo = new Date();
+            oneWeekAgo.setDate(currentDate.getDate() - 14);
 
             sortedData.slice(0, 10).forEach(item => {
                 const li = document.createElement('li');
@@ -80,28 +85,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 const titleSpan = document.createElement('span');
                 titleSpan.classList.add('products-news-title');
                 
-                // Newバッジ処理
+                // Newバッジ処理 - 日付で判定
+                const date_match = item.date.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
                 let newsTitle = item.title;
-                const hasNewTag = newsTitle.includes('[New]');
-                if (hasNewTag) {
-                    newsTitle = newsTitle.replace('[New]', '').trim();
+                if (date_match) {
+                    const announcementDate = new Date(date_match[1], date_match[2] - 1, date_match[3]);
+                    if (announcementDate > oneWeekAgo) {
+                        const newBadge = document.createElement('span');
+                        newBadge.textContent = 'New';
+                        
+                        Object.assign(newBadge.style, {
+                            color: '#fff',
+                            fontWeight: 'bold',
+                            fontSize: '12px',
+                            backgroundColor: 'red',
+                            borderRadius: '10px',
+                            padding: '1px 5px 3px 5px',
+                            marginLeft: '30px'
+                        });
+                        titleSpan.appendChild(newBadge); 
+                    }
                 }
-                titleSpan.textContent = newsTitle; 
-
-                if (hasNewTag) {
-                    const newBadge = document.createElement('span');
-                    newBadge.textContent = 'New';
-                    newBadge.style.color = '#fff';
-                    newBadge.style.fontWeight = 'bold';
-                    newBadge.style.fontSize = '12px';
-                    newBadge.style.backgroundColor = 'red';
-                    newBadge.style.borderRadius = '10px';
-                    newBadge.style.padding = "1px 5px 3px 5px";
-                    newBadge.style.marginLeft = "30px";
-                    titleSpan.appendChild(newBadge); 
+                
+                // タイトルテキストから`[New]`タグを削除
+                if (newsTitle.includes('[New]')) {
+                     newsTitle = newsTitle.replace('[New]', '').trim();
                 }
+                titleSpan.prepend(newsTitle); // テキストを先頭に追加
 
-                 // body部のレンダリング
+                // body部のレンダリング
                 const bodyDiv = document.createElement('div');
                 bodyDiv.classList.add('products-news-fulltext-body');
 

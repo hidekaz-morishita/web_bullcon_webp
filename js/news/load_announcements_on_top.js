@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     formattedDate = `${year}/${month}/${day}`;
                 }
 
-                // 現在の日付から1週間前の日付を計算
+                // 現在の日付から2週間前の日付を計算
                 const currentDate = new Date();
                 const oneWeekAgo = new Date();
-                oneWeekAgo.setDate(currentDate.getDate() - 7);
+                oneWeekAgo.setDate(currentDate.getDate() - 14);
 
                 const link = document.createElement('a');
                 link.href = item.url;
