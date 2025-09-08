@@ -1,20 +1,59 @@
-import { BRAND_STYLE } from './const_data.js';
+import { BRAND_STYLE, NEWS_TYPE_STYLE } from './const_data.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const productsList = document.getElementById('products-list');
-    const brandTabs = document.getElementById('brand-tabs'); // HTML側のbrand-tabsをそのまま使用
+    const newsTypeTabs = document.getElementById('news-type-tabs');
+    const brandTabsContainer = document.getElementById('brand-tabs');
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-button');
 
     let allProductsData = [];
-    let currentCategory = 'all'; // currentBrandをcurrentCategoryに変更
+    let processedProductsData = [];
+    let currentNewsType = 'all';
+    let currentBrand = 'all';
     let searchTerm = '';
     let searchTimeout;
 
-    if (!productsList || !brandTabs || !searchInput || !searchButton) {
-        console.error("必要なDOM要素が見つかりませんでした。products-list, brand-tabs, search-input, search-button が存在するか確認してください。");
+    const DYNAMIC_NEWS_TYPES = ['all', '適合情報', '新製品情報']; 
+    const DYNAMIC_BRANDS = ['all', ...Object.keys(BRAND_STYLE).sort()];
+
+    if (!productsList || !newsTypeTabs || !brandTabsContainer || !searchInput || !searchButton) {
+        console.error("必要なDOM要素が見つかりませんでした。products-list, news-type-tabs, brand-tabs, search-input, search-button が存在するか確認してください。");
         return;
     }
+
+    function updateActiveTabUnderline(tabElement) {
+        // 何もしないか、あるいは将来的に別の視覚的効果を追加する場所として残しておく
+        // この関数はもはや下線幅を計算・設定しない
+    }
+
+    // createTabItemWithWrapper関数は変更なし。text-content-wrapperはそのまま残します。
+    // (将来的な拡張性や、タブのコンテンツを中央寄せにするため)
+    function createTabItemWithWrapper(typeOrBrand, text, currentActiveValue, isNewsTypeTab) {
+        const tab = document.createElement('div');
+        tab.classList.add('tab-item');
+        if (currentActiveValue === typeOrBrand) {
+            tab.classList.add('active');
+        }
+        if (isNewsTypeTab) {
+            tab.dataset.type = typeOrBrand;
+        } else {
+            tab.dataset.brand = typeOrBrand;
+        }
+
+        const textWrapper = document.createElement('span');
+        textWrapper.classList.add('text-content-wrapper');
+        textWrapper.textContent = text;
+        tab.appendChild(textWrapper);
+
+        return tab;
+    }
+
+    // 1段目のタブを初期化
+    renderNewsTypeTabs();
+    // 2段目のタブを初期化
+    renderBrandTabs();
+
 
     fetch('./products_news_data.json')
         .then(response => {
@@ -24,86 +63,132 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(data => {
-            // 新しいJSON構造に対応するため、データを前処理
-            allProductsData = data.map(item => {
-                // 'type'フィールドがない場合は'その他'をデフォルトとする
-                // 'brand'フィールドが存在する場合はそれを優先し、なければ'type'を使用
-                const actualBrand = item.brand || item.type || 'その他';
-
-                // titleを結合して表示用の文字列にする
-                let displayTitle = '';
-                if (typeof item.title === 'object' && item.title !== null) {
-                    if (item.title.product) {
-                        displayTitle += `[${item.title.product}] `;
-                    }
-                    if (item.title.car_model) {
-                        displayTitle += item.title.car_model;
-                    }
-                } else {
-                    displayTitle = item.title; // 既存の文字列形式のtitleも対応できるように
-                }
-
-                return {
-                    ...item,
-                    actualBrand: actualBrand, // フィルタリング・表示用のブランド/カテゴリ
-                    displayTitle: displayTitle // 表示用のタイトル文字列
-                };
-            }).sort((a, b) => {
-                const dateA = new Date(a.date.replace(/(\d{4})年(\d{1,2})月(\d{1,2})日/, '$1-$2-$3'));
-                const dateB = new Date(b.date.replace(/(\d{4})年(\d{1,2})月(\d{1,2})日/, '$1-$2-$3'));
-                return dateB - dateA;
-            });
-            renderProducts(currentCategory, 10);
+            allProductsData = data;
+            processAndRenderProducts();
         })
         .catch(error => {
             console.error('製品情報の読み込みに失敗しました:', error);
             productsList.innerHTML = '<li class="product-item">製品情報を読み込めませんでした。</li>';
         });
 
-    brandTabs.addEventListener('click', (event) => {
+    function processAndRenderProducts() {
+        processedProductsData = allProductsData.map(item => {
+            const newsType = DYNAMIC_NEWS_TYPES.includes(item.type) ? item.type : '新製品情報'; 
+            const brands = Array.isArray(item.brand) ? item.brand : (item.brand ? [item.brand] : []);
+
+            let displayTitle = '';
+            if (typeof item.title === 'object' && item.title !== null) {
+                if (item.title.product) {
+                    displayTitle += `[${item.title.product}] `;
+                }
+                if (item.title.car_model) {
+                    displayTitle += item.title.car_model;
+                }
+            } else {
+                displayTitle = item.title || '';
+            }
+
+            return {
+                ...item,
+                newsType: newsType,
+                brands: brands,
+                displayTitle: displayTitle
+            };
+        }).sort((a, b) => {
+            const dateA = new Date(a.date.replace(/(\d{4})年(\d{1,2})月(\d{1,2})日/, '$1-$2-$3'));
+            const dateB = new Date(b.date.replace(/(\d{4})年(\d{1,2})月(\d{1,2})日/, '$1-$2-$3'));
+            return dateB - dateA;
+        });
+
+        renderProducts(10);
+    }
+
+    // 1段目のNEWS_TYPEタブを生成する関数
+    function renderNewsTypeTabs() {
+        newsTypeTabs.innerHTML = '';
+
+        DYNAMIC_NEWS_TYPES.forEach(type => {
+            const tabText = type === 'all' ? 'すべて' : type;
+            const tab = createTabItemWithWrapper(type, tabText, currentNewsType, true); 
+            newsTypeTabs.appendChild(tab);
+        });
+    }
+
+    // 2段目のブランドタブを生成する関数
+    function renderBrandTabs() {
+        brandTabsContainer.innerHTML = '';
+
+        DYNAMIC_BRANDS.forEach(brand => {
+            const tabText = brand === 'all' ? 'すべて' : brand;
+            const tab = createTabItemWithWrapper(brand, tabText, currentBrand, false);
+            brandTabsContainer.appendChild(tab);
+        });
+    }
+
+    // 1段目のタブ (NEWS_TYPE) のクリックイベント
+    newsTypeTabs.addEventListener('click', (event) => {
         const clickedTab = event.target.closest('.tab-item');
         if (clickedTab) {
-            brandTabs.querySelectorAll('.tab-item').forEach(tab => {
+            newsTypeTabs.querySelectorAll('.tab-item').forEach(tab => {
                 tab.classList.remove('active');
+                // tab.style.removeProperty('--active-tab-underline-width'); // 不要になったため削除
             });
             clickedTab.classList.add('active');
+            // updateActiveTabUnderline(clickedTab); // 不要になったため削除
 
-            currentCategory = clickedTab.dataset.brand; // data-brandでカテゴリを判別
-            // 検索キーワードはリセットしない
-            renderProducts(currentCategory, 10);
+            currentNewsType = clickedTab.dataset.type;
+            renderProducts(10);
         }
+    });
+
+    // 2段目のタブ (Brand) のクリックイベント
+    brandTabsContainer.addEventListener('click', (event) => {
+        const clickedTab = event.target.closest('.tab-item');
+        if (clickedTab) {
+            brandTabsContainer.querySelectorAll('.tab-item').forEach(tab => {
+                tab.classList.remove('active');
+                // tab.style.removeProperty('--active-tab-underline-width'); // 不要になったため削除
+            });
+            clickedTab.classList.add('active');
+            // updateActiveTabUnderline(clickedTab); // 不要になったため削除
+
+            currentBrand = clickedTab.dataset.brand;
+            renderProducts(10);
+        }
+    });
+
+    searchButton.addEventListener('click', () => {
+        clearTimeout(searchTimeout);
+        searchTerm = searchInput.value.toLowerCase();
+        renderProducts(10);
     });
 
     searchInput.addEventListener('input', () => {
         clearTimeout(searchTimeout);
         searchTimeout = setTimeout(() => {
             searchTerm = searchInput.value.toLowerCase();
-            renderProducts(currentCategory, 10);
+            renderProducts(10);
         }, 300);
     });
 
-    searchButton.addEventListener('click', () => {
-        clearTimeout(searchTimeout);
-        searchTerm = searchInput.value.toLowerCase();
-        renderProducts(currentCategory, 10);
-    });
+    function renderProducts(limit = 0) {
+        productsList.innerHTML = '<li class="product-item">読み込み中...</li>';
 
-    function renderProducts(category, limit = 0) {
-        productsList.innerHTML = '';
+        let filteredData = processedProductsData;
 
-        let filteredData = allProductsData;
-
-        // カテゴリ（brandまたはtype）によるフィルタリング
-        if (category !== 'all') {
-            filteredData = filteredData.filter(item => item.actualBrand === category);
+        if (currentNewsType !== 'all') { 
+            filteredData = filteredData.filter(item => item.newsType === currentNewsType);
         }
 
-        // 検索キーワードによるフィルタリング
+        if (currentBrand !== 'all') {
+            filteredData = filteredData.filter(item => item.brands.includes(currentBrand));
+        }
+        
         if (searchTerm) {
             filteredData = filteredData.filter(item => {
-                // displayTitle、bodyの内容、actualBrand を検索対象とする
                 const titleMatch = item.displayTitle.toLowerCase().includes(searchTerm);
-                const brandMatch = item.actualBrand.toLowerCase().includes(searchTerm);
+                const newsTypeMatch = item.newsType.toLowerCase().includes(searchTerm);
+                const brandMatch = item.brands.some(b => b.toLowerCase().includes(searchTerm));
                 const bodyMatch = item.body.some(block => {
                     if (block.type === 'paragraph' || block.type === 'heading') {
                         return block.content.toLowerCase().includes(searchTerm);
@@ -115,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     return false;
                 });
-                return titleMatch || brandMatch || bodyMatch;
+                return titleMatch || newsTypeMatch || brandMatch || bodyMatch;
             });
         }
 
@@ -135,33 +220,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const displayData = limit > 0 ? filteredData.slice(0, limit) : filteredData;
         
+        productsList.innerHTML = '';
+
         displayData.forEach(item => {
             const li = document.createElement('li');
             li.classList.add('product-item');
 
-            const brandSpan = document.createElement('span');
-            brandSpan.classList.add('products-news-brand');
-            brandSpan.textContent = item.actualBrand; // actualBrand を表示
-            const style = BRAND_STYLE[item.actualBrand]; // actualBrand でスタイルを検索
-            Object.assign(brandSpan.style, {
-                color: style.color,
-                border: `2px solid ${style.color}`,
-                display: 'inline-block',
-                padding: '0 8px',
-                fontWeight: 'bold',
-                borderRadius: '0',
-                lineHeight: '20px',
-                marginBottom: '15px'
-            });
-            li.appendChild(brandSpan);
+            const labelsContainer = document.createElement('div');
+            labelsContainer.classList.add('product-labels');
 
+            const newsTypeLabelGroup = document.createElement('div');
+            newsTypeLabelGroup.classList.add('news-type-label-group');
+
+            const newsTypeLabel = document.createElement('span');
+            newsTypeLabel.classList.add('products-news-label');
+            newsTypeLabel.textContent = item.newsType;
+            const newsTypeStyle = NEWS_TYPE_STYLE[item.newsType];
+            if (newsTypeStyle) {
+                newsTypeLabel.style.color = newsTypeStyle.color;
+                newsTypeLabel.style.borderColor = newsTypeStyle.borderColor;
+            } else {
+                newsTypeLabel.style.color = '#6c757d'; 
+                newsTypeLabel.style.borderColor = '#6c757d';
+            }
+            newsTypeLabelGroup.appendChild(newsTypeLabel);
+            labelsContainer.appendChild(newsTypeLabelGroup);
+
+            const brandLabelGroup = document.createElement('div');
+            brandLabelGroup.classList.add('brand-label-group');
+
+            item.brands.forEach(brandName => {
+                const brandLabel = document.createElement('span');
+                brandLabel.classList.add('products-news-label');
+                brandLabel.textContent = brandName;
+                const brandStyle = BRAND_STYLE[brandName];
+                if (brandStyle) {
+                    brandLabel.style.color = brandStyle.color;
+                    brandLabel.style.borderColor = brandStyle.borderColor;
+                } else {
+                    brandLabel.style.color = '#6c757d';
+                    brandLabel.style.borderColor = '#6c757d';
+                }
+                brandLabelGroup.appendChild(brandLabel);
+            });
+            labelsContainer.appendChild(brandLabelGroup);
+
+            li.appendChild(labelsContainer);
+
+
+            const headerDiv = document.createElement('div');
+            headerDiv.classList.add('product-header-content');
+            
             const dateSpan = document.createElement('span');
             dateSpan.classList.add('product-date');
             dateSpan.textContent = item.date;
+            headerDiv.appendChild(dateSpan);
 
             const titleSpan = document.createElement('span');
             titleSpan.classList.add('product-title');
-            titleSpan.textContent = item.displayTitle; // displayTitle を表示
+            titleSpan.textContent = item.displayTitle;
+            headerDiv.appendChild(titleSpan);
 
             const date_match = item.date.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
             const newsDate = date_match ? new Date(date_match[1], date_match[2] - 1, date_match[3]) : null;
@@ -172,13 +290,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 newBadge.classList.add('new-badge');
                 titleSpan.appendChild(newBadge);
             }
-
-            const headerDiv = document.createElement('div');
-            headerDiv.style.display = 'flex';
-            headerDiv.style.alignItems = 'center';
-            headerDiv.appendChild(dateSpan);
-            headerDiv.appendChild(titleSpan);
             li.appendChild(headerDiv);
+
 
             const bodyDiv = document.createElement('div');
             bodyDiv.classList.add('product-fulltext-body');
@@ -224,15 +337,17 @@ document.addEventListener('DOMContentLoaded', () => {
             productsList.appendChild(li);
         });
 
+        const showMoreButton = document.createElement('button');
+        showMoreButton.id = 'show-more-button';
+        showMoreButton.textContent = 'もっと見る';
+        showMoreButton.style.display = 'none';
+
         if (filteredData.length > displayData.length) {
-            const moreButton = document.createElement('button');
-            moreButton.id = 'show-more-button';
-            moreButton.textContent = 'もっと見る';
-            
-            moreButton.addEventListener('click', () => {
-                renderProducts(currentCategory, filteredData.length);
+            showMoreButton.style.display = 'block';
+            showMoreButton.addEventListener('click', () => {
+                renderProducts(filteredData.length);
             });
-            productsList.appendChild(moreButton);
+            productsList.appendChild(showMoreButton);
         }
     }
 });

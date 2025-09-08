@@ -29,22 +29,10 @@
                 <button id="search-button">検索</button>
             </div>
 
-            <ul class="tab-menu" id="brand-tabs">
-                <ul class="tab-row">
-                    <li class="tab-item active" data-brand="all">すべて</li>
-                    <li class="tab-item" data-brand="新製品情報">製品新着情報</li>
-                </ul>
-                <ul class="tab-row">
-                    <li class="tab-item" data-brand="トヨタ">トヨタ</li>
-                    <li class="tab-item" data-brand="レクサス">レクサス</li>
-                    <li class="tab-item" data-brand="ホンダ">ホンダ</li>
-                    <li class="tab-item" data-brand="マツダ">マツダ</li>
-                    <li class="tab-item" data-brand="スバル">スバル</li>
-                    <li class="tab-item" data-brand="スズキ">スズキ</li>
-                    <li class="tab-item" data-brand="ダイハツ">ダイハツ</li>
-                    <li class="tab-item" data-brand="ミツビシ">ミツビシ</li>
-                </ul>
-            </ul>
+            <div class="tabs-wrapper">
+                <div id="news-type-tabs" class="tabs-group news-type-group"></div>
+                <div id="brand-tabs" class="tabs-group brand-group"></div>
+            </div>
 
             <ul id="products-list"></ul>
         </section>
