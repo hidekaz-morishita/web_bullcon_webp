@@ -170,7 +170,7 @@
 }
 
 .announcements-list {
-    width: 80%;
+    width: 60%;
     list-style: none;
     box-sizing: border-box;
     padding: 0 20px;
@@ -255,15 +255,15 @@
     max-height: 600px;
     overflow-y: auto; 
     list-style: none;
-    padding: 0;
+    padding: 0 50px;
 }
 
 .products-news-section .products-news-item {
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 2px solid #e0e0e0;
     border-radius: 0;
-    padding: 20px 0;
+    padding: 20px 0 0 0;
     margin-bottom: 0;
     box-shadow: none;
     transition: transform 0.2s ease-in-out;
@@ -288,6 +288,7 @@
     background-color: #f0f0f0;
     padding: 4px 8px;
     border-radius: 4px;
+    white-space: nowrap;
 }
 
 .products-news-section .products-news-title {
@@ -300,9 +301,9 @@
 .products-news-section .products-news-fulltext-body {
     font-size: 1rem;
     color: #555;
-    line-height: 1.6;
+    line-height: 1.2;
     margin-top: 15px;
-    padding-top: 15px;
+    padding-top: 5px;
     border-top: 1px dashed #e0e0e0;
 }
 

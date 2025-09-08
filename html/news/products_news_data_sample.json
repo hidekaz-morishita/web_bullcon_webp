@@ -1,0 +1,29 @@
+[
+  {
+    "date": "2025年01月20日",
+    "title": "スズキディーラーオプション　2025年モデルナビゲーション",
+    "brand": "トヨタ",
+    "body": [
+      { "type": "list", "items": [
+        "99090-69U25-P01（CN-FZ10A7ZA）10インチスタンダードプラスモデル",
+        "99098-69U25-P02（CN-FZ8A6ZA）8インチスタンダードプラスモデル",
+        "99098-69U35-P03（CN-HZ8A5ZA）8インチスタンダードモデル",
+        "99097-80T35-P04（CN-HZ7A5WZA）7インチスタンダードモデル"
+      ]},
+      { "type": "html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"https://www.fuji-denki.co.jp/TVing/TVing.htm\" target=\"_blank\">『 {CTN-111AS} 』</a></span><br>FreeTVing ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"https://www.fuji-denki.co.jp/TVing/TVing.htm\" target=\"_blank\">『 {CTN-111ASC} 』</a></span><br>FreeTVing ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"https://www.fuji-denki.co.jp/TVing/TVing.htm\" target=\"_blank\">『 {CTN-111ASC} 』</a></span></b></p>", "align": "right"},
+      { "type": "paragraph", "content": "【CTN-111AS/111ASC/111AST】自車位置は追従します。", "align": "right"}
+    ]
+  },
+  {
+    "date": "2024年12月26日",
+    "title": "アウトランダーPHEV対応情報",
+    "brand": "ミツビシ",
+    "body": [ { "type": "paragraph", "content": "アウトランダーPHEV対応情報の本文..."}]
+  },
+  {
+    "date": "2024年12月17日",
+    "title": "GX対応情報",
+    "brand": "レクサス",
+    "body": [ { "type": "paragraph", "content": "GX対応情報の本文..."}]
+  }
+]
