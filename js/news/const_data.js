@@ -13,5 +13,4 @@ export const BRAND_STYLE = {
 export const NEWS_TYPE_STYLE = {
     '新製品情報': { color: '#FF8C00', borderColor: '#FF8C00' }, // オレンジ
     '適合情報': { color: '#6A5ACD', borderColor: '#6A5ACD' }, // スレートブルー
-    'その他': { color: '#6c757d', borderColor: '#6c757d' } // グレー
 };

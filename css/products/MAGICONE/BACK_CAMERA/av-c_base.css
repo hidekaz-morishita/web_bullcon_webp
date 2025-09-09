@@ -1,0 +1,253 @@
+/* av-c_base.css */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px 20px 30px 20px;
+    min-height: 60vh;
+}
+
+/* magicone-head セクション */
+.magicone-head {
+    display: flex;
+    justify-content: space-between; /* ロゴと保証画像を左右に配置 */
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee; /* 必要であれば区切り線 */
+    margin-bottom: 30px;
+}
+
+.magicone_logo {
+    height: 80px; /* ロゴの高さ調整（元の画像サイズによる） */
+    width: auto;
+}
+
+.guarantee_1Y-psv_12V {
+    height: 80px; /* 保証画像の高さ調整（元の画像サイズによる） */
+    width: auto;
+}
+
+/* product-info セクション */
+.product-info {
+    margin-bottom: 30px;
+}
+
+.product-info__main {
+    display: flex;
+    /* align-items: flex-end; */ /* 価格とJANコードをタイトルと揃える場合 */
+    flex-wrap: wrap; /* 画面幅が狭い場合に折り返す */
+    gap: 20px; /* タイトルと詳細情報の間の隙間 */
+    margin-bottom: 20px;
+}
+
+.product-info__title {
+    font-size: 2.2em; /* 適切なサイズに調整 */
+    font-weight: bold;
+    margin: 0;
+    flex-shrink: 0; /* タイトルが縮まないように */
+}
+
+.product-info__details {
+    line-height: 1.4;
+    padding-left: 10%;
+    flex-grow: 1; /* 残りのスペースを埋める */
+}
+
+.product-info__price {
+    margin: 0 0 5px 0;
+}
+
+.product-info__price-text {
+    font-size: 1em;
+}
+.product-info__price-value {
+    font-size: 1.4em; /* 適切なサイズに調整 */
+    font-weight: bold;
+}
+.product-info__price-tax,
+.product-info__price-untaxed {
+    font-size: 0.9em;
+    color: #666;
+}
+.product-info__price-untaxed {
+    display: block; /* 税抜価格を次の行に */
+    margin-top: 2px;
+}
+
+
+.product-info__jan-code {
+    font-size: 0.9em;
+    margin: 0;
+    color: #666;
+}
+
+.product-info__compat {
+    line-height: 1.0;
+}
+
+.product-info__compat-car {
+    font-weight: bold;
+}
+
+.product-info__compat-warning {
+    font-size: 0.9em;
+    color: #ff0308;
+    margin: 0;
+}
+
+/* ボタン全体を囲むリンク要素 */
+.pdf-button-wrapper {
+    text-align: center; 
+}
+
+.pdf-button {
+    display: inline-flex; /* 要素を横並びにする */
+    align-items: center; /* 垂直方向の中央揃え */
+    text-decoration: none; /* 下線を非表示に */
+    padding: 2px 15px;
+    border: 2px solid #a3e2ff; /* ボーダーの色 */
+    border-radius: 25px; /* 角丸の半径 */
+    background-color: #e6f7ff; /* 背景色 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 影 */
+    cursor: pointer;
+    font-family: 'Arial', sans-serif; /* フォントの指定 */
+    transition: background-color 0.3s, box-shadow 0.3s; /* ホバーアニメーション */
+}
+
+/* ホバー時のスタイル */
+.pdf-button:hover {
+    background-color: #ffd0f9;
+    border-color: #ec54ba;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* アイコン画像 */
+.button-icon {
+    width: 28px; /* アイコンの幅 */
+    height: auto; /* 高さは自動調整 */
+    margin-right: 10px; /* テキストとの間隔 */
+    vertical-align: middle; /* 垂直方向の配置調整 */
+}
+
+/* テキスト部分 */
+.button-text {
+    font-size: 16px;
+    color: #333; /* テキストの色 */
+    font-weight: bold; /* フォントの太さ */
+}
+/* connection-guid セクション */
+.connection-guid {
+    padding: 30px 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.connection-guid-txt {
+    display: flex;
+    align-items: center;
+    background-color: #57a5c9;
+    color: #fff;
+}
+
+.connection-guid-txt .txt-1 {
+    font-size: 1.0em;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.connection-guid-txt .txt-2 {
+    font-size: 0.9em;
+    padding-left: 10px;
+}
+
+.guid-images {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 15px; 
+    margin-bottom: 20px;
+}
+
+.guid-images img {
+    height: 250px;
+    width: auto;
+    display: block;
+}
+
+.img-with-txt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* テキストのスタイル */
+.anotate-txt {
+    font-size: 0.9em;
+    margin-top: 5px; 
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .magicone-head {
+        flex-direction: column; /* モバイルでは縦並び */
+        gap: 15px;
+        padding: 15px 0;
+    }
+
+    .magicone_logo {
+        height: 50px;
+    }
+    .guarantee_1Y-psv_12V {
+        height: 30px;
+    }
+
+    .product-info__main {
+        flex-direction: column; /* タイトルと詳細を縦並び */
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .product-info__title {
+        font-size: 1.8em;
+    }
+    .product-info__price-value {
+        font-size: 1.2em;
+    }
+    .product-info__price-tax,
+    .product-info__price-untaxed,
+    .product-info__jan-code {
+        font-size: 0.85em;
+    }
+
+    .product-info__compat-car,
+    .product-info__compat-unit {
+        font-size: 1em;
+    }
+    .product-info__compat-warning {
+        font-size: 0.8em;
+    }
+
+    .actions {
+        padding: 20px 0;
+    }
+    .actions__link img {
+        height: 25px;
+    }
+
+    .connection-guid-txt .txt-1 {
+        font-size: 1.2em;
+    }
+    .connection-guid-txt .txt-2 {
+        font-size: 0.8em;
+    }
+    .guid-images img {
+        flex-wrap: wrap;
+        height: 200px;
+        width: auto;
+    }
+    .guid-images {
+        flex-direction: row; /* 接続ガイド画像も縦並び */
+    }
+}

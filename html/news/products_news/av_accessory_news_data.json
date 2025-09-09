@@ -1,0 +1,23 @@
+[
+  {
+    "date": "2025年9月3日",
+    "type": "適合情報",
+    "title_data": {"product": ["FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ『CTN-111AS』", "FreeTVing ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ『CTN-111ASC』", "FreeTVing ｽﾃｱﾘﾝｸﾞｽｲｯﾁ切替ﾀｲﾌﾟ『CTN-111AST』"], "car_model": ["カローラクロスハイブリッド（ZVG13.16 MXGH15）　R7/9～"]},
+    "brand": ["トヨタ"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"https://www.fuji-denki.co.jp//TVing/TVing.htm\" target=\"_blank\">『CTN-111AS』</a></span>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"https://www.fuji-denki.co.jp//TVing/TVing.htm\" target=\"_blank\">『CTN-111ASC』</a></span>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing ｽﾃｱﾘﾝｸﾞｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"https://www.fuji-denki.co.jp//TVing/TVing.htm\" target=\"_blank\">『CTN-111AST』</a></span>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2025年8月29日",
+    "type": "新製品情報",
+    "title_data": {"product": ["マジコネ バックカメラ接続ユニット『AV-C66』"], "car_model":["アルト　（HA97S HA37S）　R7/8～"]},
+    "brand": ["スズキ"],
+    "body": [
+      { "type": "html", "content": "メーカーオプション　バックアイカメラ・スズキコネクト対応通信機 装着車"},
+      { "type":"html", "content": "<p><b>マジコネ バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"https://www.fuji-denki.co.jp//magicone/av-c66/av-c66.htm\" target=\"_blank\">『AV-C66』</a></span>", "align": "right"}
+    ]
+  }
+]

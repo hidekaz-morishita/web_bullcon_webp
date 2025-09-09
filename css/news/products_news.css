@@ -1,18 +1,19 @@
 /* products_news.html専用のスタイル */
 
-/* セクション全体の余白と背景 (products_news_section) */
+/* セクション全体の余白と背景 */
 .products-news-section {
-    padding: 60px 0; /* 上下のパディングは維持 */
+    padding: 60px 0;
     background-color: #fff;
-    max-width: 1000px; /* コンテナの幅を中央揃え */
+    max-width: 1000px;
     margin: 0 auto;
-    padding-left: 20px; /* 左右の余白 */
-    padding-right: 20px; /* 左右の余白 */
-    box-sizing: border-box; /* パディングを含めて幅を計算 */
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    position: relative;
 }
 
 /* ページタイトルのスタイル */
-.products-news-section h2.section-title { /* h1ではなくh2を使用しているため修正 */
+.products-news-section h2.section-title {
     font-size: 2.5rem;
     color: #333;
     text-align: center;
@@ -20,131 +21,138 @@
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 10px;
 }
+.products-news-section h2.section-title .section-title-en {
+    display: block;
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 5px;
+}
+.products-news-section h2.section-title .section-title-jp {
+    display: block;
+    font-size: 1em;
+}
+
+.archive_link {
+    text-align: right;
+}
 
 /* 検索コンテナの基本デザイン */
 #search-container {
-    display: flex; /* Flexboxで要素を横並びに */
-    gap: 10px; /* 要素間の隙間 */
-    margin: 25px auto; /* 上下のマージンと中央揃え */
-    max-width: 500px; /* 最大幅を設定 */
-    padding: 15px; /* 内側の余白 */
-    background-color: #f9f9f9; /* やや明るい背景色 */
-    border: 1px solid #e0e0e0; /* 軽いボーダー */
-    border-radius: 10px; /* 角を丸くする */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 影を追加 */
-    align-items: center; /* 垂直方向の中央揃え */
+    display: flex;
+    gap: 10px;
+    margin: 35px auto;
+    max-width: 500px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    align-items: center;
 }
 
 /* 検索入力フィールドのデザイン */
 #search-input {
-    flex-grow: 1; /* 利用可能なスペースを埋める */
-    padding: 12px 18px; /* 内側の余白 */
-    border: 1px solid #c0c0c0; /* やや濃いボーダー */
-    border-radius: 8px; /* 角を丸くする */
-    font-size: 1rem; /* フォントサイズ */
-    color: #333; /* 文字色 */
-    outline: none; /* フォーカス時のアウトラインを削除 */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* ホバー・フォーカス時のアニメーション */
-    box-shadow: inset 0 1px 4px rgba(0,0,0,0.05); /* 軽い内側の影 */
+    flex-grow: 1;
+    padding: 12px 18px;
+    border: 1px solid #c0c0c0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.05);
 }
 
 #search-input::placeholder {
-    color: #999; /* プレースホルダーの文字色を修正 */
+    color: #999;
 }
 
 #search-input:focus {
-    border-color: #3498db; /* フォーカス時のボーダー色 */
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3); /* フォーカス時の青い影 */
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
 }
 
 /* 検索ボタンのデザイン */
 #search-button {
-    padding: 12px 25px; /* 内側の余白 */
-    background-color: #3498db; /* ボタンの背景色（青系） */
-    color: white; /* ボタンの文字色 */
-    border: none; /* ボーダーを削除 */
-    border-radius: 8px; /* 角を丸くする */
-    cursor: pointer; /* マウスオーバー時にポインターを表示 */
-    font-size: 1rem; /* フォントサイズ */
-    font-weight: bold; /* フォントを太く */
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* ホバー時のアニメーション */
-    text-transform: uppercase; /* 文字を大文字に（任意） */
-    letter-spacing: 0.5px; /* 文字間隔（任意） */
+    padding: 12px 25px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 #search-button:hover {
-    background-color: #2980b9; /* ホバー時の背景色 */
-    transform: translateY(-1px); /* 軽く上に移動するアニメーション */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* ホバー時の影を強調 */
+    background-color: #2980b9;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 #search-button:active {
-    background-color: #206da0; /* クリック時の背景色 */
-    transform: translateY(0); /* クリック時は元の位置に戻す */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* クリック時の影を抑える */
+    background-color: #206da0;
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* タブ全体を囲むコンテナ */
 .tabs-wrapper {
-    margin-bottom: 25px; /* タブ全体の下マージン */
+    margin-bottom: 50px;
 }
 
 /* 各タブグループの共通スタイル */
 .tabs-group {
     display: flex;
     justify-content: center;
-    gap: 15px; /* タブ間の隙間を統一 */
-    padding-top: 10px; /* 上パディングは維持 */
-    background-color: #fff; /* 背景色を白に変更 */
-    position: relative; /* ::before の基準位置 */
-    padding-bottom: 12px; /* 灰色の下線とタブアイテムの間のスペース */
+    gap: 15px;
+    padding-top: 10px;
+    background-color: #fff;
+    position: relative;
+    padding-bottom: 12px;
+    flex-wrap: wrap;
 }
 
-/* tabs-group の下線を ::before で表現 (灰色の線) */
+/* tabs-group の下線を表現 */
 .tabs-group::before {
     content: '';
     position: absolute;
-    bottom: 0; /* tabs-groupの底辺に固定 */
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px; /* 灰色の下線の太さ */
+    height: 2px;
     background-color: #e0e0e0;
-    z-index: 0; /* 赤い下線の下に来るように */
+    z-index: 0;
 }
 
-/* 1段目のタブ（NEWS_TYPE）専用スタイル - コンテンツ幅いっぱいに広がるように */
+/* 1段目のタブ（NEWS_TYPE）専用スタイル */
 .news-type-group {
-    margin-bottom: 15px; /* 2段目のタブとの間に少しスペース */
-    /* ここに flex-grow を設定して、子要素が均等に幅を占めるようにする */
-    .tab-item {
-        flex-grow: 1; /* 各タブアイテムが利用可能なスペースを均等に占める */
-        min-width: unset; /* 最小幅の制約を解除 */
-    }
+    margin-bottom: 15px;
+}
+.news-type-group .tab-item {
+    flex-grow: 1;
+    min-width: unset;
+    max-width: 200px;
 }
 
-/* 2段目のタブ（Brand）専用スタイル - 横スクロールで縮まないように */
+/* 2段目のタブ（Brand）専用スタイル */
 .brand-group {
-    padding-top: 10px; /* 上のタブとの間にスペース */
-    margin-top: -15px; /* 1段目の下線と重なるように調整 */
-    flex-wrap: nowrap; /* 折り返さない */
-    overflow-x: auto; /* 横スクロールを有効にする */
+    padding-top: 10px;
+    margin-top: -15px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     overflow-y: hidden;
-    -webkit-overflow-scrolling: touch; /* iOSでのスムーズなスクロール */
-    justify-content: center; /* 左寄せ */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE and Edge */
-
-    .tab-item {
-        flex-shrink: 0; /* 横スクロール時にタブが縮まないように */
-        min-width: 50px; /* 必要に応じて最小幅を設定 */
-    }
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
 }
 
-/* WebKit系のブラウザ (Chrome, Safari) のスクロールバーを非表示にする */
-.brand-group::-webkit-scrollbar {
-    display: none;
+.brand-group .tab-item {
+    flex-shrink: 0;
+    min-width: 80px;
 }
-
 
 /* 各タブアイテムのスタイル */
 .tab-item {
@@ -154,59 +162,50 @@
     background-color: transparent;
     color: #333;
     border: none;
-    position: relative; /* ::after の基準位置 */
+    position: relative;
     text-decoration: none;
     transition: color 0.3s, font-weight 0.3s;
-    white-space: nowrap; /* タブが折り返さないように */
-    display: flex; /* text-content-wrapperを中央寄せにするため */
-    align-items: center; /* 垂直中央寄せ */
-    justify-content: center; /* 水平中央寄せ */
-    z-index: 1; /* 赤い下線が灰色の下線の上に表示されるように */
-}
-
-/* タブ内のテキストを囲む要素のスタイル */
-/* padding, margin はここで管理し、テキストコンテンツの幅と余白を調整 */
-.tab-item > span.text-content-wrapper {
-    display: inline-block; /* width/heightを適用可能に */
-    white-space: nowrap; /* テキストが折り返さないように */
-    padding: 0; /* テキストの純粋な幅を取得するため、paddingを0に */
-    margin: 0; 
-    position: relative; /* ::after の基準位置 */
-    z-index: 1; /* text-content-wrapper が tab-item の上に表示されるように */
-}
-
-
-.tab-item:hover {
-    color: #007bff;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
 }
 
 /* アクティブな（選択中の）タブのスタイル */
 .tab-item.active {
     color: #333;
     font-weight: bold;
-    position: relative; 
+    position: relative;
 }
 
 /* アクティブなタブに赤の下線を重ねる */
-.tab-item.active::after { /* span.text-content-wrapper の after から tab-item の after に変更 */
+.tab-item.active::after {
     content: '';
     position: absolute;
-    bottom: -12px; /* tab-itemの底辺から12px下に移動（tabs-groupのpadding-bottomに合わせる） */
-    left: 0; /* tab-item の左端に合わせる */
-    width: 100%; /* tab-item の幅いっぱいに広げる */
-    
-    height: 4px; /* 赤い下線の太さ */
+    bottom: -12px;
+    left: 0;
+    width: 100%;
+    height: 4px;
     background-color: red;
-    transition: background-color 0.3s ease, width 0.3s ease, transform 0.3s ease; 
-    z-index: 2; /* 灰色の下線 (::before) のさらに上に来るように */
+    transition: background-color 0.3s ease, width 0.3s ease, transform 0.3s ease;
+    z-index: 2;
 }
 
+/* 無効化されたタブのスタイル */
+.tab-item.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    color: #999;
+    pointer-events: none;
+}
 
 /* リスト全体のスタイル */
 #products-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    position: relative;
 }
 
 /* 各製品情報アイテムのスタイル */
@@ -215,220 +214,298 @@
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     margin-bottom: 20px;
-    padding: 20px; /* ここを調整 */
+    padding: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease-in-out;
-}
-
-.product-item:hover {
-    transform: translateY(-3px);
-}
-
-/* ラベル表示のためのフレックスコンテナ */
-.product-labels {
-    display: flex; /* Flexboxで要素を配置 */
-    flex-direction: column; /* 縦方向に並べる */
-    gap: 8px; /* ラベルグループ間のスペース */
-    margin-bottom: 15px; /* 下の要素とのスペース */
-}
-
-/* NEWS_TYPEラベルグループのコンテナ */
-.news-type-label-group {
+    position: relative;
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px; /* ラベル間のスペース */
+    flex-direction: column;
+    gap: 10px;
 }
 
-/* ブランドラベルグループのコンテナ */
-.brand-label-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px; /* ラベル間のスペース */
-}
-
-
-.products-news-label { /* NEWS_TYPEとBrandの両方に適用する汎用ラベルクラス */
-    display: inline-block;
-    padding: 0 8px;
-    font-weight: bold;
-    border-radius: 3px; /* 少し角を丸める */
-    line-height: 20px;
-    border: 2px solid; /* JavaScriptで色を割り当てる */
-    color: #333; /* デフォルトの文字色 */
-    white-space: nowrap; /* ラベル内で改行しない */
-}
-
-/* 日付とタイトルのヘッダー */
-.product-header-content {
+/* ヘッダー: 日付とタイトル、ニュースタイプをまとめるコンテナ */
+.product-info-header {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+/* タイトルコンテナ */
+.product-title {
+    flex-grow: 1;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.product-names {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.product-names li {
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+/* NewバッジとNewsTypeをまとめるコンテナ */
+.type-and-badge-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    flex-shrink: 0;
+    margin-left: auto;
 }
 
 /* 日付のスタイル */
 .product-date {
-    font-size: 0.9rem;
-    color: #888;
+    font-size: 0.8rem;
+    color: #555;
     background-color: #f0f0f0;
     padding: 4px 8px;
     border-radius: 4px;
     white-space: nowrap;
-    margin-right: 15px; /* タイトルとの間隔 */
+    flex-shrink: 0;
 }
 
-/* タイトルのスタイル */
-.product-title {
-    font-size: 1.1rem;
+/* 個々のラベルの共通スタイル */
+.products-news-label {
+    display: inline-block;
+    padding: 1px 6px;
     font-weight: bold;
+    border-radius: 3px;
+    line-height: 1.2;
+    border: 2px solid;
     color: #333;
-    flex-grow: 1; /* 残りのスペースを埋める */
+    white-space: nowrap;
+    font-size: 0.9em;
+    flex-shrink: 0;
+    width: fit-content;
+}
+
+/* Brandラベルグループ */
+.brand-labels-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 8px;
+    border-top: 1px dotted #e0e0e0;
+}
+
+/* 対象車種のラベルのスタイル */
+.car-model-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+    align-items: center; /* 追加・修正 */
+}
+.car-model-label {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #555;
+    flex-shrink: 0;
+    vertical-align: middle; /* 追加 */
+}
+.car-models {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.4;
+    flex-grow: 1;
+    vertical-align: middle; /* 追加 */
 }
 
 /* Newバッジのスタイル */
-.product-title .new-badge {
-    margin-left: 10px;
+.new-badge {
     font-size: 0.8em;
-    background-color: #e74c3c; /* 赤 */
+    background-color: #e74c3c;
     color: white;
-    padding: 2px 8px; /* 修正: 上下パディングを追加 */
+    padding: 2px 8px;
     border-radius: 12px;
     font-weight: normal;
     white-space: nowrap;
-    display: inline-block;
-    vertical-align: middle;
+    animation: glowing-pulse 2s infinite;
 }
 
 /* 本文のスタイル */
 .product-fulltext-body {
     font-size: 1rem;
     color: #555;
-    line-height: 1.6; /* 行間を広めに */
-    padding: 15px 0 0 0; /* 上の要素と離す */
+    line-height: 1.4;
+    padding: 10px 0 0 0;
     border-top: 1px dashed #e0e0e0;
-    margin-top: 15px; /* 上の要素と離す */
+    margin-top: 10px;
 }
 .product-fulltext-body p,
 .product-fulltext-body div,
 .product-fulltext-body ul {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 .product-fulltext-body ul {
-    padding-left: 20px; /* リストのインデント */
+    padding-left: 20px;
 }
 
-/* 「もっと見る」ボタンのスタイル */
-#show-more-button {
-    display: block;
-    width: 180px;
-    margin: 30px auto;
-    padding: 12px 25px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
+/* --- ページネーションのスタイル --- */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 5px;
+}
+.pagination-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 8px 12px;
     border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    min-width: 40px;
+    text-align: center;
+    text-decoration: none;
 }
-
-#show-more-button:hover {
-    background-color: #2980b9;
-    transform: translateY(-2px);
+.pagination-button:hover:not(.active):not(.disabled) {
+    background-color: #e0e0e0;
+    color: #007bff;
+}
+.pagination-button.active {
+    background-color: #3498db;
+    color: white;
+    border-color: #3498db;
+    font-weight: bold;
+    cursor: default;
+}
+.pagination-button.disabled {
+    background-color: #f8f8f8;
+    color: #aaa;
+    cursor: not-allowed;
+    border-color: #eee;
 }
 
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
     .products-news-section {
-        padding-left: 10px; /* 左右の余白を小さく */
+        padding-left: 10px;
         padding-right: 10px;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
-
-    .products-news-section h2.section-title { /* h1ではなくh2を使用しているため修正 */
-        font-size: 2rem;
-        margin-bottom: 30px;
+    .products-news-section h2.section-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
     }
-
+    .products-news-section h2.section-title .section-title-en {
+        font-size: 0.7em;
+    }
+    .products-news-section h2.section-title .section-title-jp {
+        font-size: 0.9em;
+    }
     #search-container {
-        flex-direction: column; /* 縦並びにする */
-        padding: 10px; /* パディングを小さく */
-        margin: 20px auto; /* マージンを調整 */
+        flex-direction: column;
+        padding: 10px;
+        margin: 20px auto;
     }
-
     #search-input {
-        width: 100%; /* 全幅にする */
-        margin-bottom: 10px; /* 入力フィールドの下にマージン */
-        padding: 10px 12px; /* パディングを調整 */
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px 12px;
     }
-
     #search-button {
-        width: 100%; /* ボタンも全幅にする */
-        padding: 10px 15px; /* パディングを調整 */
+        width: 100%;
+        padding: 10px 15px;
     }
-
-    /* 各タブグループの共通スタイル (レスポンシブ時) */
     .tabs-group {
-        justify-content: flex-start; /* 左寄せ */
-        white-space: nowrap; /* タブアイテムが折り返さない */
-        -webkit-overflow-scrolling: touch; /* iOSでのスムーズなスクロール */
+        justify-content: flex-start;
+        white-space: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 10px;
+        padding-bottom: 10px;
     }
-
-    /* NEWS_TYPEタブはレスポンシブでも広がる */
+    .tabs-group::before {
+        height: 1px;
+    }
+    .news-type-group {
+        margin-bottom: 10px;
+    }
     .news-type-group .tab-item {
-        flex-grow: 1; 
+        flex-grow: 1;
         min-width: unset;
     }
-
+    .brand-group {
+        margin-top: -10px;
+    }
+    .brand-group .tab-item {
+        flex-shrink: 0;
+        min-width: 70px;
+    }
     .tab-item {
-        flex-shrink: 0; /* タブアイテムが縮まないように */
-        font-size: 1rem;
-        padding: 8px 10px; /* レスポンシブ時も維持 */
+        font-size: 0.95rem;
+        padding: 6px 8px;
     }
-    
-    .tab-item.active::after { /* span.text-content-wrapper の after から tab-item の after に変更 */
-        bottom: -12px; /* レスポンシブ時も維持 */
-        height: 4px; /* レスポンシブ時も太さを維持 */
-        left: 0; /* tab-item の左端に合わせる */
-        width: 100%; /* tab-item の幅いっぱいに広げる */
+    .tab-item.active::after {
+        bottom: -10px;
+        height: 3px;
     }
-
     .product-item {
-        padding: 15px; /* アイテムのパディングを小さく */
+        padding: 15px;
     }
-
-    .product-header-content {
-        flex-direction: column; /* 日付とタイトルを縦並びに */
-        align-items: flex-start; /* 左寄せ */
+    .product-info-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
     .product-date {
-        margin-right: 0;
-        margin-bottom: 5px;
+        margin-right: auto;
     }
     .product-title {
-        font-size: 1em;
-        margin-left: 0;
+        width: 100%;
+        order: 1;
+        margin: 0;
     }
-    .product-title .new-badge {
-        margin-left: 5px; /* バッジのマージン調整 */
+    .type-and-badge-container {
+        width: 100%;
+        order: 2;
+        align-items: flex-start;
     }
-
-    .product-labels {
-        gap: 8px; /* ラベルグループ間のスペースを維持 */
-    }
-
-    .news-type-label-group,
-    .brand-label-group {
-        gap: 5px; /* ラベル間のスペースを小さく */
-    }
-    .products-news-label {
-        font-size: 0.85em;
-        padding: 0 6px;
-        line-height: 18px;
-    }
-
     .product-fulltext-body {
         font-size: 0.9em;
         padding-top: 10px;
         margin-top: 10px;
+    }
+    .product-fulltext-body ul {
+        padding-left: 15px;
+    }
+    .pagination-container {
+        gap: 3px;
+        margin-top: 20px;
+    }
+    .pagination-button {
+        padding: 6px 8px;
+        font-size: 0.9rem;
+        min-width: 30px;
+    }
+}
+
+/* Newバッジに光るアニメーションを追加 */
+@keyframes glowing-pulse {
+    0% {
+        box-shadow: 0 0 5px rgba(231, 76, 60, 0.4), 0 0 10px rgba(231, 76, 60, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(231, 76, 60, 0.8), 0 0 25px rgba(231, 76, 60, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(231, 76, 60, 0.4), 0 0 10px rgba(231, 76, 60, 0.2);
     }
 }
