@@ -1,5 +1,5 @@
 /*==================================
-  Header
+  Header
 ==================================*/
 .header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -134,13 +134,15 @@
 }
 
 /*==================================
-  Dropdown Menu (3-column layout)
+  Dropdown Menu (3-column layout)
 ==================================*/
 .dropdown-menu {
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
+    /* メニューの最大横幅を追加 */
+    max-width: 1200px;
     background-color: rgba(255, 255, 255, 0.9);
     z-index: 920;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
@@ -176,6 +178,8 @@
 .dropdown-list-container {
     width: 30%;
     padding-right: 25px;
+    /* flexboxのプロパティを追加 */
+    flex: 1;
 }
 
 /* 新規追加: 真ん中の子製品リスト */
@@ -183,6 +187,8 @@
     width: 30%;
     padding-right: 25px;
     padding-left: 25px;
+    /* flexboxのプロパティを追加 */
+    flex: 2;
 }
 
 /* 元のHTMLに存在する、非表示の子ドロップダウン */
@@ -198,6 +204,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    /* flexboxのプロパティを追加 */
+    flex: 1.5;
 }
 
 /* 各コンテナの境界線 */
@@ -276,7 +284,7 @@
 }
 
 /*==================================
-  Responsive Design (Mobile)
+  Responsive Design (Mobile)
 ==================================*/
 /* PC表示ではモバイル関連の要素を非表示にする */
 .mobile-nav,

@@ -209,34 +209,6 @@
     flex-shrink: 0; /* タイトルが長くなっても幅を保持 */
 }
 
-/* --- レスポンシブ対応の追加 --- */
-@media (max-width: 768px) {
-    /* お知らせセクションの左右パディングを調整 */
-    .announcements-section {
-        padding: 20px 15px;
-    }
-
-    /* お知らせリストのパディングを調整 */
-    .announcements-list li {
-        padding: 12px 15px;
-    }
-
-    /* 日付とタイトルを縦並びに変更 */
-    .announcements-list li a {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    /* 日付のスタイルを調整 */
-    .announcements-list .announcement-date {
-        min-width: auto;
-        margin-right: 0;
-        margin-bottom: 5px; /* 日付とタイトルの間に余白を追加 */
-        font-size: 1em; /* 文字の大きさを調整 */
-    }
-}
-
-
 /*==================================
   製品新着情報セクション(products-news)
 ==================================*/
@@ -251,64 +223,155 @@
     padding: 0 20px;
 }
 
-.top-products-news-list {
-    max-height: 600px;
-    overflow-y: auto; 
+.top-products-news-container {
+    max-height: 800px;
+    overflow-y: auto;
     list-style: none;
     padding: 0 50px;
 }
-
-.products-news-section .products-news-item {
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid #e0e0e0;
-    border-radius: 0;
-    padding: 20px 0 0 0;
-    margin-bottom: 0;
-    box-shadow: none;
+/* 各製品情報アイテムのスタイル */
+.product-item {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease-in-out;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.products-news-section .products-news-brand {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.products-news-section .products-news-header {
+/* ヘッダー: 日付とタイトル、ニュースタイプをまとめるコンテナ */
+.product-info-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
 }
 
-.products-news-section .products-news-date {
-    display: block;
-    font-size: 0.7rem;
-    color: #888;
+/* タイトルコンテナ */
+.product-title {
+    flex-grow: 1;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.product-names {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.product-names li {
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+/* NewバッジとNewsTypeをまとめるコンテナ */
+.type-and-badge-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+/* 日付のスタイル */
+.product-date {
+    font-size: 0.8rem;
+    color: #555;
     background-color: #f0f0f0;
     padding: 4px 8px;
     border-radius: 4px;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
-.products-news-section .products-news-title {
-    font-size: 1.1rem;
+/* 個々のラベルの共通スタイル */
+.products-news-label {
+    display: inline-block;
+    padding: 1px 6px;
     font-weight: bold;
+    border-radius: 3px;
+    line-height: 1.2;
+    border: 2px solid;
     color: #333;
-    margin-left:30px;
+    white-space: nowrap;
+    font-size: 0.9em;
+    flex-shrink: 0;
+    width: fit-content;
 }
 
-.products-news-section .products-news-fulltext-body {
+/* Brandラベルグループ */
+.brand-labels-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 8px;
+    border-top: 1px dotted #e0e0e0;
+}
+
+/* 対象車種のラベルのスタイル */
+.car-model-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+    align-items: center;
+}
+.car-model-label {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #555;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+.car-models {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.4;
+    flex-grow: 1;
+    vertical-align: middle;
+}
+
+/* Newバッジのスタイル */
+.new-badge {
+    font-size: 0.8em;
+    background-color: #e74c3c;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: normal;
+    white-space: nowrap;
+    animation: glowing-pulse 2s infinite;
+}
+
+/* 本文のスタイル */
+.product-fulltext-body {
     font-size: 1rem;
     color: #555;
-    line-height: 1.2;
-    margin-top: 15px;
-    padding-top: 5px;
+    line-height: 1.4;
+    padding: 10px 0 0 0;
     border-top: 1px dashed #e0e0e0;
+    margin-top: 10px;
 }
-
-.products-news-fulltext-body {
-    padding: 0 20px;
+.product-fulltext-body p,
+.product-fulltext-body div,
+.product-fulltext-body ul {
+    margin-bottom: 6px;
+}
+.product-fulltext-body ul {
+    padding-left: 20px;
 }
 
 /*==================================
@@ -397,5 +460,48 @@
         font-size: 14px;
         font-weight: 700;
         margin-bottom: 10px;
+    }
+    /* 製品新着情報セクションのレスポンシブ対応を追加 */
+    .product-item {
+        padding: 15px;
+    }
+    .product-info-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .product-date {
+        margin-right: auto;
+    }
+    .product-title {
+        width: 100%;
+        order: 1;
+        margin: 0;
+    }
+    .type-and-badge-container {
+        width: 100%;
+        order: 2;
+        align-items: flex-start;
+    }
+    .product-fulltext-body {
+        font-size: 0.9em;
+        padding-top: 10px;
+        margin-top: 10px;
+    }
+    .product-fulltext-body ul {
+        padding-left: 15px;
+    }
+}
+
+/* Newバッジに光るアニメーションを追加 */
+@keyframes glowing-pulse {
+    0% {
+        box-shadow: 0 0 5px rgba(231, 76, 60, 0.4), 0 0 10px rgba(231, 76, 60, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(231, 76, 60, 0.8), 0 0 25px rgba(231, 76, 60, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(231, 76, 60, 0.4), 0 0 10px rgba(231, 76, 60, 0.2);
     }
 }

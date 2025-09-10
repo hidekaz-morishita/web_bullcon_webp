@@ -1,162 +1,220 @@
-import { BRAND_STYLE } from './const_data.js';
+import { BRAND_STYLE, NEWS_TYPE_STYLE } from './const_data.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const topProductsList = document.getElementById('top-products-news-list');
-    if (!topProductsList) {
+    const productsList = document.getElementById('products-list');
+
+    // DOM要素の存在チェック
+    if (!productsList) {
+        console.error("必要なDOM要素が見つかりませんでした。products-list が存在するか確認してください。");
         return;
     }
 
-    // JSONファイルを読み込む
-    fetch('./html/news/products_news_data.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok: ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            // 日付で並び替え（新しい順）
-            const sortedData = data.sort((a, b) => {
-                const dateA = new Date(a.date.replace(/(\d{4})年(\d{1,2})月(\d{1,2})日/, '$1-$2-$3'));
-                const dateB = new Date(b.date.replace(/(\d{4})年(\d{1,2})月(\d{1,2})日/, '$1-$2-$3'));
-                return dateB - dateA;
-            });
+    let allProductsData = [];
 
-            // 現在の日付から2週間前の日付を計算
-            const currentDate = new Date();
-            const oneWeekAgo = new Date();
-            oneWeekAgo.setDate(currentDate.getDate() - 14);
+    /**
+     * JSONデータを取得し、初期加工を行う。
+     */
+    function fetchProductsData() {
+        const jsonFiles = [
+            './html/news/products_news/car_accessory_news_data.json',
+            './html/news/products_news/av_accessory_news_data.json'
+        ];
 
-            // 表示件数を10件に制限
-            sortedData.slice(0, 10).forEach(item => {
-                const li = document.createElement('li');
-                li.classList.add('products-news-item');
-
-                // ブランド情報の表示
-                const brandSpan = document.createElement('span');
-                brandSpan.classList.add('products-news-brand');
-                brandSpan.textContent = item.brand;
-
-                // 長方形の枠線スタイルを適用
-                Object.assign(brandSpan.style, {
-                    display: 'inline-flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    minWidth: '24px',
-                    minHeight: '24px',
-                    borderRadius: '0',
-                    padding: '0 8px',
-                    fontWeight: 'bold',
-                    fontSize: '0.8rem',
-                    textAlign: 'center',
-                    verticalAlign: 'middle',
-                    marginRight: '10px',
-                    backgroundColor: '#ffffff'
-                });
-
-                // ブランド名に基づいてテキストカラーと枠線の色を適用
-                const style = BRAND_STYLE[item.brand];
-                if (style) {
-                    brandSpan.style.color = style.color;
-                    brandSpan.style.border = `2px solid ${style.color}`;
-                } else {
-                    // デフォルトのスタイル
-                    brandSpan.style.color = '#6c757d';
-                    brandSpan.style.border = '2px solid #6c757d';
-                }
-
-                const headerDiv = document.createElement('div');
-                headerDiv.classList.add('products-news-header');
-
-                const dateSpan = document.createElement('span');
-                dateSpan.classList.add('products-news-date');
-                dateSpan.textContent = item.date;
-
-                const titleSpan = document.createElement('span');
-                titleSpan.classList.add('products-news-title');
-                
-                // Newバッジ処理 - 日付で判定
-                const date_match = item.date.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
-                const newsDate = date_match ? new Date(date_match[1], date_match[2] - 1, date_match[3]) : null;
-
-                if (newsDate && newsDate > oneWeekAgo) {
-                    const newBadge = document.createElement('span');
-                    newBadge.textContent = 'New';
-                    
-                    Object.assign(newBadge.style, {
-                        color: '#fff',
-                        fontWeight: 'bold',
-                        fontSize: '12px',
-                        backgroundColor: 'red',
-                        borderRadius: '10px',
-                        padding: '1px 5px 3px 5px',
-                        marginLeft: '30px'
-                    });
-                    titleSpan.appendChild(newBadge);
-                }
-                
-                // タイトルテキストから`[New]`タグを削除
-                let newsTitle = item.title;
-                if (newsTitle.includes('[New]')) {
-                     newsTitle = newsTitle.replace('[New]', '').trim();
-                }
-                titleSpan.prepend(newsTitle); // テキストを先頭に追加
-
-                // body部のレンダリング
-                const bodyDiv = document.createElement('div');
-                bodyDiv.classList.add('products-news-fulltext-body');
-
-                item.body.forEach(block => {
-                    switch (block.type) {
-                        case 'html':
-                            const div = document.createElement('div');
-                            div.style.textAlign = block.align || 'left';
-                            div.innerHTML = block.content;
-                            bodyDiv.appendChild(div);
-                            break;
-                        case 'paragraph':
-                            const p = document.createElement('p');
-                            p.style.textAlign = block.align || 'left';
-                            p.textContent = block.content;
-                            bodyDiv.appendChild(p);
-                            break;
-                        case 'heading':
-                            const h3 = document.createElement('h3');
-                            h3.style.textAlign = block.align || 'left';
-                            h3.textContent = block.content;
-                            bodyDiv.appendChild(h3);
-                            break;
-                        case 'image':
-                            const img = document.createElement('img');
-                            img.src = block.url;
-                            img.alt = block.alt;
-                            bodyDiv.appendChild(img);
-                            break;
-                        case 'list':
-                            const ul = document.createElement('ul');
-                            ul.style.listStyle = "none";
-                            block.items.forEach(itemText => {
-                                const li = document.createElement('li');
-                                li.textContent = itemText;
-                                ul.appendChild(li);
-                            });
-                            bodyDiv.appendChild(ul);
-                            break;
+        Promise.all(jsonFiles.map(file =>
+            fetch(file)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok: ' + response.statusText);
                     }
-                });
-
-                // 新しい構造で要素を組み立てる
-                headerDiv.appendChild(dateSpan);
-                headerDiv.appendChild(titleSpan);
-                li.appendChild(brandSpan);
-                li.appendChild(headerDiv);
-                li.appendChild(bodyDiv);
-                
-                topProductsList.appendChild(li);
-            });
+                    return response.json();
+                })
+        ))
+        .then(dataArray => {
+            const mergedData = [].concat(...dataArray);
+            allProductsData = mergedData;
+            processProductsData();
+            renderProducts();
         })
         .catch(error => {
-            console.error('トップページの製品情報の読み込みに失敗しました:', error);
-            topProductsList.innerHTML = '<li>製品情報を読み込めませんでした。</li>';
+            console.error('製品情報の読み込みに失敗しました:', error);
+            productsList.innerHTML = '<li class="product-item">製品情報を読み込めませんでした。</li>';
         });
+    }
+
+    /**
+     * 取得した生データを加工し、`allProductsData`を更新する。
+     * 日付順にソートし、必要なデータのみを抽出する。
+     */
+    function processProductsData() {
+        allProductsData = allProductsData.map(item => {
+            const newsType = item.type;
+            const brands = Array.isArray(item.brand) ? item.brand : (item.brand ? [item.brand] : []);
+            const titleData = item.title_data || {};
+            
+            return {
+                ...item,
+                newsType: newsType,
+                brands: brands,
+                title_data: titleData
+            };
+        }).sort((a, b) => {
+            const dateA = new Date(a.date.replace(/(\d{4})年(\d{1,2})月(\d{1,2})日/, '$1-$2-$3'));
+            const dateB = new Date(b.date.replace(/(\d{4})年(\d{1,2})月(\d{1,2})日/, '$1-$2-$3'));
+            return dateB - dateA;
+        });
+    }
+
+    /**
+     * 製品リストをDOMに描画する。最新10件のみ表示。
+     */
+    function renderProducts() {
+        productsList.innerHTML = '';
+        
+        // 最新10件のデータを取得
+        const productsToDisplay = allProductsData.slice(0, 10);
+
+        if (productsToDisplay.length === 0) {
+            productsList.innerHTML = '<li class="product-item">該当する製品情報は見つかりませんでした。</li>';
+            return;
+        }
+
+        const currentDate = new Date();
+        const fourteenDaysAgo = new Date();
+        fourteenDaysAgo.setDate(currentDate.getDate() - 14);
+
+        productsToDisplay.forEach(item => {
+            const li = document.createElement('li');
+            li.classList.add('product-item');
+
+            const headerContainer = document.createElement('div');
+            headerContainer.classList.add('product-info-header');
+            
+            const dateSpan = document.createElement('span');
+            dateSpan.classList.add('product-date');
+            dateSpan.textContent = item.date;
+
+            const titleContainer = document.createElement('div');
+            titleContainer.classList.add('product-title');
+            
+            if (item.title_data && item.title_data.product && item.title_data.product.length > 0) {
+                const productNamesList = document.createElement('ul');
+                productNamesList.classList.add('product-names');
+                item.title_data.product.forEach(prodName => {
+                    const productLi = document.createElement('li');
+                    productLi.textContent = prodName;
+                    productNamesList.appendChild(productLi);
+                });
+                titleContainer.appendChild(productNamesList);
+            }
+
+            const typeAndBadgeContainer = document.createElement('div');
+            typeAndBadgeContainer.classList.add('type-and-badge-container');
+
+            const newsTypeLabel = document.createElement('span');
+            newsTypeLabel.classList.add('products-news-label', 'news-type-label-item');
+            newsTypeLabel.textContent = item.newsType;
+            const newsTypeStyle = NEWS_TYPE_STYLE[item.newsType];
+            if (newsTypeStyle) {
+                newsTypeLabel.style.color = newsTypeStyle.color;
+                newsTypeLabel.style.borderColor = newsTypeStyle.borderColor;
+            } else {
+                newsTypeLabel.style.color = '#6c757d';
+                newsTypeLabel.style.borderColor = '#6c757d';
+            }
+            typeAndBadgeContainer.appendChild(newsTypeLabel);
+            
+            const dateMatch = item.date.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
+            const newsDate = dateMatch ? new Date(dateMatch[1], dateMatch[2] - 1, dateMatch[3]) : null;
+            if (newsDate && newsDate > fourteenDaysAgo) {
+                const newBadge = document.createElement('span');
+                newBadge.textContent = 'New';
+                newBadge.classList.add('new-badge');
+                typeAndBadgeContainer.prepend(newBadge);
+            }
+            
+            headerContainer.appendChild(dateSpan);
+            headerContainer.appendChild(titleContainer);
+            headerContainer.appendChild(typeAndBadgeContainer);
+            li.appendChild(headerContainer);
+
+            if (item.brands.length > 0 && !item.brands.includes('ALL')) {
+                const brandLabelsGroup = document.createElement('div');
+                brandLabelsGroup.classList.add('brand-labels-group');
+                item.brands.forEach(brandName => {
+                    const brandLabel = document.createElement('span');
+                    brandLabel.classList.add('products-news-label', 'brand-label-item');
+                    brandLabel.textContent = brandName;
+                    const brandStyle = BRAND_STYLE[brandName];
+                    if (brandStyle) {
+                        brandLabel.style.color = brandStyle.color;
+                        brandLabel.style.borderColor = brandStyle.borderColor;
+                    } else {
+                        brandLabel.style.color = '#6c757d';
+                        brandLabel.style.borderColor = '#6c757d';
+                    }
+                    brandLabelsGroup.appendChild(brandLabel);
+                });
+                li.appendChild(brandLabelsGroup);
+            }
+
+            if (item.title_data && item.title_data.car_model && item.title_data.car_model.length > 0) {
+                const carModelInfoDiv = document.createElement('div');
+                carModelInfoDiv.classList.add('car-model-info');
+                carModelInfoDiv.innerHTML = `<span class="car-model-label">対象車種：</span><span class="car-models">${item.title_data.car_model.join('<br>')}</span>`;
+                li.appendChild(carModelInfoDiv);
+            }
+
+            const bodyDiv = document.createElement('div');
+            bodyDiv.classList.add('product-fulltext-body');
+            if (item.body) {
+                item.body.forEach(block => {
+                    let element;
+                    switch (block.type) {
+                        case 'html':
+                            element = document.createElement('div');
+                            element.innerHTML = block.content;
+                            break;
+                        case 'paragraph':
+                            element = document.createElement('p');
+                            element.textContent = block.content;
+                            break;
+                        case 'heading':
+                            element = document.createElement('h3');
+                            element.textContent = block.content;
+                            break;
+                        case 'image':
+                            element = document.createElement('img');
+                            element.src = block.url;
+                            element.alt = block.alt || '';
+                            element.style.height = "150px"
+                            break;
+                        case 'list':
+                            element = document.createElement('ul');
+                            if (block.items) {
+                                block.items.forEach(itemText => {
+                                    const li_item = document.createElement('li');
+                                    li_item.textContent = itemText;
+                                    element.appendChild(li_item);
+                                });
+                            }
+                            break;
+                        default:
+                            console.warn('Unknown block type:', block.type);
+                            break;
+                    }
+                    if (element) {
+                        if (block.align) {
+                            element.style.textAlign = block.align;
+                        }
+                        bodyDiv.appendChild(element);
+                    }
+                });
+            }
+            li.appendChild(bodyDiv);
+            productsList.appendChild(li);
+        });
+    }
+
+    // JSONデータの取得と描画を開始
+    fetchProductsData();
 });

@@ -167,6 +167,12 @@ document.addEventListener('DOMContentLoaded', () => {
         currentPage = pageNumber;
         renderProducts();
         renderPagination();
+        
+        // ページネーションボタン押下後にページの先頭に戻る
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
 
     /**
@@ -364,6 +370,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const nextButton = createPaginationButton('next', '次へ', currentPage < totalPages);
         paginationContainer.appendChild(nextButton);
+
+        // 総ページ数を表示
+        const pageInfo = document.createElement('span');
+        pageInfo.classList.add('page-info');
+        pageInfo.textContent = `全 ${totalPages} ページ`;
+        paginationContainer.appendChild(pageInfo);
     }
 
     /**
