@@ -7,7 +7,8 @@ export const BRAND_STYLE = {
     'スズキ': { color: '#00A0E9', borderColor: '#00A0E9' }, // スズキブルー
     'ニッサン': { color: '#C00000', borderColor: '#C00000' }, // 日産レッド
     'ミツビシ': { color: '#D40010', borderColor: '#D40010' }, // 三菱レッド
-    'スバル': { color: '#003780', borderColor: '#003780' }, // スバルブルー 
+    'スバル': { color: '#003780', borderColor: '#003780' }, // スバルブルー
+    'マツダ': { color: '#B31E27', borderColor: '#B31E27' }, // マツダソウルレッド 
 };
 
 export const NEWS_TYPE_STYLE = {

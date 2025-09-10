@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (item.title_data && item.title_data.car_model && item.title_data.car_model.length > 0) {
                 const carModelInfoDiv = document.createElement('div');
                 carModelInfoDiv.classList.add('car-model-info');
-                carModelInfoDiv.innerHTML = `<span class="car-model-label">対象車種：</span><span class="car-models">${item.title_data.car_model.join('、')}</span>`;
+                carModelInfoDiv.innerHTML = `<span class="car-model-label">対象車種：</span><span class="car-models">${item.title_data.car_model.join('<br>')}</span>`;
                 li.appendChild(carModelInfoDiv);
             }
 
@@ -305,6 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             element = document.createElement('img');
                             element.src = block.url;
                             element.alt = block.alt || '';
+                            element.style.height = "150px" 
                             break;
                         case 'list':
                             element = document.createElement('ul');
