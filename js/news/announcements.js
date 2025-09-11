@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // 現在の日付から2週間前の日付を計算
             const currentDate = new Date();
             const oneWeekAgo = new Date();
-            oneWeekAgo.setDate(currentDate.getDate() - 14);
+            oneWeekAgo.setDate(currentDate.getDate() - 7);
             
             sortedData.forEach(item => {
                 const li = document.createElement('li');

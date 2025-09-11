@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (announcementDate) {
                     const currentDate = new Date();
                     const fourteenDaysAgo = new Date();
-                    fourteenDaysAgo.setDate(currentDate.getDate() - 14);
+                    fourteenDaysAgo.setDate(currentDate.getDate() - 7);
 
                     // ニュースの日付が2週間以内であればNewバッジを表示
                     if (announcementDate > fourteenDaysAgo) {

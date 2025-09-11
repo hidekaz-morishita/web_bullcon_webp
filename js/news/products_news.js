@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const currentDate = new Date();
         const fourteenDaysAgo = new Date();
-        fourteenDaysAgo.setDate(currentDate.getDate() - 14);
+        fourteenDaysAgo.setDate(currentDate.getDate() - 7);
 
         productsToDisplay.forEach(item => {
             const li = document.createElement('li');
