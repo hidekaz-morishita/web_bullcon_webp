@@ -34,12 +34,10 @@ $selectedMonth = $_GET['month'] ?? '';
 $PRODUCT_TABLE_MAP = [
     'televing' => [
         'maker' => [
-            'year_col' => 'year',
             'sql' => "SELECT * FROM televing_maker WHERE maker = ? AND car_model LIKE ?",
             'sql_pattern' => 'pattern_1', 
         ],
         'dealer' => [
-            'year_col' => 'year', 
             'sql' => "SELECT * FROM televing_dealer WHERE maker = ?",
             'sql_pattern' => 'pattern_2',
         ],
@@ -62,7 +60,6 @@ if (!isset($PRODUCT_TABLE_MAP[$selectedProduct][$selectedOption])) {
 
 // 動的にテーブル名、年式カラム名、SQLクエリを決定
 $config = $PRODUCT_TABLE_MAP[$selectedProduct][$selectedOption];
-$yearColName = $config['year_col'];
 $sql = $config['sql'];
 $sqlPattern = $config['sql_pattern'];
 
@@ -99,10 +96,19 @@ $filteredData = [];
 // 取得した各レコードをループして年式をチェック
 foreach ($allPartsData as $part) {
     // 取得した年式カラムを動的に指定
-    $dateString = $part[$yearColName] ?? '';
+    $startDateString = $part['start_date'] ?? '';
+    $endDateString = $part['end_date'] ?? '';
+
+    // 💡 nullを空文字に変換する明示的な処理を追加
+    if ($startDateString === null) {
+        $startDateString = '';
+    }
+    if ($endDateString === null) {
+        $endDateString = '';
+    }
     
     // 独立した関数を呼び出す
-    if (isDateMatch($dateString, $userDateTimestamp)) {
+    if (isDateMatch($startDateString, $endDateString, $userDateTimestamp)) {
         $filteredData[] = $part;
     }
 }
@@ -114,53 +120,63 @@ echo json_encode($filteredData);
 /**
  * 年式文字列が指定された日付と一致するかを判定する。
  *
- * @param string $dateString データベースから取得した年式文字列（例: 'H27(2015)2～ R1(2019)12'）
+ * @param string $startDateString データベースから取得した年式文字列（例: 'yyyy-mm-dd'）
+ * @param string $endDateString データベースから取得した年式文字列（例: 'yyyy-mm-dd'）
  * @param int $userDateTimestamp ユーザーが選択した年月のタイムスタンプ
  * @return bool 一致する場合はtrue、そうでなければfalse
  */
-function isDateMatch($dateString, $userDateTimestamp) {
-    $dateString = trim($dateString);
+function isDateMatch($startDateString, $endDateString, $userDateTimestamp) {
+    // ユーザーが選択した日付の情報を取得
+    $userYear = (int)date('Y', $userDateTimestamp);
+    $userMonth = (int)date('n', $userDateTimestamp);
 
-    // パターン1: 範囲指定（例: H27(2015)2～ R1(2019)12）
-    $regexRange = '/^([RH]\d+\((\d{4})\))\/*(\d{1,2})\s*[〜～]\s*([RH]\d+\((\d{4})\))\/*(\d{1,2})/';
-    if (preg_match($regexRange, $dateString, $matches)) {
-        $startYear = $matches[2];
-        $startMonth = $matches[3];
-        $endYear = $matches[5];
-        $endMonth = $matches[6];
-        $startTimestamp = strtotime("{$startYear}-{$startMonth}-01");
-        $endTimestamp = strtotime("{$endYear}-{$endMonth}-01");
+    // デバッグ出力は開発時のみ使用
+    // echo json_encode(["start in"=>$startDateString, "end in"=>$endDateString]);
+
+    // 開始日と終了日が両方存在する場合
+    if ($startDateString && $endDateString) {
+        $startTimestamp = strtotime($startDateString);
+        // 💡 終了日のタイムスタンプをその月の最終日に設定
+        $endTimestamp = strtotime("last day of {$endDateString}");
+
+        // デバッグ出力は開発時のみ使用
+        // echo json_encode(["start: $startTimestamp end: $endTimestamp user: $userDateTimestamp"]);
+
+        if ($startTimestamp === false || $endTimestamp === false) {
+            return false;
+        }
+
         return $userDateTimestamp >= $startTimestamp && $userDateTimestamp <= $endTimestamp;
     }
 
-    // パターン2: 〜以前（例: 〜H27(2015)2）
-    $regexTo = '/[〜～]\s*([RH]\d+\((\d{4})\))\/*(\d{1,2})/';
-    if (preg_match($regexTo, $dateString, $matches)) {
-        $endYear = $matches[2];
-        $endMonth = $matches[3];
-        $endTimestamp = strtotime("{$endYear}-{$endMonth}-01");
-        return $userDateTimestamp <= $endTimestamp;
-    }
+    // 開始日のみ存在する場合
+    if ($startDateString && !$endDateString) {
+        $startTimestamp = strtotime($startDateString);
 
-    // パターン3: 〜以降（例: R3(2020)8～）
-    $regexFrom = '/^([RH]\d+\((\d{4})\))\/*(\d{1,2})\s*[〜～]/';
-    if (preg_match($regexFrom, $dateString, $matches)) {
-        $startYear = $matches[2];
-        $startMonth = $matches[3];
-        $startTimestamp = strtotime("{$startYear}-{$startMonth}-01");
+        // デバッグ出力は開発時のみ使用
+        // echo json_encode(["start: $startTimestamp user: $userDateTimestamp"]);
+
+        if ($startTimestamp === false) {
+            return false;
+        }
         return $userDateTimestamp >= $startTimestamp;
     }
 
-    // パターン2-1: 2025(R7)年モデル
-    $regexYear = '/^(\d{4})\([RH]\d+/';
-    if (preg_match($regexYear, $dateString, $matches)) {
-        $startYear = $matches[1];
-        // ユーザーが選択した年を取得
-        $userYear = date('Y', $userDateTimestamp);
-        return $userYear == $startYear;
+    // 終了日のみ存在する場合
+    if (!$startDateString && $endDateString) {
+        // 💡 終了日のタイムスタンプをその月の最終日に設定
+        $endTimestamp = strtotime("last day of {$endDateString}");
+
+        // デバッグ出力は開発時のみ使用
+        // echo json_encode(["end: $endTimestamp user: $userDateTimestamp"]);
+
+        if ($endTimestamp === false) {
+            return false;
+        }
+        return $userDateTimestamp <= $endTimestamp;
     }
     
-    // どのパターンにも一致しない場合は、常に適合とみなす（またはfalseを返す）
+    // どちらも存在しない場合は適合しない
     return false;
 }
 ?>

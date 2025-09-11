@@ -20,7 +20,7 @@ export const PRODUCTS_DATA = {
                     { label: '車両情報', subHeaders: [
                         { key: 'maker', label: 'メーカー' },
                         { key: 'car_model', label: '車名' },
-                        { key: 'year', label: '年式' },
+                        { key: 'print_date', label: '年式' },
                         { key: 'model_number', label: '型式' },
                         { key: 'specification', label: '仕様' },
                     ]},

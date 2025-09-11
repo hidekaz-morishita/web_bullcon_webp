@@ -1,4 +1,4 @@
-import { DEALER_YEARS, MONTHS } from './additional_info.js';
+import { DEALER_YEARS, CAR_YEARS, MONTHS } from './additional_info.js';
 import { CAR_TYPE } from './car_model.js';
 import { PRODUCTS_DATA } from './products_mapper.js';
 import { NOTES_DATA } from './caution_note.js';
@@ -206,8 +206,7 @@ document.getElementById('model-select').addEventListener('change', (event) => {
         if (selectedMakerData) {
             const selectedModel = selectedMakerData.models.find(model => model.name === selectedModelName);
             if (selectedModel) {
-                const yearsArray = selectedModel.years;
-                populateOptions(document.getElementById('year-select'), yearsArray, '年');
+                populateOptions(document.getElementById('year-select'), CAR_YEARS, '年');
                 document.getElementById('year-month-group').style.display = 'block';
                 document.getElementById('year-select').disabled = false; // 年選択を有効化
                 // 月の選択肢を有効化
@@ -384,7 +383,6 @@ function generateTable(data, headerData) {
                 const parts = (item[col.key] || '').replace(/[{}]/g, '').split(',');
                 td.innerHTML = parts.map(part => `※${part}`).join('<br>');
             } else if (col.priceKeys) {
-                console.log(item[col.key]);
                 if (item[col.key] == '-' || item[col.key] == '←') {
                     td.innerHTML = item[col.key];
                 } else {
