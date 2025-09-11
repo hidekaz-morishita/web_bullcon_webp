@@ -1,20 +1,39 @@
 /*==================================
-  Header
+  Header
 ==================================*/
 .header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 100%;
+    /* z-indexをPC表示のヘッダーとして機能する値に設定 */
     z-index: 1000;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-/* Header Sections */
-.header-top .header-inner {
+/* スクロールダウン時にヘッダーを非表示にするためのクラス */
+.header.is-hidden {
+    transform: translateY(-100%);
+}
+
+/* スクロールアップ時にヘッダーを固定するクラス */
+.header.is-stuck {
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.header-inner {
     display: flex;
     background-color: #fff;
     justify-content: space-between;
     align-items: center;
     max-width: 100%;
+    padding: 10px 20px;
 }
 
 .header-logo img {
@@ -23,49 +42,51 @@
     margin-left: 20px;
 }
 
+.header-utility {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-right: 30px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-form input[type="search"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.header-search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.header-search-button img {
+    height: 25px;
+}
+
 .social-links {
     display: flex;
     gap: 30px;
     margin-right: 5px;
 }
 
-.social-icon img,
-.search-icon img {
+.social-icon img {
     height: 30px;
 }
 
-.search-icon {
-    padding-left: 50px;
-    padding-right: 10px;
-}
-
-/* Header bottom section */
-.header-bottom {
-    box-sizing: border-box;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    z-index: 1000;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: sticky;
-    top: 0px;
-    z-index: 999;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-}
-
-/* stickyになったときに適用されるスタイル */
-.header-bottom.is-stuck {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-}
-
-/* Navigation menu */
 .header-nav {
     width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 }
 
 .nav-list {
@@ -75,12 +96,14 @@
     width: 100%;
     box-sizing: border-box;
     justify-content: center;
-    gap: 30px;
+    gap: 100px;
 }
 
 .nav-item {
     position: relative;
     padding: 0 20px;
+    font-size: 18px;
+    white-space: nowrap;
 }
 
 .nav-item a,
@@ -91,7 +114,6 @@
     display: block;
 }
 
-/* ホバー時とアクティブ時の背景色とテキスト色 */
 .nav-item:hover > a,
 .nav-item:hover > .dropdown-toggle,
 .nav-item.is-active > a,
@@ -99,20 +121,13 @@
     color: #00479d;
 }
 
-/* is-stuckクラスが付いている場合のナビゲーションリンクの色を変更 */
-.header-bottom.is-stuck .nav-item a,
-.header-bottom.is-stuck .dropdown-toggle {
-    color: rgba(255, 255, 255, 0.8);
-}
-
 .nav-item:hover .bottom_arrow_icon,
 .nav-item.is-active .bottom_arrow_icon {
-    filter: invert(1); /* 矢印アイコンの色を反転させる */
-    transform: rotate(180deg); /* 矢印アイコンを180度回転させる */
-    transition: transform 0.3s ease; /* スムーズなアニメーション効果を追加 */
+    filter: invert(1);
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
 }
 
-/* ナビゲーションリンクのフレックスコンテナ設定 */
 .nav-item > a,
 .nav-item > .dropdown-toggle {
     text-decoration: none;
@@ -125,25 +140,22 @@
     line-height: 1;
 }
 
-/* ドロップダウン矢印アイコンのスタイル */
 .bottom_arrow_icon {
     width: 10px;
     height: auto;
-    margin-top: 10px; 
+    margin-top: 10px;
     transition: transform 0.3s ease;
 }
 
 /*==================================
-  Dropdown Menu (3-column layout)
+  Dropdown Menu (3-column layout)
 ==================================*/
 .dropdown-menu {
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    /* メニューの最大横幅を追加 */
-    max-width: 1200px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255);
     z-index: 920;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
     visibility: hidden;
@@ -153,8 +165,7 @@
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.5s ease;
     max-height: 80vh;
     overflow-y: auto;
-    
-    /* 3分割レイアウトのための追加設定 */
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -168,58 +179,42 @@
     pointer-events: auto;
 }
 
-/* メガメニューの内部コンテナ（3列の親要素） */
 .dropdown-menu-inner {
     display: flex;
     justify-content: space-between;
 }
 
-/* 左側: 製品カテゴリ */
 .dropdown-list-container {
     width: 30%;
-    padding-right: 25px;
-    /* flexboxのプロパティを追加 */
     flex: 1;
 }
 
-/* 新規追加: 真ん中の子製品リスト */
 .sub-dropdown-list-container {
     width: 30%;
     padding-right: 25px;
     padding-left: 25px;
-    /* flexboxのプロパティを追加 */
     flex: 2;
 }
 
-/* 元のHTMLに存在する、非表示の子ドロップダウン */
-.sub-dropdown-menu {
-    display: none;
-}
-
-/* 右側: 画像と簡易テキスト */
 .dropdown-image-container {
-    width: 40%;
+    width: 30%;
     padding-left: 25px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    /* flexboxのプロパティを追加 */
     flex: 1.5;
 }
 
-/* 各コンテナの境界線 */
 .dropdown-border {
     border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-/* ホバー中のアイテムを強調するスタイル */
 .dropdown-list li.is-hovered {
     background-color: #f0f0f0;
     color: #00479d;
 }
 
-/* 画像とテキストのスタイル */
 .dropdown-image-container img {
     width: 100%;
     max-width: 250px;
@@ -236,7 +231,6 @@
     width: 80%;
 }
 
-/* リストアイテムの共通スタイル */
 .dropdown-list,
 .sub-dropdown-list {
     list-style: none;
@@ -252,7 +246,6 @@
     width: 100%;
 }
 
-/* リスト内のリンクのクリック領域を均一にする */
 .dropdown-list li a,
 .sub-dropdown-list li a {
     display: block;
@@ -264,27 +257,24 @@
     font-weight: bold;
 }
 
-/* ドロップダウンメニューのホバー中のリンクの背景色を変更 */
 .dropdown-list li a:hover,
 .sub-dropdown-list li a:hover {
     color: #00479d;
     text-decoration: underline;
-    background-color: #f0f0f0; /* ホバー時の背景色 */
+    background-color: #f0f0f0;
 }
 
-/* 新着情報Dropdown */
 #news-dropdown {
     justify-content: flex-start;
 }
 
-/*common*/
 .new-window-icon {
     width: 10px;
     height: auto;
 }
 
 /*==================================
-  Responsive Design (Mobile)
+  Responsive Design (Mobile)
 ==================================*/
 /* PC表示ではモバイル関連の要素を非表示にする */
 .mobile-nav,
@@ -293,18 +283,25 @@
 }
 
 @media (max-width: 1200px) {
-    .nav-item{
+    .nav-item {
         font-size: 14px;
+    }
+    .nav-list {
+        gap: 50px;
     }
 }
 
 @media (max-width: 768px) {
-    /* モバイル表示でheader-topをstickyにする */
-    .header-top {
-        position: sticky;
+    .header {
+        position: fixed;
         top: 0;
+        left: 0;
+        width: 100%;
+        /* z-indexの調整 */
         z-index: 1000;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
     }
 
     .mobile-nav-overlay {
@@ -314,7 +311,8 @@
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
-        z-index: 980;
+        /* z-indexの調整 */
+        z-index: 1005;
         visibility: hidden;
         opacity: 0;
         transition: opacity 0.3s ease, visibility 0s 0.3s;
@@ -325,7 +323,8 @@
         opacity: 1;
         transition: opacity 0.3s ease;
     }
-    /* モバイル表示ではハンバーガーメニューを表示する */
+
+    /* ハンバーガーメニューを表示 */
     .hamburger-menu {
         display: flex;
         flex-direction: column;
@@ -337,6 +336,8 @@
         background: none;
         border: none;
         align-items: center;
+        /* z-indexの調整 */
+        z-index: 1010;
     }
     
     .hamburger-menu span {
@@ -362,13 +363,12 @@
     
     /* ヘッダー全体の幅を画面幅に合わせる */
     .header,
-    .header-top,
-    .header-bottom {
+    .header-inner {
         width: 100%;
     }
     
     /* ヘッダー内部の要素のレイアウトを調整 */
-    .header-top .header-inner {
+    .header-inner {
         max-width: 100%;
         flex-direction: row;
         align-items: center;
@@ -384,13 +384,48 @@
     }
 
     /* ソーシャルリンクと検索アイコンを非表示にする */
-    .social-links,
-    .search-icon {
+    .social-links {
         display: none;
+    }
+
+    /* 検索フォームを非表示にする */
+    .header-utility .search-form {
+        display: none;
+    }
+
+    .search-form-mobile-container {
+        display: flex;
+        background-color: #fff;
+        width: 100%;
+        justify-content: center;
+        padding: 10px 0 10px 50px;
+        box-sizing: border-box;
+    }
+
+    .search-form-mobile {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .search-form-mobile input[type="search"] {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px 10px;
+    }
+
+    .search-button-mobile {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .search-button-mobile img {
+        height: 25px;
     }
     
     /* デスクトップ用ナビゲーションを非表示 */
-    .header-bottom {
+    .header-nav {
         display: none;
     }
 
@@ -401,7 +436,8 @@
         width: 100%;
         height: auto;
         background-color: rgba(0, 0, 0, 0.9);
-        z-index: 990;
+        /* z-indexの調整 */
+        z-index: 1020;
         padding: 0;
         overflow-y: auto;
     }

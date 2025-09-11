@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // フォームと入力フィールドの要素をIDで取得
     const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('search-input');
+    
+    // 検索結果の表示要素
     const resultsSection = document.querySelector('.results-section');
     const resultsList = document.getElementById('results-list');
     const noResultsMessage = document.getElementById('no-results');
@@ -13,26 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
     resultsSection.style.display = 'none';
 
     // 検索結果リストの直後に概要とページネーションの要素を追加
-    resultsList.parentNode.insertBefore(resultsSummary, resultsList.nextSibling);
-    resultsList.parentNode.insertBefore(paginationControls, resultsSummary.nextSibling);
+    if (resultsList && resultsList.parentNode) {
+        resultsList.parentNode.insertBefore(resultsSummary, resultsList.nextSibling);
+        resultsList.parentNode.insertBefore(paginationControls, resultsSummary.nextSibling);
+    }
 
     let searchData = [];
     let filteredResults = [];
     let currentPage = 1;
     const resultsPerPage = 10;
-
-    // ご提供いただいたURLのフォルダ名と日本語カテゴリ名のマッピングを定義
-    const categoryMap = {
-        'TVING': 'フリーテレビング/テレナビング',
-        'MAGICONE': 'マジコネ',
-        'LED_BULB': 'LEDバルブ/ルームランプ',
-        'AV_ACCESSORY': 'AVアクセサリー',
-        'CAR_ACCESSORY': 'カーアクセサリー',
-        'CAMERA': 'カメラ',
-        'MONITER': 'モニター',
-        'HDMI_USB': 'HDMI・USB関係',
-        'POWER': '電源関係'
-    };
 
     // 検索データを非同期で読み込む
     fetch('search-data.json')
@@ -44,6 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data => {
             searchData = data;
+            // URLからクエリパラメータを取得して検索を実行
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('q');
+            if (query) {
+                searchInput.value = query; // 検索ボックスにキーワードをセット
+                performSearch(query);
+            }
         })
         .catch(error => {
             console.error('Error loading search data:', error);
@@ -52,46 +51,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     // フォームの送信イベントを処理
-    searchForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        currentPage = 1; // 検索ごとにページをリセット
-        performSearch();
-    });
+    if (searchForm) {
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            currentPage = 1; // 検索ごとにページをリセット
+            const query = searchInput.value.trim();
+            // 検索ページ内での検索時にURLを更新
+            window.history.pushState({}, '', `?q=${encodeURIComponent(query)}`);
+            performSearch(query);
+        });
+    }
 
     // 検索を実行する関数
-    function performSearch() {
-        const query = searchInput.value.trim().toLowerCase();
-        
-        // 検索結果セクションを表示
-        resultsSection.style.display = 'block';
-
-        if (query.length === 0) {
-            resultsList.innerHTML = '';
-            noResultsMessage.style.display = 'none';
-            resultsSummary.innerHTML = '';
-            paginationControls.innerHTML = '';
+    function performSearch(query) {
+        if (!query) {
+            resultsSection.style.display = 'none';
             return;
         }
 
-        // 検索結果をフィルタリング
+        resultsSection.style.display = 'block';
+
         filteredResults = searchData.filter(item =>
-            (item.title && item.title.toLowerCase().includes(query)) ||
-            (item.keywords && item.keywords.toLowerCase().includes(query)) ||
-            (item.description && item.description.toLowerCase().includes(query))
+            (item.title && item.title.toLowerCase().includes(query.toLowerCase())) ||
+            (item.keywords && item.keywords.toLowerCase().includes(query.toLowerCase())) ||
+            (item.description && item.description.toLowerCase().includes(query.toLowerCase()))
         );
         
-        // 検索結果を並び替え（タイトルでのマッチを優先）
         filteredResults.sort((a, b) => {
-            const aTitleMatch = a.title && a.title.toLowerCase().includes(query);
-            const bTitleMatch = b.title && b.title.toLowerCase().includes(query);
+            const aTitleMatch = a.title && a.title.toLowerCase().includes(query.toLowerCase());
+            const bTitleMatch = b.title && b.title.toLowerCase().includes(query.toLowerCase());
 
             if (aTitleMatch && !bTitleMatch) {
-                return -1; // a を b より前に
+                return -1;
             }
             if (!aTitleMatch && bTitleMatch) {
-                return 1; // b を a より前に
+                return 1;
             }
-            return 0; // その他の場合は順序を変えない
+            return 0;
         });
 
         renderResults();
@@ -99,6 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 検索結果を表示する関数
     function renderResults() {
+        if (!resultsList || !resultsSummary || !paginationControls) {
+            console.error("検索結果のDOM要素が見つかりません。");
+            return;
+        }
+
         resultsList.innerHTML = '';
         resultsSummary.innerHTML = '';
         paginationControls.innerHTML = '';
@@ -115,7 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const end = Math.min(start + resultsPerPage, totalResults);
         const resultsToDisplay = filteredResults.slice(start, end);
 
-        // 検索結果件数と表示範囲の表示
         const summaryText = `${totalResults}件中${start + 1}〜${end}件目を表示`;
         resultsSummary.textContent = summaryText;
 
@@ -137,28 +137,11 @@ document.addEventListener('DOMContentLoaded', () => {
             resultDescription.classList.add('result-description');
             resultDescription.textContent = item.description;
 
-            // URLを絶対パスに変換
             const absoluteUrl = link.href;
 
             const resultUrl = document.createElement('span');
             resultUrl.classList.add('result-url');
             resultUrl.textContent = absoluteUrl;
-
-            // 正規表現を使い、URLからカテゴリ名を正確に抽出
-            const urlMatch = item.url.match(/\/products\/([^\/]+)\//i); // iフラグで大文字・小文字を無視
-            let categoryKey = null;
-            if (urlMatch && urlMatch[1]) {
-                categoryKey = urlMatch[1].toUpperCase(); // キーを大文字に統一
-            }
-            
-            // カテゴリを判別し、存在すればラベルを追加
-            const categoryLabel = categoryMap[categoryKey] || null;
-            if (categoryLabel) {
-                const categorySpan = document.createElement('span');
-                categorySpan.classList.add('result-category');
-                categorySpan.textContent = `[${categoryLabel}]`;
-                resultTitle.appendChild(categorySpan);
-            }
             
             link.appendChild(resultTitle);
             if (item.description) {
@@ -188,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
         prevButton.addEventListener('click', () => {
             currentPage--;
             renderResults();
-            window.scrollTo({ top: 150, behavior: 'smooth' }); // ページトップへスムーズにスクロール
+            window.scrollTo({ top: 150, behavior: 'smooth' });
         });
 
         const nextButton = document.createElement('button');
@@ -197,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         nextButton.addEventListener('click', () => {
             currentPage++;
             renderResults();
-            window.scrollTo({ top: 150, behavior: 'smooth' }); // ページトップへスムーズにスクロール
+            window.scrollTo({ top: 150, behavior: 'smooth' });
         });
 
         paginationControls.appendChild(prevButton);

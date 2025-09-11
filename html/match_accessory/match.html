@@ -12,69 +12,71 @@
 <body>
     <div id="header-placeholder"></div>
     <main>
-        <div class="container match-container">
-            <h2 class="section-title">
-                <span class="section-title-en">CONFORMITY INSPECTION</span>
-                <span class="section-title-jp">車種適合検索</span>
-            </h2>
-            <div class="content-wrapper">
-                <div class="form-area">
-                    <div class="form-group" id="product-group">
-                        <label for="product-select">製品名</label>
-                        <select id="product-select" class="form-select">
-                            <option value="">製品を選択してください</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group" id="option-group" style="display: none;">
-                        <label>オプションタイプ</label>
-                        <div class="option-group">
-                            <input type="radio" id="maker-option" name="option-type" value="maker" checked>
-                            <label for="maker-option">メーカーオプション</label>
-                            <input type="radio" id="dealer-option" name="option-type" value="dealer">
-                            <label for="dealer-option">ディーラーオプション</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group" id="maker-group" style="display: none;">
-                        <label for="maker-select">メーカー</label>
-                        <select id="maker-select" class="form-select">
-                            <option value="">メーカーを選択してください</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group" id="model-group" style="display: none;">
-                        <label for="model-select">車種</label>
-                        <select id="model-select" class="form-select" disabled>
-                            <option value="">車種を選択してください</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group" id="year-month-group" style="display: none;">
-                        <label id="year-label" for="year-select">年式</label>
-                        <div class="year-month-group">
-                            <select id="year-select" class="form-select" disabled>
-                                <option value="">年</option>
-                            </select>
-                            <span>/</span>
-                            <select id="month-select" class="form-select" disabled>
-                                <option value="">月</option>
+        <div class="container">
+            <div class="match-container">
+                <h2 class="section-title">
+                    <span class="section-title-en">CONFORMITY INSPECTION</span>
+                    <span class="section-title-jp">車種適合検索</span>
+                </h2>
+                <div class="content-wrapper">
+                    <div class="form-area">
+                        <div class="form-group" id="product-group">
+                            <label for="product-select">製品名</label>
+                            <select id="product-select" class="form-select">
+                                <option value="">製品を選択してください</option>
                             </select>
                         </div>
-                    </div>
-                    <button id="search-button" class="btn-primary" disabled>適合品番を検索</button>
-                </div>
 
-                <div id="result" class="result-area">
-                    <p id="message-container">検索結果がここに表示されます。</p>
-                    <div id="results-table-container" style="display: none;">
-                        <table class="result-table">
-                            <thead></thead>
-                            <tbody></tbody>
-                        </table>
+                        <div class="form-group" id="option-group" style="display: none;">
+                            <label>オプションタイプ</label>
+                            <div class="option-group">
+                                <input type="radio" id="maker-option" name="option-type" value="maker" checked>
+                                <label for="maker-option">メーカーオプション</label>
+                                <input type="radio" id="dealer-option" name="option-type" value="dealer">
+                                <label for="dealer-option">ディーラーオプション</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="maker-group" style="display: none;">
+                            <label for="maker-select">メーカー</label>
+                            <select id="maker-select" class="form-select">
+                                <option value="">メーカーを選択してください</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="model-group" style="display: none;">
+                            <label for="model-select">車種</label>
+                            <select id="model-select" class="form-select" disabled>
+                                <option value="">車種を選択してください</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="year-month-group" style="display: none;">
+                            <label id="year-label" for="year-select">年式</label>
+                            <div class="year-month-group">
+                                <select id="year-select" class="form-select" disabled>
+                                    <option value="">年</option>
+                                </select>
+                                <span>/</span>
+                                <select id="month-select" class="form-select" disabled>
+                                    <option value="">月</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button id="search-button" class="btn-primary" disabled>適合品番を検索</button>
                     </div>
-                    <div id="pdf-link-container"></div>
-                    <div id="notes-list-container"></div>
+
+                    <div id="result" class="result-area">
+                        <p id="message-container">検索結果がここに表示されます。</p>
+                        <div id="results-table-container" style="display: none;">
+                            <table class="result-table">
+                                <thead></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div id="pdf-link-container"></div>
+                        <div id="notes-list-container"></div>
+                    </div>
                 </div>
             </div>
         </div>

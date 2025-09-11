@@ -163,17 +163,23 @@
 /*==================================
   お知らせセクション(announcements)
 ==================================*/
-.announce-section {
+.announcements-section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
+.announcements-section .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 .announcements-list {
-    width: 60%;
+    width: 100%;
     list-style: none;
     box-sizing: border-box;
-    padding: 0 20px;
+    padding: 0 50px;
 }
 
 .announcements-list li {

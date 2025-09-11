@@ -1,7 +1,7 @@
 /* announcements-sectionの幅を調整し、中央寄せにする */
 .announcements-section {
     background-color: #ffffff;
-    padding: 30px;
+    padding: 0 30px;
     max-width: 700px;
     margin: 0 auto 40px;
 }
@@ -57,7 +57,7 @@
 @media (max-width: 768px) {
     /* お知らせセクションの左右パディングを調整 */
     .announcements-section {
-        padding: 20px 15px;
+        padding: 0 15px;
     }
 
     /* お知らせリストのパディングを調整 */

@@ -2,7 +2,6 @@
 
 /* セクション全体の余白と背景 */
 .products-news-section {
-    padding: 60px 0;
     background-color: #fff;
     max-width: 1000px;
     margin: 0 auto;
@@ -10,26 +9,6 @@
     padding-right: 20px;
     box-sizing: border-box;
     position: relative;
-}
-
-/* ページタイトルのスタイル */
-.products-news-section h2.section-title {
-    font-size: 2.5rem;
-    color: #333;
-    text-align: center;
-    margin-bottom: 40px;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 10px;
-}
-.products-news-section h2.section-title .section-title-en {
-    display: block;
-    font-size: 0.8em;
-    color: #888;
-    margin-bottom: 5px;
-}
-.products-news-section h2.section-title .section-title-jp {
-    display: block;
-    font-size: 1em;
 }
 
 .archive_link {
@@ -397,7 +376,6 @@
     .products-news-section {
         padding-left: 10px;
         padding-right: 10px;
-        padding-top: 40px;
         padding-bottom: 40px;
     }
     .products-news-section h2.section-title {
@@ -418,7 +396,7 @@
     #search-input {
         width: 100%;
         margin-bottom: 10px;
-        padding: 10px 12px;
+        padding: 10px 0;
     }
     #search-button {
         width: 100%;

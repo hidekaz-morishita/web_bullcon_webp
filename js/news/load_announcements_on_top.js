@@ -1,5 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const announcementsList = document.getElementById('announcements-list');
+    
+    // DOM要素の存在チェック
+    if (!announcementsList) {
+        console.error("必要なDOM要素が見つかりません。announcements-list が存在するか確認してください。");
+        return;
+    }
+
     fetch('./api/get_announcements_title.php?limit=5')
         .then(response => {
             if (!response.ok) {
@@ -8,23 +15,32 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(data => {
+            if (data.length === 0) {
+                announcementsList.innerHTML = '<li>現在、お知らせはありません。</li>';
+                return;
+            }
+
+            // 日付で最新順にソート（PHP側で処理されていなければ）
+            data.sort((a, b) => {
+                const dateA = new Date(a.date.replace(/(\d{4})年(\d{1,2})月(\d{1,2})日/, '$1-$2-$3'));
+                const dateB = new Date(b.date.replace(/(\d{4})年(\d{1,2})月(\d{1,2})日/, '$1-$2-$3'));
+                return dateB - dateA;
+            });
+
             data.forEach(item => {
                 const li = document.createElement('li');
                 
                 // 日付を正規表現を使って正しく解析
                 const date_match = item.date.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
                 let formattedDate = '日付不明';
+                let announcementDate = null;
                 if (date_match) {
                     const year = date_match[1];
                     const month = date_match[2].padStart(2, '0');
                     const day = date_match[3].padStart(2, '0');
                     formattedDate = `${year}/${month}/${day}`;
+                    announcementDate = new Date(year, date_match[2] - 1, day);
                 }
-
-                // 現在の日付から2週間前の日付を計算
-                const currentDate = new Date();
-                const oneWeekAgo = new Date();
-                oneWeekAgo.setDate(currentDate.getDate() - 14);
 
                 const link = document.createElement('a');
                 link.href = item.url;
@@ -35,27 +51,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const titleSpan = document.createElement('span');
                 titleSpan.textContent = item.title;
+                titleSpan.style.flexGrow = '1'; // タイトルが余白を埋めるようにする
 
                 link.appendChild(dateSpan);
                 link.appendChild(titleSpan);
 
-                // Newバッジのロジック 
-                const announcementDate = new Date(date_match[1], date_match[2] - 1, date_match[3]);
-                if (announcementDate > oneWeekAgo) {
-                    const newBadge = document.createElement('span');
-                    newBadge.textContent = 'New';
-                    
-                    Object.assign(newBadge.style, {
-                        color: '#fff',
-                        fontWeight: 'bold',
-                        fontSize: '11px',
-                        backgroundColor: 'red',
-                        borderRadius: '10px',
-                        padding: '1px 5px 1px 5px',
-                        marginLeft: '30px'
-                    });
-                    
-                    link.appendChild(newBadge);
+                // Newバッジのロジック
+                if (announcementDate) {
+                    const currentDate = new Date();
+                    const fourteenDaysAgo = new Date();
+                    fourteenDaysAgo.setDate(currentDate.getDate() - 14);
+
+                    // ニュースの日付が2週間以内であればNewバッジを表示
+                    if (announcementDate > fourteenDaysAgo) {
+                        const newBadge = document.createElement('span');
+                        newBadge.textContent = 'New';
+                        newBadge.classList.add('new-badge');
+                        newBadge.style.marginRight = "5%"
+                        link.appendChild(newBadge);
+                    }
                 }
                 
                 li.appendChild(link);
@@ -65,72 +79,5 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => {
             console.error('お知らせの読み込みに失敗しました:', error);
             announcementsList.innerHTML = '<li>お知らせを読み込めませんでした。</li>';
-        }
-    );
+        });
 });
-
-
-/* for debug */
-// document.addEventListener('DOMContentLoaded', () => {
-//     const announcementsList = document.getElementById('announcements-list');
-
-//     const tmpData = [
-//         {"date": "2025年9月4日", "title": "tesuto dayo", "url" : "/"},
-//         {"date": "1991年2月4日", "title": "tesuto dayo", "url" : "/"},
-//         {"date": "1992年2月4日", "title": "tesuto dayo", "url" : "/"},
-//         {"date": "1993年2月4日", "title": "tesuto dayo", "url" : "/"},
-//         {"date": "1994年2月4日", "title": "tesuto dayo", "url" : "/"},
-//     ];
-//     tmpData.forEach(item => {
-//         const li = document.createElement('li');
-        
-//         // 日付を正規表現を使って正しく解析
-//         const date_match = item.date.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
-//         let formattedDate = '日付不明';
-//         if (date_match) {
-//             const year = date_match[1];
-//             const month = date_match[2].padStart(2, '0');
-//             const day = date_match[3].padStart(2, '0');
-//             formattedDate = `${year}/${month}/${day}`;
-//         }
-
-//         // 現在の日付から1週間前の日付を計算
-//         const currentDate = new Date();
-//         const oneWeekAgo = new Date();
-//         oneWeekAgo.setDate(currentDate.getDate() - 7);
-    
-//         const link = document.createElement('a');
-//         link.href = item.url;
-        
-//         const dateSpan = document.createElement('span');
-//         dateSpan.classList.add('announcement-date');
-//         dateSpan.textContent = formattedDate;
-    
-//         const titleSpan = document.createElement('span');
-//         titleSpan.textContent = item.title;
-    
-//         link.appendChild(dateSpan);
-//         link.appendChild(titleSpan);
-        
-//         const announcementDate = new Date(date_match[1], date_match[2] - 1, date_match[3]);
-//         if (announcementDate > oneWeekAgo) {
-//             const newBadge = document.createElement('span');
-//             newBadge.textContent = 'New';
-
-//             Object.assign(newBadge.style, {
-//                 color: '#fff',
-//                 fontWeight: 'bold',
-//                 fontSize: '11px',
-//                 backgroundColor: 'red',
-//                 borderRadius: '10px',
-//                 padding: '1px 5px 1px 5px',
-//                 marginLeft: '30px'
-//             });
-
-//             link.appendChild(newBadge);
-//         }
-
-//         li.appendChild(link);
-//         announcementsList.appendChild(li);
-//     });
-// });

@@ -17,29 +17,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 headerPlaceholder.innerHTML = headerContent;
                 
-                const headerBottom = headerPlaceholder.querySelector('.header-bottom');
-                const headerTop = headerPlaceholder.querySelector('.header-top');
-                
-                if (headerBottom) {
-                    headerPlaceholder.after(headerBottom);
-                }
-                
-                if (headerTop) {
-                    headerPlaceholder.before(headerTop);
-                }
-
+                // モバイルナビゲーションの位置設定ロジック
                 const mobileNav = document.querySelector('.mobile-nav');
                 const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
-                
-                if (headerTop && mobileNav) {
+                const mainHeader = document.querySelector('.header'); // 新しいヘッダー要素
+
+                if (mainHeader && mobileNav && mobileNavOverlay) {
                     const setMobileNavPosition = () => {
-                        mobileNav.style.top = `${headerTop.offsetHeight}px`;
-                        mobileNavOverlay.style.top = `${headerTop.offsetHeight}px`;
+                        mobileNav.style.top = `${mainHeader.offsetHeight}px`;
+                        mobileNavOverlay.style.top = `${mainHeader.offsetHeight}px`;
                     };
+                    // ヘッダー読み込み後に位置を確定
                     setMobileNavPosition();
+                    // リサイズ時にも位置を再計算
                     window.addEventListener('resize', setMobileNavPosition);
                 }
 
+                // ヘッダーの全機能の初期化
                 initializeHeaderFunctions();
             } else {
                 console.error("Error: Element with id 'header-placeholder' not found.");
@@ -57,18 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // ヘッダー関連の機能を初期化する関数
     //==================================
     function initializeHeaderFunctions() {
-        const topContainer = document.querySelector('.header-top');
-        const bottomContainer = document.querySelector('.header-bottom');
+        // メガメニューの初期化
+        initializeMegaMenu();
+        // スクロール時のヘッダー固定を初期化
+        initializeHeaderScroll();
+
+        // ハンバーガーメニューの開閉機能
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
         const mobileNav = document.querySelector('.mobile-nav');
         const overlay = document.querySelector('.mobile-nav-overlay');
 
-        if (topContainer && bottomContainer) {
-            initializeMegaMenu();
-            initializeHeaderScroll(topContainer, bottomContainer);
-        }
-
-        const hamburgerMenu = document.querySelector('.hamburger-menu');
-        if (hamburgerMenu && mobileNav) {
+        if (hamburgerMenu && mobileNav && overlay) {
             const openMenu = () => {
                 hamburgerMenu.classList.add('is-active');
                 mobileNav.classList.add('is-visible');
@@ -96,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     //==================================
-    // メガメニューの機能を初期化する関数 (更新版)
+    // メガメニューの機能を初期化する関数
     //==================================
     function initializeMegaMenu() {
         const navItemsWithDropdown = document.querySelectorAll('.nav-item.has-dropdown');
@@ -107,67 +100,61 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetDropdown = document.getElementById(navItem.dataset.dropdownTarget);
             
             navItem.addEventListener('mouseenter', () => {
-                // ドロップダウンを非表示にしてから、新しいものを表示
-                if (activeDropdown) {
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                }
+                if (activeDropdown && activeDropdown !== targetDropdown) {
                     activeDropdown.classList.remove('is-visible');
-                    const parentNavItem = document.querySelector(`.nav-item[data-dropdown-target="${activeDropdown.id}"]`);
-                    if (parentNavItem) {
-                        parentNavItem.classList.remove('is-active');
-                    }
+                    document.querySelector(`.nav-item[data-dropdown-target="${activeDropdown.id}"]`).classList.remove('is-active');
                 }
                 
                 if (targetDropdown) {
                     targetDropdown.classList.add('is-visible');
-                    navItem.classList.add('is-active'); // 親アイテムにクラスを追加
+                    navItem.classList.add('is-active');
                     activeDropdown = targetDropdown;
-                    // メニュー表示時にボーダーの高さを調整
                     if (targetDropdown.id === 'product-dropdown') {
                         adjustDropdownBorderHeight(targetDropdown);
                     }
                 }
             });
 
-            // 親要素からマウスが離れた時の処理
             navItem.addEventListener('mouseleave', () => {
                 timeoutId = setTimeout(() => {
-                    if (!navItem.matches(':hover') && (!activeDropdown || !activeDropdown.matches(':hover'))) {
-                        if (activeDropdown) {
-                            activeDropdown.classList.remove('is-visible');
-                            activeDropdown = null;
-                        }
-                        navItem.classList.remove('is-active'); // 親アイテムからクラスを削除
+                    if (activeDropdown && !navItem.matches(':hover') && !activeDropdown.matches(':hover')) {
+                        activeDropdown.classList.remove('is-visible');
+                        navItem.classList.remove('is-active');
+                        activeDropdown = null;
                     }
                 }, 150);
             });
 
-            // ドロップダウンメニューにマウスが入った時の処理
             if (targetDropdown) {
                 targetDropdown.addEventListener('mouseenter', () => {
                     clearTimeout(timeoutId);
-                    navItem.classList.add('is-active'); // 親アイテムにクラスを追加
+                    navItem.classList.add('is-active');
                 });
 
-                // ドロップダウンメニューからマウスが離れた時の処理
                 targetDropdown.addEventListener('mouseleave', () => {
-                    if (activeDropdown) {
-                        activeDropdown.classList.remove('is-visible');
-                        activeDropdown = null;
-                    }
-                    navItem.classList.remove('is-active'); // 親アイテムからクラスを削除
+                    timeoutId = setTimeout(() => {
+                        if (!navItem.matches(':hover')) {
+                            targetDropdown.classList.remove('is-visible');
+                            navItem.classList.remove('is-active');
+                            activeDropdown = null;
+                        }
+                    }, 150);
                 });
             }
         });
 
+        // 以下、製品カテゴリーのサブメニュー機能は変更なし
         const productCategories = document.getElementById('product-categories');
         const subDropdownContainer = document.querySelector('.sub-dropdown-list-container');
         const imageContainer = document.querySelector('.dropdown-image-container');
 
         if (productCategories && subDropdownContainer && imageContainer) {
-            // ドロップダウンリスト項目にマウスホバーイベントを追加
             const listItemsWithSublist = productCategories.querySelectorAll('.has-sub-list');
             listItemsWithSublist.forEach(listItem => {
                 listItem.addEventListener('mouseenter', () => {
-                    // 他のハイライトをリセット
                     productCategories.querySelectorAll('li').forEach(li => li.classList.remove('is-hovered'));
                     listItem.classList.add('is-hovered');
                     
@@ -177,35 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         subDropdownContainer.innerHTML = '';
                     }
-                    // 子リスト表示時にボーダーの高さを再調整
                     adjustDropdownBorderHeight(document.getElementById('product-dropdown'));
                 });
-            });
-
-            // サブドロップダウンコンテナにマウスが入った時の処理
-            subDropdownContainer.addEventListener('mouseenter', () => {
-                // 親のリストアイテムのハイライトを維持
-                const hoveredItem = productCategories.querySelector('li.is-hovered');
-                if (hoveredItem) {
-                    hoveredItem.classList.add('is-hovered');
-                }
-            });
-
-            // サブドロップダウンコンテナからマウスが離れた時の処理
-            subDropdownContainer.addEventListener('mouseleave', () => {
-                // ハイライトを削除
-                productCategories.querySelectorAll('li').forEach(li => li.classList.remove('is-hovered'));
-                subDropdownContainer.innerHTML = '';
-                imageContainer.innerHTML = '';
-            });
-
-            // 画像コンテナにマウスが入った時の処理
-            imageContainer.addEventListener('mouseenter', () => {
-                    // 親のリストアイテムのハイライトを維持
-                const hoveredItem = productCategories.querySelector('li.is-hovered');
-                if (hoveredItem) {
-                    hoveredItem.classList.add('is-hovered');
-                }
             });
 
             subDropdownContainer.addEventListener('mouseenter', (event) => {
@@ -221,43 +181,82 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }, true);
 
+            subDropdownContainer.addEventListener('mouseleave', () => {
+                // サブドロップダウンコンテナから離れても、親のリスト項目ホバー状態を維持
+            });
+
             const productDropdown = document.getElementById('product-dropdown');
             if (productDropdown) {
                 productDropdown.addEventListener('mouseleave', () => {
                     subDropdownContainer.innerHTML = '';
                     imageContainer.innerHTML = '';
+                    productCategories.querySelectorAll('li').forEach(li => li.classList.remove('is-hovered'));
                 });
             }
         }
     }
 
     //==================================
-    // ボーダーの高さを調整する新しい関数
+    // ボーダーの高さを調整する関数
     //==================================
     function adjustDropdownBorderHeight(dropdownMenu) {
         const leftContainer = dropdownMenu.querySelector('.dropdown-list-container');
         const middleContainer = dropdownMenu.querySelector('.sub-dropdown-list-container');
         
         if (leftContainer && middleContainer) {
-            // コンテナの高さをリセットして再計算
             leftContainer.style.height = 'auto';
             middleContainer.style.height = 'auto';
 
-            // 両方のコンテナの高さを取得
             const leftHeight = leftContainer.offsetHeight;
             const middleHeight = middleContainer.offsetHeight;
 
-            // 高い方の高さを設定
             const maxHeight = Math.max(leftHeight, middleHeight);
             
-            // `min-height`を使って、コンテンツが増えても対応できるようにする
             leftContainer.style.minHeight = `${maxHeight}px`;
             middleContainer.style.minHeight = `${maxHeight}px`;
         }
     }
 
+//==================================
+// スクロール時のヘッダー固定機能
+//==================================
+function initializeHeaderScroll() {
+    const mainHeader = document.querySelector('.header');
+    if (!mainHeader) return;
+
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+        const currentScrollY = window.scrollY;
+        const headerHeight = mainHeader.offsetHeight;
+
+        // 一定のスクロール量（例：ヘッダーの高さ）を超えたら固定
+        if (currentScrollY > headerHeight) {
+            mainHeader.classList.add('is-stuck');
+        } else {
+            mainHeader.classList.remove('is-stuck');
+        }
+
+        // スクロールダウン（下方向）の検知
+        // ヘッダーの高さ分スクロールしたら隠す
+        if (currentScrollY > lastScrollY && currentScrollY > headerHeight) {
+            mainHeader.classList.add('is-hidden');
+        } 
+        // スクロールアップ（上方向）の検知、またはページ最上部に戻ったら表示
+        else if (currentScrollY < lastScrollY || currentScrollY <= 0) {
+            mainHeader.classList.remove('is-hidden');
+        }
+        
+        lastScrollY = currentScrollY;
+    };
+    
+    // スクロールイベントリスナーを追加
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('load', handleScroll);
+    window.addEventListener('resize', handleScroll);
+}
     //==================================
-    // 製品ページの機能（変更なし）
+    // 製品ページの機能
     //==================================
     const categoryTabs = document.querySelectorAll('.category-tab');
     const productItems = document.querySelectorAll('.product-item');
@@ -327,14 +326,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
-function initializeHeaderScroll(topContainer, bottomContainer) {
-    const headerTopHeight = topContainer.offsetHeight;
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > headerTopHeight) {
-            bottomContainer.classList.add('is-stuck');
-        } else {
-            bottomContainer.classList.remove('is-stuck');
-        }
-    });
-}
