@@ -370,7 +370,6 @@
 
 /* 本文のスタイル */
 .product-fulltext-body {
-    /* 💡 clamp()によるフォントサイズのレスポンシブ対応 */
     font-size: clamp(0.6rem, 1vw, 1rem);
     color: #555;
     line-height: 1.4;

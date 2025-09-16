@@ -47,6 +47,7 @@ label {
 .form-select {
     width: 100%;
     padding: 12px;
+    color: #333;
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 16px;

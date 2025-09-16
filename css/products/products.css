@@ -146,6 +146,7 @@
 
 .close-menu-btn {
     background: none;
+    color: #333;
     border: none;
     font-size: 2em;
     cursor: pointer;
@@ -161,6 +162,7 @@
 .mobile-category-list li button {
     background: none;
     border: none;
+    color: #333;
     width: 100%;
     text-align: left;
     padding: 15px 20px;
@@ -214,7 +216,8 @@
     .mobile-menu-toggle {
         display: block;
         position: absolute;
-        top: 130px;
+        color: #333;
+        top: 100px;
         left: 100%;
         transform: translateX(0);
         z-index: 110;
