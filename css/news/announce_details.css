@@ -41,6 +41,11 @@
     margin-bottom: 20px;
 }
 
+.border-bottom {
+    border-bottom: 1px solid #ddd; /* 下線の色と太さを指定 */
+    margin: 20px 0; /* 上下の余白を指定 */
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
     .announcement-article {
@@ -48,11 +53,15 @@
         padding: 20px;
     }
 
+    .announcement-date {
+        font-size: 0.8em;
+    }
+
     .announcement-title {
-        font-size: 2em;
+        font-size: 1.2em;
     }
 
     .announcement-body {
-        font-size: 1em;
+        font-size: 0.8em;
     }
 }

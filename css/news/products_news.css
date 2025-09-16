@@ -13,6 +13,7 @@
 
 .archive_link {
     text-align: right;
+    font-size: clamp(0.7rem, 1vw, 1rem);
 }
 
 /* 検索コンテナの基本デザイン */
@@ -220,6 +221,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
+    font-size: clamp(0.6rem, 2vw, 1.1rem);
 }
 .product-names {
     list-style: none;
@@ -228,7 +230,7 @@
     flex-grow: 1;
     color: #333;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: clamp(0.6rem, 2vw, 1.1rem);
 }
 .product-names li {
     margin-bottom: 0;
@@ -266,7 +268,7 @@
     border: 2px solid;
     color: #333;
     white-space: nowrap;
-    font-size: 0.9em;
+    font-size: clamp(0.7rem, 2vw, 0.95rem);
     flex-shrink: 0;
     width: fit-content;
 }
@@ -287,26 +289,27 @@
     flex-wrap: wrap;
     gap: 5px;
     margin-top: 5px;
-    align-items: center; /* 追加・修正 */
+    align-items: center; 
 }
 .car-model-label {
     font-size: 0.95rem;
     font-weight: bold;
     color: #555;
     flex-shrink: 0;
-    vertical-align: middle; /* 追加 */
+    vertical-align: middle;
 }
 .car-models {
     font-size: 0.95rem;
     color: #333;
     line-height: 1.4;
     flex-grow: 1;
-    vertical-align: middle; /* 追加 */
+    vertical-align: middle;
+    font-size: clamp(0.6rem, 2vw, 1.1rem);
 }
 
 /* Newバッジのスタイル */
 .new-badge {
-    font-size: 0.8em;
+    font-size: clamp(0.7rem, 1vw, 0.8rem);
     background-color: #e74c3c;
     color: white;
     padding: 2px 8px;
@@ -318,7 +321,7 @@
 
 /* 本文のスタイル */
 .product-fulltext-body {
-    font-size: 1rem;
+    font-size: clamp(0.6rem, 1.5vw, 1rem);
     color: #555;
     line-height: 1.4;
     padding: 10px 0 0 0;
@@ -450,26 +453,32 @@
     
     /* 製品情報のヘッダーを縦並びに変更 */
     .product-info-header {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         align-items: flex-start;
         gap: 10px;
     }
     .product-date {
         margin-right: auto;
+        order: 1;
     }
     .product-title {
         width: 100%;
-        order: 1;
+        order: 3;
         margin: 0;
     }
     .type-and-badge-container {
         width: 100%;
         order: 2;
-        align-items: flex-start;
+        position: absolute;
+        align-items: flex-end;
+        top: 0;
+        right: 0;
+        margin-top: 10px;
+        margin-right: 10px;
     }
     
     .product-fulltext-body {
-        font-size: 0.9em;
         padding-top: 10px;
         margin-top: 10px;
     }

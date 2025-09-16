@@ -74,23 +74,38 @@
         padding: 0 15px;
     }
 
+    .announcements-title {
+        font-size: 1em;
+    }
+
     /* お知らせリストのパディングを調整 */
     .announcements-list li {
         padding: 12px 15px;
+        align-items: center;
     }
 
-    /* 日付とタイトルを縦並びに変更 */
+    /* 日付とタイトル */
     .announcements-list li a {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         align-items: flex-start;
     }
 
     /* 日付のスタイルを調整 */
     .announcements-list .announcement-date {
         min-width: auto;
-        margin-right: 0;
-        margin-bottom: 5px; /* 日付とタイトルの間に余白を追加 */
-        font-size: 1em; /* 文字の大きさを調整 */
+        font-size: 0.8em; /* 文字の大きさを調整 */
+        order: 1;
+    }
+
+    .announcements-list .announcement-title-text {
+        font-size: 0.9em;
+        order: 3;
+    }
+
+    .announcements-list .new-badge {
+        font-size: 0.7em;
+        order: 2;
     }
 }
 
