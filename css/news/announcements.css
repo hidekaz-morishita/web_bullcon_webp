@@ -16,6 +16,7 @@
 
 .announcements-list {
     list-style: none;
+    width: 100%;
     padding: 0;
     margin: 0;
 }
@@ -53,6 +54,19 @@
     flex-shrink: 0; /* タイトルが長くなっても幅を保持 */
 }
 
+/* Newバッジのスタイル */
+.new-badge {
+    font-size: 0.8em;
+    background-color: #e74c3c;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: normal;
+    white-space: nowrap;
+    animation: glowing-pulse 2s infinite;
+    margin-right: 5%;
+}
+
 /* --- レスポンシブ対応の追加 --- */
 @media (max-width: 768px) {
     /* お知らせセクションの左右パディングを調整 */
@@ -77,5 +91,18 @@
         margin-right: 0;
         margin-bottom: 5px; /* 日付とタイトルの間に余白を追加 */
         font-size: 1em; /* 文字の大きさを調整 */
+    }
+}
+
+/* Newバッジに光るアニメーションを追加 */
+@keyframes glowing-pulse {
+    0% {
+        box-shadow: 0 0 5px rgba(231, 76, 60, 0.4), 0 0 10px rgba(231, 76, 60, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(231, 76, 60, 0.8), 0 0 25px rgba(231, 76, 60, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(231, 76, 60, 0.4), 0 0 10px rgba(231, 76, 60, 0.2);
     }
 }

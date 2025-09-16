@@ -134,7 +134,7 @@ export const CAR_TYPE = {
             { "name": "UX300e" }
         ]
     },
-    "日産": {
+    "ニッサン": {
         "models": [
             { "name": "アリア" },
             { "name": "アベニール" },
@@ -225,7 +225,7 @@ export const CAR_TYPE = {
             { "name": "レジェンド" }
         ]
     },
-    "三菱": {
+    "ミツビシ": {
         "models": [
             { "name": "I" },
             { "name": "eKワゴン" },

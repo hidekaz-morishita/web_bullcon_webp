@@ -1,5 +1,12 @@
 [
   {
+    "date": "2025年9月12日",
+    "type": "適合情報",
+    "title_data": {"product": ["sample newBadge"], "car_model": ["カローラクロスハイブリッド（ZVG13.16 MXGH15）　R7/9～"]},
+    "brand": ["トヨタ"],
+    "body": [{ "type":"html", "content": "<p><b>車速ドアロックシステム<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/sdlct/sdlct.htm\" target=\"_blank\">『 SDL-CT08 』</a></span></b></p>", "align": "right"}]
+  },
+  {
     "date": "2025年9月3日",
     "type": "適合情報",
     "title_data": {"product": ["車速ドアロックシステム『 SDL-CT08 』"], "car_model": ["カローラクロスハイブリッド（ZVG13.16 MXGH15）　R7/9～"]},

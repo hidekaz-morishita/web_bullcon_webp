@@ -388,7 +388,7 @@ function generateTable(data, headerData) {
                 } else {
                     const priceExclTax = `<span style="font-size: 0.8em;">税別: ${(item[col.priceKeys.excl] || '').replace('\\', '￥')}</span>`;
                     const priceInclTax = `<span style="font-size: 0.8em;">税込: ${(item[col.priceKeys.incl] || '').replace('\\', '￥')}</span>`;
-                    td.innerHTML = `${item[col.key]}<br>${priceExclTax}<br>${priceInclTax}`;
+                    td.innerHTML = `<b>${item[col.key]}</b><br>${priceExclTax}<br>${priceInclTax}`;
                 }
             } else {
                 td.innerHTML = (item[col.key] || '').replace(/\n/g, '<br>');
