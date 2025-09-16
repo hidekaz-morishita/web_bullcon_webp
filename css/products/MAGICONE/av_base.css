@@ -31,7 +31,7 @@
     margin-bottom: 30px;
 }
 
-.product-info__main {
+.product-info-main {
     display: flex;
     /* align-items: flex-end; */ /* 価格とJANコードをタイトルと揃える場合 */
     flex-wrap: wrap; /* 画面幅が狭い場合に折り返す */
@@ -39,58 +39,64 @@
     margin-bottom: 20px;
 }
 
-.product-info__title {
+.product-info-title {
     font-size: 2.2em; /* 適切なサイズに調整 */
     font-weight: bold;
     margin: 0;
     flex-shrink: 0; /* タイトルが縮まないように */
 }
 
-.product-info__details {
+.product-info-details {
     line-height: 1.4;
     padding-left: 10%;
     flex-grow: 1; /* 残りのスペースを埋める */
 }
 
-.product-info__price {
+.product-info-price {
     margin: 0 0 5px 0;
 }
 
-.product-info__price-text {
+.product-info-price-text {
     font-size: 1em;
 }
-.product-info__price-value {
+.product-info-price-value {
     font-size: 1.4em; /* 適切なサイズに調整 */
     font-weight: bold;
 }
-.product-info__price-tax,
-.product-info__price-untaxed {
+.product-info-price-tax,
+.product-info-price-untaxed {
     font-size: 0.9em;
     color: #666;
 }
-.product-info__price-untaxed {
+.product-info-price-untaxed {
     display: block; /* 税抜価格を次の行に */
     margin-top: 2px;
 }
 
 
-.product-info__jan-code {
+.product-info-jan-code {
     font-size: 0.9em;
     margin: 0;
     color: #666;
 }
 
-.product-info__compat {
+.product-info-compat {
     line-height: 1.0;
 }
 
-.product-info__compat-car {
+.product-info-compat-car {
     font-weight: bold;
 }
 
-.product-info__compat-warning {
+.product-info-compat-red-text {
     font-size: 0.9em;
     color: #ff0308;
+    margin: 0;
+}
+
+.product-info-compat-warning {
+    background-color: rgb(255, 254, 201);
+    padding: 5px 0;
     margin: 0;
 }
 
@@ -159,17 +165,24 @@
     padding-left: 10px;
 }
 
-.guid-images {
+.guid-images,
+.guid-images-under {
     display: flex;
     flex-wrap: wrap; 
     justify-content: center; 
     gap: 15px; 
-    margin-bottom: 20px;
 }
 
 .guid-images img {
     height: 250px;
     width: auto;
+    display: block;
+}
+
+.guid-images-under img {
+    height: 100px;
+    width: 70%;
+    justify-content: center;
     display: block;
 }
 
@@ -204,36 +217,29 @@
         height: 30px;
     }
 
-    .product-info__main {
+    .product-info-main {
         flex-direction: column; /* タイトルと詳細を縦並び */
         align-items: flex-start;
         gap: 10px;
     }
-    .product-info__title {
+    .product-info-title {
         font-size: 1.8em;
     }
-    .product-info__price-value {
+    .product-info-price-value {
         font-size: 1.2em;
     }
-    .product-info__price-tax,
-    .product-info__price-untaxed,
-    .product-info__jan-code {
+    .product-info-price-tax,
+    .product-info-price-untaxed,
+    .product-info-jan-code {
         font-size: 0.85em;
     }
 
-    .product-info__compat-car,
-    .product-info__compat-unit {
+    .product-info-compat-car,
+    .product-info-compat-unit {
         font-size: 1em;
     }
-    .product-info__compat-warning {
+    .product-info-compat-warning {
         font-size: 0.8em;
-    }
-
-    .actions {
-        padding: 20px 0;
-    }
-    .actions__link img {
-        height: 25px;
     }
 
     .connection-guid-txt .txt-1 {
