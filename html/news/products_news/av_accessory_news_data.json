@@ -1,5 +1,18 @@
 [
   {
+    "date": "2025年9月12日",
+    "type": "適合情報",
+    "title_data": {"product": ["＜一部改良後＞FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ『CTN-111AS』", "FreeTVing ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ『CTN-111ASC』", "FreeTVing ｽﾃｱﾘﾝｸﾞｽｲｯﾁ切替ﾀｲﾌﾟ『CTN-111AST』"], "car_model": ["ヴォクシー　＜一部改良後＞　（MZRA90W.95W）　R7/9～", "ヴォクシーハイブリッド　＜一部改良後＞　（ZWR90W.95W)　R7/9～", "ノア　＜一部改良後＞　（MZRA90W.95W）　R7/9～", "ノアハイブリッド　＜一部改良後＞（ZWR90W.95W)　R7/9～"]},
+    "brand": ["トヨタ"],
+    "body": [
+      { "type": "html", "content": "【10.5インチ ディスプレイオーディオPlus装着車】<br>【8インチ ディスプレイオーディオ装着車】"},
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-111AS』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-111ASC』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing ｽﾃｱﾘﾝｸﾞｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-111AST』</a></span></b></p>", "align": "right"},
+      { "type": "html", "content": "【ＣＴＮ-１１１ＡＳ/１１１ＡＳＣ/１１１ＡＳＴ】自車位置は追従します。", "align":"right"}
+    ]
+  },
+  {
     "date": "2025年9月3日",
     "type": "適合情報",
     "title_data": {"product": ["FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ『CTN-111AS』", "FreeTVing ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ『CTN-111ASC』", "FreeTVing ｽﾃｱﾘﾝｸﾞｽｲｯﾁ切替ﾀｲﾌﾟ『CTN-111AST』"], "car_model": ["カローラクロスハイブリッド（ZVG13.16 MXGH15）　R7/9～"]},

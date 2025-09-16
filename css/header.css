@@ -333,6 +333,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-right: 35px;
     width: 30px;
     height: 20px;
     cursor: pointer;
@@ -353,7 +354,7 @@
   
   /* ハンバーガーメニューのアニメーション */
   .hamburger-menu.is-active span:nth-child(1) {
-    transform: rotate(42deg) translate(0px, 13px);
+    transform: rotate(45deg) translate(0px, 13px);
   }
   
   .hamburger-menu.is-active span:nth-child(2) {
@@ -361,7 +362,7 @@
   }
   
   .hamburger-menu.is-active span:nth-child(3) {
-    transform: rotate(-42deg) translate(0px, -13px);
+    transform: rotate(-45deg) translate(0px, -13px);
   }
   
   /* ヘッダー全体の幅を画面幅に合わせる */

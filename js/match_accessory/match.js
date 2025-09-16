@@ -349,6 +349,7 @@ document.getElementById('search-button').addEventListener('click', async () => {
 });
 
 function generateTable(data, headerData) {
+    const selectedMaker = document.getElementById('maker-select').value;
     const table = document.querySelector('.result-table');
     const thead = table.querySelector('thead');
     const tbody = table.querySelector('tbody');
@@ -368,7 +369,18 @@ function generateTable(data, headerData) {
     headerData.forEach(header => {
         header.subHeaders.forEach(subHeader => {
             const th = document.createElement('th');
-            th.textContent = subHeader.label;
+            // テレナビング ヘッダーカラムの調整
+            //col_2 
+            if (subHeader.label == 'nav_col_2') {
+                if (selectedMaker == 'ホンダ'){
+                    th.textContent = 'LEDスイッチ切替タイプ_2';
+                } else {
+                    th.textContent = 'サービスホールスイッチ切替タイプ';
+                }
+            } else {
+                th.textContent = subHeader.label;
+            }
+            th.width = '80px';
             subHeaderRow.appendChild(th);
         });
     });
@@ -379,17 +391,20 @@ function generateTable(data, headerData) {
         const allColumns = headerData.flatMap(header => header.subHeaders);
         allColumns.forEach(col => {
             const td = document.createElement('td');
-            if (col.key === 'notes') {
-                const parts = (item[col.key] || '').replace(/[{}]/g, '').split(',');
-                td.innerHTML = parts.map(part => `※${part}`).join('<br>');
-            } else if (col.priceKeys) {
+            if (col.priceKeys) {
                 if (item[col.key] == '-' || item[col.key] == '←') {
                     td.innerHTML = item[col.key];
                 } else {
                     const priceExclTax = `<span style="font-size: 0.8em;">税別: ${(item[col.priceKeys.excl] || '').replace('\\', '￥')}</span>`;
                     const priceInclTax = `<span style="font-size: 0.8em;">税込: ${(item[col.priceKeys.incl] || '').replace('\\', '￥')}</span>`;
-                    td.innerHTML = `<b>${item[col.key]}</b><br>${priceExclTax}<br>${priceInclTax}`;
+                    const navCtrl = `<span style="font-size: 0.6em;">ナビ操作: ${(item[col.option.nav] || '-').replace('\\', '￥')}</span>`;
+                    const vehiclePos = `<span style="font-size: 0.6em;">自車位置: ${(item[col.option.vehicle_pos] || '-').replace('\\', '￥')}</span>`;
+                    const dvd = `<span style="font-size: 0.6em;">DVD視聴: ${(item[col.option.dvd] || '-').replace('\\', '￥')}</span>`;
+                    td.innerHTML = `<b>${item[col.key]}</b><br>${priceExclTax}<br>${priceInclTax}<br><br>${navCtrl}<br>${vehiclePos}<br>${dvd}`;
                 }
+            } else if (col.key === 'notes') {
+                const parts = (item[col.key] || '').replace(/[{}]/g, '').split(',');
+                td.innerHTML = parts.map(part => `※${part}`).join('<br>');
             } else {
                 td.innerHTML = (item[col.key] || '').replace(/\n/g, '<br>');
             }
