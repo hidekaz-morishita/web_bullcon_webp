@@ -439,11 +439,10 @@ function displayNotes(data) {
                 notesHtml += `<li><span class="note-number">※${num}</span><span class="note-text">：${noteText.replace(/\n/g, '<br>')}</span></li>`;
             }
         });
-        notesHtml += '</ul>';
-        notesContainer.innerHTML = notesHtml;
-        notesContainer.style.display = 'block';
-    } else {
-        notesContainer.innerHTML = '';
-        notesContainer.style.display = 'none';
-    }
+        
+    } 
+    
+    notesHtml += '</ul>';
+    notesContainer.innerHTML = notesHtml;
+    notesContainer.style.display = 'block';
 }
