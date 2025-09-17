@@ -10,9 +10,14 @@
     "keywords": "新着情報, ニュース, トピック, 情報, News, Topic, announce"
   },
   {
-    "title": "適合情報 | Bullcon-フジ電機工業株式会社",
+    "title": "適合検索 | Bullcon-フジ電機工業株式会社",
     "url": "../match_accessory/match.html",
     "keywords": "車種適合検索, 車種, 適合, 検索"
+  },
+  {
+    "title": "適合表 (PDF) | Bullcon-フジ電機工業株式会社",
+    "url": "../match_accessory/match_pdf.html",
+    "keywords": "車種適合検索, 車種, 適合, 検索, 適合表, pdf"
   },
   {
     "title": "会社概要 | Bullcon-フジ電機工業株式会社",
