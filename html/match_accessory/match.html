@@ -22,56 +22,10 @@
                     <p>当適合表は細心の注意を払って作成しておりますが、すべての車種・年式・グレードに対応しているわけではありません。また、車両の仕様変更や改良により、記載内容が最新の情報と異なる場合もございます。</p>
                     <p>製品の取り付けやご購入の際は、必ず現車にて適合をご確認いただくか、お近くの販売店またはディーラー様にご相談ください。</p>
                     <p>本適合表の内容は、あくまで参考情報としてご利用ください。</p>
-                    <p>※製品ドロップダウンリストに存在しない製品については、お手数おかけしますが <a href="./match_pdf.html">製品適合表 (PDF)</a> にてPDFを直接ご確認ください。</p>
+                    <p>※リストに存在しない製品については、お手数おかけしますが <a href="./match_pdf.html">製品適合表 (PDF)</a> にてPDFを直接ご確認ください。</p>
                 </div>
                 <div class="content-wrapper">
-                    <div class="form-area">
-                        <div class="form-group" id="product-group">
-                            <label for="product-select">製品名</label>
-                            <select id="product-select" class="form-select">
-                                <option value="">製品を選択してください</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group" id="option-group" style="display: none;">
-                            <label>オプションタイプ</label>
-                            <div class="option-group">
-                                <input type="radio" id="maker-option" name="option-type" value="maker" checked>
-                                <label for="maker-option">メーカーオプション</label>
-                                <input type="radio" id="dealer-option" name="option-type" value="dealer">
-                                <label for="dealer-option">ディーラーオプション</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group" id="maker-group" style="display: none;">
-                            <label for="maker-select">メーカー</label>
-                            <select id="maker-select" class="form-select">
-                                <option value="">メーカーを選択してください</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group" id="model-group" style="display: none;">
-                            <label for="model-select">車種</label>
-                            <select id="model-select" class="form-select" disabled>
-                                <option value="">車種を選択してください</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group" id="year-month-group" style="display: none;">
-                            <label id="year-label" for="year-select">年式</label>
-                            <div class="year-month-group">
-                                <select id="year-select" class="form-select" disabled>
-                                    <option value="">年</option>
-                                </select>
-                                <span>/</span>
-                                <select id="month-select" class="form-select" disabled>
-                                    <option value="">月</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button id="search-button" class="btn-primary" disabled>適合品番を検索</button>
-                    </div>
-
+                    <div class="form-area" id="form-container"></div>
                     <div id="result" class="result-area">
                         <p id="message-container">検索結果がここに表示されます。</p>
                         <div id="results-table-container" style="display: none;">
@@ -90,9 +44,7 @@
     <div id="footer-placeholder"></div>
     <script src="../../js/header.js"></script>
     <script src="../../js/footer.js"></script>
-    <script type="module" src="../../js/match_accessory/additional_info.js"></script>
-    <script type="module" src="../../js/match_accessory/car_model.js"></script>
-    <script type="module" src="../../js/match_accessory/caution_note.js"></script>
     <script type="module" src="../../js/match_accessory/match.js"></script>
+    <script type="module" src="../../js/match_accessory/form_ui.js"></script>
 </body>
 </html>
