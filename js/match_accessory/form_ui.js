@@ -129,7 +129,7 @@ function generateSpecificProductForm(formContainer, productInfo, state) {
                     const productCodeGroup = document.createElement('div');
                     productCodeGroup.className = 'form-group';
                     productCodeGroup.innerHTML = `
-                        <label for="product-code-select">製品品番</label>
+                        <label for="product-code-select">モニター型番</label>
                         <select id="product-code-select" class="form-select"></select>
                     `;
                     formContainer.appendChild(productCodeGroup);
