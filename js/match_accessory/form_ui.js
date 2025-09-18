@@ -2,14 +2,18 @@
 import { PRODUCTS_DATA, CAR_TYPE, CAR_YEARS, BASIC_YEARS, MONTHS, DEALER_NAV } from './data_mapper.js';
 
 function populateOptions(selectElement, options, emptyOptionText) {
-    if (!selectElement) return;
+    if (!selectElement) {
+        return;
+    }
     selectElement.innerHTML = `<option value="">${emptyOptionText}</option>`;
     options.forEach(option => {
         const opt = document.createElement('option');
-        // optionがオブジェクトの場合と文字列の場合に対応
         if (typeof option === 'object' && option !== null) {
             opt.value = option.value;
             opt.textContent = option.text;
+            if (option.value === 'unknown') {
+                opt.classList.add('unknown-option');
+            }
         } else {
             opt.value = option;
             opt.textContent = option;
@@ -28,7 +32,6 @@ function generateSpecificProductForm(formContainer, productInfo, state) {
     const { selectedOptionType, selectedMaker, selectedModel, selectedYear, selectedMonth, selectedProductCode } = state;
 
     if (productInfo.name === 'フリーテレビング/テレナビング') {
-        // オプションタイプ選択
         const optionGroup = document.createElement('div');
         optionGroup.className = 'form-group';
         optionGroup.innerHTML = `
@@ -48,7 +51,6 @@ function generateSpecificProductForm(formContainer, productInfo, state) {
 
         const currentProcessType = productInfo.optionFlows[currentOptionType]?.processType;
         
-        // メーカー選択
         const makerGroup = document.createElement('div');
         makerGroup.className = 'form-group';
         makerGroup.innerHTML = `
@@ -69,7 +71,6 @@ function generateSpecificProductForm(formContainer, productInfo, state) {
             document.getElementById('maker-select').value = selectedMaker;
         }
 
-        // 車種、年式/月式選択
         if (selectedMaker) {
             if (currentProcessType === 'carModel') {
                 const modelGroup = document.createElement('div');
@@ -111,16 +112,19 @@ function generateSpecificProductForm(formContainer, productInfo, state) {
                 `;
                 formContainer.appendChild(yearGroup);
                 
-                // ここでBASIC_YEARSの配列を加工
-                const processedYears = BASIC_YEARS.map(year => {
-                    const yearMatch = year.match(/\d{4}/);
-                    return {
-                        value: yearMatch ? yearMatch[0] : year,
-                        text: year
-                    };
-                });
+                const availableYears = DEALER_NAV[selectedMaker] ? [...new Set(DEALER_NAV[selectedMaker].map(item => item.year))] : [];
                 
-                populateOptions(document.getElementById('year-select'), processedYears, '年');
+                const processedYears = BASIC_YEARS
+                    .filter(year => availableYears.includes(year.match(/\d{4}/)?.[0] || year))
+                    .map(year => {
+                        const yearMatch = year.match(/\d{4}/);
+                        return {
+                            value: yearMatch ? yearMatch[0] : year,
+                            text: year
+                        };
+                    });
+                
+                populateOptions(document.getElementById('year-select'), [{ value: 'unknown', text: '【年式不明の方はこちら】' }, ...processedYears], '年');
                 if (selectedYear) {
                     document.getElementById('year-select').value = selectedYear;
                 }
@@ -128,20 +132,31 @@ function generateSpecificProductForm(formContainer, productInfo, state) {
                 if (selectedYear) {
                     const productCodeGroup = document.createElement('div');
                     productCodeGroup.className = 'form-group';
-                    productCodeGroup.innerHTML = `
-                        <label for="product-code-select">モニター型番</label>
-                        <select id="product-code-select" class="form-select"></select>
-                    `;
-                    formContainer.appendChild(productCodeGroup);
+                    productCodeGroup.innerHTML = `<label>モニター型番</label>`;
                     
-                    const codes = DEALER_NAV[selectedMaker] || [];
-                    const filteredCodes = codes
-                        .filter(item => item.year === selectedYear)
-                        .map(item => item.product_code);
-                    
-                    populateOptions(document.getElementById('product-code-select'), filteredCodes, '品番を選択してください');
-                    if (selectedProductCode) {
-                        document.getElementById('product-code-select').value = selectedProductCode;
+                    if (selectedYear === 'unknown') {
+                        const inputValue = selectedProductCode !== null ? selectedProductCode : '';
+                        productCodeGroup.innerHTML += `
+                            <input type="text" id="product-code-input" class="form-input" placeholder="モニター型番を入力" value="${inputValue}">
+                            <ul id="product-code-suggestions" class="suggestions-list"></ul>
+                        `;
+                        formContainer.appendChild(productCodeGroup);
+                    } else {
+                        const selectElement = document.createElement('select');
+                        selectElement.id = 'product-code-select';
+                        selectElement.className = 'form-select';
+                        productCodeGroup.appendChild(selectElement);
+                        formContainer.appendChild(productCodeGroup);
+                        
+                        const codes = DEALER_NAV[selectedMaker] || [];
+                        const filteredCodes = codes
+                            .filter(item => item.year === selectedYear)
+                            .map(item => item.product_code);
+                        
+                        populateOptions(selectElement, filteredCodes, '品番を選択してください');
+                        if (selectedProductCode) {
+                            selectElement.value = selectedProductCode;
+                        }
                     }
                 }
             }
@@ -158,13 +173,11 @@ export function renderForm(containerId, state) {
     const { selectedProduct } = state;
     const formContainer = document.getElementById(containerId);
     if (!formContainer) {
-        console.error('フォームコンテナが見つかりません。');
         return;
     }
 
     formContainer.innerHTML = '';
     
-    // --- 製品選択の生成（常に表示） ---
     const productGroup = document.createElement('div');
     productGroup.className = 'form-group';
     productGroup.innerHTML = `
@@ -181,12 +194,10 @@ export function renderForm(containerId, state) {
 
     const productInfo = Object.values(PRODUCTS_DATA).find(p => p.name === selectedProduct);
     
-    // --- 製品が選択された場合、専用のフォームを生成する関数を呼び出す ---
     if (productInfo) {
         generateSpecificProductForm(formContainer, productInfo, state);
     }
     
-    // 検索ボタン
     const searchButton = document.createElement('button');
     searchButton.id = 'search-button';
     searchButton.className = 'btn-primary';
@@ -200,15 +211,17 @@ export function checkFieldsFilled(state, productInfo) {
     const { selectedProduct, selectedMaker, selectedModel, selectedYear, selectedMonth, selectedOptionType, selectedProductCode } = state;
     if (!productInfo) return false;
 
-    // 製品によって必須項目が変わるロジックを反映
     const currentOptionType = selectedOptionType || 'maker';
     const processType = productInfo.optionFlows[currentOptionType]?.processType;
 
     if (processType === 'carModel') {
         return selectedProduct && selectedMaker && selectedModel && selectedYear && selectedMonth;
     } else if (processType === 'dealerYears') {
-        return selectedProduct && selectedMaker && selectedYear && selectedProductCode;
+        if (selectedYear === 'unknown') {
+            return selectedProduct && selectedMaker && selectedProductCode;
+        } else {
+            return selectedProduct && selectedMaker && selectedYear && selectedProductCode;
+        }
     }
-    // その他の製品の場合は、製品選択が完了していればOK
     return selectedProduct !== null;
 }

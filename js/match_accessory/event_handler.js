@@ -1,7 +1,7 @@
 // event_handler.js
 
 import { renderForm, checkFieldsFilled } from './form_ui.js';
-import { PRODUCTS_DATA } from './data_mapper.js';
+import { PRODUCTS_DATA, DEALER_NAV } from './data_mapper.js';
 import { handleSearchResults } from './result_renderer.js';
 
 let formState = {
@@ -22,9 +22,14 @@ function handleFormChange(event) {
     const target = event.target;
     resetResultArea();
 
+    // 💡 修正: inputフィールドのchangeイベントを無視
+    if (target.id === 'product-code-input') {
+        console.log('handleFormChange: product-code-input のイベントを無視します。');
+        return;
+    }
+
     if (target.name === 'option-type') {
         formState.selectedOptionType = target.value;
-        // ラジオボタン変更時に、子フォームの選択状態をすべてリセット
         formState.selectedMaker = null;
         formState.selectedModel = null;
         formState.selectedYear = null;
@@ -59,6 +64,9 @@ function handleFormChange(event) {
             formState.selectedYear = target.value || null;
             formState.selectedMonth = null;
             formState.selectedProductCode = null;
+            if (formState.selectedYear === 'unknown') {
+                formState.selectedProductCode = '';
+            }
             break;
         case 'month-select':
             formState.selectedMonth = target.value || null;
@@ -87,8 +95,58 @@ export function setupEventListeners() {
 
     if (formContainer) {
         formContainer.addEventListener('change', handleFormChange);
+
+        formContainer.addEventListener('input', (event) => {
+            const target = event.target;
+            if (target.id === 'product-code-input') {
+                const inputValue = target.value;
+                const suggestionsList = document.getElementById('product-code-suggestions');
+                
+                formState.selectedProductCode = inputValue;
+
+                if (inputValue.length === 0) {
+                    suggestionsList.style.display = 'none';
+                    return;
+                }
+
+                suggestionsList.innerHTML = '';
+                
+                const allCodes = DEALER_NAV[formState.selectedMaker] || [];
+                const matchedCodes = allCodes
+                    .filter(item => item.product_code.toLowerCase().includes(inputValue.toLowerCase()))
+                    .map(item => item.product_code);
+
+                if (matchedCodes.length > 0) {
+                    suggestionsList.style.display = 'block';
+                    matchedCodes.forEach(code => {
+                        const li = document.createElement('li');
+                        li.textContent = code;
+                        li.dataset.code = code;
+                        suggestionsList.appendChild(li);
+                    });
+                } else {
+                    suggestionsList.style.display = 'none';
+                }
+            }
+        });
+
         formContainer.addEventListener('click', async (event) => {
             const target = event.target;
+            const suggestionsList = document.getElementById('product-code-suggestions');
+            
+            // オートコンプリートの候補リストのクリックを処理
+            if (suggestionsList && suggestionsList.contains(target) && target.tagName === 'LI') {
+                const selectedCode = target.dataset.code;
+                
+                if (selectedCode) {
+                    formState.selectedProductCode = selectedCode;
+                    suggestionsList.style.display = 'none';
+                    renderForm('form-container', formState);
+                }
+                return;
+            }
+
+            // 検索ボタンのクリックを処理
             if (target && target.id === 'search-button' && !target.hasAttribute('disabled')) {
                 const { selectedProduct, selectedOptionType } = formState;
 
@@ -124,7 +182,12 @@ async function handleSearch(formState, productInfo, optionFlow) {
 
     if (optionFlow.processType === 'dealerYears') {
         queryModel = '';
-        queryMonth = '1';
+        if (selectedYear !== 'unknown') {
+            queryMonth = '1';
+        } else {
+            queryMonth = '';
+            queryProductCode = selectedProductCode;
+        }
     }
 
     const yearMatch = selectedYear ? selectedYear.match(/\d{4}/) : null;
