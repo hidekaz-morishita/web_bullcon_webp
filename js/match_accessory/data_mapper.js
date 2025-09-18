@@ -66,25 +66,29 @@ export const PRODUCTS_DATA = {
                 },
                 header: [
                     { label: 'モニター情報', subHeaders: [
-                        { key: 'maker', label: 'メーカー' },
                         { key: 'year', label: 'モデル年' },
-                        { key: 'model_number', label: 'モニター型番' },
+                        { key: 'monitor_number', label: 'モニター型番' },
+                        { key: 'specification', label: '特徴' },
                     ]},
                     { label: 'フリーテレビング', subHeaders: [
-                        { key: 'ft_auto_type', label: 'オートタイプ', priceKeys: { excl: 'ft_auto_price_excl_tax', incl: 'ft_auto_price_incl_tax' } },
-                        { key: 'ft_auto_navigation_control', label: 'ナビ操作' },
-                        { key: 'ft_auto_vehicle_position', label: '自車位置' },
-                        { key: 'ft_led_switch_type', label: 'LEDスイッチ切替タイプ', priceKeys: { excl: 'ft_led_price_excl_tax', incl: 'ft_led_price_incl_tax' } },
-                        { key: 'ft_service_hole_switch_type', label: 'サービスホールスイッチ切替タイプ', priceKeys: { excl: 'ft_service_hole_price_excl_tax', incl: 'ft_service_hole_price_incl_tax' } },
-                        { key: 'ft_steering_switch_type', label: 'ステアリングスイッチ切替タイプ', priceKeys: { excl: 'ft_steering_switch_price_excl_tax', incl: 'ft_steering_switch_price_incl_tax' } },
-                        { key: 'ft_led_sh_st_navigation_control', label: 'ナビ操作' },
-                        { key: 'ft_led_sh_st_vehicle_position', label: '自車位置' },
-                        { key: 'ft_led_sh_st_dvd_playback', label: 'DVD視聴' },
+                        { key: 'ft_auto_type', label: 'オートタイプ',
+                            priceKeys: { excl: 'ft_auto_price_excl_tax', incl: 'ft_auto_price_incl_tax' },
+                            option: {nav: 'ft_auto_navigation_control', vehicle_pos: 'ft_auto_vehicle_position'}
+                         },
+                        { key: 'ft_led_switch_type', label: 'LEDスイッチ切替タイプ', 
+                            priceKeys: { excl: 'ft_led_price_excl_tax', incl: 'ft_led_price_incl_tax' },
+                            option: {nav: 'ft_led_sh_st_navigation_control', vehicle_pos: 'ft_led_sh_st_vehicle_position', dvd: 'ft_led_sh_st_dvd_playback'}
+                        },
+                        { key: 'ft_service_hole_switch_type', label: 'サービスホールスイッチ切替タイプ',
+                            priceKeys: { excl: 'ft_service_hole_price_excl_tax', incl: 'ft_service_hole_price_incl_tax' },
+                            option: {nav: 'ft_led_sh_st_navigation_control', vehicle_pos: 'ft_led_sh_st_vehicle_position', dvd: 'ft_led_sh_st_dvd_playback'}
+                        }
                     ]},
                     { label: 'テレナビング', subHeaders: [
-                        { key: 'nav_product_number', label: '品番 1', priceKeys: { excl: 'nav_price_excl_tax', incl: 'nav_price_incl_tax' } },
-                        { key: 'nav_product_number_2', label: '品番 2', priceKeys: { excl: 'nav_price_excl_tax_2', incl: 'nav_price_incl_tax_2' } },
-                        { key: 'nav_dvd_playback_2', label: 'DVD視聴' },
+                        { key: 'nav_product_number', label: 'LEDスイッチ切替タイプ',
+                            priceKeys: { excl: 'nav_price_excl_tax', incl: 'nav_price_incl_tax' }, option:{dvd: 'nav_dvd_playback_2'} },
+                        { key: 'nav_product_number_2', label: 'nav_col_2',
+                            priceKeys: { excl: 'nav_price_excl_tax_2', incl: 'nav_price_incl_tax_2' }, option:{dvd: 'nav_dvd_playback_2'} },
                     ]},
                     { label: '注意事項', subHeaders: [
                         { key: 'notes', label: '備考' }

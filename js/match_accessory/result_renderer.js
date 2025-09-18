@@ -40,7 +40,7 @@ export async function handleSearchResults(params, headerData, pdfPath) {
     try {
         const partsData = await getCompatibilityData(params);
         
-        if (partsData.length > 0) {
+        if (partsData && Array.isArray(partsData) && partsData.length > 0) {
             if (messageContainer) messageContainer.style.display = 'none';
             generateTable(partsData, headerData);
             displayNotes(partsData);
@@ -53,7 +53,10 @@ export async function handleSearchResults(params, headerData, pdfPath) {
             if (tableContainer) tableContainer.style.display = 'none';
             displayNotes([]);
             if (pdfLinkContainer) {
-                 pdfLinkContainer.querySelector('.pdf-link').textContent = '適合品番は見つかりませんでした。詳しくは適合表(PDF)をご参照ください。';
+                const pdfLink = pdfLinkContainer.querySelector('.pdf-link');
+                if (pdfLink) {
+                    pdfLink.textContent = '適合品番は見つかりませんでした。詳しくは適合表(PDF)をご参照ください。';
+                }
             }
         }
     } catch (error) {
@@ -63,7 +66,10 @@ export async function handleSearchResults(params, headerData, pdfPath) {
         }
         if (tableContainer) tableContainer.style.display = 'none';
         if (pdfLinkContainer) {
-            pdfLinkContainer.querySelector('.pdf-link').textContent = '適合品番は見つかりませんでした。詳しくはPDFをご参照ください。';
+            const pdfLink = pdfLinkContainer.querySelector('.pdf-link');
+            if (pdfLink) {
+                pdfLink.textContent = '適合品番は見つかりませんでした。詳しくはPDFをご参照ください。';
+            }
         }
     }
 }
@@ -118,14 +124,19 @@ function generateTable(data, headerData) {
                 } else {
                     const priceExclTax = `<span style="font-size: 0.8em;">税別: ${(item[col.priceKeys.excl] || '').replace('\\', '￥')}</span>`;
                     const priceInclTax = `<span style="font-size: 0.8em;">税込: ${(item[col.priceKeys.incl] || '').replace('\\', '￥')}</span>`;
-                    const navCtrl = `<span style="font-size: 0.6em;">ナビ操作: ${(item[col.option.nav] || '-').replace('\\', '￥')}</span>`;
-                    const vehiclePos = `<span style="font-size: 0.6em;">自車位置: ${(item[col.option.vehicle_pos] || '-').replace('\\', '￥')}</span>`;
-                    const dvd = `<span style="font-size: 0.6em;">DVD視聴: ${(item[col.option.dvd] || '-').replace('\\', '￥')}</span>`;
+                    const navCtrl = col.option && col.option.nav ? `<span style="font-size: 0.6em;">ナビ操作: ${(item[col.option.nav] || '-').replace('\\', '￥')}</span>` : '';
+                    const vehiclePos = col.option && col.option.vehicle_pos ? `<span style="font-size: 0.6em;">自車位置: ${(item[col.option.vehicle_pos] || '-').replace('\\', '￥')}</span>` : '';
+                    const dvd = col.option && col.option.dvd ? `<span style="font-size: 0.6em;">DVD視聴: ${(item[col.option.dvd] || '-').replace('\\', '￥')}</span>` : '';
                     td.innerHTML = `<b>${item[col.key]}</b><br>${priceExclTax}<br>${priceInclTax}<br><br>${navCtrl}<br>${vehiclePos}<br>${dvd}`;
                 }
             } else if (col.key === 'notes') {
-                const parts = (item[col.key] || '').replace(/[{}]/g, '').split(',');
-                td.innerHTML = parts.map(part => `※${part}`).join('<br>');
+                if (item && item[col.key]) {
+                    const notesString = item[col.key];
+                    const parts = (notesString || '').replace(/[{}]/g, '').split(',').filter(p => p.trim() !== '');
+                    td.innerHTML = parts.map(part => `※${part}`).join('<br>');
+                } else {
+                    td.innerHTML = '';
+                }
             } else {
                 td.innerHTML = (item[col.key] || '').replace(/\n/g, '<br>');
             }
@@ -142,8 +153,8 @@ function displayNotes(data) {
 
     const uniqueNotes = new Set();
     data.forEach(item => {
-        const notesString = item['notes'];
-        if (notesString) {
+        if (item && item['notes']) {
+            const notesString = item['notes'];
             const numbers = notesString.replace(/[{}]/g, '').split(',').filter(n => n.trim() !== '');
             numbers.forEach(num => uniqueNotes.add(num.trim()));
         }
@@ -152,9 +163,11 @@ function displayNotes(data) {
     const sortedNotes = Array.from(uniqueNotes).sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
 
     let notesHtml = '<h3>注意事項</h3><ul>';
-    NOTES_DATA['common'].forEach(common_txt => {
-        notesHtml += `<li><span class="note-number">※共通</span><span class="note-text">：${common_txt.replace(/\n/g, '<br>')}</span></li>`;
-    });
+    if (NOTES_DATA['common'] && NOTES_DATA['common'].length > 0) {
+        NOTES_DATA['common'].forEach(common_txt => {
+            notesHtml += `<li><span class="note-number">※共通</span><span class="note-text">：${common_txt.replace(/\n/g, '<br>')}</span></li>`;
+        });
+    }
 
     if (sortedNotes.length > 0) {
         sortedNotes.forEach(num => {

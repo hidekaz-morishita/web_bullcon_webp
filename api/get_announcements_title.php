@@ -58,4 +58,3 @@ if ($limit !== null && $limit > 0) {
 }
 
 echo json_encode($announcements, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-?>

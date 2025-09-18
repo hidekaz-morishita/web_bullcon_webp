@@ -35,7 +35,7 @@ function generateSpecificProductForm(formContainer, productInfo, state) {
             <label>オプションタイプ</label>
             <div class="option-group">
                 <input type="radio" id="maker-option" name="option-type" value="maker">
-                <label for="maker-option">メーカーオプション</label>
+                <label for="maker-option">標準装備/メーカーオプション</label>
                 <input type="radio" id="dealer-option" name="option-type" value="dealer">
                 <label for="dealer-option">ディーラーオプション</label>
             </div>

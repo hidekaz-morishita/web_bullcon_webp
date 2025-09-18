@@ -14,120 +14,140 @@ let formState = {
     selectedProductCode: null
 };
 
-// フォームのイベントリスナーを設定する関数
-export function setupEventListeners() {
-    const formContainer = document.getElementById('form-container');
-    const searchButton = document.getElementById('search-button');
+/**
+ * フォームの変更を処理し、UIの状態を更新する
+ * @param {Event} event - changeイベントオブジェクト
+ */
+function handleFormChange(event) {
+    const target = event.target;
+    resetResultArea();
 
-    // change イベントのリスナー
-    formContainer.addEventListener('change', (event) => {
-        const target = event.target;
-        resetResultArea();
-
-        // radioボタンの変更を処理
-        if (target.name === 'option-type') {
-            formState.selectedOptionType = target.value;
+    if (target.name === 'option-type') {
+        formState.selectedOptionType = target.value;
+        // ラジオボタン変更時に、子フォームの選択状態をすべてリセット
+        formState.selectedMaker = null;
+        formState.selectedModel = null;
+        formState.selectedYear = null;
+        formState.selectedMonth = null;
+        formState.selectedProductCode = null;
+    }
+    
+    switch (target.id) {
+        case 'product-select':
+            formState.selectedProduct = target.value || null;
+            formState.selectedOptionType = 'maker';
             formState.selectedMaker = null;
             formState.selectedModel = null;
             formState.selectedYear = null;
             formState.selectedMonth = null;
             formState.selectedProductCode = null;
-        }
-        
-        // select要素の変更を処理
-        switch (target.id) {
-            case 'product-select':
-                formState.selectedProduct = target.value || null;
-                formState.selectedOptionType = 'maker';
-                formState.selectedMaker = null;
-                formState.selectedModel = null;
-                formState.selectedYear = null;
-                formState.selectedMonth = null;
-                formState.selectedProductCode = null;
-                break;
-            case 'maker-select':
-                formState.selectedMaker = target.value || null;
-                formState.selectedModel = null;
-                formState.selectedYear = null;
-                formState.selectedMonth = null;
-                formState.selectedProductCode = null;
-                break;
-            case 'model-select':
-                formState.selectedModel = target.value || null;
-                formState.selectedYear = null;
-                formState.selectedMonth = null;
-                formState.selectedProductCode = null;
-                break;
-            case 'year-select':
-                formState.selectedYear = target.value || null;
-                formState.selectedMonth = null;
-                formState.selectedProductCode = null;
-                break;
-            case 'month-select':
-                formState.selectedMonth = target.value || null;
-                break;
-            case 'product-code-select':
-                formState.selectedProductCode = target.value || null;
-                break;
-        }
-        
-        renderForm('form-container', formState);
-        setupEventListeners();
-    });
+            break;
+        case 'maker-select':
+            formState.selectedMaker = target.value || null;
+            formState.selectedModel = null;
+            formState.selectedYear = null;
+            formState.selectedMonth = null;
+            formState.selectedProductCode = null;
+            break;
+        case 'model-select':
+            formState.selectedModel = target.value || null;
+            formState.selectedYear = null;
+            formState.selectedMonth = null;
+            formState.selectedProductCode = null;
+            break;
+        case 'year-select':
+            formState.selectedYear = target.value || null;
+            formState.selectedMonth = null;
+            formState.selectedProductCode = null;
+            break;
+        case 'month-select':
+            formState.selectedMonth = target.value || null;
+            break;
+        case 'product-code-select':
+            formState.selectedProductCode = target.value || null;
+            break;
+    }
 
-    // click イベントのリスナー
-    if (searchButton) {
-        searchButton.addEventListener('click', async () => {
-            const { selectedProduct, selectedOptionType, selectedMaker, selectedModel, selectedYear, selectedMonth, selectedProductCode } = formState;
+    renderForm('form-container', formState);
 
-            const productInfo = Object.values(PRODUCTS_DATA).find(p => p.name === selectedProduct);
-            const optionFlow = productInfo?.optionFlows[selectedOptionType];
+    const searchButton = document.getElementById('search-button');
+    const productInfo = Object.values(PRODUCTS_DATA).find(p => p.name === formState.selectedProduct);
+    if (searchButton && checkFieldsFilled(formState, productInfo)) {
+        searchButton.removeAttribute('disabled');
+    } else if (searchButton) {
+        searchButton.setAttribute('disabled', 'true');
+    }
+}
 
-            if (!productInfo || !optionFlow) {
-                console.error('製品またはオプションが選択されていません。');
-                return;
+/**
+ * アプリケーションのイベントリスナーを初期設定する
+ */
+export function setupEventListeners() {
+    const formContainer = document.getElementById('form-container');
+
+    if (formContainer) {
+        formContainer.addEventListener('change', handleFormChange);
+        formContainer.addEventListener('click', async (event) => {
+            const target = event.target;
+            if (target && target.id === 'search-button' && !target.hasAttribute('disabled')) {
+                const { selectedProduct, selectedOptionType } = formState;
+
+                const productInfo = Object.values(PRODUCTS_DATA).find(p => p.name === selectedProduct);
+                const optionFlow = productInfo?.optionFlows[selectedOptionType];
+
+                if (!productInfo || !optionFlow || !checkFieldsFilled(formState, productInfo)) {
+                    alert('すべての必須項目を入力してください。');
+                    return;
+                }
+
+                await handleSearch(formState, productInfo, optionFlow);
             }
-
-            // form_ui.jsからインポートした関数を呼び出す
-            if (!checkFieldsFilled(formState, productInfo)) {
-                alert('すべての必須項目を入力してください。');
-                return;
-            }
-
-            const productKey = productInfo.productKey;
-            const headerData = optionFlow.header;
-
-            let queryModel = selectedModel;
-            let queryMonth = selectedMonth;
-            let queryProductCode = selectedProductCode;
-
-            if (optionFlow.processType === 'dealerYears') {
-                queryModel = '';
-                queryMonth = '1';
-            }
-
-            const yearMatch = selectedYear ? selectedYear.match(/\d{4}/) : null;
-            const yearForQuery = yearMatch ? yearMatch[0] : '';
-            
-            const params = {
-                product: productKey,
-                option: selectedOptionType,
-                maker: selectedMaker,
-                model: queryModel,
-                year: yearForQuery,
-                month: queryMonth,
-                productCode: queryProductCode
-            };
-
-            const pdfPath = productInfo.optionFlows[selectedOptionType]?.pdf_paths?.[selectedMaker];
-
-            // 検索結果の処理を別の関数に委譲
-            await handleSearchResults(params, headerData, pdfPath);
         });
     }
 }
 
-// 検索結果エリアをリセットする関数 (このファイルに保持)
+/**
+ * 適合品番検索処理を実行する
+ * @param {object} formState - 現在のフォームの状態
+ * @param {object} productInfo - 選択された製品の情報
+ * @param {object} optionFlow - 選択されたオプションフローの情報
+ */
+async function handleSearch(formState, productInfo, optionFlow) {
+    const { selectedMaker, selectedModel, selectedYear, selectedMonth, selectedProductCode } = formState;
+
+    const productKey = productInfo.productKey;
+    const headerData = optionFlow.header;
+
+    let queryModel = selectedModel;
+    let queryMonth = selectedMonth;
+    let queryProductCode = selectedProductCode;
+
+    if (optionFlow.processType === 'dealerYears') {
+        queryModel = '';
+        queryMonth = '1';
+    }
+
+    const yearMatch = selectedYear ? selectedYear.match(/\d{4}/) : null;
+    const yearForQuery = yearMatch ? yearMatch[0] : '';
+    
+    const params = {
+        product: productKey,
+        option: formState.selectedOptionType,
+        maker: selectedMaker,
+        model: queryModel,
+        year: yearForQuery,
+        month: queryMonth,
+        productCode: queryProductCode
+    };
+
+    const pdfPath = productInfo.optionFlows[formState.selectedOptionType]?.pdf_paths?.[selectedMaker];
+
+    await handleSearchResults(params, headerData, pdfPath);
+}
+
+/**
+ * 検索結果表示エリアを初期状態にリセットする
+ */
 function resetResultArea() {
     const messageContainer = document.getElementById('message-container');
     const tableContainer = document.getElementById('results-table-container');
