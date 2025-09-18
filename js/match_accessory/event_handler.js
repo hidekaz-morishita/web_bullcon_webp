@@ -1,6 +1,6 @@
 // event_handler.js
 
-import { renderForm } from './form_ui.js';
+import { renderForm, checkFieldsFilled } from './form_ui.js';
 import { PRODUCTS_DATA } from './data_mapper.js';
 import { handleSearchResults } from './result_renderer.js';
 
@@ -10,7 +10,8 @@ let formState = {
     selectedMaker: null,
     selectedModel: null,
     selectedYear: null,
-    selectedMonth: null
+    selectedMonth: null,
+    selectedProductCode: null
 };
 
 // フォームのイベントリスナーを設定する関数
@@ -23,33 +24,51 @@ export function setupEventListeners() {
         const target = event.target;
         resetResultArea();
 
-        if (target.id === 'product-select') {
-            formState.selectedProduct = target.value || null;
-            formState.selectedOptionType = 'maker';
-            formState.selectedMaker = null;
-            formState.selectedModel = null;
-            formState.selectedYear = null;
-            formState.selectedMonth = null;
-        } else if (target.name === 'option-type') {
+        // radioボタンの変更を処理
+        if (target.name === 'option-type') {
             formState.selectedOptionType = target.value;
             formState.selectedMaker = null;
             formState.selectedModel = null;
             formState.selectedYear = null;
             formState.selectedMonth = null;
-        } else if (target.id === 'maker-select') {
-            formState.selectedMaker = target.value || null;
-            formState.selectedModel = null;
-            formState.selectedYear = null;
-            formState.selectedMonth = null;
-        } else if (target.id === 'model-select') {
-            formState.selectedModel = target.value || null;
-            formState.selectedYear = null;
-            formState.selectedMonth = null;
-        } else if (target.id === 'year-select') {
-            formState.selectedYear = target.value || null;
-            formState.selectedMonth = null;
-        } else if (target.id === 'month-select') {
-            formState.selectedMonth = target.value || null;
+            formState.selectedProductCode = null;
+        }
+        
+        // select要素の変更を処理
+        switch (target.id) {
+            case 'product-select':
+                formState.selectedProduct = target.value || null;
+                formState.selectedOptionType = 'maker';
+                formState.selectedMaker = null;
+                formState.selectedModel = null;
+                formState.selectedYear = null;
+                formState.selectedMonth = null;
+                formState.selectedProductCode = null;
+                break;
+            case 'maker-select':
+                formState.selectedMaker = target.value || null;
+                formState.selectedModel = null;
+                formState.selectedYear = null;
+                formState.selectedMonth = null;
+                formState.selectedProductCode = null;
+                break;
+            case 'model-select':
+                formState.selectedModel = target.value || null;
+                formState.selectedYear = null;
+                formState.selectedMonth = null;
+                formState.selectedProductCode = null;
+                break;
+            case 'year-select':
+                formState.selectedYear = target.value || null;
+                formState.selectedMonth = null;
+                formState.selectedProductCode = null;
+                break;
+            case 'month-select':
+                formState.selectedMonth = target.value || null;
+                break;
+            case 'product-code-select':
+                formState.selectedProductCode = target.value || null;
+                break;
         }
         
         renderForm('form-container', formState);
@@ -59,7 +78,7 @@ export function setupEventListeners() {
     // click イベントのリスナー
     if (searchButton) {
         searchButton.addEventListener('click', async () => {
-            const { selectedProduct, selectedOptionType, selectedMaker, selectedModel, selectedYear, selectedMonth } = formState;
+            const { selectedProduct, selectedOptionType, selectedMaker, selectedModel, selectedYear, selectedMonth, selectedProductCode } = formState;
 
             const productInfo = Object.values(PRODUCTS_DATA).find(p => p.name === selectedProduct);
             const optionFlow = productInfo?.optionFlows[selectedOptionType];
@@ -69,11 +88,18 @@ export function setupEventListeners() {
                 return;
             }
 
+            // form_ui.jsからインポートした関数を呼び出す
+            if (!checkFieldsFilled(formState, productInfo)) {
+                alert('すべての必須項目を入力してください。');
+                return;
+            }
+
             const productKey = productInfo.productKey;
             const headerData = optionFlow.header;
 
             let queryModel = selectedModel;
             let queryMonth = selectedMonth;
+            let queryProductCode = selectedProductCode;
 
             if (optionFlow.processType === 'dealerYears') {
                 queryModel = '';
@@ -89,7 +115,8 @@ export function setupEventListeners() {
                 maker: selectedMaker,
                 model: queryModel,
                 year: yearForQuery,
-                month: queryMonth
+                month: queryMonth,
+                productCode: queryProductCode
             };
 
             const pdfPath = productInfo.optionFlows[selectedOptionType]?.pdf_paths?.[selectedMaker];

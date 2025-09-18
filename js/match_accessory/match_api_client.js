@@ -8,6 +8,7 @@ const MATCH_API_URL = '../../api/get_products_compatibility.php';
  * @returns {Promise<object>} 適合品番データ。
  */
 export async function getCompatibilityData(params) {
+    console.log(params);
     const searchParams = new URLSearchParams(params).toString();
     const query = `${MATCH_API_URL}?${searchParams}`;
 
