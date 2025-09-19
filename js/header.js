@@ -15,29 +15,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 const doc = parser.parseFromString(data, 'text/html');
                 const headerContent = doc.body.innerHTML;
 
-                // 1. ヘッダー全体を一時的にplaceholder内に挿入
                 headerPlaceholder.innerHTML = headerContent;
                 
-                // 2. header-bottom要素を取得し、placeholderの直後に移動
-                const headerBottom = headerPlaceholder.querySelector('.header-bottom');
-                if (headerBottom) {
-                    headerPlaceholder.after(headerBottom);
-                }
-                
-                // 3. モバイルナビゲーションの位置を調整
-                const headerTop = document.querySelector('.header-top');
+                // モバイルナビゲーションの位置設定ロジック
                 const mobileNav = document.querySelector('.mobile-nav');
                 const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
-                
-                if (headerTop && mobileNav) {
+                const mainHeader = document.querySelector('.header'); // 新しいヘッダー要素
+
+                if (mainHeader && mobileNav && mobileNavOverlay) {
                     const setMobileNavPosition = () => {
-                        mobileNav.style.top = `${headerTop.offsetHeight}px`;
-                        mobileNavOverlay.style.top = `${headerTop.offsetHeight}px`;
+                        mobileNav.style.top = `${mainHeader.offsetHeight}px`;
+                        mobileNavOverlay.style.top = `${mainHeader.offsetHeight}px`;
                     };
+                    // ヘッダー読み込み後に位置を確定
                     setMobileNavPosition();
+                    // リサイズ時にも位置を再計算
                     window.addEventListener('resize', setMobileNavPosition);
                 }
 
+                // ヘッダーの全機能の初期化
                 initializeHeaderFunctions();
             } else {
                 console.error("Error: Element with id 'header-placeholder' not found.");
@@ -55,19 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // ヘッダー関連の機能を初期化する関数
     //==================================
     function initializeHeaderFunctions() {
-        const topContainer = document.querySelector('.header-top');
-        const bottomContainer = document.querySelector('.header-bottom');
+        // メガメニューの初期化
+        initializeMegaMenu();
+        // スクロール時のヘッダー固定を初期化
+        initializeHeaderScroll();
+
+        // ハンバーガーメニューの開閉機能
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
         const mobileNav = document.querySelector('.mobile-nav');
         const overlay = document.querySelector('.mobile-nav-overlay');
 
-        if (topContainer && bottomContainer) {
-            initializeDropdowns(bottomContainer);
-            initializeDropdownImages(bottomContainer);
-            initializeHeaderScroll(topContainer, bottomContainer);
-        }
-
-        const hamburgerMenu = document.querySelector('.hamburger-menu');
-        if (hamburgerMenu && mobileNav) {
+        if (hamburgerMenu && mobileNav && overlay) {
             const openMenu = () => {
                 hamburgerMenu.classList.add('is-active');
                 mobileNav.classList.add('is-visible');
@@ -95,7 +89,174 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     //==================================
-    // 製品ページの機能（変更なし）
+    // メガメニューの機能を初期化する関数
+    //==================================
+    function initializeMegaMenu() {
+        const navItemsWithDropdown = document.querySelectorAll('.nav-item.has-dropdown');
+        let activeDropdown = null;
+        let timeoutId = null;
+
+        navItemsWithDropdown.forEach(navItem => {
+            const targetDropdown = document.getElementById(navItem.dataset.dropdownTarget);
+            
+            navItem.addEventListener('mouseenter', () => {
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                }
+                if (activeDropdown && activeDropdown !== targetDropdown) {
+                    activeDropdown.classList.remove('is-visible');
+                    document.querySelector(`.nav-item[data-dropdown-target="${activeDropdown.id}"]`).classList.remove('is-active');
+                }
+                
+                if (targetDropdown) {
+                    targetDropdown.classList.add('is-visible');
+                    navItem.classList.add('is-active');
+                    activeDropdown = targetDropdown;
+                    if (targetDropdown.id === 'product-dropdown') {
+                        adjustDropdownBorderHeight(targetDropdown);
+                    }
+                }
+            });
+
+            navItem.addEventListener('mouseleave', () => {
+                timeoutId = setTimeout(() => {
+                    if (activeDropdown && !navItem.matches(':hover') && !activeDropdown.matches(':hover')) {
+                        activeDropdown.classList.remove('is-visible');
+                        navItem.classList.remove('is-active');
+                        activeDropdown = null;
+                    }
+                }, 150);
+            });
+
+            if (targetDropdown) {
+                targetDropdown.addEventListener('mouseenter', () => {
+                    clearTimeout(timeoutId);
+                    navItem.classList.add('is-active');
+                });
+
+                targetDropdown.addEventListener('mouseleave', () => {
+                    timeoutId = setTimeout(() => {
+                        if (!navItem.matches(':hover')) {
+                            targetDropdown.classList.remove('is-visible');
+                            navItem.classList.remove('is-active');
+                            activeDropdown = null;
+                        }
+                    }, 150);
+                });
+            }
+        });
+
+        // 以下、製品カテゴリーのサブメニュー機能は変更なし
+        const productCategories = document.getElementById('product-categories');
+        const subDropdownContainer = document.querySelector('.sub-dropdown-list-container');
+        const imageContainer = document.querySelector('.dropdown-image-container');
+
+        if (productCategories && subDropdownContainer && imageContainer) {
+            const listItemsWithSublist = productCategories.querySelectorAll('.has-sub-list');
+            listItemsWithSublist.forEach(listItem => {
+                listItem.addEventListener('mouseenter', () => {
+                    productCategories.querySelectorAll('li').forEach(li => li.classList.remove('is-hovered'));
+                    listItem.classList.add('is-hovered');
+                    
+                    const subList = listItem.querySelector('.sub-dropdown-menu');
+                    if (subList) {
+                        subDropdownContainer.innerHTML = subList.innerHTML;
+                    } else {
+                        subDropdownContainer.innerHTML = '';
+                    }
+                    adjustDropdownBorderHeight(document.getElementById('product-dropdown'));
+                });
+            });
+
+            subDropdownContainer.addEventListener('mouseenter', (event) => {
+                const link = event.target.closest('a');
+                if (link) {
+                    const targetId = link.getAttribute('data-image-target');
+                    const dataElement = document.getElementById(targetId);
+                    if (dataElement) {
+                        imageContainer.innerHTML = dataElement.innerHTML;
+                    } else {
+                        imageContainer.innerHTML = '';
+                    }
+                }
+            }, true);
+
+            subDropdownContainer.addEventListener('mouseleave', () => {
+                // サブドロップダウンコンテナから離れても、親のリスト項目ホバー状態を維持
+            });
+
+            const productDropdown = document.getElementById('product-dropdown');
+            if (productDropdown) {
+                productDropdown.addEventListener('mouseleave', () => {
+                    subDropdownContainer.innerHTML = '';
+                    imageContainer.innerHTML = '';
+                    productCategories.querySelectorAll('li').forEach(li => li.classList.remove('is-hovered'));
+                });
+            }
+        }
+    }
+
+    //==================================
+    // ボーダーの高さを調整する関数
+    //==================================
+    function adjustDropdownBorderHeight(dropdownMenu) {
+        const leftContainer = dropdownMenu.querySelector('.dropdown-list-container');
+        const middleContainer = dropdownMenu.querySelector('.sub-dropdown-list-container');
+        
+        if (leftContainer && middleContainer) {
+            leftContainer.style.height = 'auto';
+            middleContainer.style.height = 'auto';
+
+            const leftHeight = leftContainer.offsetHeight;
+            const middleHeight = middleContainer.offsetHeight;
+
+            const maxHeight = Math.max(leftHeight, middleHeight);
+            
+            leftContainer.style.minHeight = `${maxHeight}px`;
+            middleContainer.style.minHeight = `${maxHeight}px`;
+        }
+    }
+
+//==================================
+// スクロール時のヘッダー固定機能
+//==================================
+function initializeHeaderScroll() {
+    const mainHeader = document.querySelector('.header');
+    if (!mainHeader) return;
+
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+        const currentScrollY = window.scrollY;
+        const headerHeight = mainHeader.offsetHeight;
+
+        // 一定のスクロール量（例：ヘッダーの高さ）を超えたら固定
+        if (currentScrollY > headerHeight) {
+            mainHeader.classList.add('is-stuck');
+        } else {
+            mainHeader.classList.remove('is-stuck');
+        }
+
+        // スクロールダウン（下方向）の検知
+        // ヘッダーの高さ分スクロールしたら隠す
+        if (currentScrollY > lastScrollY && currentScrollY > headerHeight) {
+            mainHeader.classList.add('is-hidden');
+        } 
+        // スクロールアップ（上方向）の検知、またはページ最上部に戻ったら表示
+        else if (currentScrollY < lastScrollY || currentScrollY <= 0) {
+            mainHeader.classList.remove('is-hidden');
+        }
+        
+        lastScrollY = currentScrollY;
+    };
+    
+    // スクロールイベントリスナーを追加
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('load', handleScroll);
+    window.addEventListener('resize', handleScroll);
+}
+    //==================================
+    // 製品ページの機能
     //==================================
     const categoryTabs = document.querySelectorAll('.category-tab');
     const productItems = document.querySelectorAll('.product-item');
@@ -165,90 +326,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
-function initializeHeaderScroll(topContainer, bottomContainer) {
-    const headerTopHeight = topContainer.offsetHeight;
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > headerTopHeight) {
-            bottomContainer.classList.add('is-stuck');
-        } else {
-            bottomContainer.classList.remove('is-stuck');
-        }
-    });
-}
-
-function initializeDropdowns(container) {
-    const navItemsWithDropdown = container.querySelectorAll('.nav-item.has-dropdown');
-    const dropdownMenus = document.querySelectorAll('.dropdown-menu');
-    let activeDropdown = null;
-    let timeoutId = null;
-
-    navItemsWithDropdown.forEach(navItem => {
-        const targetId = navItem.dataset.dropdownTarget;
-        const targetDropdown = document.querySelector(`#${targetId}`);
-        navItem.addEventListener('mouseenter', () => {
-            if (timeoutId) {
-                clearTimeout(timeoutId);
-            }
-            dropdownMenus.forEach(menu => {
-                menu.classList.remove('is-visible');
-            });
-            if (targetDropdown) {
-                targetDropdown.classList.add('is-visible');
-                activeDropdown = targetDropdown;
-            }
-        });
-        navItem.addEventListener('mouseleave', () => {
-            timeoutId = setTimeout(() => {
-                if (activeDropdown && !navItem.matches(':hover') && !activeDropdown.matches(':hover')) {
-                    activeDropdown.classList.remove('is-visible');
-                    activeDropdown = null;
-                }
-            }, 150);
-        });
-    });
-    dropdownMenus.forEach(menu => {
-        menu.addEventListener('mouseleave', () => {
-            if (activeDropdown) {
-                activeDropdown.classList.remove('is-visible');
-                activeDropdown = null;
-            }
-        });
-    });
-}
-
-function initializeDropdownImages(container) {
-    const dropdownLinks = container.querySelectorAll('.dropdown-list a');
-    const dropdownImageContainer = document.querySelector('.dropdown-image-container');
-    const dropdownImage = dropdownImageContainer ? dropdownImageContainer.querySelector('img') : null;
-    const dropdownDescription = dropdownImageContainer ? dropdownImageContainer.querySelector('p') : null;
-
-    if (!dropdownImage || !dropdownDescription) return;
-
-    dropdownLinks.forEach(link => {
-        const imageUrl = link.getAttribute('data-image');
-        const description = link.getAttribute('data-description');
-        
-        link.addEventListener('mouseenter', () => {
-            if (imageUrl) {
-                dropdownImage.src = imageUrl;
-                dropdownDescription.textContent = description;
-                dropdownImageContainer.classList.add('is-visible');
-            }
-        });
-        
-        link.addEventListener('mouseleave', () => {
-            const isHoveringAnotherLink = Array.from(dropdownLinks).some(otherLink => otherLink.matches(':hover'));
-            if (!isHoveringAnotherLink) {
-                dropdownImageContainer.classList.remove('is-visible');
-            }
-        });
-    });
-
-    const productDropdown = container.querySelector('#product-dropdown');
-    if (productDropdown) {
-        productDropdown.addEventListener('mouseleave', () => {
-            dropdownImageContainer.classList.remove('is-visible');
-        });
-    }
-}

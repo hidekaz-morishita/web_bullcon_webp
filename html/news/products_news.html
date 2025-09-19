@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/header.css">
     <link rel="stylesheet" href="../../css/footer.css">
-    <link rel="stylesheet" href="../../css/news/news.css">
+    <link rel="stylesheet" href="../../css/news/products_news.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
@@ -17,21 +17,37 @@
 <div id="header-placeholder"></div>
 
 <main>
-    <section class="news-section">
-        <div class="container">
+    <div class="container">
+        <section class="products-news-section">
             <h2 class="section-title">
                 <span class="section-title-en">PRODUCT NEWS</span>
                 <span class="section-title-jp">製品新着情報</span>
             </h2>
-            <div id="products-news-section-placeholder"></div>
-        </div>
-    </section>
+
+            <div class="archive_link">※本ページに記載がない過去の製品情報は<a href="./products_news/archive/topics/topics.htm"><b>こちら</b></a>をご参照ください</div>
+
+            <div id="search-container">
+                <input type="text" id="search-input" placeholder="車種, 品番, 商品名...">
+                <button id="search-button">検索</button>
+            </div>
+
+            <div class="tabs-wrapper">
+                <div id="news-type-tabs" class="tabs-group news-type-group"></div>
+                <div id="brand-tabs" class="tabs-group brand-group"></div>
+            </div>
+
+            <ul id="products-list"></ul>
+
+            <div id="pagination-container" class="pagination-container"></div>
+        </section>
+    </div>
 </main>
 
 <div id="footer-placeholder"></div>
 
 <script src="../../js/header.js"></script>
 <script src="../../js/footer.js"></script>
-<script src="../../js/news/products_news_data_for_detail.js"></script>
+<script type="module" src="../../js/news/const_data.js"></script>
+<script type="module" src="../../js/news/products_news.js"></script>
 </body>
 </html>

@@ -90,11 +90,19 @@
 
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
-    .company-flex {
+     .company-flex {
         flex-direction: column;
+        align-items: center; /* 💡 子要素を水平方向に中央寄せ */
+        gap: 30px; /* 💡 縦方向の要素間隔を調整 */
     }
-    
+
     .company-images {
         width: 100%;
+    }
+
+    /* 💡 追加: 会社概要のテキストブロックも中央寄せを保証 */
+    .company-details {
+        width: 100%; /* 親要素の幅に合わせて幅を設定 */
+        text-align: left; /* テキストの左寄せを維持する場合はこのまま */
     }
 }

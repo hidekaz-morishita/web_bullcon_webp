@@ -1,0 +1,123 @@
+/* announcements-sectionの幅を調整し、中央寄せにする */
+.announcements-section {
+    background-color: #ffffff;
+    padding: 0 30px;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.announcements-title {
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+.announcements-list {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.announcements-list li {
+    padding: 12px 0;
+    /* 下線（ボーダー）をアイテムに直接適用 */
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.announcements-list li a {
+    /* Flexboxで日付とタイトルを横並びにする */
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    /* 文字を大きく */
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.announcements-list li a:hover {
+    color: #3498db;
+}
+
+/* 日付とタイトルを視覚的に分けるスタイル */
+/* JavaScriptで新しく追加された<span>要素にスタイルを適用 */
+.announcements-list .announcement-date {
+    display: inline-block;
+    min-width: 110px; /* 日付の表示幅を確保 */
+    margin-right: 30px; /* 空白を広げる */
+    color: #666;
+    font-size: 0.9em;
+    font-weight: bold;
+    flex-shrink: 0; /* タイトルが長くなっても幅を保持 */
+}
+
+/* Newバッジのスタイル */
+.new-badge {
+    font-size: 0.8em;
+    background-color: #e74c3c;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: normal;
+    white-space: nowrap;
+    animation: glowing-pulse 2s infinite;
+    margin-right: 5%;
+}
+
+/* --- レスポンシブ対応の追加 --- */
+@media (max-width: 768px) {
+    /* お知らせセクションの左右パディングを調整 */
+    .announcements-section {
+        padding: 0 15px;
+    }
+
+    .announcements-title {
+        font-size: 1em;
+    }
+
+    /* お知らせリストのパディングを調整 */
+    .announcements-list li {
+        padding: 12px 15px;
+        align-items: center;
+    }
+
+    /* 日付とタイトル */
+    .announcements-list li a {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    /* 日付のスタイルを調整 */
+    .announcements-list .announcement-date {
+        min-width: auto;
+        font-size: 0.8em; /* 文字の大きさを調整 */
+        order: 1;
+    }
+
+    .announcements-list .announcement-title-text {
+        font-size: 0.9em;
+        order: 3;
+    }
+
+    .announcements-list .new-badge {
+        font-size: 0.7em;
+        order: 2;
+    }
+}
+
+/* Newバッジに光るアニメーションを追加 */
+@keyframes glowing-pulse {
+    0% {
+        box-shadow: 0 0 5px rgba(231, 76, 60, 0.4), 0 0 10px rgba(231, 76, 60, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(231, 76, 60, 0.8), 0 0 25px rgba(231, 76, 60, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(231, 76, 60, 0.4), 0 0 10px rgba(231, 76, 60, 0.2);
+    }
+}

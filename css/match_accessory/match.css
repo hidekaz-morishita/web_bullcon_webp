@@ -1,9 +1,33 @@
+/*==================================
+適合検索ページ（match.html）用CSS
+==================================*/
+
+/* フォームと結果を包括するコンテナ */
 .match-container {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    box-sizing: border-box;
+}
+
+.annotation {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-left: 5px solid #0056b3;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.annotation p {
+    margin: 0 0 10px 0;
+}
+
+.annotation p:last-child {
+    margin-bottom: 0;
 }
 
 /* フォームと結果を上下に配置するコンテナ */
@@ -12,35 +36,24 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    gap: 30px; /* フォームと結果エリア間の余白 */
 }
 
+/* フォームエリアの全体的なスタイル */
 .form-area {
     max-width: 500px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.result-area {
-    width: 100%; 
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-
-    /* スクロール設定 */
-    max-height: 400px;
-    overflow-y: auto;
-    padding: 20px;
-    margin: 30px 0 30px 0;
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
-    text-align: left;
-}
-
-/* フォームグループ、セレクトボックス、ボタンの既存のスタイル */
+/* フォームの各グループを縦に並べるためのFlexbox設定 */
 .form-group {
-    margin-bottom: 20px;
     text-align: left;
 }
 
+/* ラベルの共通スタイル */
 label {
     display: block;
     margin-bottom: 8px;
@@ -48,9 +61,11 @@ label {
     color: #555;
 }
 
+/* セレクトボックスの共通スタイル */
 .form-select {
     width: 100%;
     padding: 12px;
+    color: #333;
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 16px;
@@ -76,6 +91,68 @@ label {
     cursor: not-allowed;
 }
 
+/* 年と月のセレクトボックスを横並びにするためのコンテナ */
+.year-month-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* スラッシュ（/）のスタイル */
+.year-month-group span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* ラジオボタンのグループスタイル */
+.option-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* ラジオボタンとラベルのスタイル */
+.option-group input[type="radio"] {
+    display: none; /* ラジオボタン自体は非表示 */
+}
+
+.option-group label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: normal; /* 親のlabelのfont-weightを上書き */
+    position: relative;
+    padding-left: 25px; /* カスタムデザインの余白 */
+    margin-bottom: 0;
+}
+
+.option-group label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background-color: #fff;
+}
+
+.option-group input[type="radio"]:checked + label::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #007bff;
+}
+
+/* ボタンのスタイル */
 .btn-primary {
     display: inline-block;
     width: 100%;
@@ -99,20 +176,168 @@ label {
     cursor: not-allowed;
 }
 
-.result-area h3 {
-    color: #005a87;
-    margin-bottom: 10px;
+/* 年式不明の際のテキスト入力フィールドのスタイル */
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* paddingとborderを幅に含める */
 }
 
-.result-area p {
-    margin: 5px 0;
+/* 候補リストのコンテナ */
+.suggestions-list {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.part-result {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
+/* 候補リストの各項目 */
+.suggestions-list li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
 }
 
-.part-result:last-child {
+/* 候補リストの各項目にマウスを乗せたときのスタイル */
+.suggestions-list li:hover {
+    background-color: #f0f0f0;
+}
+
+/* 検索結果エリアの共通スタイル */
+.result-area {
+    width: 100%;
+    /* ページの横幅いっぱいに広がるよう調整 */
+    padding: 20px;
+    margin: 30px 0;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    text-align: left;
+    box-sizing: border-box;
+    /* テーブルの横スクロールを管理する */
+    overflow-x: auto;
+}
+
+/* 検索結果テーブルのコンテナにスクロール機能を付与 */
+#results-table-container {
+    max-height: 600px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* テーブルのスタイル */
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.7em;
+    min-width: 1000px; /* テーブルが狭い画面で崩れないように最小幅を設定 */
+}
+
+/* ヘッダー行を固定 */
+.result-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* ヘッダーセルのスタイル */
+.result-table thead th {
+    background-color: #f0f0f0; /* 背景色を設定して下位コンテンツを隠す */
+    padding: 12px 15px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 0.9em;
+}
+
+/* 2行になったヘッダーの1行目の下線を非表示に */
+.result-table thead tr:first-child th {
     border-bottom: none;
+}
+
+/* テーブルボディのセルスタイル */
+.result-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.result-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top; /* 複数行のコンテンツを上揃えにする */
+    max-width: 100px; /*js側で固定しているので無効値 */
+    /* テキストがこの最大幅を超えた場合に折り返すようにする */
+    word-wrap: break-word;
+    font-size: 0.9em;
+}
+
+/* 検索結果が見つからない場合のスタイル */
+#message-container {
+    color: orange;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    border: 1px dashed orange;
+    margin-top: 20px;
+    display: none; /* 初期状態では非表示 */
+}
+
+#message-container.visible {
+    display: block;
+}
+
+/* 注意事項リストのスタイル */
+#notes-list-container {
+    width: 100%; /* コンテナを親要素いっぱいに広げる */
+    margin-top: 20px; /* テーブルとの間に余白 */
+    text-align: left; /* コンテナ内のテキストを左寄せ */
+}
+
+#notes-list-container h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: left; /* h3要素を明示的に左寄せ */
+    color: rgb(255, 0, 0);
+}
+
+#notes-list-container ul {
+    list-style-type: none; /* デフォルトのリストマーカーを非表示 */
+    padding: 0;
+    margin: 0;
+    text-align: left; /* ul要素を明示的に左寄せ */
+}
+
+#notes-list-container li {
+    padding-left: 10px;
+    text-indent: -10px; /* 箇条書きのテキストを左にずらす */
+    font-size: 14px;
+}
+
+/* 注意事項リストのレイアウト調整 */
+#notes-list-container li {
+    display: grid;
+    grid-template-columns: 50px 1fr; /* 1列目を固定幅（50px）、2列目を可変幅に設定 */
+    gap: 5px; /* 番号とテキストの間の余白 */
+    margin-bottom: 5px;
+}
+
+#notes-list-container .note-number {
+    text-align: left;
+    padding-right: 5px;
+}
+
+#notes-list-container .note-text {
+    word-wrap: break-word; /* 長いテキストの折り返し */
 }

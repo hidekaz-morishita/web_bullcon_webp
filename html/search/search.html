@@ -12,28 +12,30 @@
 <body>
     <div id="header-placeholder"></div>
 
-    <main class="search-page-main">
+    <main>
         <div class="container">
-            <h2 class="section-title">
-                <span class="section-title-en">SEARCH INDEX</span>
-                <span class="section-title-jp">サイト内検索</span>
-            </h2>
-            
-            <section class="search-section">
-                <form id="search-form" class="search-form">
-                    <input type="text" id="search-input" class="search-input" placeholder="キーワードを入力してください (例: 製品、デザイン)">
-                    <button type="submit" class="search-button">検索</button>
-                </form>
-            </section>
+            <div class="search-page-main">
+                <h2 class="section-title">
+                    <span class="section-title-en">SEARCH INDEX</span>
+                    <span class="section-title-jp">サイト内検索</span>
+                </h2>
 
-            <section class="results-section">
-                <h3 class="results-title">検索結果</h3>
-                <ul id="results-list" class="results-list">
-                    </ul>
-                <p id="no-results" class="no-results" style="display: none;">
-                    <i class="fas fa-info-circle"></i> 該当するページは見つかりませんでした。別のキーワードをお試しください。
-                </p>
-            </section>
+                <section class="search-section">
+                    <form id="search-form" class="search-form">
+                        <input type="text" id="search-input" class="search-input" placeholder="キーワードを入力してください (例: 製品、品番)">
+                        <button type="submit" class="search-button">検索</button>
+                    </form>
+                </section>
+
+                <section class="results-section">
+                    <h3 class="results-title">検索結果</h3>
+                    <ul id="results-list" class="results-list">
+                        </ul>
+                    <p id="no-results" class="no-results" style="display: none;">
+                        <i class="fas fa-info-circle"></i> 該当するページは見つかりませんでした。別のキーワードをお試しください。
+                    </p>
+                </section>
+            </div>
         </div>
     </main>
 

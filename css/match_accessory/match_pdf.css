@@ -1,0 +1,120 @@
+@charset "utf-8";
+
+/* ============================
+    適合検索テーブル
+============================ */
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* 横スクロールを有効にする */
+    margin: 30px 0;
+}
+
+.annotation {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-left: 5px solid #0056b3;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.annotation p {
+    margin: 0 0 10px 0;
+}
+
+.annotation p:last-child {
+    margin-bottom: 0;
+}
+
+/* 縦スクロールを制御するためのラッパー */
+.table-wrapper {
+    max-height: 600px; /* テーブルボディの最大高さを設定 */
+    overflow-y: auto; /* このラッパーで縦スクロールを有効にする */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 1000px;
+    border: 1px solid #ccc;
+}
+
+thead {
+    position: sticky; /* ヘッダーを画面上部に固定 */
+    top: 0;
+    z-index: 10;
+    background-color: #f2f2f2;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: calc(100% / 12); /* すべての列の幅を均等にする */
+}
+
+th {
+    font-weight: bold;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+
+td {
+    border: 1px dashed #ccc;
+}
+
+/* 製品名セル（rowspanを持つセル）の上下と左の罫線を実線にする */
+td[rowspan] {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    font-weight: bold;
+    background-color: #eaf6ff;
+    text-align: left;
+}
+
+/* 区分セル以降のすべてのセルの左側の罫線を実線にする */
+td:nth-of-type(n+2) {
+    border-left: 1px solid #ccc;
+}
+
+/* 最後の列の右側を実線にする */
+td:last-child {
+    border-right: 1px solid #ccc;
+}
+
+/* PDFアイコンのスタイル */
+.pdf-icon {
+    width: 24px;
+    height: auto;
+}
+
+/* 動作確認未確認のセル */
+td.bg-yellow {
+    background-color: #fffacd;
+}
+
+.category-row {
+    background-color: #e7ecfa;
+    font-weight: bold;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+    table {
+        font-size: 12px;
+        min-width: unset;
+    }
+    th, td {
+        padding: 8px;
+    }
+    .pdf-icon {
+        width: 20px;
+    }
+}

@@ -11,13 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-213571806-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-213571806-1');
-    </script>
 </head>
 <body>
 
@@ -26,119 +19,129 @@
 <main>
     <section class="hero">
         <div class="hero-slider">
-            <div class="slider-item" style="background-image: url('./images/slide_banner/hero1.jpg');">
+            <div class="slider-item" style="background-image: url('./images/slide_banner/banner_freetving.jpg');">
                 <a href="./html/products/TVing/TVing.htm" target="_blank"></a>
             </div>
-            <div class="slider-item" style="background-image: url('./images/slide_banner/hero1.jpg');">
-                <a href="./html/products/TVing/TVing.htm" target="_blank"></a>
+            <div class="slider-item" style="background-image: url('./images/slide_banner/banner_magicone.jpg');">
+                <a href="./html/products/MAGICONE/magicone.htm" target="_blank"></a>
             </div>
-            <div class="slider-item" style="background-image: url('./images/slide_banner/hero1.jpg');">
-                <a href="./html/products/TVing/TVing.htm" target="_blank"></a>
+            <div class="slider-item" style="background-image: url('./images/slide_banner/banner_dvd.jpg');">
+                <a href="./html/products/AV_ACCESSORY/cdv/cdv01.htm" target="_blank"></a>
             </div>
-            <!--<button class="slider-control prev-button"><span>&lt;</span></button>
-            <button class="slider-control next-button"><span>&gt;</span></button>-->
+            <div class="slider-item" style="background-image: url('./images/slide_banner/banner_sph.jpg');">
+                <a href="./html/products/CAR_ACCESSORY/sph/sph.htm" target="_blank"></a>
+            </div>
+            <div class="slider-item" style="background-image: url('./images/slide_banner/banner_usb-hdmi.jpg');">
+                <a href="./html/products/HDMI_USB/eopspt/eopspt.htm" target="_blank"></a>
+            </div>
+            <button class="slider-control prev-button"><span>&lt;</span></button>
+            <button class="slider-control next-button"><span>&gt;</span></button>
             
         </div>
         <div class="hero-pagination"></div>
     </section>
 
     <div class="container main-content">
-        <section class="news-section">
-            <div class="split-content-container">
-                <section class="product-announce-section" id="product-announce-section">
-                    <div class="news-section-title">製品新着情報</div>
-                    <div id="products-announce-placeholder"></div>
-                    <div class="news-button-container">
-                        <a href="./html/news/products_news.html" class="news-button">一覧はこちら <img src="./images/common/new_window_icon.png" class="new-window-icon"></a>
-                    </div>
-                </section>
 
-                <section class="announce-section" id="announce-news-section">
-                    <div class="news-section-title">NEWS & TOPICS</div>
-                    <div id="announce-placeholder"></div>
-                    <div class="news-button-container">
-                        <a href="./html/news/topic_news.html" class="news-button">一覧はこちら <img src="./images/common/new_window_icon.png" class="new-window-icon"></a>
-                    </div>
-                </section>
-            </div>
+        <section class="news-section">
+            <section class="announce-section">
+                <h2 class="section-title">
+                    <span class="section-title-jp">お知らせ</span>
+                </h2>
+                <div id="announcements-list" class="announcements-list"></div>
+                <div class="news-button-container">
+                    <a href="./html/news/announcements.html" class="news-button">一覧はこちら <img src="./images/common/new_window_icon.png" class="new-window-icon"></a>
+                </div>
+            </section>
+
+            <section class="products-news-section">
+                <h2 class="section-title">
+                    <span class="section-title-jp">製品新着情報</span>
+                </h2>
+                <div id="top-products-news-container" class="top-products-news-container">
+                    <ul id="products-list"></ul>
+                </div>
+                <div class="news-button-container">
+                    <a href="./html/news/products_news.html" class="news-button">一覧はこちら <img src="./images/common/new_window_icon.png" class="new-window-icon"></a>
+                </div>
+            </section>
         </section>
 
         <section class="products-section">
             <h2 class="section-title">
-                <span class="section-title-en">PRODUCTS</span>
                 <span class="section-title-jp">製品情報</span>
             </h2>
             
-            <div class="product-showcase">
-                <a href="./html/products/products.html?category=freeTV" class="product-item">
-                    <div class="product-image">
+            <div class="products-showcase">
+                <a href="./html/products/products.html?category=freeTV" class="products-item">
+                    <div class="products-image">
                         <img src="./images/products/free_tving.jpg" alt="Free TVing シリーズ">
                     </div>
-                    <div class="product-text-content">
+                    <div class="products-text-content">
                         <h3>Free TVing シリーズ</h3>
                     </div>
                 </a>
-                <a href="./html/products/products.html?category=magicone" class="product-item">
-                    <div class="product-image">
+                <a href="./html/products/products.html?category=magicone" class="products-item">
+                    <div class="products-image">
                         <img src="./images/products/magicone_rear_moniter_unit.jpg" alt="マジコネ シリーズ">
                     </div>
-                    <div class="product-text-content">
+                    <div class="products-text-content">
                         <h3>マジコネ シリーズ</h3>
                     </div>
                 </a>
-                <a href="./html/products/products.html?category=led_bulb" class="product-item">
-                    <div class="product-image">
+                <a href="./html/products/products.html?category=led_bulb" class="products-item">
+                    <div class="products-image">
                         <img src="./images/products/led_headlamp_glorious_d.jpg" alt="LED バルブ/ルームランプ">
                     </div>
-                    <div class="product-text-content">
-                        <h3>LED バルブ/ルームランプ</h3>
+                    <div class="products-text-content">
+                        <h3>LEDランプ</h3>
                     </div>
                 </a>
-                <a href="./html/products/products.html?category=av_accessory" class="product-item">
-                    <div class="product-image">
+                <a href="./html/products/products.html?category=av_accessory" class="products-item">
+                    <div class="products-image">
                         <img src="./images/products/dvd-cd_player.jpg" alt="AVアクセサリー">
                     </div>
-                    <div class="product-text-content">
+                    <div class="products-text-content">
                         <h3>AVアクセサリー</h3>
                     </div>
                 </a>
-                <a href="./html/products/products.html?category=car_accessory" class="product-item">
-                    <div class="product-image">
+                <a href="./html/products/products.html?category=car_accessory" class="products-item">
+                    <div class="products-image">
                         <img src="./images/products/smart_phone_holder.jpg" alt="カーアクセサリー">
                     </div>
-                    <div class="product-text-content">
+                    <div class="products-text-content">
                         <h3>カーアクセサリー</h3>
                     </div>
                 </a>
-                <a href="./html/products/products.html?category=camera" class="product-item">
-                    <div class="product-image">
+                <a href="./html/products/products.html?category=camera" class="products-item">
+                    <div class="products-image">
                         <img src="./images/products/high_resolution_compact_camera.jpg" alt="カメラ類">
                     </div>
-                    <div class="product-text-content">
+                    <div class="products-text-content">
                         <h3>カメラ類</h3>
                     </div>
                 </a>
-                <a href="./html/products/products.html?category=monitor" class="product-item">
-                    <div class="product-image">
+                <a href="./html/products/products.html?category=monitor" class="products-item">
+                    <div class="products-image">
                         <img src="./images/products/on_dash_monitor.jpg" alt="モニター類">
                     </div>
-                    <div class="product-text-content">
+                    <div class="products-text-content">
                         <h3>モニター類</h3>
                     </div>
                 </a>
-                <a href="./html/products/products.html?category=hdmi_usb" class="product-item">
-                    <div class="product-image">
+                <a href="./html/products/products.html?category=hdmi_usb" class="products-item">
+                    <div class="products-image">
                         <img src="./images/products/hdmi_convert_unit.jpg" alt="USB/HDMI類">
                     </div>
-                    <div class="product-text-content">
+                    <div class="products-text-content">
                         <h3>USB/HDMI関係</h3>
                     </div>
                 </a>
-                <a href="./html/products/products.html?category=power_supply" class="product-item">
-                    <div class="product-image">
+                <a href="./html/products/products.html?category=power_supply" class="products-item">
+                    <div class="products-image">
                         <img src="./images/products/option_connecter_harnece.jpg" alt="電源関係">
                     </div>
-                    <div class="product-text-content">
+                    <div class="products-text-content">
                         <h3>電源関係</h3>
                     </div>
                 </a>
@@ -155,7 +158,8 @@
 <script src="./js/header.js"></script>
 <script src="./js/footer.js"></script>
 <script src="./js/index_script.js"></script>
-<script src="./js/news/products_news_data_for_top.js"></script>
-<script src="./js/news/news_data_for_top.js"></script>
+<script type="module" src="./js/news/const_data.js"></script>
+<script src="./js/news/load_announcements_on_top.js"></script>
+<script type="module" src="./js/news/load_products_news_on_top.js"></script>
 </body>
 </html>
