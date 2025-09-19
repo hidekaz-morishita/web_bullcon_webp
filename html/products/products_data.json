@@ -12,12 +12,12 @@
             "short_description": "装着すると走行中のテレビなどの映像視聴可能になります。（一部は目的地設定などのナビゲーション操作も可能）",
             "image_path": "/images/products/free_tving_auto.jpg",
             "main_page": {
-              "url": "/html/products/TVing/TVing.htm"
+              "url": "/html/products/TVing/TVing.htm?auto"
             },
             "sub_pages": [
               {
                 "name": "CTN-AS特設ページ",
-                "url": "/html/products/TVing/CTN-AS/CTN-AS.htm"
+                "url": "/html/products/TVing/CTN-AS/CTN-AS.htm?auto"
               }
             ]
           },
@@ -25,14 +25,14 @@
             "id": "freetving_switch",
             "name": "フリーテレビング 切り替えタイプ",
             "short_description": "スイッチを操作すると走行中のテレビ視聴可能になります。（一部は目的地設定などのナビゲーション操作も可能）",
-            "image_path": "/images/products/free_tving_switch.jpg",
+            "image_path": "/images/products/free_tving_switch.jpg?1",
             "main_page": {
-              "url": "/html/products/TVing/TVing.htm"
+              "url": "/html/products/TVing/TVing.htm?switch"
             },
             "sub_pages": [
               {
                 "name": "CTN-AS特設ページ",
-                "url": "/html/products/TVing/CTN-AS/CTN-AS.htm"
+                "url": "/html/products/TVing/CTN-AS/CTN-AS.htm?switch"
               }
             ]
           },
@@ -42,12 +42,12 @@
             "short_description": "走行中のテレビなどの映像視聴や目的地設定などのナビゲーション操作が可能になります。",
             "image_path": "/images/products/free_tving_tv_navi.jpg",
             "main_page": {
-              "url": "/html/products/TVing/TVing.htm"
+              "url": "/html/products/TVing/TVing.htm?telenaving"
             },
             "sub_pages": [
               {
                 "name": "CTN-AS特設ページ",
-                "url": "/html/products/TVing/CTN-AS/CTN-AS.htm"
+                "url": "/html/products/TVing/CTN-AS/CTN-AS.htm?telenaving"
               }
             ]
           }
@@ -64,7 +64,7 @@
             "short_description": "純正バックカメラ・全周囲カメラの映像を市販ナビゲーションに表示します。",
             "image_path": "/images/products/magicone_back_camera_unit.jpg",
             "main_page": {
-              "url": "/html/products/MAGICONE/magicone.htm"
+              "url": "/html/products/MAGICONE/magicone.htm?bc_unit"
             },
             "sub_pages": [
               { "name": "AV-C01", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c01/av-c01.htm" },
@@ -126,7 +126,7 @@
             "short_description": "市販バックカメラ映像を純正ナビゲーションに表示します。市販バックカメラ映像を車両中継ハーネスを使用して市販ナビゲーションに表示します。",
             "image_path": "/images/products/magicone_back_camera_harness.jpg",
             "main_page": {
-              "url": "/html/products/MAGICONE/magicone.htm"
+              "url": "/html/products/MAGICONE/magicone.htm?bc_harness"
             },
             "sub_pages": [
               { "name": "AV-C02", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c02/av-c02.htm" },
@@ -158,7 +158,7 @@
             "short_description": "外部入力機器映像（ＶＴＲ）をナビゲーションやモニターに表示します。",
             "image_path": "/images/products/magicone_vtr_harness.jpg",
             "main_page": {
-              "url": "/html/products/MAGICONE/magicone.htm"
+              "url": "/html/products/MAGICONE/magicone.htm?vtr_harness"
             },
             "sub_pages": [
               { "name": "AV-V01", "url": "/html/products/MAGICONE/VTR_H/av-v01/av-v01.htm" },
@@ -178,7 +178,7 @@
             "short_description": "リアモニター出力機能付きナビゲーションと純正後席ディスプレイを接続します。",
             "image_path": "/images/products/magicone_rear_moniter_unit.jpg",
             "main_page": {
-              "url": "/html/products/MAGICONE/magicone.htm"
+              "url": "/html/products/MAGICONE/magicone.htm?rm_unit"
             },
             "sub_pages": [
               { "name": "AV-R11", "url": "/html/products/MAGICONE/REAR_EX/av-r11/av-r11.htm" },
@@ -193,7 +193,7 @@
             "short_description": "ナビゲーションとリアモニターを接続します。",
             "image_path": "/images/products/magicone_rear_moniter_harness.jpg",
             "main_page": {
-              "url": "/html/products/MAGICONE/magicone.htm"
+              "url": "/html/products/MAGICONE/magicone.htm?rm_harness"
             },
             "sub_pages": [
               { "name": "AV-R01", "url": "/html/products/MAGICONE/REAR_EX/av-r01/av-r01.htm" },
