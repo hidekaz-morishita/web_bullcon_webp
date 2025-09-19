@@ -1,0 +1,501 @@
+{
+  "products_data": {
+    "categories": [
+      {
+        "id": "freetving",
+        "name": "フリーテレビング/テレナビング",
+        "url": "/html/products/products.html?category=freeTV",
+        "products": [
+          {
+            "id": "freetving_auto",
+            "name": "フリーテレビング オートタイプ",
+            "short_description": "装着すると走行中のテレビなどの映像視聴可能になります。（一部は目的地設定などのナビゲーション操作も可能）",
+            "image_path": "/images/products/free_tving_auto.jpg",
+            "main_page": {
+              "url": "/html/products/TVing/TVing.htm"
+            }
+          },
+          {
+            "id": "freetving_switch",
+            "name": "フリーテレビング 切り替えタイプ",
+            "short_description": "スイッチを操作すると走行中のテレビ視聴可能になります。（一部は目的地設定などのナビゲーション操作も可能）",
+            "image_path": "/images/products/free_tving_switch.jpg",
+            "main_page": {
+              "url": "/html/products/TVing/TVing.htm"
+            }
+          },
+          {
+            "id": "telenaving",
+            "name": "テレナビング",
+            "short_description": "走行中のテレビなどの映像視聴や目的地設定などのナビゲーション操作が可能になります。",
+            "image_path": "/images/products/free_tving_tv_navi.jpg",
+            "main_page": {
+              "url": "/html/products/TVing/TVing.htm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "magicone",
+        "name": "マジコネ シリーズ",
+        "url": "/html/products/products.html?category=magicone",
+        "products": [
+          {
+            "id": "magicone_bc_unit",
+            "name": "マジコネ バックカメラ接続ユニット",
+            "short_description": "純正バックカメラ・全周囲カメラの映像を市販ナビゲーションに表示します。",
+            "image_path": "/images/products/magicone_back_camera_unit.jpg",
+            "main_page": {
+              "url": "/html/products/MAGICONE/magicone.htm"
+            }
+          },
+          {
+            "id": "magicone_bc_harness",
+            "name": "マジコネ バックカメラ接続ハーネス",
+            "short_description": "市販バックカメラ映像を純正ナビゲーションに表示します。市販バックカメラ映像を車両中継ハーネスを使用して市販ナビゲーションに表示します。",
+            "image_path": "/images/products/magicone_back_camera_harness.jpg",
+            "main_page": {
+              "url": "/html/products/MAGICONE/magicone.htm"
+            }
+          },
+          {
+            "id": "magicone_vtr_harness",
+            "name": "マジコネ VTRハーネス",
+            "short_description": "外部入力機器映像（ＶＴＲ）をナビゲーションやモニターに表示します。",
+            "image_path": "/images/products/magicone_vtr_harness.jpg",
+            "main_page": {
+              "url": "/html/products/MAGICONE/magicone.htm"
+            }
+          },
+          {
+            "id": "magicone_rm_unit",
+            "name": "マジコネ リアモニター接続ユニット",
+            "short_description": "リアモニター出力機能付きナビゲーションと純正後席ディスプレイを接続します。",
+            "image_path": "/images/products/magicone_rear_moniter_unit.jpg",
+            "main_page": {
+              "url": "/html/products/MAGICONE/magicone.htm"
+            }
+          },
+          {
+            "id": "magicone_rm_harness",
+            "name": "マジコネ リアモニター接続ハーネス",
+            "short_description": "ナビゲーションとリアモニターを接続します。",
+            "image_path": "/images/products/magicone_rear_moniter_harness.jpg",
+            "main_page": {
+              "url": "/html/products/MAGICONE/magicone.htm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "led_bulb",
+        "name": "LEDバルブ/ルームランプ",
+        "url": "/html/products/products.html?category=led_bulb",
+        "products": [
+          {
+            "id": "glh_h",
+            "name": "LEDヘッドランプ グロリアス Hｼﾘｰｽﾞ",
+            "short_description": "ハロゲンランプ（H4/H11）交換用LEDヘッドランプ。20,000lm / 6,000K",
+            "image_path": "/images/products/led_headlamp_glorious_h.jpg",
+            "main_page": {
+              "url": "/html/products/LED_BULB/glh-h/glh-h.htm"
+            }
+          },
+          {
+            "id": "glh_dsr",
+            "name": "LEDヘッドランプ グロリアス Dｼﾘｰｽﾞ",
+            "short_description": "純正HID（D2/D4）換装用LEDヘッドランプ。40,000lm / 6,000K",
+            "image_path": "/images/products/led_headlamp_glorious_d.jpg",
+            "main_page": {
+              "url": "/html/products/LED_BULB/glh-dsr/glh-dsr.htm"
+            }
+          },
+          {
+            "id": "blh_head",
+            "name": "LED ヘッドランプ コンフォート",
+            "short_description": "ハロゲンランプ（HIR2）交換用LEDヘッドランプ。3,000lm / 6,000K",
+            "image_path": "/images/products/led_headlamp_comfort.jpg",
+            "main_page": {
+              "url": "/html/products/LED_BULB/blh_head/blh_head.htm"
+            }
+          },
+          {
+            "id": "clh_head",
+            "name": "LED ヘッドランプ コンフォート2",
+            "short_description": "ハロゲンランプ（H4）交換用LEDヘッドランプ。3,200lm / 6,000K",
+            "image_path": "/images/products/led_headlamp_comfort2.jpg",
+            "main_page": {
+              "url": "/html/products/LED_BULB/clh_head/clh_head.htm"
+            }
+          },
+          {
+            "id": "hyper_led_bulb",
+            "name": "ハイパーLEDバルブ",
+            "short_description": "バックランプ・ウィンカーランプ・テールランプ・ブレーキランプ対応LEDバルブ。［T16シングル］［T20シングル］［S25シングル］［S25ダブル］［T20ピン違い］［S25ピン角違い］［メタルクラッド抵抗器］",
+            "image_path": "/images/products/hyper_led_room_lamp.jpg",
+            "main_page": {
+              "url": "/html/products/LED_BULB/hyper_led_bulb/hyper_led_bulb.htm"
+            }
+          },
+          {
+            "id": "led_bulb_revo",
+            "name": "LEDフォグバルブ",
+            "short_description": "ハロゲンバルブ交換用LEDフォグバルブ。［H8/H11］［H16」［PSX26W］",
+            "image_path": "/images/products/led_fog_bulb.jpg",
+            "main_page": {
+              "url": "/html/products/LED_BULB/led_bulb_revo/led_bulb_revo.htm"
+            }
+          },
+          {
+            "id": "licenselamp",
+            "name": "日産セレナ［Ｃ２７］専用ライセンスランプ",
+            "short_description": "日産セレナ［C27］のライセンスランプをLEDに交換できます。",
+            "image_path": "/images/products/nissan_serena_lisence_lamp.jpg",
+            "main_page": {
+              "url": "/html/products/LED_BULB/licenselamp/licenselamp.htm"
+            }
+          },
+          {
+            "id": "super_led_lamp",
+            "name": "スーパーLEDルームランプ",
+            "short_description": "ルームランプ・ポジションランプ・ライセンスランプ対応LEDランプ。［T10 クリアレンズ付き］［T10］［G14］［T10×31/T8×28］［T6.3×30］",
+            "image_path": "/images/products/super_led_room_lamp.jpg",
+            "main_page": {
+              "url": "/html/products/LED_BULB/superledlamp/super_led_lamp.htm"
+            }
+          },
+          {
+            "id": "super_led_roomlamp2",
+            "name": "スーパーLEDルームランプ2",
+            "short_description": "車種専用別専用LEDルームランプセット",
+            "image_path": "/images/products/super_led_room_lamp2.jpg",
+            "main_page": {
+              "url": "/html/products/LED_BULB/super_led_roomlamp2/super_led_roomlamp2.htm"
+            }
+          },
+          {
+            "id": "premium_led_lamp_plate",
+            "name": "プレミアムスーパーLEDランプ",
+            "short_description": "プレートタイプのLEDルームランプ。［35㎜×50㎜］［35㎜×35㎜］［19㎜×39㎜］［17㎜×25㎜］",
+            "image_path": "/images/products/premium_super_led_lamp.jpg",
+            "main_page": {
+              "url": "/html/products/LED_BULB/premium_led_lamp_plate/premium_led_lamp_plate.htm"
+            }
+          },
+          {
+            "id": "door_safety_lamp",
+            "name": "ドアセーフティランプ",
+            "short_description": "ドア側面にLEDを設置し、後方へ照射。追突防止に効果的です。",
+            "image_path": "/images/products/door_safety_lamp.jpg",
+            "main_page": {
+              "url": "/html/products/LED_BULB/door_safety_lamp/door_safety_lamp.htm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "av_accessory",
+        "name": "AVアクセサリー",
+        "url": "/html/products/products.html?category=av_accessory",
+        "products": [
+          {
+            "id": "dvd_cd_player",
+            "name": "DVD・CDプレイヤー",
+            "short_description": "トヨタ/レクサス車のUSBポートに接続するだけで、ディスプレイオーディオでDVD/CDが楽しめます。",
+            "image_path": "/images/products/dvd-cd_player.jpg",
+            "main_page": {
+              "url": "/html/products/AV_ACCESSORY/cdv/cdv01.htm"
+            }
+          },
+          {
+            "id": "swc_exc",
+            "name": "ステアリングスイッチ切替ユニット",
+            "short_description": "純正ステアリングスイッチで市販ナビゲーションが操作できます。",
+            "image_path": "/images/products/steering_switch_unit.jpg",
+            "main_page": {
+              "url": "/html/products/AV_ACCESSORY/swc-exc/swc-exc.htm"
+            }
+          },
+          {
+            "id": "steering_sw",
+            "name": "ステアリングスイッチコントローラー",
+            "short_description": "純正ステアリングスイッチを利用して、外部入力機器の操作ができます。",
+            "image_path": "/images/products/steering_switch_controller.jpg",
+            "main_page": {
+              "url": "/html/products/AV_ACCESSORY/steering_sw/steering_sw.htm"
+            }
+          },
+          {
+            "id": "hole_sw",
+            "name": "サービスホールスイッチ",
+            "short_description": "対応製品に付属の「LEDスイッチ」を「サービスホールスイッチ」へ変更できます。",
+            "image_path": "/images/products/service_hall_switch.jpg",
+            "main_page": {
+              "url": "/html/products/AV_ACCESSORY/hole_sw/hole_sw.htm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "car_accessory",
+        "name": "カーアクセサリー",
+        "url": "/html/products/products.html?category=car_accessory",
+        "products": [
+          {
+            "id": "sph",
+            "name": "スマートフォンホルダー",
+            "short_description": "12タイプの中から好みや用途に合わせて選べる便利なスマートフォンホルダー",
+            "image_path": "/images/products/smart_phone_holder.jpg",
+            "main_page": {
+              "url": "/html/products/CAR_ACCESSORY/sph/sph.htm"
+            }
+          },
+          {
+            "id": "light_crew",
+            "name": "オートライトユニット ライトクルー",
+            "short_description": "周囲の明るさに応じてスモールライト/ヘッドライトを自動点灯＆消灯します。",
+            "image_path": "/images/products/light_crew.jpg",
+            "main_page": {
+              "url": "/html/products/CAR_ACCESSORY/light_crew/light_crew.htm"
+            }
+          },
+          {
+            "id": "door_mirror",
+            "name": "オートドアミラーコントローラー",
+            "short_description": "ロック/アンロックやACCに連動してドアミラーを自動格納＆復帰します。",
+            "image_path": "/images/products/auto_door_mirror_controller.jpg",
+            "main_page": {
+              "url": "/html/products/CAR_ACCESSORY/door_mirror/door_mirror.htm"
+            }
+          },
+          {
+            "id": "hlc",
+            "name": "ヘッドライトコントローラー",
+            "short_description": "薄暮時や夜間の駐停車、信号待ち停車時にヘッドライトを自動で消灯します。",
+            "image_path": "/images/products/headlight_controller.jpg",
+            "main_page": {
+              "url": "/html/products/CAR_ACCESSORY/hlc/hlc.htm"
+            }
+          },
+          {
+            "id": "fis",
+            "name": "フリーアイドリングストップ",
+            "short_description": "アイドリングストップ機能のキャンセル操作を自動化します。",
+            "image_path": "/images/products/free_idling_strop.jpg",
+            "main_page": {
+              "url": "/html/products/CAR_ACCESSORY/fis/fis.htm"
+            }
+          },
+          {
+            "id": "ebs",
+            "name": "ユーロブリンカーシステム",
+            "short_description": "ウィンカーレバーを軽くワンクリックすると自動的にウィンカーを数回だけ点滅させます。",
+            "image_path": "/images/products/euro_blinker_system.jpg",
+            "main_page": {
+              "url": "/html/products/CAR_ACCESSORY/ebs/ebs.htm"
+            }
+          },
+          {
+            "id": "sdlct",
+            "name": "車速ドアロックシステム",
+            "short_description": "車種専用タイプ。車速約20km/hで自動的にドアロック、Pレンジでアンロックします。",
+            "image_path": "/images/products/speed_door_lock_system.jpg",
+            "main_page": {
+              "url": "/html/products/CAR_ACCESSORY/sdlct/sdlct.htm"
+            }
+          },
+          {
+            "id": "speed_auto_lock",
+            "name": "車速感応式ドアロックシステム",
+            "short_description": "汎用配線タイプ。車速約15～20km/hで自動的にドアロック、Pレンジでアンロックします。",
+            "image_path": "/images/products/speed_sensitive_door_lock_system.jpg",
+            "main_page": {
+              "url": "/html/products/CAR_ACCESSORY/speed_auto_lock/speed_auto_lock.htm"
+            }
+          },
+          {
+            "id": "answer_system",
+            "name": "ドアロックアンサーシステム",
+            "short_description": "リモコンドアロックで、ハザードやサウンドが連動します。",
+            "image_path": "/images/products/door_lock_answer_system.jpg",
+            "main_page": {
+              "url": "/html/products/CAR_ACCESSORY/answer_system/answer_system.htm"
+            }
+          },
+          {
+            "id": "brake4",
+            "name": "ブレーキ4灯化ユニット",
+            "short_description": "ブレーキランプの発光面を増やすことで視認性を高め、後続車へブレーキ操作をアピール",
+            "image_path": "/images/products/brake4.jpg",
+            "main_page": {
+              "url": "/html/products/CAR_ACCESSORY/brake4/brake4.htm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "camera",
+        "name": "カメラシリーズ",
+        "url": "/html/products/products.html?category=camera",
+        "products": [
+          {
+            "id": "av_fbc01r",
+            "name": "高解像度 小型カメラ",
+            "short_description": "１２２万画素の小型カメラ。バックカメラ、フロントカメラに対応",
+            "image_path": "/images/products/high_resolution_compact_camera.jpg",
+            "main_page": {
+              "url": "/html/products/CAMERA/av-fbc/av-fbc01r/av-fbc01r.htm"
+            }
+          },
+          {
+            "id": "av_fbc02r",
+            "name": "高解像度 埋め込み小型カメラ",
+            "short_description": "９２万画素の埋め込みカメラ。バックカメラ、サイドカメラ、フロントカメラに対応",
+            "image_path": "/images/products/high_resolution_embedded_camera.jpg",
+            "main_page": {
+              "url": "/html/products/CAMERA/av-fbc/av-fbc02r/av-fbc02r.htm"
+            }
+          },
+          {
+            "id": "av_fbc03r",
+            "name": "高解像度 広角度ミニボールカメラ",
+            "short_description": "９２万画素の広角度ミニボールカメラ。バックカメラ、サイドカメラ、フロントカメラに対応",
+            "image_path": "/images/products/high_resolution_miniball_camera.jpg",
+            "main_page": {
+              "url": "/html/products/CAMERA/av-fbc/av-fbc03r/av-fbc03r.htm"
+            }
+          },
+          {
+            "id": "av_cs_link",
+            "name": "カメラセレクター",
+            "short_description": "バックカメラ＋最大２台のカメラ映像を切り替えて使用できます。",
+            "image_path": "/images/products/camera_selector.jpg",
+            "main_page": {
+              "url": "/html/products/CAMERA/AV-CS-Link/AV-CS-Link.htm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "monitor",
+        "name": "モニターシリーズ",
+        "url": "/html/products/products.html?category=monitor",
+        "products": [
+          {
+            "id": "av_m01",
+            "name": "4.3インチ オンダッシュモニター",
+            "short_description": "映像２系統入力、4.3インチモニター",
+            "image_path": "/images/products/on_dash_monitor.jpg",
+            "main_page": {
+              "url": "/html/products/MONITER/av-m01/av-m01.htm"
+            }
+          },
+          {
+            "id": "av_m02",
+            "name": "4.3インチ ルームミラーモニター",
+            "short_description": "映像２系統入力、4.3インチモニター内蔵のルームミラー型モニター",
+            "image_path": "/images/products/room_mirror_monitor.jpg",
+            "main_page": {
+              "url": "/html/products/MONITER/av-m02/av-m02.htm"
+            }
+          },
+          {
+            "id": "av_m03",
+            "name": "5インチ ワイドビューモニター",
+            "short_description": "映像２系統入力、5インチモニター",
+            "image_path": "/images/products/wide_view_monitor.jpg",
+            "main_page": {
+              "url": "/html/products/MONITER/av-m03/av-m03.htm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "hdmi_usb",
+        "name": "HDMI・USB関係",
+        "url": "/html/products/products.html?category=hdmi_usb",
+        "products": [
+          {
+            "id": "eopspt",
+            "name": "USB・HDMI延長ケーブル(SPｼﾘｰｽﾞ)",
+            "short_description": "サービスホールにUSB/HDMIポートを設置します。",
+            "image_path": "/images/products/usb-hdmi_sp.jpg",
+            "main_page": {
+              "url": "/html/products/HDMI_USB/eopspt/eopspt.htm"
+            }
+          },
+          {
+            "id": "eophzt",
+            "name": "USB・HDMI延長ケーブル(HZｼﾘｰｽﾞ)",
+            "short_description": "純正USBパネルをUSB/HDMIパネルに換装します。",
+            "image_path": "/images/products/usb-hdmi-hz.jpg",
+            "main_page": {
+              "url": "/html/products/HDMI_USB/eophzt/eophz.htm"
+            }
+          },
+          {
+            "id": "av_hdm01",
+            "name": "HDMI変換ユニット",
+            "short_description": "HDMIデジタル映像・音声をRCAアナログ映像・音声に変換します。",
+            "image_path": "/images/products/hdmi_convert_unit.jpg",
+            "main_page": {
+              "url": "/html/products/HDMI_USB/av-hdm01/av-hdm01.htm"
+            }
+          },
+          {
+            "id": "eopusbca",
+            "name": "USB変換ケーブル",
+            "short_description": "USB Type-CポートをUSB Type-Aポートへ変換させ、最大５V/３Aでの急速充電が可能になります。",
+            "image_path": "/images/products/usb_convert_cable.jpg",
+            "main_page": {
+              "url": "/html/products/HDMI_USB/eopusbca/eopusbca.htm"
+            }
+          },
+          {
+            "id": "av_dh06",
+            "name": "HDMI Type-Eハーネス",
+            "short_description": "HDMI（タイプE）入力端子搭載のナビゲーションにHDMI（タイプA）の外部機器を接続できます。",
+            "image_path": "/images/products/hdmi_type-e.jpg",
+            "main_page": {
+              "url": "/html/products/AGICONE/VTR_H/av-dh06/av-dh06.htm"
+            }
+          },
+          {
+            "id": "eopdc",
+            "name": "USB電源コンバータ",
+            "short_description": "スマートフォン等を充電できるUSB電源増設ユニット",
+            "image_path": "/images/products/usb_power_converter.jpg",
+            "main_page": {
+              "url": "/html/products/HDMI_USB/eopdc/eopdc.htm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "power_supply",
+        "name": "電源関係",
+        "url": "/html/products/products.html?category=power_supply",
+        "products": [
+          {
+            "id": "op_cn",
+            "name": "オプションコネクターハーネス",
+            "short_description": "車両オプションコネクタから簡単・安全に電源や各種信号線を取り出しできます。",
+            "image_path": "/images/products/option_connecter_harnece.jpg",
+            "main_page": {
+              "url": "/html/products/POWER/op_cn/op_cn.htm"
+            }
+          },
+          {
+            "id": "one_touch",
+            "name": "ワンタッチ電源",
+            "short_description": "電源/イグニッション/ACCラインなどの取り出しに使用できます。",
+            "image_path": "/images/products/one_touch_power.jpg",
+            "main_page": {
+              "url": "/html/products/POWER/one_touch/one_touch.htm"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
