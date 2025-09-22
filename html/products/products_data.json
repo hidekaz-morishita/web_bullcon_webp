@@ -67,57 +67,59 @@
               "url": "/html/products/MAGICONE/magicone.htm?bc_unit"
             },
             "sub_pages": [
-              { "name": "AV-C01", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c01/av-c01.htm" },
-              { "name": "AV-C04", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c04/av-c04.htm" },
-              { "name": "AV-C05", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c05/av-c05.htm" },
-              { "name": "AV-C06", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c06/av-c06.htm" },
-              { "name": "AV-C07", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c07/av-c07.htm" },
-              { "name": "AV-C12", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c12/av-c12.htm" },
-              { "name": "AV-C13", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c13/av-c13.htm" },
-              { "name": "AV-C13FA", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c13fa/av-c13fa.htm" },
-              { "name": "AV-C13FB", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c13fb/av-c13fb.htm" },
-              { "name": "AV-C13FC", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c13fc/av-c13fc.htm" },
-              { "name": "AV-C13FD", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c13fd/av-c13fd.htm" },
-              { "name": "AV-C19", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c19/av-c19.htm" },
-              { "name": "AV-C21", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c21/av-c21.htm" },
-              { "name": "AV-C22", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c22/av-c22.htm" },
-              { "name": "AV-C23/AV-C23G", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c23/av-c23.htm" },
-              { "name": "AV-C23DC", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c23dc/av-c23dc.htm" },
-              { "name": "AV-C24", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c24/av-c24.htm" },
-              { "name": "AV-C25", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c25/av-c25.htm" },
-              { "name": "AV-C25G", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c25g/av-c25g.htm" },
-              { "name": "AV-C25GN", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c25gn/av-c25gn.htm" },
-              { "name": "AV-C26", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c26/av-c26.htm" },
-              { "name": "AV-C28", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c28/av-c28.htm" },
-              { "name": "AV-C31", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c31/av-c31.htm" },
-              { "name": "AV-C32", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c32/av-c32.htm" },
-              { "name": "AV-C33", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c33/av-c33.htm" },
-              { "name": "AV-C34", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c34/av-c34.htm" },
-              { "name": "AV-C35", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c35/av-c35.htm" },
-              { "name": "AV-C35F", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c35f/av-c35f.htm" },
-              { "name": "AV-C36", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c36/av-c36.htm" },
-              { "name": "AV-C39", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c39/av-c39.htm" },
-              { "name": "AV-C41", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c41/av-c41.htm" },
-              { "name": "AV-C43", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c43/av-c43.htm" },
-              { "name": "AV-C44", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c44/av-c44.htm" },
-              { "name": "AV-C45", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c45/av-c45.htm" },
-              { "name": "AV-C47", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c47/av-c47.htm" },
-              { "name": "AV-C48", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c48/av-c48.htm" },
-              { "name": "AV-C49", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c49/av-c49.htm" },
-              { "name": "AV-C50", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c50/av-c50.htm" },
-              { "name": "AV-C51", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c51/av-c51.htm" },
-              { "name": "AV-C52", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c52/av-c52.htm" },
-              { "name": "AV-C53/AV-C53G", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c53/av-c53.htm" },
-              { "name": "AV-C54", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c54/av-c54.htm" },
-              { "name": "AV-C57", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c57/av-c57.htm" },
-              { "name": "AV-C58", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c58/av-c58.htm" },
-              { "name": "AV-C60", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c60/av-c60.htm" },
-              { "name": "AV-C61", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c61/av-c61.htm" },
-              { "name": "AV-C62", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c62/av-c62.htm" },
-              { "name": "AV-C63", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c63/av-c63.htm" },
-              { "name": "AV-C64", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c64/av-c64.htm" },
-              { "name": "AV-C66", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c66.html" },
-              { "name": "AV-C67", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c67.html" }
+              { "name": "AV-C01", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c01/av-c01.htm", "manual_url": "/pdf/products/MAGICONE/AV-C01.pdf" },
+              { "name": "AV-C04", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c04/av-c04.htm", "manual_url": "/pdf/products/MAGICONE/AV-C04.pdf" },
+              { "name": "AV-C05", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c05/av-c05.htm", "manual_url": "/pdf/products/MAGICONE/AV-C05.pdf" },
+              { "name": "AV-C06", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c06/av-c06.htm", "manual_url": "/pdf/products/MAGICONE/AV-C06.pdf" },
+              { "name": "AV-C07", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c07/av-c07.htm", "manual_url": "/pdf/products/MAGICONE/AV-C07.pdf" },
+              { "name": "AV-C12", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c12/av-c12.htm", "manual_url": "/pdf/products/MAGICONE/AV-C12.pdf" },
+              { "name": "AV-C13", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c13/av-c13.htm", "manual_url": "/pdf/products/MAGICONE/AV-C13.pdf" },
+              { "name": "AV-C13FA", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c13fa/av-c13fa.htm", "manual_url": "/pdf/products/MAGICONE/AV-C13FA.pdf" },
+              { "name": "AV-C13FB", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c13fb/av-c13fb.htm", "manual_url": "/pdf/products/MAGICONE/AV-C13FB.pdf" },
+              { "name": "AV-C13FC", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c13fc/av-c13fc.htm", "manual_url": "/pdf/products/MAGICONE/AV-C13FC.pdf" },
+              { "name": "AV-C13FD", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c13fd/av-c13fd.htm", "manual_url": "/pdf/products/MAGICONE/AV-C13FD.pdf" },
+              { "name": "AV-C19", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c19/av-c19.htm", "manual_url": "/pdf/products/MAGICONE/AV-C19.pdf" },
+              { "name": "AV-C21", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c21/av-c21.htm", "manual_url": "/pdf/products/MAGICONE/AV-C21.pdf" },
+              { "name": "AV-C22", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c22/av-c22.htm", "manual_url": "/pdf/products/MAGICONE/AV-C22.pdf" },
+              { "name": "AV-C23", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c23/av-c23.htm", "manual_url": "/pdf/products/MAGICONE/AV-C23.pdf" },
+              { "name": "AV-C23G", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c23/av-c23.htm", "manual_url": "/pdf/products/MAGICONE/AV-C23G.pdf" },
+              { "name": "AV-C23DC", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c23dc/av-c23dc.htm", "manual_url": "/pdf/products/MAGICONE/AV-C23DC.pdf" },
+              { "name": "AV-C24", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c24/av-c24.htm", "manual_url": "/pdf/products/MAGICONE/AV-C24.pdf" },
+              { "name": "AV-C25", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c25/av-c25.htm", "manual_url": "/pdf/products/MAGICONE/AV-C25.pdf" },
+              { "name": "AV-C25G", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c25g/av-c25g.htm", "manual_url": "/pdf/products/MAGICONE/AV-C25G.pdf" },
+              { "name": "AV-C25GN", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c25gn/av-c25gn.htm", "manual_url": "/pdf/products/MAGICONE/AV-C25GN.pdf" },
+              { "name": "AV-C26", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c26/av-c26.htm", "manual_url": "/pdf/products/MAGICONE/AV-C26.pdf" },
+              { "name": "AV-C28", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c28/av-c28.htm", "manual_url": "/pdf/products/MAGICONE/AV-C28.pdf" },
+              { "name": "AV-C31", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c31/av-c31.htm", "manual_url": "/pdf/products/MAGICONE/AV-C31.pdf" },
+              { "name": "AV-C32", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c32/av-c32.htm", "manual_url": "/pdf/products/MAGICONE/AV-C32.pdf" },
+              { "name": "AV-C33", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c33/av-c33.htm", "manual_url": "/pdf/products/MAGICONE/AV-C33.pdf" },
+              { "name": "AV-C34", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c34/av-c34.htm", "manual_url": "/pdf/products/MAGICONE/AV-C34.pdf" },
+              { "name": "AV-C35", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c35/av-c35.htm", "manual_url": "/pdf/products/MAGICONE/AV-C35.pdf" },
+              { "name": "AV-C35F", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c35f/av-c35f.htm", "manual_url": "/pdf/products/MAGICONE/AV-C35F.pdf" },
+              { "name": "AV-C36", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c36/av-c36.htm", "manual_url": "/pdf/products/MAGICONE/AV-C36.pdf" },
+              { "name": "AV-C39", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c39/av-c39.htm", "manual_url": "/pdf/products/MAGICONE/AV-C39.pdf" },
+              { "name": "AV-C41", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c41/av-c41.htm", "manual_url": "/pdf/products/MAGICONE/AV-C41.pdf" },
+              { "name": "AV-C43", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c43/av-c43.htm", "manual_url": "/pdf/products/MAGICONE/AV-C43.pdf" },
+              { "name": "AV-C44", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c44/av-c44.htm", "manual_url": "/pdf/products/MAGICONE/AV-C44.pdf" },
+              { "name": "AV-C45", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c45/av-c45.htm", "manual_url": "/pdf/products/MAGICONE/AV-C45.pdf" },
+              { "name": "AV-C47", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c47/av-c47.htm", "manual_url": "/pdf/products/MAGICONE/AV-C47.pdf" },
+              { "name": "AV-C48", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c48/av-c48.htm", "manual_url": "/pdf/products/MAGICONE/AV-C48.pdf" },
+              { "name": "AV-C49", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c49/av-c49.htm", "manual_url": "/pdf/products/MAGICONE/AV-C49.pdf" },
+              { "name": "AV-C50", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c50/av-c50.htm", "manual_url": "/pdf/products/MAGICONE/AV-C50.pdf" },
+              { "name": "AV-C51", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c51/av-c51.htm", "manual_url": "/pdf/products/MAGICONE/AV-C51.pdf" },
+              { "name": "AV-C52", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c52/av-c52.htm", "manual_url": "/pdf/products/MAGICONE/AV-C52.pdf" },
+              { "name": "AV-C53", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c53/av-c53.htm", "manual_url": "/pdf/products/MAGICONE/AV-C53.pdf" },
+              { "name": "AV-C53G", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c53/av-c53.htm", "manual_url": "/pdf/products/MAGICONE/AV-C53G.pdf" },
+              { "name": "AV-C54", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c54/av-c54.htm", "manual_url": "/pdf/products/MAGICONE/AV-C54.pdf" },
+              { "name": "AV-C57", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c57/av-c57.htm", "manual_url": "/pdf/products/MAGICONE/AV-C57.pdf" },
+              { "name": "AV-C58", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c58/av-c58.htm", "manual_url": "/pdf/products/MAGICONE/AV-C58.pdf" },
+              { "name": "AV-C60", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c60/av-c60.htm", "manual_url": "/pdf/products/MAGICONE/AV-C60.pdf" },
+              { "name": "AV-C61", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c61/av-c61.htm", "manual_url": "/pdf/products/MAGICONE/AV-C61.pdf" },
+              { "name": "AV-C62", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c62/av-c62.htm", "manual_url": "/pdf/products/MAGICONE/AV-C62.pdf" },
+              { "name": "AV-C63", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c63/av-c63.htm", "manual_url": "/pdf/products/MAGICONE/AV-C63.pdf" },
+              { "name": "AV-C64", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c64/av-c64.htm", "manual_url": "/pdf/products/MAGICONE/AV-C64.pdf" },
+              { "name": "AV-C66", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c66.html", "manual_url": "/pdf/products/MAGICONE/AV-C66.pdf" },
+              { "name": "AV-C67", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c67.html", "manual_url": "/pdf/products/MAGICONE/AV-C67.pdf" }
             ]
           },
           {
@@ -129,27 +131,27 @@
               "url": "/html/products/MAGICONE/magicone.htm?bc_harness"
             },
             "sub_pages": [
-              { "name": "AV-C02", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c02/av-c02.htm" },
-              { "name": "AV-C03", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c03/av-c03.htm" },
-              { "name": "AV-C08", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c08/av-c08.htm" },
-              { "name": "AV-C09", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c09/av-c09.htm" },
-              { "name": "AV-C10", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c10/av-c10.htm" },
-              { "name": "AV-C14", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c14/av-c14.htm" },
-              { "name": "AV-C15", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c15/av-c15.htm" },
-              { "name": "AV-C16", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c16/av-c16.htm" },
-              { "name": "AV-C17", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c17/av-c17.htm" },
-              { "name": "AV-C20", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c20/av-c20.htm" },
-              { "name": "AV-C27", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c27/av-c27.htm" },
-              { "name": "AV-C29", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c29/av-c29.htm" },
-              { "name": "AV-C30", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c30/av-c30.htm" },
-              { "name": "AV-C37", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c37/av-c37.htm" },
-              { "name": "AV-C38", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c38/av-c38.htm" },
-              { "name": "AV-C40", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c40/av-c40.htm" },
-              { "name": "AV-C42", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c42/av-c42.htm" },
-              { "name": "AV-C46", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c46/av-c46.htm" },
-              { "name": "AV-C55", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c55/av-c55.htm" },
-              { "name": "AV-C56", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c56/av-c56.htm" },
-              { "name": "AV-C59", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c59/av-c59.htm" }
+              { "name": "AV-C02", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c02/av-c02.htm", "manual_url": "/pdf/products/MAGICONE/AV-C02.pdf" },
+              { "name": "AV-C03", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c03/av-c03.htm", "manual_url": "/pdf/products/MAGICONE/AV-C03.pdf" },
+              { "name": "AV-C08", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c08/av-c08.htm", "manual_url": "/pdf/products/MAGICONE/AV-C08.pdf" },
+              { "name": "AV-C09", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c09/av-c09.htm", "manual_url": "/pdf/products/MAGICONE/AV-C09.pdf" },
+              { "name": "AV-C10", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c10/av-c10.htm", "manual_url": "/pdf/products/MAGICONE/AV-C10.pdf" },
+              { "name": "AV-C14", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c14/av-c14.htm", "manual_url": "/pdf/products/MAGICONE/AV-C14.pdf" },
+              { "name": "AV-C15", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c15/av-c15.htm", "manual_url": "/pdf/products/MAGICONE/AV-C15.pdf" },
+              { "name": "AV-C16", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c16/av-c16.htm", "manual_url": "/pdf/products/MAGICONE/AV-C16.pdf" },
+              { "name": "AV-C17", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c17/av-c17.htm", "manual_url": "/pdf/products/MAGICONE/AV-C17.pdf" },
+              { "name": "AV-C20", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c20/av-c20.htm", "manual_url": "/pdf/products/MAGICONE/AV-C20.pdf" },
+              { "name": "AV-C27", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c27/av-c27.htm", "manual_url": "/pdf/products/MAGICONE/AV-C27.pdf" },
+              { "name": "AV-C29", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c29/av-c29.htm", "manual_url": "/pdf/products/MAGICONE/AV-C29.pdf" },
+              { "name": "AV-C30", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c30/av-c30.htm", "manual_url": "/pdf/products/MAGICONE/AV-C30.pdf" },
+              { "name": "AV-C37", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c37/av-c37.htm", "manual_url": "/pdf/products/MAGICONE/AV-C37.pdf" },
+              { "name": "AV-C38", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c38/av-c38.htm", "manual_url": "/pdf/products/MAGICONE/AV-C38.pdf" },
+              { "name": "AV-C40", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c40/av-c40.htm", "manual_url": "/pdf/products/MAGICONE/AV-C40.pdf" },
+              { "name": "AV-C42", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c42/av-c42.htm", "manual_url": "/pdf/products/MAGICONE/AV-C42.pdf" },
+              { "name": "AV-C46", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c46/av-c46.htm", "manual_url": "/pdf/products/MAGICONE/AV-C46.pdf" },
+              { "name": "AV-C55", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c55/av-c55.htm", "manual_url": "/pdf/products/MAGICONE/AV-C55.pdf" },
+              { "name": "AV-C56", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c56/av-c56.htm", "manual_url": "/pdf/products/MAGICONE/AV-C56.pdf" },
+              { "name": "AV-C59", "url": "/html/products/MAGICONE/BACK_CAMERA/av-c59/av-c59.htm", "manual_url": "/pdf/products/MAGICONE/AV-C59.pdf" }
             ]
           },
           {
@@ -161,15 +163,19 @@
               "url": "/html/products/MAGICONE/magicone.htm?vtr_harness"
             },
             "sub_pages": [
-              { "name": "AV-V01", "url": "/html/products/MAGICONE/VTR_H/av-v01/av-v01.htm" },
-              { "name": "AV-V02", "url": "/html/products/MAGICONE/VTR_H/av-v02/av-v02.htm" },
-              { "name": "AV-V05", "url": "/html/products/MAGICONE/VTR_H/av-v03/av-v03.htm" },
-              { "name": "AV-V05T/V05TM", "url": "/html/products/MAGICONE/VTR_H/av-v05/av-v05.htm" },
-              { "name": "AV-V07", "url": "/html/products/MAGICONE/VTR_H/av-v07/av-v07.htm" },
-              { "name": "AV-V07T/V07TM", "url": "/html/products/MAGICONE/VTR_H/av-v07tm/av-v07tm.htm" },
-              { "name": "AV-V07TA/V07TC", "url": "/html/products/MAGICONE/VTR_H/av-v07tac/av-v07tac.htm" },
-              { "name": "AV-V07TMA/AV-V07TMC", "url": "/html/products/MAGICONE/VTR_H/av-v07tmac/av-v07tmac.htm" },
-              { "name": "AV-DH06", "url": "/html/products/MAGICONE/VTR_H/av-dh06/av-dh06.htm" }
+              { "name": "AV-V01", "url": "/html/products/MAGICONE/VTR_H/av-v01/av-v01.htm", "manual_url": "/pdf/products/MAGICONE/AV-V01.pdf" },
+              { "name": "AV-V02", "url": "/html/products/MAGICONE/VTR_H/av-v02/av-v02.htm", "manual_url": "/pdf/products/MAGICONE/AV-V02.pdf" },
+              { "name": "AV-V05", "url": "/html/products/MAGICONE/VTR_H/av-v03/av-v03.htm", "manual_url": "/pdf/products/MAGICONE/AV-V05.pdf" },
+              { "name": "AV-V05T", "url": "/html/products/MAGICONE/VTR_H/av-v05/av-v05.htm", "manual_url": "/pdf/products/MAGICONE/AV-V05T.pdf" },
+              { "name": "AV-V05TM", "url": "/html/products/MAGICONE/VTR_H/av-v05/av-v05.htm", "manual_url": "/pdf/products/MAGICONE/AV-V05TM.pdf" },
+              { "name": "AV-V07", "url": "/html/products/MAGICONE/VTR_H/av-v07/av-v07.htm", "manual_url": "/pdf/products/MAGICONE/AV-V07.pdf" },
+              { "name": "AV-V07T", "url": "/html/products/MAGICONE/VTR_H/av-v07tm/av-v07tm.htm", "manual_url": "/pdf/products/MAGICONE/AV-V07T.pdf" },
+              { "name": "AV-V07TM", "url": "/html/products/MAGICONE/VTR_H/av-v07tm/av-v07tm.htm", "manual_url": "/pdf/products/MAGICONE/AV-V07TM.pdf" },
+              { "name": "AV-V07TA", "url": "/html/products/MAGICONE/VTR_H/av-v07tac/av-v07tac.htm", "manual_url": "/pdf/products/MAGICONE/AV-V07TA.pdf" },
+              { "name": "AV-V07TC", "url": "/html/products/MAGICONE/VTR_H/av-v07tac/av-v07tac.htm", "manual_url": "/pdf/products/MAGICONE/AV-V07TC.pdf" },
+              { "name": "AV-V07TMA", "url": "/html/products/MAGICONE/VTR_H/av-v07tmac/av-v07tmac.htm", "manual_url": "/pdf/products/MAGICONE/AV-V07TMA.pdf" },
+              { "name": "AV-V07TMC", "url": "/html/products/MAGICONE/VTR_H/av-v07tmac/av-v07tmac.htm", "manual_url": "/pdf/products/MAGICONE/AV-V07TMC.pdf" },
+              { "name": "AV-DH06", "url": "/html/products/MAGICONE/VTR_H/av-dh06/av-dh06.htm", "manual_url": "/pdf/products/MAGICONE/AV-DH06.pdf" }
             ]
           },
           {
@@ -181,10 +187,10 @@
               "url": "/html/products/MAGICONE/magicone.htm?rm_unit"
             },
             "sub_pages": [
-              { "name": "AV-R11", "url": "/html/products/MAGICONE/REAR_EX/av-r11/av-r11.htm" },
-              { "name": "AV-R12", "url": "/html/products/MAGICONE/REAR_EX/av-r12/av-r12.htm" },
-              { "name": "AV-AMP01", "url": "html/products/MAGICONE/OPTION/av-amp01/av-amp01.htm" },
-              { "name": "AV-FD01", "url": "/html/products/MAGICONE/OPTION/av-fd01/av-fd01.htm" }
+              { "name": "AV-R11", "url": "/html/products/MAGICONE/REAR_EX/av-r11/av-r11.htm", "manual_url": "/pdf/products/MAGICONE/AV-R11.pdf" },
+              { "name": "AV-R12", "url": "/html/products/MAGICONE/REAR_EX/av-r12/av-r12.htm", "manual_url": "/pdf/products/MAGICONE/AV-R12.pdf" },
+              { "name": "AV-AMP01", "url": "html/products/MAGICONE/OPTION/av-amp01/av-amp01.htm", "manual_url": "/pdf/products/MAGICONE/AV-AMP01.pdf" },
+              { "name": "AV-FD01", "url": "/html/products/MAGICONE/OPTION/av-fd01/av-fd01.htm", "manual_url": "/pdf/products/MAGICONE/AV-FD01.pdf" }
             ]
           },
           {
@@ -196,17 +202,17 @@
               "url": "/html/products/MAGICONE/magicone.htm?rm_harness"
             },
             "sub_pages": [
-              { "name": "AV-R01", "url": "/html/products/MAGICONE/REAR_EX/av-r01/av-r01.htm" },
-              { "name": "AV-R02", "url": "/html/products/MAGICONE/REAR_EX/av-r02/av-r02.htm" },
-              { "name": "AV-R03", "url": "/html/products/MAGICONE/REAR_EX/av-r03/av-r03.htm" },
-              { "name": "AV-R04", "url": "/html/products/MAGICONE/REAR_EX/av-r04/av-r04.htm" },
-              { "name": "AV-R05", "url": "/html/products/MAGICONE/REAR_EX/av-r05/av-r05.htm" },
-              { "name": "AV-R06", "url": "/html/products/MAGICONE/REAR_EX/av-r06/av-r06.htm" },
-              { "name": "AV-R07", "url": "/html/products/MAGICONE/REAR_EX/av-r07/av-r07.htm" },
-              { "name": "AV-R08", "url": "/html/products/MAGICONE/REAR_EX/av-r08/av-r08.htm" },
-              { "name": "AV-R09", "url": "/html/products/MAGICONE/REAR_EX/av-r09/av-r09.htm" },
-              { "name": "AV-R10", "url": "/html/products/MAGICONE/REAR_EX/av-r10/av-r10.htm" },
-              { "name": "AV-SH01K", "url": "/html/products/MAGICONE/OPTION/av-sh01k/av-sh01k.htm" }
+              { "name": "AV-R01", "url": "/html/products/MAGICONE/REAR_EX/av-r01/av-r01.htm", "manual_url": "/pdf/products/MAGICONE/AV-R01.pdf" },
+              { "name": "AV-R02", "url": "/html/products/MAGICONE/REAR_EX/av-r02/av-r02.htm", "manual_url": "/pdf/products/MAGICONE/AV-R02.pdf" },
+              { "name": "AV-R03", "url": "/html/products/MAGICONE/REAR_EX/av-r03/av-r03.htm", "manual_url": "/pdf/products/MAGICONE/AV-R03.pdf" },
+              { "name": "AV-R04", "url": "/html/products/MAGICONE/REAR_EX/av-r04/av-r04.htm", "manual_url": "/pdf/products/MAGICONE/AV-R04.pdf" },
+              { "name": "AV-R05", "url": "/html/products/MAGICONE/REAR_EX/av-r05/av-r05.htm", "manual_url": "/pdf/products/MAGICONE/AV-R05.pdf" },
+              { "name": "AV-R06", "url": "/html/products/MAGICONE/REAR_EX/av-r06/av-r06.htm", "manual_url": "/pdf/products/MAGICONE/AV-R06.pdf" },
+              { "name": "AV-R07", "url": "/html/products/MAGICONE/REAR_EX/av-r07/av-r07.htm", "manual_url": "/pdf/products/MAGICONE/AV-R07.pdf" },
+              { "name": "AV-R08", "url": "/html/products/MAGICONE/REAR_EX/av-r08/av-r08.htm", "manual_url": "/pdf/products/MAGICONE/AV-R08.pdf" },
+              { "name": "AV-R09", "url": "/html/products/MAGICONE/REAR_EX/av-r09/av-r09.htm", "manual_url": "/pdf/products/MAGICONE/AV-R09.pdf" },
+              { "name": "AV-R10", "url": "/html/products/MAGICONE/REAR_EX/av-r10/av-r10.htm", "manual_url": "/pdf/products/MAGICONE/AV-R10.pdf" },
+              { "name": "AV-SH01K", "url": "/html/products/MAGICONE/OPTION/av-sh01k/av-sh01k.htm", "manual_url": "/pdf/products/MAGICONE/AV-SH01K.pdf" }
             ]
           }
         ]
@@ -224,7 +230,10 @@
             "main_page": {
               "url": "/html/products/LED_BULB/glh-h/glh-h.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "H4 Hi/Loタイプ(GLH-H4)", "url": "", "manual_url": "/pdf/products/LED_BULB/GLH-H4.H11.pdf" },
+              { "name": "H11 タイプ(GLH-H11)", "url": "", "manual_url": "/pdf/products/LED_BULB/GLH-H4.H11.pdf" }
+            ]
           },
           {
             "id": "glh_dsr",
@@ -234,7 +243,7 @@
             "main_page": {
               "url": "/html/products/LED_BULB/glh-dsr/glh-dsr.htm"
             },
-            "sub_pages": []
+            "sub_pages": [{ "name": "D2/D4兼用タイプ(GLH-DSR)", "url": "", "manual_url": "/pdf/products/LED_BULB/GLH-DSR.pdf" }]
           },
           {
             "id": "blh_head",
@@ -244,7 +253,7 @@
             "main_page": {
               "url": "/html/products/LED_BULB/blh_head/blh_head.htm"
             },
-            "sub_pages": []
+            "sub_pages": [{ "name": "HIR2タイプ(BLH-60HIR)", "url": "", "manual_url": "/pdf/products/LED_BULB/BLH_manual.pdf" }]
           },
           {
             "id": "clh_head",
@@ -254,7 +263,7 @@
             "main_page": {
               "url": "/html/products/LED_BULB/clh_head/clh_head.htm"
             },
-            "sub_pages": []
+            "sub_pages": [{ "name": "H4Hi/Loタイプ(CLH-H4)", "url": "", "manual_url": "/pdf/products/LED_BULB/CLH_manual.pdf" }]
           },
           {
             "id": "hyper_led_bulb",
@@ -265,12 +274,12 @@
               "url": "/html/products/LED_BULB/hyper_led_bulb/hyper_led_bulb.htm"
             },
             "sub_pages": [
-              { "name": "SLL-R5008", "url": "/html/products/LED_BULB/hyper_led_bulb/sll-r5008/sll-r5008.htm"},
-              { "name": "SLL-S25SA", "url": "/html/products/LED_BULB/hyper_led_bulb/sll-s25sa/sll-s25sa.htm"},
-              { "name": "SLL-S25SW", "url": "/html/products/LED_BULB/hyper_led_bulb/sll-s25sw/sll-s25sw.htm"},
-              { "name": "SLL-S25WW", "url": "/html/products/LED_BULB/hyper_led_bulb/sll-s25ww/sll-s25ww.htm"},
-              { "name": "SLL-T16SW", "url": "/html/products/LED_BULB/hyper_led_bulb/sll-t16sw/sll-t16sw.htm"},
-              { "name": "SLL-T20SW", "url": "/html/products/LED_BULB/hyper_led_bulb/sll-t20sw/sll-t20sw.htm"}
+              { "name": "SLL-R5008", "url": "/html/products/LED_BULB/hyper_led_bulb/sll-r5008/sll-r5008.htm", "manual_url": ""},
+              { "name": "SLL-S25SA", "url": "/html/products/LED_BULB/hyper_led_bulb/sll-s25sa/sll-s25sa.htm", "manual_url": ""},
+              { "name": "SLL-S25SW", "url": "/html/products/LED_BULB/hyper_led_bulb/sll-s25sw/sll-s25sw.htm", "manual_url": ""},
+              { "name": "SLL-S25WW", "url": "/html/products/LED_BULB/hyper_led_bulb/sll-s25ww/sll-s25ww.htm", "manual_url": ""},
+              { "name": "SLL-T16SW", "url": "/html/products/LED_BULB/hyper_led_bulb/sll-t16sw/sll-t16sw.htm", "manual_url": ""},
+              { "name": "SLL-T20SW", "url": "/html/products/LED_BULB/hyper_led_bulb/sll-t20sw/sll-t20sw.htm", "manual_url": ""}
             ]
           },
           {
@@ -281,7 +290,12 @@
             "main_page": {
               "url": "/html/products/LED_BULB/led_bulb_revo/led_bulb_revo.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "SLL-F11W", "url": "/html/products/LED_BULB/led_bulb_revo/led_bulb_revo_size/led_bulb_revo_size.htm", "manual_url": "/pdf/products/LED_BULB/LED%20REVOLUTION.pdf"},
+              { "name": "SLL-F16W", "url": "/html/products/LED_BULB/led_bulb_revo/led_bulb_revo_size/led_bulb_revo_size.htm", "manual_url": "/pdf/products/LED_BULB/LED%20REVOLUTION.pdf"},
+              { "name": "SLL-F26W", "url": "/html/products/LED_BULB/led_bulb_revo/led_bulb_revo_size/led_bulb_revo_size.htm", "manual_url": "/pdf/products/LED_BULB/LED%20REVOLUTION.pdf"},
+              { "name": "SLL-F26Y", "url": "/html/products/LED_BULB/led_bulb_revo/led_bulb_revo_size/led_bulb_revo_size.htm", "manual_url": "/pdf/products/LED_BULB/LED%20REVOLUTION.pdf"}
+            ]
           },
           {
             "id": "licenselamp",
@@ -291,7 +305,7 @@
             "main_page": {
               "url": "/html/products/LED_BULB/licenselamp/licenselamp.htm"
             },
-            "sub_pages": []
+            "sub_pages": [{ "name": "SLL-L001N", "url": "", "manual_url": ""}]
           },
           {
             "id": "super_led_lamp",
@@ -301,7 +315,13 @@
             "main_page": {
               "url": "/html/products/LED_BULB/superledlamp/super_led_lamp.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "SLL-801", "url": "", "manual_url": ""},
+              { "name": "SLL-802", "url": "", "manual_url": ""},
+              { "name": "SLL-803", "url": "", "manual_url": ""},
+              { "name": "SLL-804", "url": "", "manual_url": ""},
+              { "name": "SLL-805", "url": "", "manual_url": ""}
+            ]
           },
           {
             "id": "super_led_roomlamp2",
@@ -311,7 +331,79 @@
             "main_page": {
               "url": "/html/products/LED_BULB/super_led_roomlamp2/super_led_roomlamp2.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "SLL-1001", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1001.pdf"},
+              { "name": "SLL-1004", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1004.pdf"},
+              { "name": "SLL-1005", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1005.pdf"},
+              { "name": "SLL-1006", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1006.pdf"},
+              { "name": "SLL-1009", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1009.pdf"},
+              { "name": "SLL-1010", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1010.pdf"},
+              { "name": "SLL-1011", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1011.pdf"},
+              { "name": "SLL-1012", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1012.pdf"},
+              { "name": "SLL-1012D", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1012D.pdf"},
+              { "name": "SLL-1013", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1013.pdf"},
+              { "name": "SLL-1014", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1014.pdf"},
+              { "name": "SLL-1015", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1015.pdf"},
+              { "name": "SLL-1016", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1016.pdf"},
+              { "name": "SLL-1017", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1017.pdf"},
+              { "name": "SLL-1018", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1018.pdf"},
+              { "name": "SLL-1019", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1019.pdf"},
+              { "name": "SLL-1020", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1020.pdf"},
+              { "name": "SLL-1021", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1021.pdf"},
+              { "name": "SLL-1022", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1022.pdf"},
+              { "name": "SLL-1023", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1023.pdf"},
+              { "name": "SLL-1024A", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1024A.pdf"},
+              { "name": "SLL-1024B", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1024B.pdf"},
+              { "name": "SLL-1024C", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1024C.pdf"},
+              { "name": "SLL-1025", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1025.pdf"},
+              { "name": "SLL-1027", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1027.pdf"},
+              { "name": "SLL-1028", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1028.pdf"},
+              { "name": "SLL-1029", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1029.pdf"},
+              { "name": "SLL-1030", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1030.pdf"},
+              { "name": "SLL-1032", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1032.pdf"},
+              { "name": "SLL-1033", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1033.pdf"},
+              { "name": "SLL-1034", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1034.pdf"},
+              { "name": "SLL-1035", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-1035.pdf"},
+              { "name": "SLL-2001", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-2001.pdf"},
+              { "name": "SLL-2002", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-2002.pdf"},
+              { "name": "SLL-2003", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-2003.pdf"},
+              { "name": "SLL-2004", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-2004.pdf"},
+              { "name": "SLL-2005", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-2005.pdf"},
+              { "name": "SLL-2006", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-2006.pdf"},
+              { "name": "SLL-2007", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-2007.pdf"},
+              { "name": "SLL-2008", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-2008.pdf"},
+              { "name": "SLL-2009", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-2009.pdf"},
+              { "name": "SLL-3001", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-3001.pdf"},
+              { "name": "SLL-3002", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-3002.pdf"},
+              { "name": "SLL-3003", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-3003.pdf"},
+              { "name": "SLL-3004", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-3004.pdf"},
+              { "name": "SLL-3005", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-3005.pdf"},
+              { "name": "SLL-4001", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-4001.pdf"},
+              { "name": "SLL-4002", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-4002.pdf"},
+              { "name": "SLL-4003", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-4003.pdf"},
+              { "name": "SLL-4004", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-4004.pdf"},
+              { "name": "SLL-4005", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-4005.pdf"},
+              { "name": "SLL-4006", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-4006.pdf"},
+              { "name": "SLL-4007", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-4007.pdf"},
+              { "name": "SLL-6001", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-6001.pdf"},
+              { "name": "SLL-6002", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-6002.pdf"},
+              { "name": "SLL-6003", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-6003.pdf"},
+              { "name": "SLL-7001", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-7001.pdf"},
+              { "name": "SLL-7002", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-7002.pdf"},
+              { "name": "SLL-7003", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-7003.pdf"},
+              { "name": "SLL-8001", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-8001.pdf"},
+              { "name": "SLL-8002", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-8002.pdf"},
+              { "name": "SLL-9003", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-9003.pdf"},
+              { "name": "SLL-9004", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-9004.pdf"},
+              { "name": "SLL-9005", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-9005.pdf"},
+              { "name": "SLL-9006", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-9006.pdf"},
+              { "name": "SLL-9007", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-9007.pdf"},
+              { "name": "SLL-9008", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-9008.pdf"},
+              { "name": "SLL-9009", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-9009.pdf"},
+              { "name": "SLL-9010", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-9010.pdf"},
+              { "name": "SLL-9011", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-9011.pdf"},
+              { "name": "SLL-9012", "url": "", "manual_url": "/pdf/products/LED_BULB/SLL-9012.pdf"}
+]
           },
           {
             "id": "premium_led_lamp_plate",
@@ -321,7 +413,12 @@
             "main_page": {
               "url": "/html/products/LED_BULB/premium_led_lamp_plate/premium_led_lamp_plate.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "SLL-P3550", "url": "", "manual_url": ""},
+              { "name": "SLL-P3535", "url": "", "manual_url": ""},
+              { "name": "SLL-P1939", "url": "", "manual_url": ""},
+              { "name": "SLL-P1725", "url": "", "manual_url": ""}
+            ]
           },
           {
             "id": "door_safety_lamp",
@@ -331,7 +428,7 @@
             "main_page": {
               "url": "/html/products/LED_BULB/door_safety_lamp/door_safety_lamp.htm"
             },
-            "sub_pages": []
+            "sub_pages": [{ "name": "DSL-911", "url": "", "manual_url": "/pdf/products/LED_BULB/DSL-911.pdf"}]
           }
         ]
       },
@@ -348,7 +445,7 @@
             "main_page": {
               "url": "/html/products/AV_ACCESSORY/cdv/cdv01.htm"
             },
-            "sub_pages": []
+            "sub_pages": [{ "name": "AV-CDV01", "url": "", "manual_url": "/pdf/products/AV_ACCESSORY/AV-CDV01.pdf"}]
           },
           {
             "id": "swc_exc",
@@ -359,10 +456,10 @@
               "url": "/html/products/AV_ACCESSORY/swc-exc/swc-exc.htm"
             },
             "sub_pages": [
-              { "name": "SWC-H004", "url": "/html/products/AV_ACCESSORY/swc-exc/swc-h004/swc-h004.htm" },
-              { "name": "SWC-N005", "url": "/html/products/AV_ACCESSORY/swc-exc/swc-n005/swc-n005.htm" },
-              { "name": "SWC-H006", "url": "/html/products/AV_ACCESSORY/swc-exc/swc-h006/swc-h006.htm" },
-              { "name": "SWC-T007", "url": "/html/products/AV_ACCESSORY/swc-exc/swc-t007/swc-t007.htm" }
+              { "name": "SWC-H004", "url": "/html/products/AV_ACCESSORY/swc-exc/swc-h004/swc-h004.htm", "manual_url": "/pdf/products/AV_ACCESSORY/SWC-H004.pdf" },
+              { "name": "SWC-N005", "url": "/html/products/AV_ACCESSORY/swc-exc/swc-n005/swc-n005.htm", "manual_url": "/pdf/products/AV_ACCESSORY/SWC-N005.pdf" },
+              { "name": "SWC-H006", "url": "/html/products/AV_ACCESSORY/swc-exc/swc-h006/swc-h006.htm", "manual_url": "/pdf/products/AV_ACCESSORY/SWC-H006.pdf" },
+              { "name": "SWC-T007", "url": "/html/products/AV_ACCESSORY/swc-exc/swc-t007/swc-t007.htm", "manual_url": "/pdf/products/AV_ACCESSORY/SWC-T007.pdf" }
             ]
           },
           {
@@ -373,7 +470,10 @@
             "main_page": {
               "url": "/html/products/AV_ACCESSORY/steering_sw/steering_sw.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "SWC-T002", "url": "", "manual_url": "/pdf/products/AV_ACCESSORY/swc-t002.pdf" },
+              { "name": "SWC-H003", "url": "", "manual_url": "/pdf/products/AV_ACCESSORY/swc-h003.pdf" }
+            ]
           },
           {
             "id": "hole_sw",
@@ -383,7 +483,11 @@
             "main_page": {
               "url": "/html/products/AV_ACCESSORY/hole_sw/hole_sw.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "SW-PTA01", "url": "", "manual_url": "/pdf/products/TVing/tvswsize.pdf" },
+              { "name": "SWC-PTC01", "url": "", "manual_url": "/pdf/products/TVing/tvswsize.pdf" },
+              { "name": "SWC-PTC02", "url": "", "manual_url": "/pdf/products/TVing/tvswsize.pdf" }
+            ]
           }
         ]
       },
@@ -401,18 +505,18 @@
               "url": "/html/products/CAR_ACCESSORY/sph/sph.htm"
             },
             "sub_pages": [
-              { "name": "SPH-H01", "url": "/html/products/CAR_ACCESSORY/sph/sph-h01.htm" },
-              { "name": "SPH-H02", "url": "/html/products/CAR_ACCESSORY/sph/sph-h02.htm" },
-              { "name": "SPH-H03", "url": "/html/products/CAR_ACCESSORY/sph/sph-h03.htm" },
-              { "name": "SPH-H04", "url": "/html/products/CAR_ACCESSORY/sph/sph-h04.htm" },
-              { "name": "SPH-M01", "url": "/html/products/CAR_ACCESSORY/sph/sph-m01.htm" },
-              { "name": "SPH-M02", "url": "/html/products/CAR_ACCESSORY/sph/sph-m02.htm" },
-              { "name": "SPH-M03", "url": "/html/products/CAR_ACCESSORY/sph/sph-m03.htm" },
-              { "name": "SPH-M04", "url": "/html/products/CAR_ACCESSORY/sph/sph-m04.htm" },
-              { "name": "SPH-MC01", "url": "/html/products/CAR_ACCESSORY/sph/sph-mc01.htm" },
-              { "name": "SPH-MC02", "url": "/html/products/CAR_ACCESSORY/sph/sph-mc02.htm" },
-              { "name": "SPH-MC03", "url": "/html/products/CAR_ACCESSORY/sph/sph-mc03.htm" },
-              { "name": "SPH-MC04", "url": "/html/products/CAR_ACCESSORY/sph/sph-mc04.htm" }
+              { "name": "SPH-H01", "url": "/html/products/CAR_ACCESSORY/sph/sph-h01.htm", "manual_url": "/pdf/products/CAR_ACCESSORY/SPH-H01.pdf" },
+              { "name": "SPH-H02", "url": "/html/products/CAR_ACCESSORY/sph/sph-h02.htm", "manual_url": "/pdf/products/CAR_ACCESSORY/SPH-H02.pdf" },
+              { "name": "SPH-H03", "url": "/html/products/CAR_ACCESSORY/sph/sph-h03.htm", "manual_url": "/pdf/products/CAR_ACCESSORY/SPH-H03.pdf" },
+              { "name": "SPH-H04", "url": "/html/products/CAR_ACCESSORY/sph/sph-h04.htm", "manual_url": "/pdf/products/CAR_ACCESSORY/SPH-H04.pdf" },
+              { "name": "SPH-M01", "url": "/html/products/CAR_ACCESSORY/sph/sph-m01.htm", "manual_url": "/pdf/products/CAR_ACCESSORY/SPH-M01.pdf" },
+              { "name": "SPH-M02", "url": "/html/products/CAR_ACCESSORY/sph/sph-m02.htm", "manual_url": "/pdf/products/CAR_ACCESSORY/SPH-M02.pdf" },
+              { "name": "SPH-M03", "url": "/html/products/CAR_ACCESSORY/sph/sph-m03.htm", "manual_url": "/pdf/products/CAR_ACCESSORY/SPH-M03.pdf" },
+              { "name": "SPH-M04", "url": "/html/products/CAR_ACCESSORY/sph/sph-m04.htm", "manual_url": "/pdf/products/CAR_ACCESSORY/SPH-M04.pdf" },
+              { "name": "SPH-MC01", "url": "/html/products/CAR_ACCESSORY/sph/sph-mc01.htm", "manual_url": "/pdf/products/CAR_ACCESSORY/SPH-MC01.pdf" },
+              { "name": "SPH-MC02", "url": "/html/products/CAR_ACCESSORY/sph/sph-mc02.htm", "manual_url": "/pdf/products/CAR_ACCESSORY/SPH-MC02.pdf" },
+              { "name": "SPH-MC03", "url": "/html/products/CAR_ACCESSORY/sph/sph-mc03.htm", "manual_url": "/pdf/products/CAR_ACCESSORY/SPH-MC03.pdf" },
+              { "name": "SPH-MC04", "url": "/html/products/CAR_ACCESSORY/sph/sph-mc04.htm", "manual_url": "/pdf/products/CAR_ACCESSORY/SPH-MC04.pdf" }
             ]
           },
           {
@@ -423,7 +527,16 @@
             "main_page": {
               "url": "/html/products/CAR_ACCESSORY/light_crew/light_crew.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "ALC-110", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/lightcrew_ALC-110.pdf" },
+              { "name": "ALC-120", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/lightcrew_ALC-120.pdf" },
+              { "name": "ALC-121", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/lightcrew_ALC-121.pdf" },
+              { "name": "ALC-130", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/lightcrew_ALC-130.pdf" },
+              { "name": "ALC-131", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/lightcrew_ALC-131.pdf" },
+              { "name": "ALC-150", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/lightcrew_ALC-150.pdf" },
+              { "name": "ALC-151", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/lightcrew_ALC-151.pdf" },
+              { "name": "ALC-160", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/lightcrew_ALC-160.pdf" }
+            ]
           },
           {
             "id": "door_mirror",
@@ -433,7 +546,21 @@
             "main_page": {
               "url": "/html/products/CAR_ACCESSORY/door_mirror/door_mirror.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "ADM-101", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/ADM-101.pdf" },
+              { "name": "ADM-102", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/ADM-102.pdf" },
+              { "name": "ADM-103", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/ADM-103.pdf" },
+              { "name": "ADM-104", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/ADM-104.pdf" },
+              { "name": "ADM-105", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/ADM-105.pdf" },
+              { "name": "ADM-201", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/ADM-201.pdf" },
+              { "name": "ADM-202", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/ADM-202.pdf" },
+              { "name": "ADM-301", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/ADM-301.pdf" },
+              { "name": "ADM-401", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/ADM-401.pdf" },
+              { "name": "ADM-501", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/ADM-501.pdf" },
+              { "name": "ADL-11", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/ADL-11.pdf" },
+              { "name": "ADK-98", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/ADK-98.pdf" },
+              { "name": "MR-30", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/MR-30.pdf" }
+            ]
           },
           {
             "id": "hlc",
@@ -443,7 +570,16 @@
             "main_page": {
               "url": "/html/products/CAR_ACCESSORY/hlc/hlc.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "HLC-101", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/HLC-101.pdf" },
+              { "name": "HLC-101", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/HLC-101A.pdf" },
+              { "name": "HLC-102", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/HLC-102.pdf" },
+              { "name": "HLC-102C", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/HLC-102C.pdf" },
+              { "name": "HLC-103", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/HLC-103.pdf" },
+              { "name": "HLC-103C", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/HLC-103C.pdf" },
+              { "name": "HLC-104", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/HLC-104.pdf" },
+              { "name": "HLC-104C", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/HLC-104C.pdf" }
+            ]
           },
           {
             "id": "fis",
@@ -453,7 +589,27 @@
             "main_page": {
               "url": "/html/products/CAR_ACCESSORY/fis/fis.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "FIS-T01", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-T01.pdf" },
+              { "name": "FIS-T02", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-T02.pdf" },
+              { "name": "FIS-T03", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-T03.pdf" },
+              { "name": "FIS-T04", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-T04.pdf" },
+              { "name": "FIS-T05", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-T05.pdf" },
+              { "name": "FIS-T06", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-T06.pdf" },
+              { "name": "FIS-T07", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-T07.pdf" },
+              { "name": "FIS-T08", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-T08.pdf" },
+              { "name": "FIS-N01", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-N01.pdf" },
+              { "name": "FIS-N02", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-N02.pdf" },
+              { "name": "FIS-N03", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-N03.pdf" },
+              { "name": "FIS-N04", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-N04.pdf" },
+              { "name": "FIS-N05", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-N05.pdf" },
+              { "name": "FIS-N06", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-N06.pdf" },
+              { "name": "FIS-S01", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-S01.pdf" },
+              { "name": "FIS-D01", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-D01.pdf" },
+              { "name": "FIS-100P", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-100P.pdf" },
+              { "name": "FIS-100M", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/FIS-100M.pdf" }
+              
+            ]
           },
           {
             "id": "ebs",
@@ -463,7 +619,12 @@
             "main_page": {
               "url": "/html/products/CAR_ACCESSORY/ebs/ebs.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "EBS-101", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/EBS-101_manual.pdf" },
+              { "name": "EBS-102", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/EBS-102_manual.pdf" },
+              { "name": "EBS-103", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/EBS-103_manual.pdf" },
+              { "name": "EBS-104", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/EBS-104_manual.pdf" }
+            ]
           },
           {
             "id": "sdlct",
@@ -473,7 +634,15 @@
             "main_page": {
               "url": "/html/products/CAR_ACCESSORY/sdlct/sdlct.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "SDL-CT03", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/SDL-CT03.pdf" },
+              { "name": "SDL-CT04", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/SDL-CT04.pdf" },
+              { "name": "SDL-CT05", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/SDL-CT05.pdf" },
+              { "name": "SDL-CT06", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/SDL-CT06.pdf" },
+              { "name": "SDL-CT07", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/SDL-CT07.pdf" },
+              { "name": "SDL-CT08", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/SDL-CT08.pdf" },
+              { "name": "SDL-CH01", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/SDL-CH01.pdf" }
+            ]
           },
           {
             "id": "speed_auto_lock",
@@ -483,7 +652,11 @@
             "main_page": {
               "url": "/html/products/CAR_ACCESSORY/speed_auto_lock/speed_auto_lock.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "SDL-HR01", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/shasoku.pdf" },
+              { "name": "SDL-TS02", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/shasoku.pdf" },
+              { "name": "SDL-DW200", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/shasoku.pdf" }
+            ]
           },
           {
             "id": "answer_system",
@@ -493,7 +666,13 @@
             "main_page": {
               "url": "/html/products/CAR_ACCESSORY/answer_system/answer_system.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "BDR-308", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/answer_308.pdf" },
+              { "name": "DAS-H51", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/answer_h51.pdf" },
+              { "name": "DAS-B61", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/answer_b61.pdf" },
+              { "name": "DAS-H71", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/answer_h71.pdf" },
+              { "name": "DAS-S81", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/answer_s81.pdf" }
+            ]
           },
           {
             "id": "brake4",
@@ -503,7 +682,12 @@
             "main_page": {
               "url": "/html/products/CAR_ACCESSORY/brake4/brake4.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "BKU-01", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/BKU-01.pdf" },
+              { "name": "BKU-02", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/BKU-02.pdf" },
+              { "name": "BKU-03", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/BKU-03.pdf" },
+              { "name": "BKU-04", "url": "", "manual_url": "/pdf/products/CAR_ACCESSORY/BKU-04.pdf" }
+            ]
           }
         ]
       },
@@ -520,7 +704,7 @@
             "main_page": {
               "url": "/html/products/CAMERA/av-fbc/av-fbc01r/av-fbc01r.htm"
             },
-            "sub_pages": []
+            "sub_pages": [{ "name": "AV-FBC01R", "url": "", "manual_url": "/pdf/products/CAMERA/AV-FBC01R.pdf" }]
           },
           {
             "id": "av_fbc02r",
@@ -530,7 +714,7 @@
             "main_page": {
               "url": "/html/products/CAMERA/av-fbc/av-fbc02r/av-fbc02r.htm"
             },
-            "sub_pages": []
+            "sub_pages": [{ "name": "AV-FBC02R", "url": "", "manual_url": "/pdf/products/CAMERA/AV-FBC02R.pdf" }]
           },
           {
             "id": "av_fbc03r",
@@ -540,7 +724,7 @@
             "main_page": {
               "url": "/html/products/CAMERA/av-fbc/av-fbc03r/av-fbc03r.htm"
             },
-            "sub_pages": []
+            "sub_pages": [{ "name": "AV-FBC03R", "url": "", "manual_url": "/pdf/products/CAMERA/AV-FBC03R.pdf" }]
           },
           {
             "id": "av_cs_link",
@@ -551,12 +735,14 @@
               "url": "/html/products/CAMERA/AV-CS-Link/AV-CS-Link.htm"
             },
             "sub_pages": [
-              { "name": "AV-CS80", "url": "/html/products/CAMERA/AV-CS-Link/av-cs80/av-cs80.htm" },
-              { "name": "AV-CS100", "url": "/html/products/CAMERA/AV-CS-Link/av-cs100/av-cs100.htm" },
-              { "name": "AV-CS150", "url": "/html/products/CAMERA/AV-CS-Link/AV-CS150/av-cs150.htm" },
-              { "name": "AV-CS200/200G", "url": "/html/products/CAMERA/AV-CS-Link/AV-CS200/av-cs200.htm" },
-              { "name": "AV-CS250/CS250G", "url": "/html/products/CAMERA/AV-CS-Link/AV-CS250/av-cs250.htm" },
-              { "name": "AV-CS300", "url": "/html/products/CAMERA/AV-CS-Link/AV-CS300/av-cs300.htm" }
+              { "name": "AV-CS80", "url": "/html/products/CAMERA/AV-CS-Link/av-cs80/av-cs80.htm", "manual_url": "/pdf/products/CAMERA/AV-CS80.pdf" },
+              { "name": "AV-CS100", "url": "/html/products/CAMERA/AV-CS-Link/av-cs100/av-cs100.htm", "manual_url": "/pdf/products/CAMERA/camera_selector.pdf" },
+              { "name": "AV-CS150", "url": "/html/products/CAMERA/AV-CS-Link/AV-CS150/av-cs150.htm", "manual_url": "/pdf/products/CAMERA/AV-CS150.pdf" },
+              { "name": "AV-CS200", "url": "/html/products/CAMERA/AV-CS-Link/AV-CS200/av-cs200.htm", "manual_url": "/pdf/products/CAMERA/AV-CS200.pdf" },
+              { "name": "AV-CS200G", "url": "/html/products/CAMERA/AV-CS-Link/AV-CS200/av-cs200.htm", "manual_url": "/pdf/products/CAMERA/AV-CS200G.pdf" },
+              { "name": "AV-CS250", "url": "/html/products/CAMERA/AV-CS-Link/AV-CS250/av-cs250.htm", "manual_url": "/pdf/products/CAMERA/AV-CS250.pdf" },
+              { "name": "AV-CS250G", "url": "/html/products/CAMERA/AV-CS-Link/AV-CS250/av-cs250.htm", "manual_url": "/pdf/products/CAMERA/AV-CS250G.pdf" },
+              { "name": "AV-CS300", "url": "/html/products/CAMERA/AV-CS-Link/AV-CS300/av-cs300.htm", "manual_url": "/pdf/products/CAMERA/AV-CS300.pdf" }
             ]
           }
         ]
@@ -574,7 +760,7 @@
             "main_page": {
               "url": "/html/products/MONITER/av-m01/av-m01.htm"
             },
-            "sub_pages": []
+            "sub_pages": [{ "name": "AV-M01", "url": "", "manual_url": "/pdf/products/MONITOR/av-m01.pdf" }]
           },
           {
             "id": "av_m02",
@@ -584,7 +770,7 @@
             "main_page": {
               "url": "/html/products/MONITER/av-m02/av-m02.htm"
             },
-            "sub_pages": []
+            "sub_pages": [{ "name": "AV-M02", "url": "", "manual_url": "/pdf/products/MONITOR/av-m02.pdf" }]
           },
           {
             "id": "av_m03",
@@ -594,7 +780,7 @@
             "main_page": {
               "url": "/html/products/MONITER/av-m03/av-m03.htm"
             },
-            "sub_pages": []
+            "sub_pages": [{ "name": "AV-M03", "url": "", "manual_url": "/pdf/products/MONITOR/av-m03.pdf" }]
           }
         ]
       },
@@ -612,9 +798,9 @@
               "url": "/html/products/HDMI_USB/eopspt/eopspt.htm"
             },
             "sub_pages": [
-              { "name": "EOP-SP01TC（トヨタCタイプ）", "url": "/html/products/HDMI_USB/eopspt/eopsp01tc.htm" },
-              { "name": "EOP-SP01TA（トヨタAタイプ）", "url": "/html/products/HDMI_USB/eopspt/eopsp01ta.htm" },
-              { "name": "EOP-SP01TU（トヨタUSBタイプ）", "url": "/html/products/HDMI_USB/eopspt/eopsp01tu.htm" }
+              { "name": "EOP-SP01TC（トヨタCタイプ）", "url": "/html/products/HDMI_USB/eopspt/eopsp01ta.htm", "manual_url": "/pdf/products/HDMI_USB/EOP-SP01TA.pdf" },
+              { "name": "EOP-SP01TA（トヨタAタイプ）", "url": "/html/products/HDMI_USB/eopspt/eopsp01ta.htm", "manual_url": "/pdf/products/HDMI_USB/EOP-SP01TC.pdf" },
+              { "name": "EOP-SP01TU（トヨタUSBタイプ）", "url": "/html/products/HDMI_USB/eopspt/eopsp01tu.htm", "manual_url": "/pdf/products/HDMI_USB/EOP-SP01TU.pdf" }
             ]
           },
           {
@@ -625,7 +811,10 @@
             "main_page": {
               "url": "/html/products/HDMI_USB/eophzt/eophz.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "EOP-HZ01TU", "url": "", "manual_url": "/pdf/products/HDMI_USB/EOP-HZ01TU.pdf" },
+              { "name": "EOP-HZ02TU", "url": "", "manual_url": "/pdf/products/HDMI_USB/EOP-HZ02TU.pdf" }
+            ]
           },
           {
             "id": "av_hdm01",
@@ -634,7 +823,11 @@
             "image_path": "/images/products/hdmi_convert_unit.jpg",
             "main_page": {
               "url": "/html/products/HDMI_USB/av-hdm01/av-hdm01.htm"
-            }
+            },
+            "sub_pages": [
+              { "name": "AV-HDM01", "url": "", "manual_url": "/pdf/products/HDMI_USB/AV-HDM01.pdf" },
+              { "name": "AV-HDM01DC", "url": "", "manual_url": "/pdf/products/HDMI_USB/AV-HDM01DC.pdf" }
+            ]
           },
           {
             "id": "eopusbca",
@@ -644,7 +837,7 @@
             "main_page": {
               "url": "/html/products/HDMI_USB/eopusbca/eopusbca.htm"
             },
-            "sub_pages": []
+            "sub_pages": [{ "name": "EOP-USB-CA", "url": "", "manual_url": "/pdf/products/HDMI_USB/EOP-USB-CA.pdf" }]
           },
           {
             "id": "av_dh06",
@@ -652,8 +845,9 @@
             "short_description": "HDMI（タイプE）入力端子搭載のナビゲーションにHDMI（タイプA）の外部機器を接続できます。",
             "image_path": "/images/products/hdmi_type-e.jpg",
             "main_page": {
-              "url": "/html/products/MAGICONE/VTR_H/av-dh06/av-dh06.htm"
-            }
+              "url": "/html/products/MAGICONE/VTR_H/av-dh06/av-dh06.htm?type-e"
+            },
+            "sub_pages": [{ "name": "AV-DH06", "url": "", "manual_url": "/pdf/products/MAGICONE/AV-DH06.pdf" }]
           },
           {
             "id": "eopdc",
@@ -663,7 +857,10 @@
             "main_page": {
               "url": "/html/products/HDMI_USB/eopdc/eopdc.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "EOP-DC01", "url": "", "manual_url": "/pdf/products/HDMI_USB/EOP-DC01.pdf" },
+              { "name": "EOP-DC02", "url": "", "manual_url": "/pdf/products/HDMI_USB/EOP-DC02.pdf" }
+            ]
           }
         ]
       },
@@ -681,16 +878,16 @@
               "url": "/html/products/POWER/op_cn/op_cn.htm"
             },
             "sub_pages": [
-                { "name": "FC-H01(ホンダ6ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-h01/fc-h01.htm" },
-                { "name": "FC-H02(ホンダ6ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-h02/fc-h02.htm" },
-                { "name": "FC-H03(ホンダ6ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-h03/fc-h03.htm" },
-                { "name": "FC-T01(トヨタ10ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-t01/fc-t01.htm" },
-                { "name": "FC-T02(トヨタ5ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-t02/fc-t02.htm" },
-                { "name": "FC-T03(トヨタ8ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-t03/fc-t03.htm" },
-                { "name": "FC-T04(トヨタ13ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-t04/fc-t04.htm" },
-                { "name": "FC-T05(トヨタ10ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-t05/fc-t05.htm" },
-                { "name": "FC-T06(トヨタ13ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-t06/fc-t06.htm" },
-                { "name": "fc-t07(トヨタ10ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-t07/fc-t07.htm" }
+                { "name": "FC-H01(ホンダ6ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-h01/fc-h01.htm", "manual_url": "/pdf/products/POWER/FC-H01.pdf" },
+                { "name": "FC-H02(ホンダ6ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-h02/fc-h02.htm", "manual_url": "/pdf/products/POWER/FC-H02.pdf" },
+                { "name": "FC-H03(ホンダ6ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-h03/fc-h03.htm", "manual_url": "/pdf/products/POWER/FC-H03.pdf" },
+                { "name": "FC-T01(トヨタ10ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-t01/fc-t01.htm", "manual_url": "/pdf/products/POWER/FC-T01.pdf" },
+                { "name": "FC-T02(トヨタ5ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-t02/fc-t02.htm", "manual_url": "/pdf/products/POWER/FC-T02.pdf" },
+                { "name": "FC-T03(トヨタ8ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-t03/fc-t03.htm", "manual_url": "/pdf/products/POWER/FC-T03.pdf" },
+                { "name": "FC-T04(トヨタ13ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-t04/fc-t04.htm", "manual_url": "/pdf/products/POWER/FC-T04.pdf" },
+                { "name": "FC-T05(トヨタ10ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-t05/fc-t05.htm", "manual_url": "/pdf/products/POWER/FC-T05.pdf" },
+                { "name": "FC-T06(トヨタ13ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-t06/fc-t06.htm", "manual_url": "/pdf/products/POWER/FC-T06.pdf" },
+                { "name": "FC-T07(トヨタ10ピン)オプションハーネス", "url": "/html/products/POWER/op_cn/fc-t07/fc-t07.htm", "manual_url": "/pdf/products/POWER/FC-T07.pdf" }
             ]
           },
           {
@@ -701,7 +898,19 @@
             "main_page": {
               "url": "/html/products/POWER/one_touch/one_touch.htm"
             },
-            "sub_pages": []
+            "sub_pages": [
+              { "name": "FBT-00", "url": "", "manual_url": "" },
+              { "name": "FBT-01", "url": "", "manual_url": "" },
+              { "name": "FBT-02", "url": "", "manual_url": "" },
+              { "name": "FBT-03", "url": "", "manual_url": "" },
+              { "name": "FBT-04", "url": "", "manual_url": "" },
+              { "name": "FBM-02", "url": "", "manual_url": "" },
+              { "name": "FBM-03", "url": "", "manual_url": "" },
+              { "name": "FBM-04", "url": "", "manual_url": "" },
+              { "name": "FBF-02", "url": "", "manual_url": "" },
+              { "name": "FBF-03", "url": "", "manual_url": "" },
+              { "name": "FBF-04", "url": "", "manual_url": "" }
+            ]
           }
         ]
       }

@@ -37,6 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
             title.textContent = '製品一覧';
             sidebarContainer.appendChild(title);
 
+            const caution1 = document.createElement('p');
+            caution1.textContent = '※青文字は詳細ページにリンクします。';
+            caution1.style.fontSize = '12px'
+            caution1.style.color = '#00479d'
+            sidebarContainer.appendChild(caution1);
+            const caution2 = document.createElement('p');
+            caution2.textContent = '※緑文字は取扱説明書PDFにリンクします。';
+            caution2.style.fontSize = '12px'
+            caution2.style.color = '#3F9877'
+            sidebarContainer.appendChild(caution2);
+
             const productList = document.createElement('ul');
             productList.className = 'category-list';
             sidebarContainer.appendChild(productList);
@@ -98,15 +109,23 @@ document.addEventListener('DOMContentLoaded', () => {
                         product.sub_pages.forEach(subPage => {
                             const subPageListItem = document.createElement('li');
                             const subPageLink = document.createElement('a');
-                            subPageLink.href = subPage.url;
-                            subPageLink.textContent = subPage.name;
-                            
-                            const subPageUrlPath = subPage.url.replace(/\/+$/, '');
-                            if (currentUrlPath.endsWith(subPageUrlPath)) {
-                                subPageLink.classList.add('current-product');
-                                isCurrentCategory = true;
-                                isCurrentProduct = true;
+                            if (subPage.url) {
+                                subPageLink.href = subPage.url;
+                                subPageLink.style.color = "#00479d";
+
+                                const subPageUrlPath = subPage.url.replace(/\/+$/, '');
+                                if (currentUrlPath.endsWith(subPageUrlPath)) {
+                                    subPageLink.classList.add('current-product');
+                                    isCurrentCategory = true;
+                                    isCurrentProduct = true;
+                                }
+                            } else if((subPage.manual_url)){ //詳細ページがないものは説明書urlを
+                                subPageLink.href = subPage.manual_url;
+                                subPageLink.style.color = "#3F9877";
+                            } else {
+                                subPageLink.style.pointerEvents = 'none';
                             }
+                            subPageLink.textContent = subPage.name;
                             
                             subPageListItem.appendChild(subPageLink);
                             subPagesUl.appendChild(subPageListItem);
