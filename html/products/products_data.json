@@ -183,7 +183,7 @@
             "sub_pages": [
               { "name": "AV-R11", "url": "/html/products/MAGICONE/REAR_EX/av-r11/av-r11.htm" },
               { "name": "AV-R12", "url": "/html/products/MAGICONE/REAR_EX/av-r12/av-r12.htm" },
-              { "name": "AV-AMP01", "url": "/products/MAGICONE/OPTION/av-amp01/av-amp01.htm" },
+              { "name": "AV-AMP01", "url": "html/products/MAGICONE/OPTION/av-amp01/av-amp01.htm" },
               { "name": "AV-FD01", "url": "/html/products/MAGICONE/OPTION/av-fd01/av-fd01.htm" }
             ]
           },
@@ -652,7 +652,7 @@
             "short_description": "HDMI（タイプE）入力端子搭載のナビゲーションにHDMI（タイプA）の外部機器を接続できます。",
             "image_path": "/images/products/hdmi_type-e.jpg",
             "main_page": {
-              "url": "/html/products/AGICONE/VTR_H/av-dh06/av-dh06.htm"
+              "url": "/html/products/MAGICONE/VTR_H/av-dh06/av-dh06.htm"
             }
           },
           {
