@@ -60,7 +60,7 @@
         "products": [
           {
             "id": "magicone_bc_unit",
-            "name": "マジコネ バックカメラ接続ユニット",
+            "name": "バックカメラ接続ユニット",
             "short_description": "純正バックカメラ・全周囲カメラの映像を市販ナビゲーションに表示します。",
             "image_path": "/images/products/magicone_back_camera_unit.jpg",
             "main_page": {
@@ -122,7 +122,7 @@
           },
           {
             "id": "magicone_bc_harness",
-            "name": "マジコネ バックカメラ接続ハーネス",
+            "name": "バックカメラ接続ハーネス",
             "short_description": "市販バックカメラ映像を純正ナビゲーションに表示します。市販バックカメラ映像を車両中継ハーネスを使用して市販ナビゲーションに表示します。",
             "image_path": "/images/products/magicone_back_camera_harness.jpg",
             "main_page": {
@@ -154,7 +154,7 @@
           },
           {
             "id": "magicone_vtr_harness",
-            "name": "マジコネ VTRハーネス",
+            "name": "VTRハーネス",
             "short_description": "外部入力機器映像（ＶＴＲ）をナビゲーションやモニターに表示します。",
             "image_path": "/images/products/magicone_vtr_harness.jpg",
             "main_page": {
@@ -174,7 +174,7 @@
           },
           {
             "id": "magicone_rm_unit",
-            "name": "マジコネ リアモニター接続ユニット",
+            "name": "リアモニター接続ユニット",
             "short_description": "リアモニター出力機能付きナビゲーションと純正後席ディスプレイを接続します。",
             "image_path": "/images/products/magicone_rear_moniter_unit.jpg",
             "main_page": {
@@ -189,7 +189,7 @@
           },
           {
             "id": "magicone_rm_harness",
-            "name": "マジコネ リアモニター接続/増設ハーネス",
+            "name": "リアモニター接続/増設ハーネス",
             "short_description": "ナビゲーションとリアモニターを接続します。",
             "image_path": "/images/products/magicone_rear_moniter_harness.jpg",
             "main_page": {

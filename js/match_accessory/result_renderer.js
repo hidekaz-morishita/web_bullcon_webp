@@ -132,8 +132,23 @@ function generateTable(data, headerData) {
             } else if (col.key === 'notes') {
                 if (item && item[col.key]) {
                     const notesString = item[col.key];
-                    const parts = (notesString || '').replace(/[{}]/g, '').split(',').filter(p => p.trim() !== '');
-                    td.innerHTML = parts.map(part => `※${part}`).join('<br>');
+                    const partsStr = (notesString || '').replace(/[{}]/g, '').split(',').filter(p => p.trim() !== '');
+                
+                    // スズキ専用注意事項
+                    // 各要素に対して処理を行うための新しい配列を作成
+                    const processedParts = partsStr.map(part => {
+                        const partsInt = parseInt(part.trim(), 10);
+                        // パースした値が有効な数値であり、900以上1000未満であることを確認
+                        if (!isNaN(partsInt) && partsInt >= 900 && partsInt < 1000) {
+                            // 条件を満たす場合、"S" + (値 - 900) の形式に変換
+                            return `S${partsInt - 900}`;
+                        }
+                        // その他の場合、元の文字列をそのまま返す
+                        return part.trim();
+                    });
+                
+                    // 処理された配列の各要素に"※"を付けて、改行で結合
+                    td.innerHTML = processedParts.map(str => `※${str}`).join('<br>');
                 } else {
                     td.innerHTML = '';
                 }
@@ -173,6 +188,10 @@ function displayNotes(data) {
         sortedNotes.forEach(num => {
             const noteText = NOTES_DATA[num];
             if (noteText) {
+                // スズキ専用注意事項
+                if(num >= 900 && num < 1000) {
+                    num = `S${num - 900}`;
+                }
                 notesHtml += `<li><span class="note-number">※${num}</span><span class="note-text">：${noteText.replace(/\n/g, '<br>')}</span></li>`;
             }
         });

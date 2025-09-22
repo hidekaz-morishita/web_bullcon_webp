@@ -182,7 +182,7 @@ a:hover {
 }
 
 /* ページコンテンツの調整 */
-@media (min-width: 1024px) {
+@media (min-width: 1700px) {
     .product-sidebar-container {
         display: block;
     }
