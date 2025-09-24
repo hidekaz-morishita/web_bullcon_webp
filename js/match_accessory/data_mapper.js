@@ -99,9 +99,9 @@ export const PRODUCTS_DATA = {
             }
         }
     },
-    'Magicone': {
+    'Magicone_bk_un': {
         name: 'バックカメラ接続ユニット',
-        productKey: 'magicone_un',
+        productKey: 'magicone_bk_un',
         optionFlows: {
             'maker': {
                 processType: 'maker_process',
@@ -158,6 +158,71 @@ export const PRODUCTS_DATA = {
                     { label: 'バックカメラ接続ユニット', subHeaders: [
                         { key: 'product_number_1', label: '品番１',
                             priceKeys: { excl: 'un_price_excl_tax_1', incl: 'un_price_incl_tax_1' },
+                         }                        
+                    ]},
+                    { label: '注意事項', subHeaders: [
+                        { key: 'notes', label: '備考' }
+                    ]}
+                ]
+            },
+        }
+    },
+    'Magicone_bk_ha': {
+        name: 'バックカメラ接続ハーネス',
+        productKey: 'magicone_bk_ha',
+        optionFlows: {
+            'maker': {
+                processType: 'maker_process',
+                pdf_paths: {
+                    'トヨタ': '../../pdf/products/MAGICONE/magicone_c_m_toyota.pdf',
+                    'レクサス': '',
+                    'ニッサン': '../../pdf/products/MAGICONE/magicone_c_m_nissan.pdf',
+                    'ホンダ': '../../pdf/products/MAGICONE/magicone_c_m_honda.pdf',
+                    'マツダ': '../../pdf/products/MAGICONE/magicone_c_m_mazda.pdf',
+                    'スバル': '../../pdf/products/MAGICONE/magicone_c_m_subaru.pdf',
+                    'スズキ': '../../pdf/products/MAGICONE/magicone_c_m_suzuki.pdf',
+                    'ダイハツ': '../../pdf/products/MAGICONE/magicone_c_m_daihatsu.pdf',
+                    'ミツビシ': '../../pdf/products/MAGICONE/magicone_c_m_mitsubishi.pdf'
+                },
+                header: [
+                    { label: '車両情報', subHeaders: [
+                        { key: 'car_model', label: '車名' },
+                        { key: 'print_date', label: '年式' },
+                        { key: 'model_number', label: '型式' },
+                        { key: 'specification', label: '仕様' },
+                    ]},
+                    { label: 'バックカメラ接続ハーネス', subHeaders: [
+                        { key: 'ha_product_number_1', label: '品番１',
+                            priceKeys: { excl: 'ha_price_excl_tax_1', incl: 'ha_price_incl_tax_1' },
+                         },
+                    ]},
+                    { label: '注意事項', subHeaders: [
+                        { key: 'notes', label: '備考' }
+                    ]}
+                ]
+            },
+            'dealer': {
+                processType: 'dealer_process',
+                pdf_paths: {
+                    'トヨタ': '../../pdf/products/MAGICONE/magicone_c_d_toyota.pdf',
+                    'レクサス': '',
+                    'ニッサン': '../../pdf/products/MAGICONE/magicone_c_d_nissan.pdf',
+                    'ホンダ': '../../pdf/products/MAGICONE/magicone_c_d_honda.pdf',
+                    'マツダ': '../../pdf/products/MAGICONE/magicone_c_d_mazda.pdf',
+                    'スバル': '',
+                    'スズキ': '../../pdf/products/MAGICONE/magicone_c_d_suzuki.pdf',
+                    'ダイハツ': '../../pdf/products/MAGICONE/magicone_c_d_daihatsu.pdf',
+                    'ミツビシ': '../../pdf/products/MAGICONE/magicone_c_d_mitsubishi.pdf'
+                },
+                header: [
+                    { label: '車両情報', subHeaders: [
+                        { key: 'year', label: 'モデル年' },
+                        { key: 'monitor_number', label: 'モニター型番' },
+                        { key: 'specification', label: '仕様' },
+                    ]},
+                    { label: 'バックカメラ接続ハーネス', subHeaders: [
+                        { key: 'product_number_1', label: '品番１',
+                            priceKeys: { excl: 'ha_price_excl_tax_1', incl: 'ha_price_incl_tax_1' },
                          }                        
                     ]},
                     { label: '注意事項', subHeaders: [

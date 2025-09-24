@@ -23,16 +23,19 @@ class ProductSearchFactory
                     );
                 }
                 break;
-            case 'magicone_un':
+            case 'magicone_bk_un':
+            case 'magicone_bk_ha':
                 if ($option === 'maker') {
-                    return new MagiconeUnMakerSearch(
+                    return new MagiconeMakerSearch(
+                        $product,
                         $params['maker'], 
                         $params['model'], 
                         $params['year'], 
                         $params['month']
                     );
                 } elseif ($option === 'dealer') {
-                    return new MagiconeUnDealerSearch(
+                    return new MagiconeDealerSearch(
+                        $product,
                         $params['maker'], 
                         $params['productCode']
                     );

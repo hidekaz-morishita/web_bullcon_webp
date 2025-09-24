@@ -2,14 +2,16 @@
 // ProductSearchInterfaceを読み込む
 require_once './products_compatibility/product_search_interface.php';
 
-class MagiconeUnMakerSearch implements ProductSearchInterface
+class MagiconeMakerSearch implements ProductSearchInterface
 {
+    private $product;
     private $maker;
     private $model;
     private $userDateTimestamp;
 
-    public function __construct($maker, $model, $year, $month)
+    public function __construct($product, $maker, $model, $year, $month)
     {
+        $this->product = $product;
         $this->maker = $maker;
         $this->model = $model;
         $this->userDateTimestamp = strtotime("{$year}-{$month}-01");
@@ -17,7 +19,24 @@ class MagiconeUnMakerSearch implements ProductSearchInterface
 
     public function getSql(): string
     {
-        return "SELECT * FROM magicone_bk_un_maker WHERE maker = ? AND car_model LIKE ?";
+        switch($this->product) {
+            case 'magicone_bk_un':
+                return "SELECT * FROM magicone_bk_un_maker WHERE maker = ? AND car_model LIKE ?";
+                break;
+            case 'magicone_bk_ha':
+                return "SELECT * FROM magicone_bk_ha_maker WHERE maker = ? AND car_model LIKE ?";
+                break;
+                //ika temp
+            case 'magicone_bk_un':
+                return "SELECT * FROM magicone_bk_un_maker WHERE maker = ? AND car_model LIKE ?";
+                break;
+            case 'magicone_bk_ha':
+                return "SELECT * FROM magicone_bk_un_maker WHERE maker = ? AND car_model LIKE ?";
+                break;
+            case 'magicone_bk_vtr':
+                return "SELECT * FROM magicone_bk_un_maker WHERE maker = ? AND car_model LIKE ?";
+                break;
+        }
     }
 
     public function getParams(): array
@@ -62,20 +81,39 @@ class MagiconeUnMakerSearch implements ProductSearchInterface
 }
 
 
-class MagiconeUnDealerSearch implements ProductSearchInterface
+class MagiconeDealerSearch implements ProductSearchInterface
 {
+    private $product;
     private $maker;
     private $productCode;
 
-    public function __construct($maker, $productCode)
+    public function __construct($product, $maker, $productCode)
     {
+        $this->product = $product;
         $this->maker = $maker;
         $this->productCode = $productCode;
     }
 
     public function getSql(): string
     {
-        return "SELECT * FROM magicone_bk_un_dealer WHERE maker = ? AND monitor_number LIKE ?";
+        switch($this->product) {
+            case 'magicone_bk_un':
+                return "SELECT * FROM magicone_bk_un_dealer WHERE maker = ? AND monitor_number LIKE ?";
+                break;
+            case 'magicone_bk_ha':
+                return "SELECT * FROM magicone_bk_ha_dealer WHERE maker = ? AND monitor_number LIKE ?";
+                break;
+                //ika temp
+            case 'magicone_bk_un':
+                return "SELECT * FROM magicone_bk_un_dealer WHERE maker = ? AND monitor_number LIKE ?";
+                break;
+            case 'magicone_bk_ha':
+                return "SELECT * FROM magicone_bk_un_dealer WHERE maker = ? AND monitor_number LIKE ?";
+                break;
+            case 'magicone_bk_vtr':
+                return "SELECT * FROM magicone_bk_un_dealer WHERE maker = ? AND monitor_number LIKE ?";
+                break;
+        }
     }
 
     public function getParams(): array

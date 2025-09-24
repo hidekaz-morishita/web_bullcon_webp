@@ -32,7 +32,8 @@ function generateSpecificProductForm(formContainer, productInfo, state) {
     const { selectedOptionType, selectedMaker, selectedModel, selectedYear, selectedMonth, selectedProductCode } = state;
 
     if (productInfo.name === 'フリーテレビング/テレナビング' || 
-        productInfo.name === 'バックカメラ接続ユニット') {
+        productInfo.name === 'バックカメラ接続ユニット' ||
+        productInfo.name === 'バックカメラ接続ハーネス') {
         const optionGroup = document.createElement('div');
         optionGroup.className = 'form-group';
         optionGroup.innerHTML = `
