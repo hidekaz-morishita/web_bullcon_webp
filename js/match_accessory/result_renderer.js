@@ -1,7 +1,7 @@
 // result_renderer.js
 
 import { getCompatibilityData } from './match_api_client.js';
-import { NOTES_DATA } from './data_mapper.js';
+import { TVING_NOTES_DATA, MAGICONE_NOTES_DATA } from './data_mapper.js';
 
 /**
  * 検索結果を処理してDOMに表示する関数
@@ -43,7 +43,7 @@ export async function handleSearchResults(params, headerData, pdfPath) {
         if (partsData && Array.isArray(partsData) && partsData.length > 0) {
             if (messageContainer) messageContainer.style.display = 'none';
             generateTable(partsData, headerData);
-            displayNotes(partsData);
+            displayNotes(partsData, params.product);
             if (tableContainer) tableContainer.style.display = 'block';
         } else {
             if (messageContainer) {
@@ -51,7 +51,7 @@ export async function handleSearchResults(params, headerData, pdfPath) {
                 messageContainer.style.display = 'block';
             }
             if (tableContainer) tableContainer.style.display = 'none';
-            displayNotes([]);
+            displayNotes([], null);
             if (pdfLinkContainer) {
                 const pdfLink = pdfLinkContainer.querySelector('.pdf-link');
                 if (pdfLink) {
@@ -162,9 +162,15 @@ function generateTable(data, headerData) {
 }
 
 // 注意事項を表示する関数
-function displayNotes(data) {
+function displayNotes(data, productName) {
     const notesContainer = document.getElementById('notes-list-container');
     if (!notesContainer) return;
+
+    const NOTES_MAP = {
+      'televing': TVING_NOTES_DATA,
+      'magicone_un': MAGICONE_NOTES_DATA
+    };
+    const noteSet = NOTES_MAP[productName] || '';
 
     const uniqueNotes = new Set();
     data.forEach(item => {
@@ -177,25 +183,37 @@ function displayNotes(data) {
 
     const sortedNotes = Array.from(uniqueNotes).sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
 
-    let notesHtml = '<h3>注意事項</h3><ul>';
-    if (NOTES_DATA['common'] && NOTES_DATA['common'].length > 0) {
-        NOTES_DATA['common'].forEach(common_txt => {
-            notesHtml += `<li><span class="note-number">※共通</span><span class="note-text">：${common_txt.replace(/\n/g, '<br>')}</span></li>`;
+    // 注意事項のHTMLを格納する配列
+    const noteItems = [];
+
+    // 共通注意事項の処理
+    if (noteSet?.common?.length > 0) {
+        noteSet.common.forEach(text => {
+            noteItems.push(`<li><span class="note-number">※共通</span><span class="note-text">：${text.replace(/\n/g, '<br>')}</span></li>`);
         });
     }
 
-    if (sortedNotes.length > 0) {
+    // 個別注意事項の処理
+    if (sortedNotes?.length > 0) {
         sortedNotes.forEach(num => {
-            const noteText = NOTES_DATA[num];
+            let noteLabel = num;
+            // スズキ専用処理
+            if (num >= 900 && num < 1000) {
+                noteLabel = `S${num - 900}`;
+            }
+
+            const noteText = noteSet[num];
             if (noteText) {
-                // スズキ専用注意事項
-                if(num >= 900 && num < 1000) {
-                    num = `S${num - 900}`;
-                }
-                notesHtml += `<li><span class="note-number">※${num}</span><span class="note-text">：${noteText.replace(/\n/g, '<br>')}</span></li>`;
+                noteItems.push(`<li><span class="note-number">※${noteLabel}</span><span class="note-text">：${noteText.replace(/\n/g, '<br>')}</span></li>`);
             }
         });
-    } 
+    }
+
+    // 最終的なHTMLの生成
+    let notesHtml = '';
+    if (noteItems.length > 0) {
+        notesHtml = `<h3>注意事項</h3><ul>${noteItems.join('')}</ul>`;
+    }
     
     notesHtml += '</ul>';
     notesContainer.innerHTML = notesHtml;

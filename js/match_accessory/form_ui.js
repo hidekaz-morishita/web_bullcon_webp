@@ -31,7 +31,8 @@ function populateOptions(selectElement, options, emptyOptionText) {
 function generateSpecificProductForm(formContainer, productInfo, state) {
     const { selectedOptionType, selectedMaker, selectedModel, selectedYear, selectedMonth, selectedProductCode } = state;
 
-    if (productInfo.name === 'フリーテレビング/テレナビング') {
+    if (productInfo.name === 'フリーテレビング/テレナビング' || 
+        productInfo.name === 'バックカメラ接続ユニット') {
         const optionGroup = document.createElement('div');
         optionGroup.className = 'form-group';
         optionGroup.innerHTML = `
@@ -72,7 +73,7 @@ function generateSpecificProductForm(formContainer, productInfo, state) {
         }
 
         if (selectedMaker) {
-            if (currentProcessType === 'carModel') {
+            if (currentProcessType === 'maker_process') {
                 const modelGroup = document.createElement('div');
                 modelGroup.className = 'form-group';
                 modelGroup.innerHTML = `
@@ -103,7 +104,7 @@ function generateSpecificProductForm(formContainer, productInfo, state) {
                     if (selectedYear) document.getElementById('year-select').value = selectedYear;
                     if (selectedMonth) document.getElementById('month-select').value = selectedMonth;
                 }
-            } else if (currentProcessType === 'dealerYears') {
+            } else if (currentProcessType === 'dealer_process') {
                 const yearGroup = document.createElement('div');
                 yearGroup.className = 'form-group';
                 yearGroup.innerHTML = `

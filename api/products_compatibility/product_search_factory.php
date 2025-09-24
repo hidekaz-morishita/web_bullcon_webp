@@ -1,6 +1,7 @@
 <?php
 // 処理クラスを読み込む
 require_once './products_compatibility/televing_search.php';
+require_once './products_compatibility/magicone_search.php';
 
 class ProductSearchFactory
 {
@@ -22,8 +23,21 @@ class ProductSearchFactory
                     );
                 }
                 break;
-            // 将来、新しい製品が追加された場合はここにcaseを追加
-            // case 'new_product': ...
+            case 'magicone_un':
+                if ($option === 'maker') {
+                    return new MagiconeUnMakerSearch(
+                        $params['maker'], 
+                        $params['model'], 
+                        $params['year'], 
+                        $params['month']
+                    );
+                } elseif ($option === 'dealer') {
+                    return new MagiconeUnDealerSearch(
+                        $params['maker'], 
+                        $params['productCode']
+                    );
+                }
+                break;
         }
         throw new Exception('無効な製品名またはオプションタイプです。');
     }
