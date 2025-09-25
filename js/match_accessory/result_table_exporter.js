@@ -1,5 +1,3 @@
-// pdf_exporter.js (または result_table_exporter.js)
-
 // ライブラリのグローバル参照
 const html2canvas = window.html2canvas;
 const jsPDF = window.jspdf ? window.jspdf.jsPDF : null;
@@ -11,8 +9,7 @@ const jsPDF = window.jspdf ? window.jspdf.jsPDF : null;
 export async function exportTableToPdf(targetElementId) {
     const targetElement = document.getElementById(targetElementId);
     const resultTableContainer = document.getElementById('results-table-container');
-    
-    // ライブラリとターゲット要素の存在チェック
+
     if (!html2canvas || !jsPDF) {
         alert('PDF出力ライブラリがロードされていません。match.htmlを確認してください。');
         return;
@@ -22,105 +19,86 @@ export async function exportTableToPdf(targetElementId) {
         alert('PDF出力に失敗しました: ターゲット要素が見つかりません。');
         return;
     }
-    
+
     const tableHeader = targetElement.querySelector('thead');
     const exportButton = document.getElementById('exportPdfButton');
 
-    // 1. CSSプロパティを一時的に無効にするための設定
+    // CSSプロパティを一時的に無効にするための設定
     const originalOverflowY = targetElement.style.overflowY;
+    const originalWidth = targetElement.style.width;
     let originalPosition = 'static';
-    
-    // 元のmax-heightとheightを保存
     const originalMaxHeight = resultTableContainer.style.maxHeight;
-    const originalHeight = targetElement.style.height;
 
-    // theadが存在する場合のみposition:stickyを解除
     if (tableHeader) {
         originalPosition = tableHeader.style.position;
         tableHeader.style.position = 'static';
     }
-    
+
     // スクロール制限を全て解除し、テーブル全体が表示されるようにする
     targetElement.style.overflowY = 'visible';
-    // !importantを使い、クラスやIDに設定されたmax-heightを強制的に解除
-    resultTableContainer.style.setProperty('max-height', 'none', 'important'); 
-    targetElement.style.setProperty('height', 'auto', 'important');
-    
+    // キャプチャ前に要素の幅を強制的にテーブルの全幅に合わせる
+    targetElement.style.width = `${targetElement.scrollWidth}px`;
+    resultTableContainer.style.setProperty('max-height', 'none', 'important');
     if (exportButton) exportButton.disabled = true;
 
-    // 2. html2canvasのオプションを定義
-    const canvasOptions = { 
-        scale: 2,           
-        useCORS: true,      
-        allowTaint: true,   
+    // html2canvasのオプションを定義
+    const canvasOptions = {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
         letterRendering: true,
-        // 横幅は表示領域の幅を使用し、見切れを解消
-        width: targetElement.clientWidth, 
-        // 縦幅はscrollHeightを使用し、上記CSS解除によりテーブルの全高を取得
+        // 横幅をclientWidthからscrollWidthに変更
+        width: targetElement.scrollWidth, 
         height: targetElement.scrollHeight
     };
 
     try {
-        // 3. html2canvasでDOMからCanvasを生成
         const canvas = await html2canvas(targetElement, canvasOptions);
-        const imgData = canvas.toDataURL('image/jpeg', 0.98); 
+        const imgData = canvas.toDataURL('image/jpeg', 0.98);
 
-        // 4. jsPDFインスタンスの生成 (横長のテーブルに合わせ横向き)
         const pdf = new jsPDF({
-            orientation: 'landscape', 
+            orientation: 'landscape',
             unit: 'mm',
             format: 'a4'
         });
 
-        // A4横向きのサイズを取得
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = pdf.internal.pageSize.getHeight();
-        
-        // 画像の縦横比から、PDFのページ幅いっぱいに収まるサイズを計算
+
         const canvasWidth = canvas.width;
         const canvasHeight = canvas.height;
-        const ratio = canvasHeight / canvasWidth; 
-        
-        // 画像の幅をPDFの幅に合わせる
-        const imgWidth = pdfWidth;
-        const imgHeight = imgWidth * ratio; // 縮小後の高さ
-        
-        // 5. ページ分割ロジック
-        let heightLeft = imgHeight; // PDFでの残り高さ (mm)
-        let position = 0;           // 画像のY座標オフセット (mm)
+        const ratio = canvasHeight / canvasWidth;
 
-        // 画像の高さが1ページを超える場合、分割してページを追加
-        while (heightLeft > -1) { 
-            
-            // ページを追加 (最初のページ以外)
+        const imgWidth = pdfWidth;
+        const imgHeight = imgWidth * ratio;
+
+        let heightLeft = imgHeight;
+        let position = 0;
+
+        while (heightLeft > -1) {
             if (position !== 0) {
                 pdf.addPage();
             }
 
-            // 画像の追加 (x=0, y=-positionに配置することで、ページに収まる部分をクリッピング表示)
             pdf.addImage(imgData, 'JPEG', 0, -position, imgWidth, imgHeight);
 
-            // 次のページのために高さを更新
             heightLeft -= pdfHeight;
-            position += pdfHeight; 
+            position += pdfHeight;
         }
 
-        // 6. PDFを保存
         pdf.save('compatibility_result.pdf');
 
     } catch (error) {
         console.error('PDF生成中にエラーが発生しました:', error);
         alert('PDF生成中にエラーが発生しました。コンソールを確認してください。');
     } finally {
-        // 7. 元のスタイルに戻す (クリーンアップ)
+        // 元のスタイルに戻す
         targetElement.style.overflowY = originalOverflowY;
-        
-        // ★【修正】!importantで設定したプロパティをリセットし、元の値を戻す
+        targetElement.style.width = originalWidth;
+
         resultTableContainer.style.removeProperty('max-height');
-        targetElement.style.removeProperty('height');
         resultTableContainer.style.maxHeight = originalMaxHeight;
-        targetElement.style.height = originalHeight;
-        
+
         if (tableHeader) {
             tableHeader.style.position = originalPosition;
         }
