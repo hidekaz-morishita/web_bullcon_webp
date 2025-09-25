@@ -36,7 +36,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    gap: 30px; /* フォームと結果エリア間の余白 */
+    gap: 10px; /* フォームと結果エリア間の余白 */
 }
 
 /* フォームエリアの全体的なスタイル */
@@ -223,6 +223,13 @@ label {
     box-sizing: border-box;
     /* テーブルの横スクロールを管理する */
     overflow-x: auto;
+}
+
+/* pdf保存ボタンのスタイル */
+#exportPdfButton {
+    align-self: flex-end;
+    margin-top: 20px;
+    margin-right: 20px; 
 }
 
 /* 検索結果テーブルのコンテナにスクロール機能を付与 */

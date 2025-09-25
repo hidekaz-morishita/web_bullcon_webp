@@ -26,6 +26,7 @@
                 </div>
                 <div class="content-wrapper">
                     <div class="form-area" id="form-container"></div>
+                    <button id="exportPdfButton" style="display: none;" disabled>検索結果をPDFで出力</button>
                     <div id="result" class="result-area">
                         <p id="message-container">検索結果がここに表示されます。</p>
                         <div id="results-table-container" style="display: none;">
@@ -44,6 +45,8 @@
     <div id="footer-placeholder"></div>
     <script src="../../js/header.js"></script>
     <script src="../../js/footer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script type="module" src="../../js/match_accessory/match.js"></script>
     <script type="module" src="../../js/match_accessory/form_ui.js"></script>
 </body>

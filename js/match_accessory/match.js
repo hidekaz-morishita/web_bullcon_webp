@@ -1,6 +1,7 @@
 // match.js
 import { renderForm } from './form_ui.js';
 import { setupEventListeners } from './event_handler.js';
+import { exportTableToPdf } from './result_table_exporter.js'; 
 
 // DOM読み込み後の初期処理
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,4 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // イベントリスナーを設定
     setupEventListeners();
+
+    // テーブルのpdf出力処理 
+    const exportButton = document.getElementById('exportPdfButton');
+    
+    if (exportButton) {
+        exportButton.addEventListener('click', () => {
+            // PDF出力処理を別ファイルに委譲
+            exportTableToPdf('result');
+        });
+    }
 });

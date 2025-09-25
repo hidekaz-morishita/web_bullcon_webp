@@ -223,6 +223,7 @@ async function handleSearch(formState, productInfo, optionFlow) {
 function resetResultArea() {
     const messageContainer = document.getElementById('message-container');
     const tableContainer = document.getElementById('results-table-container');
+    const exportPdfButton = document.getElementById('exportPdfButton');
     const notesContainer = document.getElementById('notes-list-container');
     const pdfLinkContainer = document.getElementById('pdf-link-container');
 
@@ -232,6 +233,8 @@ function resetResultArea() {
     }
     if (tableContainer) {
         tableContainer.style.display = 'none';
+        exportPdfButton.style.display = 'none';
+        exportPdfButton.disabled = true;
     }
     if (notesContainer) {
         notesContainer.style.display = 'none';

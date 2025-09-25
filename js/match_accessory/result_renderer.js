@@ -15,6 +15,7 @@ import {
  */
 export async function handleSearchResults(params, headerData, pdfPath) {
     const tableContainer = document.getElementById('results-table-container');
+    const exportPdfButton = document.getElementById('exportPdfButton');
     const messageContainer = document.getElementById('message-container');
     const pdfLinkContainer = document.getElementById('pdf-link-container');
     
@@ -25,6 +26,8 @@ export async function handleSearchResults(params, headerData, pdfPath) {
     }
     if (tableContainer) {
         tableContainer.style.display = 'none';
+        exportPdfButton.style.display = 'none';
+        exportPdfButton.disabled = true;
     }
     if (pdfLinkContainer) {
         if (pdfPath) {
@@ -48,13 +51,21 @@ export async function handleSearchResults(params, headerData, pdfPath) {
             if (messageContainer) messageContainer.style.display = 'none';
             generateTable(partsData, headerData);
             displayNotes(partsData, params.product);
-            if (tableContainer) tableContainer.style.display = 'block';
+            if (tableContainer) {
+                tableContainer.style.display = 'block';
+                exportPdfButton.style.display = 'block';
+                exportPdfButton.disabled = false;
+            }
         } else {
             if (messageContainer) {
                 messageContainer.textContent = 'お探しの条件に適合する品番は見つかりませんでした。';
                 messageContainer.style.display = 'block';
             }
-            if (tableContainer) tableContainer.style.display = 'none';
+            if (tableContainer) {
+                tableContainer.style.display = 'none';
+                exportPdfButton.style.display = 'none';
+                exportPdfButton.disabled = true;
+            }
             displayNotes([], null);
             if (pdfLinkContainer) {
                 const pdfLink = pdfLinkContainer.querySelector('.pdf-link');
@@ -68,7 +79,11 @@ export async function handleSearchResults(params, headerData, pdfPath) {
             messageContainer.textContent = `検索中にエラーが発生しました: ${error.message}`;
             messageContainer.style.display = 'block';
         }
-        if (tableContainer) tableContainer.style.display = 'none';
+        if (tableContainer) {
+            tableContainer.style.display = 'none';
+            exportPdfButton.style.display = 'none';
+            exportPdfButton.disabled = true;
+        }
         if (pdfLinkContainer) {
             const pdfLink = pdfLinkContainer.querySelector('.pdf-link');
             if (pdfLink) {
