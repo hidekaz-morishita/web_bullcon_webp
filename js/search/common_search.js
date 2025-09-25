@@ -8,6 +8,13 @@ export function setupSearch(options) {
     const resultsList = tabContent.querySelector('.results-list');
     const noResultsMessage = tabContent.querySelector('.no-results');
 
+    // ヘッダー検索の検索文字表示ロジック
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialQuery = urlParams.get('q'); // ヘッダー検索で使われているクエリパラメータ名（例：'q'）を指定
+    if (initialQuery) {
+        input.value = initialQuery; // 検索フィールドに値を設定
+    }
+
     let searchData = null;
 
     // データ取得
@@ -22,6 +29,10 @@ export function setupSearch(options) {
             searchData = data;
             console.log(`LOG: Data loaded for ${tabId}.`);
             onDataLoaded(searchData, input, performSearch);
+
+            if (initialQuery) {
+                performSearch(initialQuery);
+            }
         })
         .catch(error => {
             console.error(`Error loading data for ${tabId}:`, error);
