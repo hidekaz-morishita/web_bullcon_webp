@@ -31,9 +31,15 @@ function populateOptions(selectElement, options, emptyOptionText) {
 function generateSpecificProductForm(formContainer, productInfo, state) {
     const { selectedOptionType, selectedMaker, selectedModel, selectedYear, selectedMonth, selectedProductCode } = state;
 
+    /* 
+     * maker: full
+     * dealer: full
+    */
     if (productInfo.name === 'フリーテレビング/テレナビング' || 
         productInfo.name === 'バックカメラ接続ユニット' ||
-        productInfo.name === 'バックカメラ接続ハーネス') {
+        productInfo.name === 'バックカメラ接続ハーネス' ||
+        productInfo.name === 'リアモニター出力ハーネス' ||
+        productInfo.name === 'VTR/HDMI ハーネス') {
         const optionGroup = document.createElement('div');
         optionGroup.className = 'form-group';
         optionGroup.innerHTML = `
@@ -161,6 +167,61 @@ function generateSpecificProductForm(formContainer, productInfo, state) {
                         }
                     }
                 }
+            }
+        }
+    }
+    /* 
+     * maker: full ... デフォルトmakerの設定を使いまわしているだけなのでdealer指定の場合はロジックの検討が必要
+     * dealer: -
+    */
+    else if (
+        productInfo.name === 'リアモニター出力ユニット' ||
+        productInfo.name === 'カメラセレクター') {
+        const makerGroup = document.createElement('div');
+        makerGroup.className = 'form-group';
+        makerGroup.innerHTML = `
+            <label for="maker-select">メーカー</label>
+            <select id="maker-select" class="form-select"></select>
+        `;
+        formContainer.appendChild(makerGroup);
+        
+        let makerOptions = Object.keys(CAR_TYPE);
+        populateOptions(document.getElementById('maker-select'), makerOptions, 'メーカーを選択してください');
+        
+        if (selectedMaker) {
+            document.getElementById('maker-select').value = selectedMaker;
+        }
+
+        if (selectedMaker) {
+            const modelGroup = document.createElement('div');
+            modelGroup.className = 'form-group';
+            modelGroup.innerHTML = `
+                <label for="model-select">車種</label>
+                <select id="model-select" class="form-select"></select>
+            `;
+            formContainer.appendChild(modelGroup);
+            const modelNames = CAR_TYPE[selectedMaker];
+            populateOptions(document.getElementById('model-select'), modelNames, '車種を選択してください');
+            if (selectedModel) {
+                document.getElementById('model-select').value = selectedModel;
+            }
+            
+            if (selectedModel) {
+                const yearMonthGroup = document.createElement('div');
+                yearMonthGroup.className = 'form-group';
+                yearMonthGroup.innerHTML = `
+                    <label for="year-select">年式</label>
+                    <div class="year-month-group">
+                        <select id="year-select" class="form-select"></select>
+                        <span>/</span>
+                        <select id="month-select" class="form-select"></select>
+                    </div>
+                `;
+                formContainer.appendChild(yearMonthGroup);
+                populateOptions(document.getElementById('year-select'), CAR_YEARS, '年');
+                populateOptions(document.getElementById('month-select'), MONTHS, '月');
+                if (selectedYear) document.getElementById('year-select').value = selectedYear;
+                if (selectedMonth) document.getElementById('month-select').value = selectedMonth;
             }
         }
     }

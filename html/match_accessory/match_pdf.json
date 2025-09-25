@@ -443,8 +443,15 @@
         "category": "車種別",
         "category2": "-",
         "links": {
-          "note": "適合は製品詳細ページをご確認ください",
-          "link": "../../html/products/CAMERA/AV-CS-Link/AV-CS-Link.htm"
+          "toyota": { "pdf": "../../pdf/products/CAMERA/AV-CSml.pdf", "date": "2025.07.28" },
+          "lexus": { "pdf": "-", "date": "-" },
+          "nissan": { "pdf": "-", "date": "-" },
+          "honda": { "pdf": "-", "date": "-" },
+          "mitsubishi": { "pdf": "-", "date": "-" },
+          "subaru": { "pdf": "-", "date": "-" },
+          "suzuki": { "pdf": "-", "date": "-" },
+          "daihatsu": { "pdf": "-", "date": "-" },
+          "mazda": { "pdf": "-", "date": "-" }
         }
       }
     ]

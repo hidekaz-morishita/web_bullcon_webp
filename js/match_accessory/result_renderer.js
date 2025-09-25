@@ -1,7 +1,11 @@
 // result_renderer.js
 
 import { getCompatibilityData } from './match_api_client.js';
-import { TVING_NOTES_DATA, MAGICONE_NOTES_DATA } from './data_mapper.js';
+import { 
+    TVING_NOTES_DATA, MAGICONE_BK_NOTES_DATA, MAGICONE_RM_VTR_NOTES_DATA,
+    CAMERA_SELECTOR_NOTES_DATA,
+    STEERING_SWT_CTRL_NOTES_DATA
+ } from './data_mapper.js';
 
 /**
  * 検索結果を処理してDOMに表示する関数
@@ -124,10 +128,12 @@ function generateTable(data, headerData) {
                 } else {
                     const priceExclTax = `<span style="font-size: 0.8em;">税別: ${(item[col.priceKeys.excl] || '').replace('\\', '￥')}</span>`;
                     const priceInclTax = `<span style="font-size: 0.8em;">税込: ${(item[col.priceKeys.incl] || '').replace('\\', '￥')}</span>`;
-                    const navCtrl = col.option && col.option.nav ? `<span style="font-size: 0.6em;">ナビ操作: ${(item[col.option.nav] || '-').replace('\\', '￥')}</span>` : '';
-                    const vehiclePos = col.option && col.option.vehicle_pos ? `<span style="font-size: 0.6em;">自車位置: ${(item[col.option.vehicle_pos] || '-').replace('\\', '￥')}</span>` : '';
-                    const dvd = col.option && col.option.dvd ? `<span style="font-size: 0.6em;">DVD視聴: ${(item[col.option.dvd] || '-').replace('\\', '￥')}</span>` : '';
-                    td.innerHTML = `<b>${item[col.key]}</b><br>${priceExclTax}<br>${priceInclTax}<br><br>${navCtrl}<br>${vehiclePos}<br>${dvd}`;
+                    const navCtrl = col.option && col.option.nav ? `<br><span style="font-size: 0.6em;">ナビ操作: ${(item[col.option.nav] || '-').replace('\\', '￥')}</span>` : '';
+                    const vehiclePos = col.option && col.option.vehicle_pos ? `<br><span style="font-size: 0.6em;">自車位置: ${(item[col.option.vehicle_pos] || '-').replace('\\', '￥')}</span>` : '';
+                    const excl_input = col.option && col.option.excl_input ? `<br><span style="font-size: 0.6em;">外部入力: ${(item[col.option.excl_input] || '-').replace('\\', '￥')}</span>` : '';
+                    const tv = col.option && col.option.tv ? `<br><span style="font-size: 0.6em;">デジタルテレビ: ${(item[col.option.tv] || '-').replace('\\', '￥')}</span>` : '';
+                    const dvd = col.option && col.option.dvd ? `<br><span style="font-size: 0.6em;">DVD視聴: ${(item[col.option.dvd] || '-').replace('\\', '￥')}</span>` : '';
+                    td.innerHTML = `<b>${item[col.key]}</b><br>${priceExclTax}<br>${priceInclTax}<br>${navCtrl}${vehiclePos}${excl_input}${tv}${dvd}`;
                 }
             } else if (col.key === 'notes') {
                 if (item && item[col.key]) {
@@ -168,7 +174,13 @@ function displayNotes(data, productName) {
 
     const NOTES_MAP = {
       'televing': TVING_NOTES_DATA,
-      'magicone_un': MAGICONE_NOTES_DATA
+      'magicone_bk_un': MAGICONE_BK_NOTES_DATA,
+      'magicone_bk_ha': MAGICONE_BK_NOTES_DATA,
+      'magicone_rm_un': MAGICONE_RM_VTR_NOTES_DATA,
+      'magicone_rm_ha': MAGICONE_RM_VTR_NOTES_DATA,
+      'magicone_vtr_hdmi': MAGICONE_RM_VTR_NOTES_DATA,
+      'camera_selector': CAMERA_SELECTOR_NOTES_DATA,
+      'steering_swt_ctrl': STEERING_SWT_CTRL_NOTES_DATA
     };
     const noteSet = NOTES_MAP[productName] || '';
 

@@ -1,6 +1,6 @@
 // 検索対象の製品情報と、それに紐づく適合表のカラム情報をオプションタイプ別に定義
 export const PRODUCTS_DATA = {
-    'FreeTVing': {
+    'freeTVing': {
         name: 'フリーテレビング/テレナビング',
         productKey: 'televing',
         optionFlows: {
@@ -99,7 +99,7 @@ export const PRODUCTS_DATA = {
             }
         }
     },
-    'Magicone_bk_un': {
+    'magicone_bk_un': {
         name: 'バックカメラ接続ユニット',
         productKey: 'magicone_bk_un',
         optionFlows: {
@@ -156,7 +156,7 @@ export const PRODUCTS_DATA = {
                         { key: 'specification', label: '仕様' },
                     ]},
                     { label: 'バックカメラ接続ユニット', subHeaders: [
-                        { key: 'product_number_1', label: '品番１',
+                        { key: 'product_number_1', label: '品番',
                             priceKeys: { excl: 'un_price_excl_tax_1', incl: 'un_price_incl_tax_1' },
                          }                        
                     ]},
@@ -167,7 +167,7 @@ export const PRODUCTS_DATA = {
             },
         }
     },
-    'Magicone_bk_ha': {
+    'magicone_bk_ha': {
         name: 'バックカメラ接続ハーネス',
         productKey: 'magicone_bk_ha',
         optionFlows: {
@@ -192,7 +192,7 @@ export const PRODUCTS_DATA = {
                         { key: 'specification', label: '仕様' },
                     ]},
                     { label: 'バックカメラ接続ハーネス', subHeaders: [
-                        { key: 'ha_product_number_1', label: '品番１',
+                        { key: 'ha_product_number_1', label: '品番',
                             priceKeys: { excl: 'ha_price_excl_tax_1', incl: 'ha_price_incl_tax_1' },
                          },
                     ]},
@@ -221,7 +221,7 @@ export const PRODUCTS_DATA = {
                         { key: 'specification', label: '仕様' },
                     ]},
                     { label: 'バックカメラ接続ハーネス', subHeaders: [
-                        { key: 'product_number_1', label: '品番１',
+                        { key: 'product_number_1', label: '品番',
                             priceKeys: { excl: 'ha_price_excl_tax_1', incl: 'ha_price_incl_tax_1' },
                          }                        
                     ]},
@@ -232,6 +232,260 @@ export const PRODUCTS_DATA = {
             },
         }
     },
+    'magicone_rm_un': {
+        name: 'リアモニター出力ユニット',
+        productKey: 'magicone_rm_un',
+        optionFlows: {
+            'maker': {
+                processType: 'maker_process',
+                pdf_paths: {
+                    'トヨタ': '../../pdf/products/MAGICONE/magicone_r_m_toyota.pdf',
+                    'レクサス': '../../pdf/products/MAGICONE/magicone_r_m_lexus.pdf',
+                    'ニッサン': '../../pdf/products/MAGICONE/magicone_r_m_nissan.pdf',
+                    'ホンダ': '../../pdf/products/MAGICONE/magicone_r_m_honda.pdf',
+                    'マツダ': '',
+                    'スバル': '',
+                    'スズキ': '',
+                    'ダイハツ': '',
+                    'ミツビシ': ''
+                },
+                header: [
+                    { label: '車両情報', subHeaders: [
+                        { key: 'car_model', label: '車名' },
+                        { key: 'print_date', label: '年式' },
+                        { key: 'model_number', label: '型式' },
+                        { key: 'specification', label: '仕様' },
+                    ]},
+                    { label: 'モニター情報', subHeaders: [
+                        { key: 'monitor_number', label: 'モニター型番' },
+                    ]},
+                    { label: 'リアモニター出力ユニット', subHeaders: [
+                        { key: 'product_number_1', label: '品番',
+                            priceKeys: { excl: 'price_excl_tax_1', incl: 'price_incl_tax_1' },
+                         },
+                    ]},
+                    { label: '注意事項', subHeaders: [
+                        { key: 'notes', label: '備考' }
+                    ]}
+                ]
+            }
+        }
+    },
+    'magicone_rm_ha': {
+        name: 'リアモニター出力ハーネス',
+        productKey: 'magicone_rm_ha',
+        optionFlows: {
+            'maker': {
+                processType: 'maker_process',
+                pdf_paths: {
+                    'トヨタ': '../../pdf/products/MAGICONE/magicone_r_m_toyota.pdf',
+                    'レクサス': '../../pdf/products/MAGICONE/magicone_r_m_lexus.pdf',
+                    'ニッサン': '../../pdf/products/MAGICONE/magicone_r_m_nissan.pdf',
+                    'ホンダ': '../../pdf/products/MAGICONE/magicone_r_m_honda.pdf',
+                    'マツダ': '',
+                    'スバル': '',
+                    'スズキ': '',
+                    'ダイハツ': '',
+                    'ミツビシ': ''
+                },
+                header: [
+                    { label: '車両情報', subHeaders: [
+                        { key: 'car_model', label: '車名' },
+                        { key: 'print_date', label: '年式' },
+                        { key: 'model_number', label: '型式' },
+                        { key: 'specification', label: '仕様' },
+                    ]},
+                    { label: 'リアモニター出力ハーネス', subHeaders: [
+                        { key: 'product_number_1', label: '品番',
+                            priceKeys: { excl: 'price_excl_tax_1', incl: 'price_incl_tax_1' },
+                            option: {excl_input: 'input', tv: 'tv', dvd: 'dvd'}
+                         },
+                    ]},
+                    { label: '注意事項', subHeaders: [
+                        { key: 'notes', label: '備考' }
+                    ]}
+                ]
+            },
+            'dealer': {
+                processType: 'dealer_process',
+                pdf_paths: {
+                    'トヨタ': '../../pdf/products/MAGICONE/magicone_r_d_toyota.pdf',
+                    'レクサス': '',
+                    'ニッサン': '../../pdf/products/MAGICONE/magicone_r_d_nissan.pdf',
+                    'ホンダ': '../../pdf/products/MAGICONE/magicone_r_d_honda.pdf',
+                    'マツダ': '',
+                    'スバル': '',
+                    'スズキ': '',
+                    'ダイハツ': '../../pdf/products/MAGICONE/magicone_r_d_daihatsu.pdf',
+                    'ミツビシ': '../../pdf/products/MAGICONE/magicone_r_d_mitsubishi.pdf'
+                },
+                header: [
+                    { label: '車両情報', subHeaders: [
+                        { key: 'year', label: 'モデル年' },
+                        { key: 'monitor_number', label: 'モニター型番' },
+                        { key: 'specification', label: '仕様' },
+                    ]},
+                    { label: 'リアモニター出力ハーネス', subHeaders: [
+                        { key: 'product_number_1', label: '品番',
+                            priceKeys: { excl: 'price_excl_tax_1', incl: 'price_incl_tax_1' },
+                            option: {excl_input: 'input', tv: 'tv', dvd: 'dvd'}
+                         }                        
+                    ]},
+                    { label: '注意事項', subHeaders: [
+                        { key: 'notes', label: '備考' }
+                    ]}
+                ]
+            },
+        }
+    },
+    'magicone_vtr_hdmi': {
+        name: 'VTR/HDMI ハーネス',
+        productKey: 'magicone_vtr_hdmi',
+        optionFlows: {
+            'maker': {
+                processType: 'maker_process',
+                pdf_paths: {
+                    'トヨタ': '../../pdf/products/MAGICONE/magicone_r_m_toyota.pdf',
+                    'レクサス': '../../pdf/products/MAGICONE/magicone_r_m_lexus.pdf',
+                    'ニッサン': '../../pdf/products/MAGICONE/magicone_r_m_nissan.pdf',
+                    'ホンダ': '../../pdf/products/MAGICONE/magicone_r_m_honda.pdf',
+                    'マツダ': '',
+                    'スバル': '',
+                    'スズキ': '',
+                    'ダイハツ': '',
+                    'ミツビシ': ''
+                },
+                header: [
+                    { label: '車両情報', subHeaders: [
+                        { key: 'car_model', label: '車名' },
+                        { key: 'print_date', label: '年式' },
+                        { key: 'model_number', label: '型式' },
+                        { key: 'specification', label: '仕様' },
+                    ]},
+                    { label: 'RCA接続品番', subHeaders: [
+                        { key: 'product_number_1', label: '品番1',
+                            priceKeys: { excl: 'price_excl_tax_1', incl: 'price_incl_tax_1' }
+                        },
+                        { key: 'product_number_2', label: '品番2',
+                            priceKeys: { excl: 'price_excl_tax_2', incl: 'price_incl_tax_2' }
+                        },
+                    ]},
+                    { label: 'HDMI接続品番', subHeaders: [
+                        { key: 'product_number_3', label: '品番3',
+                            priceKeys: { excl: 'price_excl_tax_3', incl: 'price_incl_tax_3' },
+                        },
+                        { key: 'product_number_4', label: '品番4',
+                            priceKeys: { excl: 'price_excl_tax_4', incl: 'price_incl_tax_4' },
+                        },
+                    ]},
+                    { label: '注意事項', subHeaders: [
+                        { key: 'notes', label: '備考' }
+                    ]}
+                ]
+            },
+            'dealer': {
+                processType: 'dealer_process',
+                pdf_paths: {
+                    'トヨタ': '../../pdf/products/MAGICONE/magicone_r_d_toyota.pdf',
+                    'レクサス': '',
+                    'ニッサン': '../../pdf/products/MAGICONE/magicone_r_d_nissan.pdf',
+                    'ホンダ': '../../pdf/products/MAGICONE/magicone_r_d_honda.pdf',
+                    'マツダ': '',
+                    'スバル': '',
+                    'スズキ': '',
+                    'ダイハツ': '../../pdf/products/MAGICONE/magicone_r_d_daihatsu.pdf',
+                    'ミツビシ': '../../pdf/products/MAGICONE/magicone_r_d_mitsubishi.pdf'
+                },
+                header: [
+                    { label: '車両情報', subHeaders: [
+                        { key: 'year', label: 'モデル年' },
+                        { key: 'monitor_number', label: 'モニター型番' },
+                        { key: 'specification', label: '仕様' },
+                    ]},
+                    { label: 'RCA/HDMI 入力ハーネス', subHeaders: [
+                        { key: 'product_number_1', label: '品番',
+                            priceKeys: { excl: 'price_excl_tax_1', incl: 'price_incl_tax_1' }
+                         }                        
+                    ]},
+                    { label: '注意事項', subHeaders: [
+                        { key: 'notes', label: '備考' }
+                    ]}
+                ]
+            },
+        }
+    },
+    'camera_selector': {
+        name: 'カメラセレクター',
+        productKey: 'camera_selector',
+        optionFlows: {
+            'maker': {
+                processType: 'maker_process',
+                pdf_paths: {
+                    'トヨタ': '../../pdf/products/CAMERA/AV-CSml.pdf',
+                    'レクサス': '',
+                    'ニッサン': '',
+                    'ホンダ': '',
+                    'マツダ': '',
+                    'スバル': '',
+                    'スズキ': '',
+                    'ダイハツ': '',
+                    'ミツビシ': ''
+                },
+                header: [
+                    { label: '車両情報', subHeaders: [
+                        { key: 'car_model', label: '車名' },
+                        { key: 'print_date', label: '年式' },
+                        { key: 'model_number', label: '型式' },
+                        { key: 'specification', label: '仕様' },
+                    ]},
+                    { label: 'カメラセレクター', subHeaders: [
+                        { key: 'product_number_1', label: '品番',
+                            priceKeys: { excl: 'price_excl_tax_1', incl: 'price_incl_tax_1' }
+                        }
+                    ]},
+                    { label: '注意事項', subHeaders: [
+                        { key: 'notes', label: '備考' }
+                    ]}
+                ]
+            },
+        }
+    },
+    'steering_switch_controller': {
+        name: 'ステアリングスイッチコントローラー',
+        productKey: 'steering_swt_ctrl',
+        optionFlows: {
+            'maker': {
+                processType: 'maker_process',
+                pdf_paths: {
+                    'トヨタ': '../../pdf/products/AV_ACCESSORY/swc_m_toyota.pdf',
+                    'レクサス': '../../pdf/products/AV_ACCESSORY/swc_m_lexus.pdf',
+                    'ニッサン': '../../pdf/productsAV_ACCESSORY/swc_m_nissan.pdf',
+                    'ホンダ': '../../pdf/products/AV_ACCESSORY/swc_m_honda.pdf',
+                    'マツダ': '',
+                    'スバル': '',
+                    'スズキ': '',
+                    'ダイハツ': '',
+                    'ミツビシ': ''
+                },
+                header: [
+                    { label: '車両情報', subHeaders: [
+                        { key: 'car_model', label: '車名' },
+                        { key: 'print_date', label: '年式' },
+                        { key: 'model_number', label: '型式' },
+                        { key: 'specification', label: '仕様' },
+                    ]},
+                    { label: 'ステアリングスイッチコントローラー/切替ユニット', subHeaders: [
+                        { key: 'product_number_1', label: '品番',
+                            priceKeys: { excl: 'price_excl_tax_1', incl: 'price_incl_tax_1' }
+                        }
+                    ]},
+                    { label: '注意事項', subHeaders: [
+                        { key: 'notes', label: '備考' }
+                    ]}
+                ]
+            },
+        }
+    }
 };
 
 export const CAR_TYPE = {
@@ -1351,7 +1605,7 @@ export const TVING_NOTES_DATA = {
 
 };
 
-export const MAGICONE_NOTES_DATA = {
+export const MAGICONE_BK_NOTES_DATA = {
     "1": "ナビゲーションのバックカメラ入力に接続すると「R」レンジ時は「後方映像」を表示し、「R」レンジ時以外でも「前方映像」の表示が可能になります。",
     "2": "車両によりミラー裏コネクターに化粧カバーが取り付けられている場合がありますが、本製品取り付け時、化粧カバーが使用できなくなる場合があります。",
     "3": "車両によってはナビゲーションに映写されるバック映像にちらつきなどが生じる場合がありますが車両特性によるものでAV-C63の異常ではありません。",
@@ -1392,4 +1646,38 @@ export const MAGICONE_NOTES_DATA = {
     "38": "カメラ視点の切り替えはできません。",
     "39": "カメラ接続に必要なナビゲーション配線が、オプション設定もしくはナビゲーションユニットに接続されていない場合があります。詳しくはディーラーにおたずねください。",
     "40": "別途、日産純正部品のカメラ接続＆外部入力ハーネス（型番：K6384-C9910）が必要です。K6384-C9910についてはディーラーにご確認下さい。"
+};
+
+export const MAGICONE_RM_VTR_NOTES_DATA = {
+    "1": "停車時のみ、VTR映像を視聴できます。走行中もVTR映像を視聴したい場合は、当社製品フリーテレビングまたはテレナビングを装着してください。",
+    "2": "外部カメラやナビゲーション等の映像はリアモニターには映りません。",
+    "3": "走行中はリアモニターにのみテレビ等の映像が映し出されます。フロントモニターにもテレビ等の映像を映したい場合は、当社製品フリーテレビングまたはテレナビングを装着してください。",
+    "4": "「AV-V05」は、フリーテレビング機能がないため、走行中は映像視聴ができません。走行中も映像視聴するためには、フリーテレビング機能付の品番（AV-V05T/AV-V05TM）を選択するか、別途フリーテレビングを装着してください。",
+    "5": "「AV-V05T」は、フリーテレビング機能が搭載されているため、走行中も映像を視聴できます。フリーテレビング機能は「オートタイプ」です。",
+    "6": "「AV-V05TM」は、フリーテレビング機能が搭載されているため、走行中も映像を視聴できます。フリーテレビング機能は「スイッチ切替タイプ」です。",
+    "7": "「AV-V07」は、フリーテレビング機能がないため、走行中は映像視聴ができません。走行中も映像視聴するためには、フリーテレビング機能付の品番（AV-V07T/AV-V07TM等）を選択するか、別途フリーテレビングを装着してください。",
+    "8": "「AV-V07T」は、フリーテレビング機能が搭載されているため、走行中も映像を視聴できます。フリーテレビング機能は「オートタイプ」です。外部入力映像の切り替え用に「LEDスイッチ」が付属します。",
+    "9": "「AV-V07TA/AV-V07TC」は、フリーテレビング機能が搭載されているため、走行中も映像を視聴できます。フリーテレビング機能は「オートタイプ」です。外部入力映像の切り替え用に「サービスホールスイッチ」が付属します。",
+    "10": "「AV-V07TM」は、フリーテレビング機能が搭載されているため、走行中も映像を視聴できます。フリーテレビング機能は「スイッチ切替タイプ」です。外部入力映像の切り替え用に「LEDスイッチ」が付属します。",
+    "11": "「AV-V07TMA/AV-V07TC」は、フリーテレビング機能が搭載されているため、走行中も映像を視聴できます。フリーテレビング機能は「スイッチ切替タイプ」です。外部入力映像の切り替え用に「サービスホールスイッチ」が付属します。",
+    "12": "後席9型ワイドディスプレイ付車以外には取り付け出来ません。",
+    "13": "停車時のみ、HDMI映像を視聴できます。走行中もHDMI映像を視聴したい場合は、当社製品フリーテレビングまたはテレナビングを装着してください。",
+    "14": "「EOP-HZ01TU」は、純正USBパネルをUSB/HDMIパネルに換装する製品です。",
+    "15": "ナビゲーション画面・カメラ入力映像・HDMI入力映像及び、USBメモリー・SDカードに保存された映像は出力されません。",
+    "16": "「後席ディスプレイ付属ハーネス」「車両純正ハーネス」がデジタル伝送方式の為、AV-R11 は取り付けできません。",
+    "17": "後席ディスプレイ（V12T-R66C）用リモコンを使用してナビゲーションを操作することはできません。",
+};
+
+export const CAMERA_SELECTOR_NOTES_DATA = {
+    "1": "停オーディオユニット裏スペースが少ないため、同一箇所への装着品がある場合は空きスペースの確認を行ってください。（例：マジコネAV-V05/AV-V05T/AV-V05TM・フリーテレビングFFT-229/MS-229/ST-229など）",
+    "2": "マジコネAV-C23が既に装着されている場合は、【AV-CS150】をお買い求めください。",
+    "3": "マジコネAV-C23Gが既に装着されている場合は、【AV-CS150】をお買い求めください。",
+    "4": "マジコネAV-C53が既に装着されている場合は、【AV-CS150】をお買い求めください。",
+    "5": "マジコネAV-C53Gが既に装着されている場合は、【AV-CS150】をお買い求めください。",
+    "6": "パノラミックビュー付車は取り付けできません。",
+    "7": "全車パノラミックビューモニター付車のため取り付けできません。",
+};
+
+export const STEERING_SWT_CTRL_NOTES_DATA = {
+    "1": "停オーディオユニット裏スペースが少ないため、同一箇所への装着品がある場合は空きスペースの確認を行ってください。（例：マジコネAV-V05/AV-V05T/AV-V05TM・フリーテレビングFFT-229/MS-229/ST-229など）"
 };
