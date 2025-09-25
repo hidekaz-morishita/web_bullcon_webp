@@ -20,21 +20,42 @@
                     <span class="section-title-jp">サイト内検索</span>
                 </h2>
 
-                <section class="search-section">
-                    <form id="search-form" class="search-form">
-                        <input type="text" id="search-input" class="search-input" placeholder="キーワードを入力してください (例: 製品、品番)">
-                        <button type="submit" class="search-button">検索</button>
-                    </form>
-                </section>
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="site-search">サイト内検索</button>
+                    <button class="tab-button" data-tab="manual-search">取扱説明書検索</button>
+                </div>
 
-                <section class="results-section">
-                    <h3 class="results-title">検索結果</h3>
-                    <ul id="results-list" class="results-list">
-                        </ul>
-                    <p id="no-results" class="no-results" style="display: none;">
-                        <i class="fas fa-info-circle"></i> 該当するページは見つかりませんでした。別のキーワードをお試しください。
-                    </p>
-                </section>
+                <div id="site-search" class="tab-content active">
+                    <section class="search-section">
+                        <form id="site-search-form" class="search-form">
+                            <input type="text" id="site-search-input" class="search-input" placeholder="キーワードを入力してください (例: 製品名、品番)">
+                            <button type="submit" class="search-button">検索</button>
+                        </form>
+                    </section>
+                    <section class="site-search-results-section">
+                        <h3 class="results-title">検索結果</h3>
+                        <ul id="site-search-results-list" class="results-list"></ul>
+                        <p id="site-search-no-results" class="no-results" style="display: none;">
+                            <i class="fas fa-info-circle"></i> 該当するページは見つかりませんでした。別のキーワードをお試しください。
+                        </p>
+                    </section>
+                </div>
+
+                <div id="manual-search" class="tab-content">
+                    <section class="search-section">
+                        <form id="manual-search-form" class="search-form">
+                            <input type="text" id="manual-search-input" class="search-input" placeholder="品番を入力してください">
+                            <button type="submit" class="search-button">検索</button>
+                        </form>
+                    </section>
+                    <section class="manual-search-results-section">
+                        <h3 class="results-title">検索結果</h3>
+                        <ul id="manual-search-results-list" class="results-list"></ul>
+                        <p id="manual-search-no-results" class="no-results" style="display: none;">
+                            <i class="fas fa-info-circle"></i> 該当する取扱説明書は見つかりませんでした。
+                        </p>
+                    </section>
+                </div>
             </div>
         </div>
     </main>
@@ -43,6 +64,6 @@
 
     <script src="../../js/header.js"></script>
     <script src="../../js/footer.js"></script>
-    <script src="../../js/search/search.js"></script> 
+    <script src="../../js/search/search.js" type="module"></script>
 </body>
 </html>
