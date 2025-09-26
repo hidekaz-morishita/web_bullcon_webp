@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
-            // マウスがサブドロップダウンに入ったときの処理
+            // ホバーイベントリスナーの修正
             subDropdownContainer.addEventListener('mouseenter', (event) => {
                 const link = event.target.closest('a');
                 if (link) {
