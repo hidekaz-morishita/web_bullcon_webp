@@ -1,17 +1,17 @@
 // search/common_search.js
 
 export function setupSearch(options) {
-    const { tabId, dataPath, filterLogic, onDataLoaded, isManualSearch = false } = options;
+    const { tabId, dataPath, filterLogic, onDataLoaded, isManualSearch = false} = options;
     const tabContent = document.getElementById(tabId);
     const form = tabContent.querySelector('.search-form');
-    const input = tabContent.querySelector('.search-input');
+    const input = tabContent.querySelector(isManualSearch ? '#manual-search-input' : '#site-search-input');
     const resultsList = tabContent.querySelector('.results-list');
     const noResultsMessage = tabContent.querySelector('.no-results');
 
     // ヘッダー検索の検索文字表示ロジック
     const urlParams = new URLSearchParams(window.location.search);
     const initialQuery = urlParams.get('q'); // ヘッダー検索で使われているクエリパラメータ名（例：'q'）を指定
-    if (initialQuery) {
+    if (initialQuery && !isManualSearch) {
         input.value = initialQuery; // 検索フィールドに値を設定
     }
 
@@ -66,7 +66,7 @@ export function setupSearch(options) {
         results.forEach(item => {
             const li = document.createElement('li');
             const link = document.createElement('a');
-            link.target = '_brank';
+            link.target = '_blank';
             if (isManualSearch) {
                 if (item.manual_url) {
                     const absoluteUrl = new URL(item.manual_url, window.location.href).href;
