@@ -2,10 +2,37 @@
 const manufacturerKeys = ["toyota", "lexus", "nissan", "honda", "mitsubishi", "subaru", "suzuki", "daihatsu", "mazda"];
 const tbody = document.querySelector('table tbody');
 
-function createTable(data) {
+/**
+ * PDFファイルの最終更新日を取得する非同期関数
+ * @param {string} url - PDFファイルのURL
+ * @returns {Promise<string>} - フォーマットされた更新日、またはエラーメッセージ
+ */
+async function getPdfLastModified(url) {
+    try {
+        // HEADリクエストでヘッダー情報のみを取得（ファイルはダウンロードしない）
+        const response = await fetch(url, { method: 'HEAD' });
+        if (response.ok) {
+            const lastModified = response.headers.get('Last-Modified');
+            if (lastModified) {
+                const date = new Date(lastModified);
+                // YYYY.MM.DD形式にフォーマット
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                return `${year}.${month}.${day}`;
+            }
+        }
+        return '日付取得失敗';
+    } catch (error) {
+        console.error('Error fetching file date:', error);
+        return '日付取得失敗';
+    }
+}
+
+async function createTable(data) {
     tbody.innerHTML = ''; // テーブルの中身をクリア
 
-    data.forEach(product => {
+    for (const product of data) {
         // 新しいカテゴリ行の処理
         if (product.type === "category") {
             const tr = document.createElement('tr');
@@ -17,7 +44,7 @@ function createTable(data) {
             tbody.appendChild(tr);
         } else {
             // 既存の製品行の処理
-            product.rows.forEach((rowData, rowIndex) => {
+            for (const [rowIndex, rowData] of product.rows.entries()) {
                 const tr = document.createElement('tr');
                 
                 // rowspanが必要な製品名セル
@@ -52,11 +79,11 @@ function createTable(data) {
                     tdNote.appendChild(a);
                     tr.appendChild(tdNote);
                 } else {
-                    manufacturerKeys.forEach(manufacturer => {
+                    for (const manufacturer of manufacturerKeys) {
                         const linkData = rowData.links[manufacturer];
                         const tdLink = document.createElement('td');
 
-                        if (linkData.pdf === "-") {
+                        if (!linkData || linkData.pdf === "-") {
                             tdLink.textContent = "-";
                         } else if (linkData.pdf === "動作未確認") {
                             tdLink.textContent = "動作未確認";
@@ -70,22 +97,26 @@ function createTable(data) {
                             img.classList.add('pdf-icon');
                             a.appendChild(img);
 
-                            const date = document.createElement('div');
-                            date.textContent = linkData.date;
-                            date.style.fontSize = "0.7em";
-                            date.style.marginTop = "5px";
-
+                            const dateElement = document.createElement('div');
+                            dateElement.textContent = '日付取得中...'; // ローディングテキスト
+                            dateElement.style.fontSize = "0.7em";
+                            dateElement.style.marginTop = "5px";
+                            dateElement.classList.add('date-text');
                             tdLink.appendChild(a);
-                            tdLink.appendChild(date);
+                            tdLink.appendChild(dateElement);
+                            
+                            // 非同期で日付を取得し、表示を更新
+                            getPdfLastModified(linkData.pdf).then(date => {
+                                dateElement.textContent = `${date} 更新`;
+                            });
                         }
                         tr.appendChild(tdLink);
-                    });
+                    }
                 }
-
                 tbody.appendChild(tr);
-            });
+            }
         }
-    });
+    }
 
     // テーブル生成後に列幅を同期させる
     syncTableWidths();
@@ -143,22 +174,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (tbody) {
         observer.observe(tbody, { childList: true });
     }
+
+    // JSONデータを読み込む
+    fetch('match_pdf.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            createTable(data);
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
 });
 
 // ウィンドウのリサイズ時にも幅を再同期
 window.addEventListener('resize', syncTableWidths);
-
-// JSONデータを読み込む
-fetch('match_pdf.json')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        createTable(data);
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-    });
