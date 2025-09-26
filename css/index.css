@@ -11,7 +11,7 @@
     display: block;
     text-align: left;
     /* 💡 clamp()によるフォントサイズのレスポンシブ対応 */
-    font-size: clamp(24px, 5vw, 28px);
+    font-size: clamp(24px, 3vw, 28px);
     font-weight: 700;
     position: relative;
     padding-bottom: 10px;
@@ -165,7 +165,7 @@
     color: #333;
     text-decoration: none;
     /* 💡 clamp()によるフォントサイズのレスポンシブ対応 */
-    font-size: clamp(1rem, 2vw, 1.1em);
+    font-size: clamp(0.9rem, 2vw, 1.1em);
     transition: color 0.3s ease;
 }
 
@@ -180,7 +180,7 @@
     min-width: 110px; /* 日付の表示幅を確保 */
     margin-right: 30px; /* 空白を広げる */
     color: #666;
-    font-size: 0.9em;
+    font-size: clamp(0.9rem, 2vw, 1.1em);
     font-weight: bold;
     flex-shrink: 0; /* タイトルが長くなっても幅を保持 */
 }
@@ -313,6 +313,7 @@
     color: #555;
     flex-shrink: 0;
     vertical-align: middle;
+    font-size: clamp(0.8rem, 2vw, 1.1rem);
 }
 .car-models {
     font-size: 0.95rem;
@@ -429,7 +430,7 @@
         padding-top: 50.66%;
     }
     .section-title-jp {
-        font-size: 24px;
+        font-size: 20px;
     }
     .hero-pagination {
         bottom: 10px;
