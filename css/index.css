@@ -33,8 +33,6 @@
 ==================================*/
 .hero {
     position: relative;
-    height: clamp(200px, 18vw, 400px);
-    padding-top: clamp(10px, 3vw, 40px);
     color: #fff;
     text-align: center;
     display: flex;
@@ -42,15 +40,17 @@
     align-items: center;
 }
 
-.hero-slider {
+.hero-slider, .hero-slider-mobile {
     position: relative;
     align-self: center;
-    width: 80%;
-    height: 100%;
+    width: 100%;
     overflow: hidden;
 }
 
-.slider-item {
+.slider-item, .slider-item-mobile {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-size: contain;
@@ -58,69 +58,36 @@
     background-position: center;
     opacity: 0;
     transition: opacity 1s ease-in-out;
-    position: absolute;
 }
 
-.slider-item a {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-
-.slider-item:first-of-type {
+/* 💡 JavaScriptで付与される.activeクラスでスライドを表示する */
+.slider-item.active, .slider-item-mobile.active {
     opacity: 1;
-}
-
-.slider-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    padding: 10px 8px;
-    margin: 10px 6vw;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 32px;
-    transition: background-color 0.3s ease;
-}
-
-.slider-control:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.prev-button {
-    left: 0;
-}
-
-.next-button {
-    right: 0;
 }
 
 .hero-pagination {
     position: absolute;
-    bottom: 20px;
+    bottom: 5px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 8px;
+    gap: 20px;
     z-index: 20;
     padding: 6px 10px;
 }
 
 .pagination-dot {
-    width: 25px;
+    width: 8px;
     height: 8px;
-    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid #fff;
+    background-color: #000;
     cursor: pointer;
     transition: background-color 0.3s ease, width 0.3s ease;
     z-index: 21;
 }
 
 .pagination-dot.active {
-    background-color: #fff;
-    width: 35px;
+    background-color: #e74c3c;
 }
 
 /*==================================
@@ -441,59 +408,48 @@
 /*==================================
   レスポンシブ対応
 ==================================*/
-@media (max-width: 768px) {
+
+/* PC表示 (768px以上) */
+@media (min-width: 768px) {
+    .hero-slider {
+        display: block;
+        padding-top: 25.52%; /* 1920:490 = 3.918... -> 100:25.52 */
+    }
+    .hero-slider-mobile {
+        display: none;
+    }
+}
+
+/* モバイル表示 (767px以下) */
+@media (max-width: 767px) {
+    .hero-slider {
+        display: none;
+    }
+    .hero-slider-mobile {
+        padding-top: 50.66%;
+    }
     .section-title-jp {
         font-size: 24px;
     }
-
-    .hero {
-        position: relative;
-        height: clamp(250px, 6vw, 300px);
-        padding-top: 100px;
-        color: #fff;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .hero-slider {
-        position: relative;
-        align-self: center;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
-
-    .slider-control {
-        display: none;
-    }
-
     .hero-pagination {
         bottom: 10px;
+        gap: 10px;
     }
-
     .pagination-dot {
-        width: 10px;
-        height: 10px;
+        width: 5px;
+        height: 5px;
     }
-
     .products-showcase {
         grid-template-columns: repeat(2, 1fr);
     }
-
     .products-item .products-text-content h3 {
         font-size: 14px;
         font-weight: 700;
         margin-bottom: 10px;
     }
-    
-    /* 製品新着情報セクションのレスポンシブ対応を追加 */
     .product-item {
         padding: 15px;
     }
-    
-    /* 💡 モバイルで縦に並べることで、テキストの折り返しを最適化 */
     .product-info-header {
         flex-direction: row;
         align-items: flex-start;

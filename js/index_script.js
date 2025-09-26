@@ -1,5 +1,5 @@
-// ハンバーガーメニューの開閉
 document.addEventListener('DOMContentLoaded', function() {
+    // ハンバーガーメニューの開閉
     const hamburger = document.querySelector('.hamburger-menu');
     const nav = document.querySelector('.header-nav');
 
@@ -11,35 +11,42 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // カルーセルの動き
-    const slides = document.querySelectorAll('.slider-item');
-    const prevButton = document.querySelector('.prev-button');
-    const nextButton = document.querySelector('.next-button');
     const paginationContainer = document.querySelector('.hero-pagination');
     let currentSlide = 0;
     let autoSlideInterval;
 
-    if (slides.length === 0 || !paginationContainer) {
-        // スライダー関連の要素がない場合は、処理を終了
-        return;
-    }
+    // 初回表示とリサイズイベントを扱う関数
+    const handleResize = () => {
+        const isMobile = window.innerWidth < 768;
+        // PCまたはモバイルのスライド要素を取得
+        const slides = document.querySelectorAll(isMobile ? '.slider-item-mobile' : '.slider-item');
 
-    // ページネーションの点を動的に生成
-    slides.forEach((_, index) => {
-        const dot = document.createElement('span');
-        dot.classList.add('pagination-dot');
-        if (index === 0) {
-            dot.classList.add('active');
+        if (slides.length === 0 || !paginationContainer) {
+            // スライダー関連の要素がない場合は、処理を終了
+            return;
         }
-        dot.addEventListener('click', () => {
-            showSlide(index);
-            resetAutoSlide();
+
+        // 既存のページネーションをクリア
+        paginationContainer.innerHTML = '';
+
+        // ページネーションの点を動的に生成
+        slides.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('pagination-dot');
+            dot.addEventListener('click', () => {
+                showSlide(slides, dots, index);
+                resetAutoSlide();
+            });
+            paginationContainer.appendChild(dot);
         });
-        paginationContainer.appendChild(dot);
-    });
 
-    const dots = document.querySelectorAll('.pagination-dot');
+        // ドット要素を再取得
+        const dots = document.querySelectorAll('.pagination-dot');
+        showSlide(slides, dots, currentSlide); // ページ表示時に現在のスライドを表示
+        startAutoSlide(); // 自動スライドを再開
+    };
 
-    function showSlide(index) {
+    function showSlide(slides, dots, index) {
         slides.forEach(slide => slide.style.opacity = 0);
         dots.forEach(dot => dot.classList.remove('active'));
         slides[index].style.opacity = 1;
@@ -48,17 +55,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function nextSlide() {
+        // 次のスライドに切り替える際も、現在のスライドセットを再取得
+        const isMobile = window.innerWidth < 768;
+        const slides = document.querySelectorAll(isMobile ? '.slider-item-mobile' : '.slider-item');
+        const dots = document.querySelectorAll('.pagination-dot');
         currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
+        showSlide(slides, dots, currentSlide);
     }
 
     // 自動スライド機能
     const startAutoSlide = () => {
+        clearInterval(autoSlideInterval);
         autoSlideInterval = setInterval(nextSlide, 5000);
     };
 
@@ -67,19 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         startAutoSlide();
     };
 
-    // ボタンのクリックイベント（要素が存在するか確認）
-    if (nextButton && prevButton) {
-        nextButton.addEventListener('click', () => {
-            nextSlide();
-            resetAutoSlide();
-        });
-
-        prevButton.addEventListener('click', () => {
-            prevSlide();
-            resetAutoSlide();
-        });
-    }
-
-    // 初回表示
-    startAutoSlide();
+    // 初期表示とリサイズイベントを設定
+    window.addEventListener('resize', handleResize);
+    handleResize(); // 初回ロード時にも実行
 });

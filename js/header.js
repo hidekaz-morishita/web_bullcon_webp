@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const imageData = document.createElement('div');
                 imageData.id = `image-${product.id}`;
                 imageData.innerHTML = `
-                    <img src="${product.image_path}" alt="${product.name}">
+                    <img src="${product.image_path}" alt="">
                     <h4 class="product-title">${product.name}</h4>
                     <p class="product-description">${product.short_description}</p>
                 `;
@@ -166,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const navItemsWithDropdown = document.querySelectorAll('.nav-item.has-dropdown');
         let activeDropdown = null;
         let timeoutId = null;
+        const imageContainer = document.querySelector('.dropdown-image-container'); // 画像コンテナを取得
 
         navItemsWithDropdown.forEach(navItem => {
             const targetDropdown = document.getElementById(navItem.dataset.dropdownTarget);
@@ -184,6 +185,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     navItem.classList.add('is-active');
                     activeDropdown = targetDropdown;
                     if (targetDropdown.id === 'product-dropdown') {
+                        // 製品メガメニューが開かれたら、画像コンテナを空にする
+                        if (imageContainer) {
+                            imageContainer.innerHTML = '';
+                        }
                         adjustDropdownBorderHeight(targetDropdown);
                     }
                 }
@@ -217,10 +222,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // 以下、製品カテゴリーのサブメニュー機能は変更なし
+        // サブメニューのホバー機能
         const productCategories = document.getElementById('product-dropdown').querySelector('.dropdown-list');
         const subDropdownContainer = document.querySelector('.sub-dropdown-list-container');
-        const imageContainer = document.querySelector('.dropdown-image-container');
         const dataContainer = document.getElementById('product-data-container');
 
         if (productCategories && subDropdownContainer && imageContainer) {
@@ -244,6 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
+            // マウスがサブドロップダウンに入ったときの処理
             subDropdownContainer.addEventListener('mouseenter', (event) => {
                 const link = event.target.closest('a');
                 if (link) {
@@ -256,17 +261,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             }, true);
-
+            
+            // マウスがサブドロップダウンから離れたときの処理を追加
             subDropdownContainer.addEventListener('mouseleave', () => {
-                // サブドロップダウンコンテナから離れても、親のリスト項目ホバー状態を維持
+                imageContainer.innerHTML = '';
             });
 
             const productDropdown = document.getElementById('product-dropdown');
             if (productDropdown) {
                 productDropdown.addEventListener('mouseleave', () => {
-                    subDropdownContainer.innerHTML = '';
-                    imageContainer.innerHTML = '';
-                    productCategories.querySelectorAll('li').forEach(li => li.classList.remove('is-hovered'));
+                    // ここでサブメニューと画像をクリアすると、親から離れたときに画像が消えてしまう
+                    // ユーザーが意図的にドロップダウン全体から離れた時のみクリアする
                 });
             }
         }
