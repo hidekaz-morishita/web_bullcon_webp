@@ -95,6 +95,7 @@
     position: relative;
     padding-bottom: 12px;
     flex-wrap: wrap;
+    box-sizing: border-box;
 }
 
 /* tabs-group の下線を表現 */
@@ -130,6 +131,10 @@
     justify-content: flex-start;
 }
 
+.brand-group::before {
+    width: 120%;
+}
+
 .brand-group .tab-item {
     flex-shrink: 0;
     min-width: 80px;
@@ -138,7 +143,6 @@
 /* 各タブアイテムのスタイル */
 .tab-item {
     padding: 8px 10px;
-    /* 💡 clamp()によるフォントサイズのレスポンシブ対応 */
     font-size: clamp(0.95rem, 2vw, 1.1rem);
     cursor: pointer;
     background-color: transparent;
@@ -433,6 +437,9 @@
     }
     .brand-group {
         margin-top: -10px;
+    }
+    .brand-group::before {
+        width: 300%;
     }
     .brand-group .tab-item {
         flex-shrink: 0;

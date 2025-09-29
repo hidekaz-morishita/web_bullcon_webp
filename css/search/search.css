@@ -87,7 +87,6 @@
 
 .search-button:hover {
     background-color: #2980b9;
-    transform: translateY(-2px);
 }
 
 .search-button:active {
@@ -177,11 +176,6 @@
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-.result-title img {
-    height: auto;
-    width: 20px;
 }
 
 /* カテゴリラベルの基本スタイル */
@@ -274,22 +268,47 @@
     box-shadow: none;
 }
 
-/* 統一されたフッターのスタイル */
-.site-footer {
-    background-color: #34495e;
-    color: #ecf0f1;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 50px;
-}
-
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
-    .search-input {
+    .result-title-h3 {
+        font-size: 1em;
+        font-weight: 400;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .no-results {
+        font-size: 0.9em;
+    }
+
+    .search-form {
+        height: auto;
+        flex-direction: column; 
+    }
+
+    .site-search-input,
+    .manual-search-input {
         max-width: 100%;
+        margin-bottom: 10px;
     }
 
     .search-button {
-        width: 30%;
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .result-title{
+        font-size: 0.9em;
+    }
+
+    .result-title img{
+        height: 20px;
+        width: auto;
+    }
+
+    .result-url{
+        font-size: 0.6em;
     }
 }

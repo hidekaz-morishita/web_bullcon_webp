@@ -348,3 +348,11 @@ label {
 #notes-list-container .note-text {
     word-wrap: break-word; /* 長いテキストの折り返し */
 }
+
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+    .annotation p{
+        font-size: 0.9em;
+    }
+}
