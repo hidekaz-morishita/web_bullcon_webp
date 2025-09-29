@@ -2,14 +2,30 @@
 // ProductSearchInterfaceを読み込む
 require_once './products_compatibility/product_search_interface.php';
 
-class TelevingMakerSearch implements ProductSearchInterface
+class YearFuncProductsSearch implements ProductSearchInterface
 {
+    private $dbTableName;
     private $maker;
     private $model;
     private $userDateTimestamp;
 
-    public function __construct($maker, $model, $year, $month)
+    private $productToTableMap = [
+        'televing' => 'televing_maker',
+        'magicone_bk_un' => 'magicone_bk_un_maker',
+        'magicone_bk_ha' => 'magicone_bk_ha_maker',
+        'magicone_rm_un' => 'magicone_rm_un_maker',
+        'magicone_rm_ha' => 'magicone_rm_ha_maker',
+        'magicone_vtr_hdmi' => 'magicone_vtr_hdmi_maker',
+        'camera_selector' => 'camera_selector',
+        'product_B' => 'smpl'
+    ];
+
+    public function __construct($product, $maker, $model, $year, $month)
     {
+        if (!isset($this->productToTableMap[$product]) || $this->productToTableMap[$product] === '') {
+            throw new \InvalidArgumentException("無効な製品名またはテーブルが未定義です: " . $product);
+        }
+        $this->dbTableName = $this->productToTableMap[$product];
         $this->maker = $maker;
         $this->model = $model;
         $this->userDateTimestamp = strtotime("{$year}-{$month}-01");
@@ -17,7 +33,7 @@ class TelevingMakerSearch implements ProductSearchInterface
 
     public function getSql(): string
     {
-        return "SELECT * FROM televing_maker WHERE maker = ? AND car_model LIKE ?";
+        return "SELECT * FROM $this->dbTableName WHERE maker = ? AND car_model LIKE ?";
     }
 
     public function getParams(): array
@@ -61,21 +77,33 @@ class TelevingMakerSearch implements ProductSearchInterface
     }
 }
 
-
-class TelevingDealerSearch implements ProductSearchInterface
+class ProductCodeFuncSearch implements ProductSearchInterface
 {
+    private $dbTableName;
     private $maker;
     private $productCode;
 
-    public function __construct($maker, $productCode)
+    private $productToTableMap = [
+        'televing' => 'televing_dealer',
+        'magicone_bk_un' => 'magicone_bk_un_dealer',
+        'magicone_bk_ha' => 'magicone_bk_ha_dealer',
+        'magicone_rm_ha' => 'magicone_rm_ha_dealer',
+        'magicone_vtr_hdmi' => 'magicone_vtr_hdmi_dealer'
+    ];
+
+    public function __construct($product, $maker, $productCode)
     {
+        if (!isset($this->productToTableMap[$product]) || $this->productToTableMap[$product] === '') {
+            throw new \InvalidArgumentException("無効な製品名またはテーブルが未定義です: " . $product);
+        }
+        $this->dbTableName = $this->productToTableMap[$product];
         $this->maker = $maker;
         $this->productCode = $productCode;
     }
 
     public function getSql(): string
     {
-        return "SELECT * FROM televing_dealer WHERE maker = ? AND monitor_number LIKE ?";
+        return "SELECT * FROM $this->dbTableName WHERE maker = ? AND monitor_number LIKE ?";
     }
 
     public function getParams(): array

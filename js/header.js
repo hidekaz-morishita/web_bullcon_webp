@@ -1,56 +1,129 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ヘッダーを非同期で読み込む
-    fetch('/html/_header.html')
-        .then(response => {
+    // ヘッダーと製品データを同時に非同期で読み込む
+    Promise.all([
+        fetch('/html/_header.html').then(response => {
             if (!response.ok) {
                 throw new Error('Failed to load header: ' + response.statusText);
             }
             return response.text();
-        })
-        .then(data => {
-            const headerPlaceholder = document.getElementById('header-placeholder');
-            
-            if (headerPlaceholder) {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(data, 'text/html');
-                const headerContent = doc.body.innerHTML;
-
-                headerPlaceholder.innerHTML = headerContent;
-                
-                // モバイルナビゲーションの位置設定ロジック
-                const mobileNav = document.querySelector('.mobile-nav');
-                const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
-                const mainHeader = document.querySelector('.header'); // 新しいヘッダー要素
-
-                if (mainHeader && mobileNav && mobileNavOverlay) {
-                    const setMobileNavPosition = () => {
-                        mobileNav.style.top = `${mainHeader.offsetHeight}px`;
-                        mobileNavOverlay.style.top = `${mainHeader.offsetHeight}px`;
-                    };
-                    // ヘッダー読み込み後に位置を確定
-                    setMobileNavPosition();
-                    // リサイズ時にも位置を再計算
-                    window.addEventListener('resize', setMobileNavPosition);
-                }
-
-                // ヘッダーの全機能の初期化
-                initializeHeaderFunctions();
-            } else {
-                console.error("Error: Element with id 'header-placeholder' not found.");
+        }),
+        fetch('/html/products/products_data.json').then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to load products data: ' + response.statusText);
             }
+            return response.json();
         })
-        .catch(error => {
-            console.error('Error fetching header:', error);
-            const headerPlaceholder = document.getElementById('header-placeholder');
-            if (headerPlaceholder) {
-                headerPlaceholder.innerHTML = '<p>ヘッダーの読み込みに失敗しました。</p>';
-            }
+    ])
+    .then(([headerHtml, productsData]) => {
+        const headerPlaceholder = document.getElementById('header-placeholder');
+        if (headerPlaceholder) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(headerHtml, 'text/html');
+            const headerContent = doc.body.innerHTML;
+            headerPlaceholder.innerHTML = headerContent;
+
+            // 製品情報メガメニューをJSONデータから動的に生成
+            buildProductMegaMenu(productsData);
+
+            // ヘッダーの全機能の初期化
+            initializeHeaderFunctions();
+        } else {
+            console.error("Error: Element with id 'header-placeholder' not found.");
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+        const headerPlaceholder = document.getElementById('header-placeholder');
+        if (headerPlaceholder) {
+            headerPlaceholder.innerHTML = '<p>ヘッダーの読み込みに失敗しました。</p>';
+        }
+    });
+
+    //==================================
+    // 製品情報メガメニューをJSONから生成する関数
+    //==================================
+    function buildProductMegaMenu(data) {
+        const productDropdown = document.getElementById('product-dropdown');
+        if (!productDropdown) return;
+
+        const mainList = productDropdown.querySelector('.dropdown-list-container .dropdown-list');
+        if (!mainList) return;
+
+        // 既存の動的コンテンツをクリア
+        mainList.innerHTML = '';
+        
+        // 隠しデータコンテナを作成
+        const dataContainer = document.createElement('div');
+        dataContainer.style.display = 'none';
+        dataContainer.id = 'product-data-container';
+        productDropdown.appendChild(dataContainer);
+
+        // メインリストを構築
+        // カテゴリーの<li>要素を動的に生成
+        data.products_data.categories.forEach(category => {
+            const listItem = document.createElement('li');
+            listItem.classList.add('has-sub-list');
+            listItem.setAttribute('data-category-id', category.id); // カテゴリーIDをデータ属性として追加
+
+            const categoryLink = document.createElement('a');
+            categoryLink.href = category.url;
+            categoryLink.textContent = category.name;
+            listItem.appendChild(categoryLink);
+
+            mainList.appendChild(listItem);
+
+            // サブメニューと画像データを隠しコンテナに追加
+            const subMenu = document.createElement('ul');
+            subMenu.classList.add('sub-dropdown-menu');
+            subMenu.id = `sub-menu-${category.id}`; // カテゴリーIDでサブメニューを識別
+
+            category.products.forEach(product => {
+                const subListItem = document.createElement('li');
+                const productLink = document.createElement('a');
+                productLink.href = product.main_page.url;
+                productLink.setAttribute('data-image-target', `image-${product.id}`);
+                productLink.textContent = product.name;
+                subListItem.appendChild(productLink);
+                subMenu.appendChild(subListItem);
+
+                // 製品画像のHTMLを隠し要素として追加
+                const imageData = document.createElement('div');
+                imageData.id = `image-${product.id}`;
+                imageData.innerHTML = `
+                    <img src="${product.image_path}" alt="">
+                    <h4 class="product-title">${product.name}</h4>
+                    <p class="product-description">${product.short_description}</p>
+                `;
+                dataContainer.appendChild(imageData);
+            });
+            dataContainer.appendChild(subMenu);
         });
-
+    }
+    
     //==================================
     // ヘッダー関連の機能を初期化する関数
     //==================================
     function initializeHeaderFunctions() {
+        // モバイルナビゲーションの位置設定ロジック
+        const mobileNav = document.querySelector('.mobile-nav');
+        let mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+        const mainHeader = document.querySelector('.header');
+
+        if (!mobileNavOverlay) {
+            mobileNavOverlay = document.createElement('div');
+            mobileNavOverlay.classList.add('mobile-nav-overlay');
+            document.body.appendChild(mobileNavOverlay);
+        }
+
+        if (mainHeader && mobileNav && mobileNavOverlay) {
+            const setMobileNavPosition = () => {
+                mobileNav.style.top = `${mainHeader.offsetHeight}px`;
+                mobileNavOverlay.style.top = `${mainHeader.offsetHeight}px`;
+            };
+            setMobileNavPosition();
+            window.addEventListener('resize', setMobileNavPosition);
+        }
+
         // メガメニューの初期化
         initializeMegaMenu();
         // スクロール時のヘッダー固定を初期化
@@ -58,7 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // ハンバーガーメニューの開閉機能
         const hamburgerMenu = document.querySelector('.hamburger-menu');
-        const mobileNav = document.querySelector('.mobile-nav');
         const overlay = document.querySelector('.mobile-nav-overlay');
 
         if (hamburgerMenu && mobileNav && overlay) {
@@ -83,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     openMenu();
                 }
             });
-
             overlay.addEventListener('click', closeMenu);
         }
     }
@@ -95,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const navItemsWithDropdown = document.querySelectorAll('.nav-item.has-dropdown');
         let activeDropdown = null;
         let timeoutId = null;
+        const imageContainer = document.querySelector('.dropdown-image-container'); // 画像コンテナを取得
 
         navItemsWithDropdown.forEach(navItem => {
             const targetDropdown = document.getElementById(navItem.dataset.dropdownTarget);
@@ -113,6 +185,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     navItem.classList.add('is-active');
                     activeDropdown = targetDropdown;
                     if (targetDropdown.id === 'product-dropdown') {
+                        // 製品メガメニューが開かれたら、画像コンテナを空にする
+                        if (imageContainer) {
+                            imageContainer.innerHTML = '';
+                        }
                         adjustDropdownBorderHeight(targetDropdown);
                     }
                 }
@@ -146,19 +222,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // 以下、製品カテゴリーのサブメニュー機能は変更なし
-        const productCategories = document.getElementById('product-categories');
+        // サブメニューのホバー機能
+        const productCategories = document.getElementById('product-dropdown').querySelector('.dropdown-list');
         const subDropdownContainer = document.querySelector('.sub-dropdown-list-container');
-        const imageContainer = document.querySelector('.dropdown-image-container');
+        const dataContainer = document.getElementById('product-data-container');
 
         if (productCategories && subDropdownContainer && imageContainer) {
             const listItemsWithSublist = productCategories.querySelectorAll('.has-sub-list');
             listItemsWithSublist.forEach(listItem => {
                 listItem.addEventListener('mouseenter', () => {
+                    // 全てのカテゴリからホバー状態を削除
                     productCategories.querySelectorAll('li').forEach(li => li.classList.remove('is-hovered'));
+                    // 現在ホバーしているカテゴリにホバー状態を追加
                     listItem.classList.add('is-hovered');
                     
-                    const subList = listItem.querySelector('.sub-dropdown-menu');
+                    const categoryId = listItem.getAttribute('data-category-id');
+                    const subList = document.getElementById(`sub-menu-${categoryId}`);
+
                     if (subList) {
                         subDropdownContainer.innerHTML = subList.innerHTML;
                     } else {
@@ -168,6 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
+            // ホバーイベントリスナーの修正
             subDropdownContainer.addEventListener('mouseenter', (event) => {
                 const link = event.target.closest('a');
                 if (link) {
@@ -180,17 +261,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             }, true);
-
+            
+            // マウスがサブドロップダウンから離れたときの処理を追加
             subDropdownContainer.addEventListener('mouseleave', () => {
-                // サブドロップダウンコンテナから離れても、親のリスト項目ホバー状態を維持
+                imageContainer.innerHTML = '';
             });
 
             const productDropdown = document.getElementById('product-dropdown');
             if (productDropdown) {
                 productDropdown.addEventListener('mouseleave', () => {
-                    subDropdownContainer.innerHTML = '';
-                    imageContainer.innerHTML = '';
-                    productCategories.querySelectorAll('li').forEach(li => li.classList.remove('is-hovered'));
+                    // ここでサブメニューと画像をクリアすると、親から離れたときに画像が消えてしまう
+                    // ユーザーが意図的にドロップダウン全体から離れた時のみクリアする
                 });
             }
         }

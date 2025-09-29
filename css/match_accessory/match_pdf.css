@@ -29,7 +29,7 @@
 
 /* 縦スクロールを制御するためのラッパー */
 .table-wrapper {
-    max-height: 600px; /* テーブルボディの最大高さを設定 */
+    max-height: 800px; /* テーブルボディの最大高さを設定 */
     overflow-y: auto; /* このラッパーで縦スクロールを有効にする */
 }
 
@@ -113,6 +113,9 @@ td.bg-yellow {
     }
     th, td {
         padding: 8px;
+    }
+    .annotation p{
+        font-size: 0.9em;
     }
     .pdf-icon {
         width: 20px;

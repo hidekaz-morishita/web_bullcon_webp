@@ -1,7 +1,11 @@
 // result_renderer.js
 
 import { getCompatibilityData } from './match_api_client.js';
-import { NOTES_DATA } from './data_mapper.js';
+import { 
+    TVING_NOTES_DATA, MAGICONE_BK_NOTES_DATA, MAGICONE_RM_VTR_NOTES_DATA,
+    CAMERA_SELECTOR_NOTES_DATA,
+    STEERING_SWT_CTRL_NOTES_DATA
+ } from './data_mapper.js';
 
 /**
  * 検索結果を処理してDOMに表示する関数
@@ -11,6 +15,7 @@ import { NOTES_DATA } from './data_mapper.js';
  */
 export async function handleSearchResults(params, headerData, pdfPath) {
     const tableContainer = document.getElementById('results-table-container');
+    const exportPdfButton = document.getElementById('exportPdfButton');
     const messageContainer = document.getElementById('message-container');
     const pdfLinkContainer = document.getElementById('pdf-link-container');
     
@@ -21,14 +26,17 @@ export async function handleSearchResults(params, headerData, pdfPath) {
     }
     if (tableContainer) {
         tableContainer.style.display = 'none';
+        exportPdfButton.style.display = 'none';
+        exportPdfButton.disabled = true;
     }
     if (pdfLinkContainer) {
         if (pdfPath) {
             const pdfLink = document.createElement('a');
             pdfLink.href = pdfPath;
             pdfLink.target = '_blank';
+            pdfLink.style.borderBottom = '1px solid #337ab7';
             pdfLink.classList.add('pdf-link');
-            pdfLink.textContent = '適合表(PDF)はこちら';
+            pdfLink.textContent = '一部車種マイナーチェンジの判別方法、およびPDF適合表はこちら';
             pdfLinkContainer.innerHTML = '';
             pdfLinkContainer.appendChild(pdfLink);
             pdfLinkContainer.style.display = 'block';
@@ -43,19 +51,27 @@ export async function handleSearchResults(params, headerData, pdfPath) {
         if (partsData && Array.isArray(partsData) && partsData.length > 0) {
             if (messageContainer) messageContainer.style.display = 'none';
             generateTable(partsData, headerData);
-            displayNotes(partsData);
-            if (tableContainer) tableContainer.style.display = 'block';
+            displayNotes(partsData, params.product);
+            if (tableContainer) {
+                tableContainer.style.display = 'block';
+                exportPdfButton.style.display = 'block';
+                exportPdfButton.disabled = false;
+            }
         } else {
             if (messageContainer) {
                 messageContainer.textContent = 'お探しの条件に適合する品番は見つかりませんでした。';
                 messageContainer.style.display = 'block';
             }
-            if (tableContainer) tableContainer.style.display = 'none';
-            displayNotes([]);
+            if (tableContainer) {
+                tableContainer.style.display = 'none';
+                exportPdfButton.style.display = 'none';
+                exportPdfButton.disabled = true;
+            }
+            displayNotes([], null);
             if (pdfLinkContainer) {
                 const pdfLink = pdfLinkContainer.querySelector('.pdf-link');
                 if (pdfLink) {
-                    pdfLink.textContent = '適合品番は見つかりませんでした。詳しくは適合表(PDF)をご参照ください。';
+                    pdfLink.textContent = '適合品番は見つかりませんでした。一部車種マイナーチェンジの判別方法、およびPDF適合表も併せてご確認ください。';
                 }
             }
         }
@@ -64,7 +80,11 @@ export async function handleSearchResults(params, headerData, pdfPath) {
             messageContainer.textContent = `検索中にエラーが発生しました: ${error.message}`;
             messageContainer.style.display = 'block';
         }
-        if (tableContainer) tableContainer.style.display = 'none';
+        if (tableContainer) {
+            tableContainer.style.display = 'none';
+            exportPdfButton.style.display = 'none';
+            exportPdfButton.disabled = true;
+        }
         if (pdfLinkContainer) {
             const pdfLink = pdfLinkContainer.querySelector('.pdf-link');
             if (pdfLink) {
@@ -124,16 +144,33 @@ function generateTable(data, headerData) {
                 } else {
                     const priceExclTax = `<span style="font-size: 0.8em;">税別: ${(item[col.priceKeys.excl] || '').replace('\\', '￥')}</span>`;
                     const priceInclTax = `<span style="font-size: 0.8em;">税込: ${(item[col.priceKeys.incl] || '').replace('\\', '￥')}</span>`;
-                    const navCtrl = col.option && col.option.nav ? `<span style="font-size: 0.6em;">ナビ操作: ${(item[col.option.nav] || '-').replace('\\', '￥')}</span>` : '';
-                    const vehiclePos = col.option && col.option.vehicle_pos ? `<span style="font-size: 0.6em;">自車位置: ${(item[col.option.vehicle_pos] || '-').replace('\\', '￥')}</span>` : '';
-                    const dvd = col.option && col.option.dvd ? `<span style="font-size: 0.6em;">DVD視聴: ${(item[col.option.dvd] || '-').replace('\\', '￥')}</span>` : '';
-                    td.innerHTML = `<b>${item[col.key]}</b><br>${priceExclTax}<br>${priceInclTax}<br><br>${navCtrl}<br>${vehiclePos}<br>${dvd}`;
+                    const navCtrl = col.option && col.option.nav ? `<br><span style="font-size: 0.6em;">ナビ操作: ${(item[col.option.nav] || '-').replace('\\', '￥')}</span>` : '';
+                    const vehiclePos = col.option && col.option.vehicle_pos ? `<br><span style="font-size: 0.6em;">自車位置: ${(item[col.option.vehicle_pos] || '-').replace('\\', '￥')}</span>` : '';
+                    const excl_input = col.option && col.option.excl_input ? `<br><span style="font-size: 0.6em;">外部入力: ${(item[col.option.excl_input] || '-').replace('\\', '￥')}</span>` : '';
+                    const tv = col.option && col.option.tv ? `<br><span style="font-size: 0.6em;">デジタルテレビ: ${(item[col.option.tv] || '-').replace('\\', '￥')}</span>` : '';
+                    const dvd = col.option && col.option.dvd ? `<br><span style="font-size: 0.6em;">DVD視聴: ${(item[col.option.dvd] || '-').replace('\\', '￥')}</span>` : '';
+                    td.innerHTML = `<b>${item[col.key]}</b><br>${priceExclTax}<br>${priceInclTax}<br>${navCtrl}${vehiclePos}${excl_input}${tv}${dvd}`;
                 }
             } else if (col.key === 'notes') {
                 if (item && item[col.key]) {
                     const notesString = item[col.key];
-                    const parts = (notesString || '').replace(/[{}]/g, '').split(',').filter(p => p.trim() !== '');
-                    td.innerHTML = parts.map(part => `※${part}`).join('<br>');
+                    const partsStr = (notesString || '').replace(/[{}]/g, '').split(',').filter(p => p.trim() !== '');
+                
+                    // スズキ専用注意事項
+                    // 各要素に対して処理を行うための新しい配列を作成
+                    const processedParts = partsStr.map(part => {
+                        const partsInt = parseInt(part.trim(), 10);
+                        // パースした値が有効な数値であり、900以上1000未満であることを確認
+                        if (!isNaN(partsInt) && partsInt >= 900 && partsInt < 1000) {
+                            // 条件を満たす場合、"S" + (値 - 900) の形式に変換
+                            return `S${partsInt - 900}`;
+                        }
+                        // その他の場合、元の文字列をそのまま返す
+                        return part.trim();
+                    });
+                
+                    // 処理された配列の各要素に"※"を付けて、改行で結合
+                    td.innerHTML = processedParts.map(str => `※${str}`).join('<br>');
                 } else {
                     td.innerHTML = '';
                 }
@@ -147,9 +184,21 @@ function generateTable(data, headerData) {
 }
 
 // 注意事項を表示する関数
-function displayNotes(data) {
+function displayNotes(data, productName) {
     const notesContainer = document.getElementById('notes-list-container');
     if (!notesContainer) return;
+
+    const NOTES_MAP = {
+      'televing': TVING_NOTES_DATA,
+      'magicone_bk_un': MAGICONE_BK_NOTES_DATA,
+      'magicone_bk_ha': MAGICONE_BK_NOTES_DATA,
+      'magicone_rm_un': MAGICONE_RM_VTR_NOTES_DATA,
+      'magicone_rm_ha': MAGICONE_RM_VTR_NOTES_DATA,
+      'magicone_vtr_hdmi': MAGICONE_RM_VTR_NOTES_DATA,
+      'camera_selector': CAMERA_SELECTOR_NOTES_DATA,
+      'steering_swt_ctrl': STEERING_SWT_CTRL_NOTES_DATA
+    };
+    const noteSet = NOTES_MAP[productName] || '';
 
     const uniqueNotes = new Set();
     data.forEach(item => {
@@ -162,21 +211,37 @@ function displayNotes(data) {
 
     const sortedNotes = Array.from(uniqueNotes).sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
 
-    let notesHtml = '<h3>注意事項</h3><ul>';
-    if (NOTES_DATA['common'] && NOTES_DATA['common'].length > 0) {
-        NOTES_DATA['common'].forEach(common_txt => {
-            notesHtml += `<li><span class="note-number">※共通</span><span class="note-text">：${common_txt.replace(/\n/g, '<br>')}</span></li>`;
+    // 注意事項のHTMLを格納する配列
+    const noteItems = [];
+
+    // 共通注意事項の処理
+    if (noteSet?.common?.length > 0) {
+        noteSet.common.forEach(text => {
+            noteItems.push(`<li><span class="note-number">※共通</span><span class="note-text">：${text.replace(/\n/g, '<br>')}</span></li>`);
         });
     }
 
-    if (sortedNotes.length > 0) {
+    // 個別注意事項の処理
+    if (sortedNotes?.length > 0) {
         sortedNotes.forEach(num => {
-            const noteText = NOTES_DATA[num];
+            let noteLabel = num;
+            // スズキ専用処理
+            if (num >= 900 && num < 1000) {
+                noteLabel = `S${num - 900}`;
+            }
+
+            const noteText = noteSet[num];
             if (noteText) {
-                notesHtml += `<li><span class="note-number">※${num}</span><span class="note-text">：${noteText.replace(/\n/g, '<br>')}</span></li>`;
+                noteItems.push(`<li><span class="note-number">※${noteLabel}</span><span class="note-text">：${noteText.replace(/\n/g, '<br>')}</span></li>`);
             }
         });
-    } 
+    }
+
+    // 最終的なHTMLの生成
+    let notesHtml = '';
+    if (noteItems.length > 0) {
+        notesHtml = `<h3>注意事項</h3><ul>${noteItems.join('')}</ul>`;
+    }
     
     notesHtml += '</ul>';
     notesContainer.innerHTML = notesHtml;

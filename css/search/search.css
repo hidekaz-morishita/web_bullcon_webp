@@ -1,3 +1,39 @@
+/* search.css */
+
+/* タブのスタイル */
+.tabs {
+    display: flex;
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 10px 0;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: #555;
+    transition: color 0.3s;
+    text-align: center;
+}
+
+.tab-button.active {
+    color: #d1121d;
+    border-bottom: 2px solid #d1121d;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
 /* メインコンテンツのスタイル */
 .search-page-main {
     max-width: 960px;
@@ -17,9 +53,12 @@
     display: flex;
     justify-content: center;
     gap: 10px;
+    position: relative;
+    /* オートコンプリートの基準位置 */
 }
 
-.search-input {
+.site-search-input,
+.manual-search-input {
     flex-grow: 1;
     padding: 12px 15px;
     border: 1px solid #ccc;
@@ -48,15 +87,41 @@
 
 .search-button:hover {
     background-color: #2980b9;
-    transform: translateY(-2px);
 }
 
 .search-button:active {
     transform: translateY(0);
 }
 
+/* --- オートコンプリートのスタイル (新規追加) --- */
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+    background-color: #e9e9e9;
+}
+
 /* 検索結果のスタイル */
-.results-section {
+/* 既存の results-section と .site-search-results-section, .manual-search-results-section が混在していたため、.results-section に一本化しました */
+.results-section, .site-search-results-section, .manual-search-results-section {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 8px;
@@ -115,11 +180,11 @@
 
 /* カテゴリラベルの基本スタイル */
 .result-category {
-    font-size: 0.7em; /* フォントサイズを小さく */
-    color: white; /* テキスト色を白に */
-    padding: 3px 6px; /* パディングを小さく */
-    border-radius: 4px; /* 角丸を少なくし長方形に */
-    font-weight: bold; /* テキストを太字に */
+    font-size: 0.7em;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-weight: bold;
     margin-right: 5px;
 }
 
@@ -147,10 +212,17 @@
     word-break: break-all;
 }
 
+/* product名を少し小さく */
+.result-product-name {
+    font-size: 0.8em;
+    color: #555;
+    margin-top: 5px;
+}
+
 /* 検索結果の概要とページネーションのスタイル */
 .results-summary {
     text-align: right;
-    margin: 30px 0 10px; /* 上の余白を増やして下げる */
+    margin: 30px 0 10px;
     font-size: 0.9em;
     color: #666;
     font-weight: 500;
@@ -161,13 +233,13 @@
     justify-content: flex-end;
     align-items: center;
     gap: 10px;
-    margin-top: 15px; /* 検索結果リストとの間にスペースを追加 */
+    margin-top: 15px;
     margin-bottom: 20px;
 }
 
 .pagination-controls button {
-    padding: 12px 25px; /* ボタンを少し大きく */
-    background-color: #2c3e50; /* 新しい背景色 */
+    padding: 12px 25px;
+    background-color: #2c3e50;
     color: white;
     border: none;
     border-radius: 5px;
@@ -175,43 +247,68 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 影を追加 */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .pagination-controls button:hover {
-    background-color: #34495e; /* ホバー時の色 */
+    background-color: #34495e;
     transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0,0,0,0.15); /* ホバー時の影を強調 */
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15);
 }
 
 .pagination-controls button:active {
     transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* クリック時の影 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .pagination-controls button:disabled {
-    background-color: #bdc3c7; /* 無効なボタンの色 */
+    background-color: #bdc3c7;
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
 }
 
-/* 統一されたフッターのスタイル */
-.site-footer {
-    background-color: #34495e;
-    color: #ecf0f1;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 50px;
-}
-
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
-    .search-input {
+    .result-title-h3 {
+        font-size: 1em;
+        font-weight: 400;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .no-results {
+        font-size: 0.9em;
+    }
+
+    .search-form {
+        height: auto;
+        flex-direction: column; 
+    }
+
+    .site-search-input,
+    .manual-search-input {
         max-width: 100%;
+        margin-bottom: 10px;
     }
 
     .search-button {
-        width: 30%;
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .result-title{
+        font-size: 0.9em;
+    }
+
+    .result-title img{
+        height: 20px;
+        width: auto;
+    }
+
+    .result-url{
+        font-size: 0.6em;
     }
 }

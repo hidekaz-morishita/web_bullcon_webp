@@ -36,7 +36,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    gap: 30px; /* フォームと結果エリア間の余白 */
+    gap: 10px; /* フォームと結果エリア間の余白 */
 }
 
 /* フォームエリアの全体的なスタイル */
@@ -225,6 +225,13 @@ label {
     overflow-x: auto;
 }
 
+/* pdf保存ボタンのスタイル */
+#exportPdfButton {
+    align-self: flex-end;
+    margin-top: 20px;
+    margin-right: 20px; 
+}
+
 /* 検索結果テーブルのコンテナにスクロール機能を付与 */
 #results-table-container {
     max-height: 600px;
@@ -340,4 +347,12 @@ label {
 
 #notes-list-container .note-text {
     word-wrap: break-word; /* 長いテキストの折り返し */
+}
+
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+    .annotation p{
+        font-size: 0.9em;
+    }
 }

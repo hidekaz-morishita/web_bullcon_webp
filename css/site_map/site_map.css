@@ -4,6 +4,7 @@
 .sitemap-container {
     max-width: 900px;
     padding: 0 20px;
+    margin: 0 auto;
 }
 
 /* タイトルと説明文の共通スタイル */
