@@ -34,8 +34,9 @@ export async function handleSearchResults(params, headerData, pdfPath) {
             const pdfLink = document.createElement('a');
             pdfLink.href = pdfPath;
             pdfLink.target = '_blank';
+            pdfLink.style.borderBottom = '1px solid #337ab7';
             pdfLink.classList.add('pdf-link');
-            pdfLink.textContent = '適合表(PDF)はこちら';
+            pdfLink.textContent = '一部車種マイナーチェンジの判別方法、およびPDF適合表はこちら';
             pdfLinkContainer.innerHTML = '';
             pdfLinkContainer.appendChild(pdfLink);
             pdfLinkContainer.style.display = 'block';
@@ -70,7 +71,7 @@ export async function handleSearchResults(params, headerData, pdfPath) {
             if (pdfLinkContainer) {
                 const pdfLink = pdfLinkContainer.querySelector('.pdf-link');
                 if (pdfLink) {
-                    pdfLink.textContent = '適合品番は見つかりませんでした。詳しくは適合表(PDF)をご参照ください。';
+                    pdfLink.textContent = '適合品番は見つかりませんでした。一部車種マイナーチェンジの判別方法、およびPDF適合表も併せてご確認ください。';
                 }
             }
         }

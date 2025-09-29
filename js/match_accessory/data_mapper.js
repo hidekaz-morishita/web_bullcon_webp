@@ -27,7 +27,7 @@ export const PRODUCTS_DATA = {
                     { label: 'フリーテレビング', subHeaders: [
                         { key: 'ft_auto_type', label: 'オートタイプ',
                             priceKeys: { excl: 'ft_auto_price_excl_tax', incl: 'ft_auto_price_incl_tax' },
-                            option: {nav: 'ft_led_sh_st_navigation_control', vehicle_pos: 'ft_led_sh_st_vehicle_position'}
+                            option: {nav: 'ft_auto_navigation_control', vehicle_pos: 'ft_auto_vehicle_position'}
                          },
                         { key: 'ft_led_switch_type', label: 'LEDスイッチ切替タイプ', 
                             priceKeys: { excl: 'ft_led_price_excl_tax', incl: 'ft_led_price_incl_tax' },
