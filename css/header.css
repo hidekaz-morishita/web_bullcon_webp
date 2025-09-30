@@ -379,7 +379,7 @@
   .header-logo img {
     height: 40px;
     width: auto;
-    margin: 10px 0;
+    margin: 0;
   }
 
   .social-links {
@@ -434,6 +434,7 @@
     z-index: 1020;
     padding: 0;
     overflow-y: auto;
+    max-height: 60%;
   }
   
   .mobile-nav.is-visible {
