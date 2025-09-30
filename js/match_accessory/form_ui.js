@@ -1,5 +1,6 @@
 // form_ui.js
-import { PRODUCTS_DATA, CAR_TYPE, CAR_YEARS, BASIC_YEARS, MONTHS, DEALER_NAV } from './data_mapper.js';
+import { initializeAndGetCarModel } from './match.js';
+import { PRODUCTS_DATA, CAR_YEARS, BASIC_YEARS, MONTHS, DEALER_NAV } from './data_mapper.js';
 
 function populateOptions(selectElement, options, emptyOptionText) {
     if (!selectElement) {
@@ -28,8 +29,10 @@ function populateOptions(selectElement, options, emptyOptionText) {
  * @param {object} productInfo - 選択された製品の情報
  * @param {object} state - 現在のフォームの状態
  */
-function generateSpecificProductForm(formContainer, productInfo, state) {
+async function generateSpecificProductForm (formContainer, productInfo, state) {
     const { selectedOptionType, selectedMaker, selectedModel, selectedYear, selectedMonth, selectedProductCode } = state;
+
+    const carModel = await initializeAndGetCarModel();
 
     /* 
      * maker: full
@@ -69,7 +72,7 @@ function generateSpecificProductForm(formContainer, productInfo, state) {
         
         let makerOptions;
         if (currentOptionType === 'maker') {
-            makerOptions = Object.keys(CAR_TYPE);
+            makerOptions = Object.keys(carModel);
         } else {
             makerOptions = Object.keys(DEALER_NAV);
         }
@@ -88,7 +91,7 @@ function generateSpecificProductForm(formContainer, productInfo, state) {
                     <select id="model-select" class="form-select"></select>
                 `;
                 formContainer.appendChild(modelGroup);
-                const modelNames = CAR_TYPE[selectedMaker];
+                const modelNames = carModel[selectedMaker];
                 populateOptions(document.getElementById('model-select'), modelNames, '車種を選択してください');
                 if (selectedModel) {
                     document.getElementById('model-select').value = selectedModel;
@@ -185,7 +188,7 @@ function generateSpecificProductForm(formContainer, productInfo, state) {
         `;
         formContainer.appendChild(makerGroup);
         
-        let makerOptions = Object.keys(CAR_TYPE);
+        let makerOptions = Object.keys(carModel);
         populateOptions(document.getElementById('maker-select'), makerOptions, 'メーカーを選択してください');
         
         if (selectedMaker) {
@@ -200,7 +203,7 @@ function generateSpecificProductForm(formContainer, productInfo, state) {
                 <select id="model-select" class="form-select"></select>
             `;
             formContainer.appendChild(modelGroup);
-            const modelNames = CAR_TYPE[selectedMaker];
+            const modelNames = carModel[selectedMaker];
             populateOptions(document.getElementById('model-select'), modelNames, '車種を選択してください');
             if (selectedModel) {
                 document.getElementById('model-select').value = selectedModel;
@@ -232,7 +235,7 @@ function generateSpecificProductForm(formContainer, productInfo, state) {
  * @param {string} containerId - フォームを挿入する要素のID。
  * @param {object} state - 現在のフォームの状態を保持するオブジェクト。
  */
-export function renderForm(containerId, state) {
+export async function renderForm(containerId, state) {
     const { selectedProduct } = state;
     const formContainer = document.getElementById(containerId);
     if (!formContainer) {
@@ -258,7 +261,7 @@ export function renderForm(containerId, state) {
     const productInfo = Object.values(PRODUCTS_DATA).find(p => p.name === selectedProduct);
     
     if (productInfo) {
-        generateSpecificProductForm(formContainer, productInfo, state);
+        await generateSpecificProductForm(formContainer, productInfo, state);
     }
     
     const searchButton = document.createElement('button');

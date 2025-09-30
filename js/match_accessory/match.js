@@ -2,9 +2,15 @@
 import { renderForm } from './form_ui.js';
 import { setupEventListeners } from './event_handler.js';
 import { exportTableToPdf } from './result_table_exporter.js'; 
+import { getCompatibilityData } from './match_api_client.js';
+
+const CAR_MODEL_API = '../../api/get_car_model.php';
+
+let carModelCache = null;
 
 // DOM読み込み後の初期処理
 document.addEventListener('DOMContentLoaded', () => {
+    initializeAndGetCarModel();
     // フォームを初期描画
     // この時点ではformStateが空なので、製品選択のみが表示されます
     renderForm('form-container', {
@@ -30,3 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+export const initializeAndGetCarModel = async() => {
+    // キャッシュが存在する場合は、即座にキャッシュデータを返す
+    if (carModelCache) {
+        console.log("Using cached car model data.");
+        return carModelCache;
+    }
+
+    // キャッシュが存在しない場合は、APIからデータを取得し、キャッシュする
+    console.log("Fetching car model data from API.");
+    const carModel = await getCompatibilityData(CAR_MODEL_API , "");
+    
+    // 取得したデータをキャッシュに保存
+    carModelCache = carModel;
+    
+    return carModel;
+};
