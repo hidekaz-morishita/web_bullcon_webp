@@ -13,7 +13,7 @@
 }
 
 .privacy-link {
-    color: #00479d;
+    color: var(--color-link-text);
     text-decoration: underline;
 }
 
@@ -58,14 +58,14 @@
 .sub-text, .sub-text-kana {
     font-weight: normal;
     font-size: 12px;
-    color: #666;
+    color: var(--color-body-text-2);
     margin: 5px 0 0;
 }
 
 .sub-text-long {
     font-weight: normal;
     font-size: 12px;
-    color: #666;
+    color: var(--color-body-text-2);
     margin: 5px 0 0;
     line-height: 1.5;
 }
@@ -115,19 +115,19 @@
 }
 
 .submit-button {
-    background-color: #00479d;
+    background-color: var(--color-submit-button);
 }
 
 .reset-button {
-    background-color: #999;
+    background-color: var(--color-body-text-2);
 }
 
 .important-notes {
     margin-top: 30px;
     line-height: 1.6;
     font-size: 13px;
-    color: #555;
-    background-color: #fff;
+    color: var(--color-body-text-2);
+    background-color: var(--color-body-text-dark);
     padding: 20px;
     border-radius: 8px;
 }
@@ -135,7 +135,7 @@
 .important-notes .note-title {
     font-weight: bold;
     font-size: 14px;
-    color: #333;
+    color: var(--color-body-text);
     margin: 20px 0 10px;
 }
 
@@ -144,7 +144,7 @@
 }
 
 .carrier-notes a {
-    color: #00479d;
+    color: var(--color-link-text);
     text-decoration: underline;
 }
 

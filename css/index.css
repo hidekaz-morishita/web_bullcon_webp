@@ -15,7 +15,7 @@
     font-weight: 700;
     position: relative;
     padding-bottom: 10px;
-    color: #333;
+    color: var(--color-accent);
 }
 
 .section-title-jp::after {
@@ -25,7 +25,7 @@
     transform: translateX(-50%);
     width: 100%;
     height: 1px;
-    background-color: #333;
+    background-color: var(--color-accent);
 }
 
 /*==================================
@@ -33,7 +33,7 @@
 ==================================*/
 .hero {
     position: relative;
-    color: #fff;
+    color: var(--color-background);
     text-align: center;
     display: flex;
     justify-content: center;
@@ -127,15 +127,14 @@
 .news-button {
     display: inline-block;
     padding: 5px 10px;
-    color: #000;
+    color: var(--color-header-text);
     font-weight: 600;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--color-accent);
     text-decoration: none;
 }
 
 .news-button:hover {
-    background-color: #fff;
-    color: #00479d;
+    color: var(--color-link-text);
     transform: translateY(-2px);
 }
 
@@ -165,22 +164,21 @@
 .announcements-list li {
     padding: 12px 0;
     /* 下線（ボーダー）をアイテムに直接適用 */
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--color-background-border);
 }
 
 .announcements-list li a {
     /* Flexboxで日付とタイトルを横並びにする */
     display: flex;
     align-items: center;
-    color: #333;
+    color: var(--color-body-text);
     text-decoration: none;
-    /* 💡 clamp()によるフォントサイズのレスポンシブ対応 */
     font-size: clamp(0.9rem, 2vw, 1.1em);
     transition: color 0.3s ease;
 }
 
 .announcements-list li a:hover {
-    color: #3498db;
+    color: var(--color-link-text);
 }
 
 /* 日付とタイトルを視覚的に分けるスタイル */
@@ -189,7 +187,7 @@
     display: inline-block;
     min-width: 110px; /* 日付の表示幅を確保 */
     margin-right: 30px; /* 空白を広げる */
-    color: #666;
+    color: var(--color-accent-2);
     font-size: clamp(0.9rem, 2vw, 1.1em);
     font-weight: bold;
     flex-shrink: 0; /* タイトルが長くなっても幅を保持 */
@@ -200,7 +198,7 @@
 ==================================*/
 .products-news-section {
     padding: 60px 0;
-    background-color: #fff;
+    background-color: var(--color-background);
 }
 
 .products-news-section .container {
@@ -217,8 +215,8 @@
 }
 /* 各製品情報アイテムのスタイル */
 .product-item {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-background-border);
     border-radius: 8px;
     margin-bottom: 20px;
     padding: 20px;
@@ -254,7 +252,7 @@
     padding: 0;
     margin: 0;
     flex-grow: 1;
-    color: #333;
+    color: var(--color-body-text);
     font-weight: bold;
     font-size: clamp(0.6rem, 2vw, 1.1rem);
 }
@@ -276,8 +274,8 @@
 /* 日付のスタイル */
 .product-date {
     font-size: 0.8rem;
-    color: #555;
-    background-color: #f0f0f0;
+    color: var(--color-body-text-2);
+    background-color: var(--color-white-emphasis);
     padding: 4px 8px;
     border-radius: 4px;
     white-space: nowrap;
@@ -292,7 +290,7 @@
     border-radius: 3px;
     line-height: 1.2;
     border: 2px solid;
-    color: #333;
+    color: var(--color-accent);
     white-space: nowrap;
     font-size: clamp(0.7rem, 2vw, 0.95rem);
     flex-shrink: 0;
@@ -306,7 +304,7 @@
     flex-wrap: wrap;
     gap: 8px;
     padding-top: 8px;
-    border-top: 1px dotted #e0e0e0;
+    border-top: 1px dotted var(--color-background-border);
 }
 
 /* 対象車種のラベルのスタイル */
@@ -320,14 +318,14 @@
 .car-model-label {
     font-size: 0.95rem;
     font-weight: bold;
-    color: #555;
+    color: var(--color-accent-2);
     flex-shrink: 0;
     vertical-align: middle;
     font-size: clamp(0.8rem, 2vw, 1.1rem);
 }
 .car-models {
     font-size: 0.95rem;
-    color: #333;
+    color: var(--color-body-text);
     line-height: 1.4;
     flex-grow: 1;
     vertical-align: middle;
@@ -349,10 +347,10 @@
 /* 本文のスタイル */
 .product-fulltext-body {
     font-size: clamp(0.6rem, 1vw, 1rem);
-    color: #555;
+    color: var(--color-body-text);
     line-height: 1.4;
     padding: 10px 0 0 0;
-    border-top: 1px dashed #e0e0e0;
+    border-top: 1px dashed var(--color-background-border);
     margin-top: 10px;
 }
 .product-fulltext-body p,
@@ -387,7 +385,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     text-decoration: none;
-    color: #333;
+    color: var(--color-body-text);
     transition: all 0.3s ease;
     align-items: center;
 }

@@ -24,7 +24,7 @@
 
 .info-list dt {
     font-weight: 700;
-    background-color: #f0f0f0;
+    background-color: var(--color-white-emphasis);
     padding: 15px 20px;
     border-bottom: 1px solid #ddd;
     border-top: 1px solid #ddd;
@@ -35,7 +35,7 @@
     margin: 0;
     padding: 15px 20px;
     border-bottom: 1px solid #ddd;
-    background-color: #fff;
+    background-color: var(--color-background);
 }
 
 .company-images {
@@ -57,7 +57,7 @@
 
 .company-image .caption {
     font-size: 14px;
-    color: #666;
+    color: var(--color-body-text-2);
     margin-top: 10px;
 }
 
@@ -67,13 +67,13 @@
 
 .office-title {
     font-size: 24px;
-    font-weight: 500; /* 太さを少し抑える */
-    color: #444; /* 落ち着いた色に変更 */
+    font-weight: 500; 
+    color: var(--color-body-text); 
     text-align: center;
     margin-bottom: 30px;
     padding-bottom: 10px;
     position: relative;
-    letter-spacing: 0.05em; /* 字間を少し広げる */
+    letter-spacing: 0.05em; 
 }
 
 /* シンプルな下線を追加 */
@@ -85,7 +85,7 @@
     transform: translateX(-50%);
     width: 60px;
     height: 2px;
-    background-color: #999; /* 控えめなグレーに変更 */
+    background-color: var(--color-accent-2); 
 }
 
 /* レスポンシブ対応 */

@@ -12,14 +12,14 @@
 
 .page-title {
     text-align: center;
-    color: #00479d;
+    color: var(--color-header-text);
     font-size: 2.5em;
     margin-bottom: 10px;
 }
 
 .section-description {
     text-align: center;
-    color: #666;
+    color: var(--color-body-text-2);
     margin-bottom: 30px;
 }
 
@@ -62,8 +62,8 @@
 .maker-button {
     display: block;
     padding: 12px 20px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--color-submit-button);
+    color: var(--color-body-text-dark);
     text-decoration: none;
     border-radius: 8px;
     font-weight: bold;
@@ -73,5 +73,5 @@
 }
 
 .maker-button:hover {
-    background-color: #0056b3;
+    background-color: var(--color-submit-button-hovar);
 }

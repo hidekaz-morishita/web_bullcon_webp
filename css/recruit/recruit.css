@@ -9,7 +9,7 @@
     text-align: center;
     font-size: 18px;
     font-weight: bold;
-    color: #333;
+    color: var(--color-body-text);
     padding: 100px 0;
 }
 
@@ -20,47 +20,13 @@
 
 .privacy-link {
     font-size: 14px;
-    color: #00479d;
+    color: var(--color-link-text);
     text-decoration: underline;
 }
 
 .cybertrust-seal {
     text-align: center;
     margin-top: 20px;
-}
-
-/*----------------------------------
-  フッター専用スタイル
-----------------------------------*/
-.footer-menu {
-    border-top: 1px solid #ddd;
-    padding: 20px 0;
-}
-
-.footer-nav {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    gap: 20px;
-}
-
-.footer-nav a {
-    text-decoration: none;
-    color: #00479d;
-    font-size: 15px;
-}
-
-.copyright {
-    text-align: center;
-    padding-top: 10px;
-    color: #888;
-    font-size: 14px;
-}
-
-.copyright small {
-    display: block; /* small要素をブロック要素にすることで中央揃えを適用 */
 }
 
 /* レスポンシブ対応 */

@@ -16,7 +16,7 @@
     border: none;
     background-color: transparent;
     font-size: 16px;
-    color: #555;
+    color: var(--color-body-text-2);
     transition: color 0.3s;
     text-align: center;
 }
@@ -42,7 +42,7 @@
 
 /* 検索フォームのスタイル */
 .search-section {
-    background-color: #ffffff;
+    background-color: #fff;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
@@ -61,7 +61,7 @@
 .manual-search-input {
     flex-grow: 1;
     padding: 12px 15px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-background-border);
     border-radius: 5px;
     font-size: 1em;
     max-width: 500px;
@@ -69,15 +69,15 @@
 }
 
 .search-input:focus {
-    border-color: #3498db;
+    border-color: var(--color-submit-button);
     outline: none;
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
 }
 
 .search-button {
     padding: 12px 25px;
-    background-color: #3498db;
-    color: white;
+    background-color: var(--color-submit-button);
+    color: var(--color-body-text-dark);
     border: none;
     border-radius: 5px;
     font-size: 1em;
@@ -86,14 +86,14 @@
 }
 
 .search-button:hover {
-    background-color: #2980b9;
+    background-color: var(--color-submit-button-hovar);
 }
 
 .search-button:active {
     transform: translateY(0);
 }
 
-/* --- オートコンプリートのスタイル (新規追加) --- */
+/* --- オートコンプリートのスタイル --- */
 .autocomplete-items {
     position: absolute;
     border: 1px solid #d4d4d4;
@@ -116,20 +116,19 @@
 }
 
 .autocomplete-items div:hover {
-    background-color: #e9e9e9;
+    background-color: var(--color-white-emphasis);
 }
 
 /* 検索結果のスタイル */
-/* 既存の results-section と .site-search-results-section, .manual-search-results-section が混在していたため、.results-section に一本化しました */
 .results-section, .site-search-results-section, .manual-search-results-section {
-    background-color: #ffffff;
+    background-color: var(--color-background);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 .results-title {
-    color: #2c3e50;
+    color: var(--color-body-text-2);
     font-size: 1.8em;
     margin-bottom: 25px;
     padding-bottom: 10px;
@@ -144,7 +143,7 @@
 
 .results-list li {
     padding: 15px 0;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--color-background-border);
     transition: background-color 0.3s ease;
 }
 
@@ -155,18 +154,18 @@
 .results-list li a {
     display: flex;
     flex-direction: column;
-    color: #333;
+    color: var(--color-body-text);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .results-list li a:hover {
-    color: #3498db;
+    color: var(--color-link-text);
     text-decoration: none;
 }
 
 .results-list li:hover {
-    background-color: #fafafa;
+    background-color: var(--color-white-emphasis);
 }
 
 .result-title {
@@ -178,27 +177,6 @@
     gap: 10px;
 }
 
-/* カテゴリラベルの基本スタイル */
-.result-category {
-    font-size: 0.7em;
-    color: white;
-    padding: 3px 6px;
-    border-radius: 4px;
-    font-weight: bold;
-    margin-right: 5px;
-}
-
-/* カテゴリ別の色分け */
-.category-tving { background-color: #9b59b6; }
-.category-magicone { background-color: #34495e; }
-.category-led_bulb { background-color: #1abc9c; }
-.category-av_accessory { background-color: #e67e22; }
-.category-car_accessory { background-color: #c0392b; }
-.category-camera { background-color: #e74c3c; }
-.category-moniter { background-color: #3498db; }
-.category-hdmi_usb { background-color: #2ecc71; }
-.category-power { background-color: #f39c12; }
-
 .result-description {
     font-size: 0.9em;
     color: #777;
@@ -207,7 +185,7 @@
 
 .result-url {
     font-size: 0.8em;
-    color: #999;
+    color: var(--color-body-text-2);
     margin-top: 5px;
     word-break: break-all;
 }
@@ -215,7 +193,7 @@
 /* product名を少し小さく */
 .result-product-name {
     font-size: 0.8em;
-    color: #555;
+    color: var(--color-body-text-2);
     margin-top: 5px;
 }
 
@@ -224,7 +202,7 @@
     text-align: right;
     margin: 30px 0 10px;
     font-size: 0.9em;
-    color: #666;
+    color: var(--color-body-text-2);
     font-weight: 500;
 }
 

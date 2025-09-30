@@ -8,7 +8,7 @@
 .page-title {
     font-size: 30px;
     font-weight: 700;
-    color: #00479d;
+    color: var(--color-header-text);
     text-align: center;
     margin-bottom: 30px;
 }
@@ -26,7 +26,7 @@
     margin: 0;
     font-size: 15px;
     line-height: 1.6;
-    color: #555;
+    color: var(--color-body-text-2);
 }
 
 .notes-list li {
@@ -44,7 +44,7 @@
 .important-note {
     font-size: 16px;
     font-weight: bold;
-    color: #333;
+    color: var(--color-body-text);
 }
 
 .red-text {
@@ -64,7 +64,7 @@
 
 .log-note {
     font-size: 14px;
-    color: #777;
+    color: var(--color-body-text-2);
     margin-top: 10px;
 }
 
@@ -86,11 +86,11 @@
 }
 
 .button-login {
-    background-color: #00479d;
+    background-color: var(--color-link-text);
 }
 
 .button-login:hover {
-    background-color: #00377a;
+    background-color: var(--color-link-text-hovar);
 }
 
 .button-register {
@@ -118,15 +118,8 @@
 
 .footer-nav a {
     text-decoration: none;
-    color: #00479d;
+    color: var(--color-link-text);
     font-size: 15px;
-}
-
-.copyright {
-    text-align: center;
-    padding-top: 10px;
-    color: #888;
-    font-size: 14px;
 }
 
 /* レスポンシブ対応 */
