@@ -29,7 +29,13 @@ async function getPdfLastModified(url) {
     }
 }
 
+/**
+ * データを元にテーブルの<tbody>を構築する
+ * @param {Array<Object>} data - 製品データの配列
+ */
 async function createTable(data) {
+    if (!tbody) return;
+
     tbody.innerHTML = ''; // テーブルの中身をクリア
 
     for (const product of data) {
@@ -37,8 +43,9 @@ async function createTable(data) {
         if (product.type === "category") {
             const tr = document.createElement('tr');
             const tdCategory = document.createElement('td');
-            tdCategory.setAttribute('colspan', 12); // 全ての列を結合
-            tdCategory.classList.add('category-row'); // スタイリング用のクラスを追加
+            // colspanはHTMLヘッダーの列数に合わせて12に設定
+            tdCategory.setAttribute('colspan', 12); 
+            tdCategory.classList.add('category-row');
             tdCategory.textContent = product.categoryName;
             tr.appendChild(tdCategory);
             tbody.appendChild(tr);
@@ -63,7 +70,7 @@ async function createTable(data) {
                 tdCategory.textContent = rowData.category;
                 tr.appendChild(tdCategory);
 
-                // 区分2セル
+                // 区分2セル (補足)
                 const tdCategory2 = document.createElement('td');
                 tdCategory2.innerHTML = rowData.category2;
                 tr.appendChild(tdCategory2);
@@ -71,7 +78,7 @@ async function createTable(data) {
                 // 適合情報セル
                 if (rowData.links.note) {
                     const tdNote = document.createElement('td');
-                    tdNote.setAttribute('colspan', 9);
+                    tdNote.setAttribute('colspan', 9); // メーカー9列分を結合
                     tdNote.classList.add('bg-yellow');
                     const a = document.createElement('a');
                     a.href = rowData.links.link;
@@ -93,7 +100,7 @@ async function createTable(data) {
                             a.target = "_blank";
                             const img = document.createElement('img');
                             img.src = "../../images/common/pdf_icon.webp";
-                            img.alt = "アイコン";
+                            img.alt = "PDFアイコン";
                             img.classList.add('pdf-icon');
                             a.appendChild(img);
 
@@ -108,6 +115,8 @@ async function createTable(data) {
                             // 非同期で日付を取得し、表示を更新
                             getPdfLastModified(linkData.pdf).then(date => {
                                 dateElement.textContent = `${date} 更新`;
+                            }).catch(() => {
+                                dateElement.textContent = '取得エラー';
                             });
                         }
                         tr.appendChild(tdLink);
@@ -117,79 +126,129 @@ async function createTable(data) {
             }
         }
     }
-
-    // テーブル生成後に列幅を同期させる
+    // テーブル生成後、幅同期とスクロール同期設定を行う
+    setupScrollSynchronization(); 
     syncTableWidths();
 }
 
+/**
+ * ヘッダーの列幅をボディの列幅に合わせて調整する & 上部スクロールバーの幅をテーブルに合わせる
+ */
 function syncTableWidths() {
     const table = document.querySelector('table');
-    const headerCells = table.querySelectorAll('thead th');
-    const bodyRows = table.querySelectorAll('tbody tr');
+    const headerCells = table ? table.querySelectorAll('thead th') : [];
+    const bodyRows = table ? table.querySelectorAll('tbody tr') : [];
+    const topScrollerInner = document.querySelector('#top-scroller > div');
 
-    if (!table || bodyRows.length === 0) {
+    if (!table || bodyRows.length === 0 || !topScrollerInner) {
         return;
     }
 
-    const firstBodyRowCells = bodyRows[0].querySelectorAll('td');
+    // colspanのない最初のデータ行を見つける (カテゴリ行はスキップ)
+    let firstDataRowCells = null;
+    for (const row of bodyRows) {
+        const cells = row.querySelectorAll('td');
+        if (cells.length === headerCells.length) {
+            firstDataRowCells = cells;
+            break;
+        }
+    }
 
-    // 列数が一致しない場合（colspanが存在する場合）の処理
-    if (headerCells.length !== firstBodyRowCells.length) {
-        let bodyCellIndex = 0;
-        headerCells.forEach(headerCell => {
-            let colSpan = headerCell.colSpan || 1;
-            let combinedWidth = 0;
-            for (let i = 0; i < colSpan; i++) {
-                if (firstBodyRowCells[bodyCellIndex]) {
-                    combinedWidth += firstBodyRowCells[bodyCellIndex].offsetWidth;
-                    bodyCellIndex++;
-                }
-            }
-            if (combinedWidth > 0) {
-                headerCell.style.width = `${combinedWidth}px`;
-            }
-        });
-    } else {
-        // 列数が一致する場合の処理
+    if (firstDataRowCells) {
+        // 1. ヘッダーの列幅をボディに合わせる
         headerCells.forEach((headerCell, index) => {
-            headerCell.style.width = `${firstBodyRowCells[index].offsetWidth}px`;
+            if (firstDataRowCells[index]) {
+                headerCell.style.width = `${firstDataRowCells[index].offsetWidth}px`;
+            }
         });
     }
+
+    // 2. テーブル全体の幅を上部スクロールバーに反映
+    // table.scrollWidth は table-wrapperのwidthを無視した実際のコンテンツ幅を返します
+    const scrollWidth = table.scrollWidth; 
+    topScrollerInner.style.width = `${scrollWidth}px`;
 }
 
-// データのロードとテーブル生成が完了した後に実行
-document.addEventListener('DOMContentLoaded', () => {
-    // MutationObserverを使ってテーブルのボディが変更されたことを検知
-    const observer = new MutationObserver((mutationsList, observer) => {
-        for (const mutation of mutationsList) {
-            if (mutation.type === 'childList') {
-                syncTableWidths();
-                observer.disconnect(); // 一度だけ実行
-                break;
-            }
+/**
+ * 上部ダミーバーとメインテーブルラッパーのスクロールを同期させる
+ */
+function setupScrollSynchronization() {
+    const topScroller = document.getElementById('top-scroller');
+    const tableWrapper = document.querySelector('.table-wrapper');
+    
+    if (!topScroller || !tableWrapper) return;
+    
+    let isSyncing = false;
+
+    // 上部スクロールバーを動かしたとき、テーブルラッパーを同期
+    topScroller.addEventListener('scroll', () => {
+        if (!isSyncing) {
+            isSyncing = true;
+            tableWrapper.scrollLeft = topScroller.scrollLeft;
+            // 次のイベントループでフラグをリセットすることで、無限ループを防ぐ
+            setTimeout(() => { isSyncing = false; }, 0); 
         }
     });
 
-    const tbody = document.querySelector('tbody');
-    if (tbody) {
-        observer.observe(tbody, { childList: true });
+    // テーブルラッパーを動かしたとき、上部スクロールバーを同期
+    tableWrapper.addEventListener('scroll', () => {
+        if (!isSyncing) {
+            isSyncing = true;
+            topScroller.scrollLeft = tableWrapper.scrollLeft;
+            // 次のイベントループでフラグをリセットすることで、無限ループを防ぐ
+            setTimeout(() => { isSyncing = false; }, 0);
+        }
+    });
+}
+
+
+// データのロードとテーブル生成の開始
+document.addEventListener('DOMContentLoaded', () => {
+    const tableWrapper = document.querySelector('.table-wrapper');
+    const targetTbody = document.querySelector('tbody');
+    
+    // 必要なDOM要素が存在しない場合は終了
+    if (!tableWrapper || !targetTbody) {
+        console.error("Required DOM elements (.table-wrapper or tbody) not found.");
+        return;
     }
+
+    // MutationObserverを使って<tbody>の中身が変更されたことを検知
+    // これにより、動的にテーブルが生成された後の幅調整を確実に行う
+    const observer = new MutationObserver((mutationsList, observer) => {
+        // tbodyの内容が確定した後、幅の同期とスクロール同期設定を呼び出す
+        syncTableWidths();
+        setupScrollSynchronization();
+        observer.disconnect(); // 一度だけ実行
+    });
+
+    // childList: 子ノードの追加・削除を監視
+    observer.observe(targetTbody, { childList: true });
+
 
     // JSONデータを読み込む
     fetch('match_pdf.json')
         .then(response => {
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                // ファイルが見つからない、またはネットワークエラー
+                throw new Error(`match_pdf.json の読み込みに失敗しました (${response.status})`);
             }
             return response.json();
         })
         .then(data => {
-            createTable(data);
+            createTable(data); // テーブル生成開始
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
+            // エラー表示処理
+            if (tbody) {
+                tbody.innerHTML = '<tr><td colspan="12" style="color: red; text-align: left;">適合データの読み込みに失敗しました。ファイルパスまたはJSON形式を確認してください。</td></tr>';
+            }
         });
 });
 
 // ウィンドウのリサイズ時にも幅を再同期
-window.addEventListener('resize', syncTableWidths);
+window.addEventListener('resize', () => {
+     // リサイズ処理が重くなるのを避けるため、setTimeoutでディレイをかけるとより良いですが、ここではシンプルに
+     syncTableWidths();
+});
