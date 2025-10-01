@@ -280,13 +280,13 @@ export function checkFieldsFilled(state, productInfo) {
     const currentOptionType = selectedOptionType || 'maker';
     const processType = productInfo.optionFlows[currentOptionType]?.processType;
 
-    if (processType === 'carModel') {
-        return selectedProduct && selectedMaker && selectedModel && selectedYear && selectedMonth;
-    } else if (processType === 'dealerYears') {
+    if (processType === 'maker_process') {
+        return selectedProduct && selectedMaker && selectedModel;
+    } else if (processType === 'dealer_process') {
         if (selectedYear === 'unknown') {
             return selectedProduct && selectedMaker && selectedProductCode;
         } else {
-            return selectedProduct && selectedMaker && selectedYear && selectedProductCode;
+            return selectedProduct && selectedMaker && selectedYear;
         }
     }
     return selectedProduct !== null;
