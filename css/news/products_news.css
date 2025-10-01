@@ -2,7 +2,7 @@
 
 /* セクション全体の余白と背景 */
 .products-news-section {
-    background-color: #fff;
+    background-color: var(--color-background);
     max-width: 1000px;
     margin: 0 auto;
     padding-left: 20px;
@@ -21,10 +21,9 @@
     display: flex;
     gap: 10px;
     margin: 35px auto;
-    max-width: 500px;
+    max-width: 700px;
     padding: 15px;
-    background-color: #f9f9f9;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--color-background-border);
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     align-items: center;
@@ -38,7 +37,7 @@
     border-radius: 8px;
     /* 💡 clamp()によるフォントサイズのレスポンシブ対応 */
     font-size: clamp(1rem, 2vw, 1.1rem);
-    color: #333;
+    color: var(--color-body-text);
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: inset 0 1px 4px rgba(0,0,0,0.05);
@@ -49,14 +48,14 @@
 }
 
 #search-input:focus {
-    border-color: #3498db;
+    border-color: var(--color-submit-button-hovar);
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
 }
 
 /* 検索ボタンのデザイン */
 #search-button {
     padding: 12px 25px;
-    background-color: #3498db;
+    background-color: var(--color-submit-button);
     color: white;
     border: none;
     border-radius: 8px;
@@ -69,13 +68,12 @@
 }
 
 #search-button:hover {
-    background-color: #2980b9;
-    transform: translateY(-1px);
+    background-color: var(--color-submit-button-hovar);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 #search-button:active {
-    background-color: #206da0;
+    background-color: var(--color-submit-button-hovar);
     transform: translateY(0);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -91,7 +89,7 @@
     justify-content: center;
     gap: 15px;
     padding-top: 10px;
-    background-color: #fff;
+    background-color: var(--color-background);
     position: relative;
     padding-bottom: 12px;
     flex-wrap: wrap;
@@ -106,7 +104,7 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #e0e0e0;
+    background-color: var(--color-background-border);
     z-index: 0;
 }
 
@@ -146,7 +144,7 @@
     font-size: clamp(0.95rem, 2vw, 1.1rem);
     cursor: pointer;
     background-color: transparent;
-    color: #333;
+    color: var(--color-body-text);
     border: none;
     position: relative;
     text-decoration: none;
@@ -160,7 +158,7 @@
 
 /* アクティブな（選択中の）タブのスタイル */
 .tab-item.active {
-    color: #333;
+    color: var(--color-body-text);
     font-weight: bold;
     position: relative;
 }
@@ -182,7 +180,7 @@
 .tab-item.disabled {
     opacity: 0.6;
     cursor: not-allowed;
-    color: #999;
+    color: var(--color-background-border);
     pointer-events: none;
 }
 
@@ -196,8 +194,8 @@
 
 /* 各製品情報アイテムのスタイル */
 .product-item {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-background-border);
     border-radius: 8px;
     margin-bottom: 20px;
     padding: 20px;
@@ -232,7 +230,7 @@
     padding: 0;
     margin: 0;
     flex-grow: 1;
-    color: #333;
+    color: var(--color-body-text);
     font-weight: bold;
     font-size: clamp(0.6rem, 2vw, 1.1rem);
 }
@@ -254,8 +252,8 @@
 /* 日付のスタイル */
 .product-date {
     font-size: 0.8rem;
-    color: #555;
-    background-color: #f0f0f0;
+    color: var(--color-body-text-2);
+    background-color: var(--color-white-emphasis);
     padding: 4px 8px;
     border-radius: 4px;
     white-space: nowrap;
@@ -270,7 +268,7 @@
     border-radius: 3px;
     line-height: 1.2;
     border: 2px solid;
-    color: #333;
+    color: var(--color-body-text);
     white-space: nowrap;
     font-size: clamp(0.7rem, 2vw, 0.95rem);
     flex-shrink: 0;
@@ -284,7 +282,7 @@
     flex-wrap: wrap;
     gap: 8px;
     padding-top: 8px;
-    border-top: 1px dotted #e0e0e0;
+    border-top: 1px dotted var(--color-background-border);
 }
 
 /* 対象車種のラベルのスタイル */
@@ -298,14 +296,14 @@
 .car-model-label {
     font-size: 0.95rem;
     font-weight: bold;
-    color: #555;
+    color: var(--color-accent-2);
     flex-shrink: 0;
     vertical-align: middle;
 }
 .car-models {
-    font-size: 0.95rem;
-    color: #333;
-    line-height: 1.4;
+    font-size: clamp(0.7rem, 1vw, 1rem);
+    color: var(--color-body-text);
+    line-height: 1.2;
     flex-grow: 1;
     vertical-align: middle;
     font-size: clamp(0.6rem, 2vw, 1.1rem);
@@ -326,13 +324,12 @@
 /* 本文のスタイル */
 .product-fulltext-body {
     font-size: clamp(0.6rem, 1.5vw, 1rem);
-    color: #555;
+    color: var(--color-body-text);
     line-height: 1.4;
     padding: 10px 0 0 0;
-    border-top: 1px dashed #e0e0e0;
+    border-top: 1px dashed var(--color-background-border);
     margin-top: 10px;
 }
-.product-fulltext-body p,
 .product-fulltext-body div,
 .product-fulltext-body ul {
     margin-bottom: 6px;
@@ -350,9 +347,9 @@
     gap: 5px;
 }
 .pagination-button {
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    color: #333;
+    background-color: var(--color-white-emphasis);
+    border: 1px solid var(--color-background-border);
+    color: var(--color-body-text);
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
@@ -368,7 +365,7 @@
 }
 .pagination-button.active {
     background-color: #3498db;
-    color: white;
+    color: var(--color-body-text-dark);
     border-color: #3498db;
     font-weight: bold;
     cursor: default;

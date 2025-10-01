@@ -1,16 +1,18 @@
 // match_api_client.js
-
-const MATCH_API_URL = '../../api/get_products_compatibility.php';
-
 /**
  * 適合品番情報をAPIから取得する関数。
+ * @param {string} apiUrl - api url
  * @param {object} params - APIに渡すクエリパラメータ。
  * @returns {Promise<object>} 適合品番データ。
  */
-export async function getCompatibilityData(params) {
-    console.log(params);
-    const searchParams = new URLSearchParams(params).toString();
-    const query = `${MATCH_API_URL}?${searchParams}`;
+export async function getCompatibilityData(apiUrl, params) {
+    let query;
+    if (params) {
+        const searchParams = new URLSearchParams(params).toString();
+        query = `${apiUrl}?${searchParams}`;
+    } else {
+        query = `${apiUrl}`;
+    }
 
     try {
         const response = await fetch(query);

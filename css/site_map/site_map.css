@@ -19,7 +19,7 @@
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.2em;
-    color: #aaa;
+    color: var(--color-body-text-2);
     text-transform: uppercase;
 }
 
@@ -30,7 +30,7 @@
     font-weight: 700;
     position: relative;
     padding-bottom: 15px;
-    color: #333;
+    color: var(--color-body-text);
 }
 
 .section-title-jp::after {
@@ -54,14 +54,14 @@
 
 /* 階層ごとのインデントと色分け */
 .sitemap-tree > li {
-    background-color: #f0f0f0; /* トップ階層の背景色 */
+    background-color: var(--color-white-emphasis); 
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 8px;
 }
 
 .sitemap-tree li ul {
-    background-color: #fff;
+    background-color: var(--color-background);
     padding: 10px 0 10px 20px;
     margin-top: 10px;
     border-left: 2px solid #ccc;
@@ -79,7 +79,7 @@
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    color: #00479d;
+    color: var(--color-link-text);
     font-size: 1.2em;
 }
 
@@ -88,12 +88,12 @@
 .sitemap-tree li a {
     display: block;
     padding: 10px;
-    color: #333;
+    color: var(--color-body-text);
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .sitemap-tree li a:hover {
     background-color: #eef7ff;
-    color: #00479d;
+    color: var(--color-link-text-hovar);
 }

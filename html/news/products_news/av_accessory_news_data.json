@@ -1,5 +1,15 @@
 [
   {
+    "date": "2025年9月25日",
+    "type": "適合情報",
+    "title_data": {"product": ["DVD/CDプレーヤー　『AV-CDV01』"], "car_model": ["ヴォクシー　＜一部改良後＞　（MZRA90W.95W）　R7/9～", "ヴォクシーハイブリッド　＜一部改良後＞　（ZWR90W.95W)　R7/9～", "ノア　＜一部改良後＞　（MZRA90W.95W）　R7/9～", "ノアハイブリッド　＜一部改良後＞（ZWR90W.95W)　R7/9～"]},
+    "brand": ["トヨタ"],
+    "body": [
+      { "type": "html", "content": "【ﾒｰｶｰｵﾌﾟｼｮﾝDVDﾌﾟﾚｰﾔｰ非装着 10.5ｲﾝﾁ ﾃﾞｨｽﾌﾟﾚｲｵｰﾃﾞｨｵPlus 装着車】<br>【ﾒｰｶｰｵﾌﾟｼｮﾝDVDﾌﾟﾚｰﾔｰ非装着 8ｲﾝﾁ ﾃﾞｨｽﾌﾟﾚｲｵｰﾃﾞｨｵ 装着車】"},
+      { "type":"html", "content": "<p><b>DVD/CDプレーヤー<span style=\"color: blue;\"><a href=\"/html/products/AV_ACCESSORY/cdv/cdv01.htm\" target=\"_blank\">『AV-CDV01』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
     "date": "2025年9月12日",
     "type": "適合情報",
     "title_data": {"product": ["＜一部改良後＞FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ『CTN-111AS』", "FreeTVing ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ『CTN-111ASC』", "FreeTVing ｽﾃｱﾘﾝｸﾞｽｲｯﾁ切替ﾀｲﾌﾟ『CTN-111AST』"], "car_model": ["ヴォクシー　＜一部改良後＞　（MZRA90W.95W）　R7/9～", "ヴォクシーハイブリッド　＜一部改良後＞　（ZWR90W.95W)　R7/9～", "ノア　＜一部改良後＞　（MZRA90W.95W）　R7/9～", "ノアハイブリッド　＜一部改良後＞（ZWR90W.95W)　R7/9～"]},

@@ -44,7 +44,7 @@ class YearFuncProductsSearch implements ProductSearchInterface
     public function postProcess(array $data): array
     {
         if ($this->userDateTimestamp === false) {
-            return [];
+            return $data; // 年月がclientから送信されなかった場合は、全データを返却する
         }
 
         $filteredData = [];

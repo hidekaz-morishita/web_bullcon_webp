@@ -24,12 +24,12 @@
 .info-item .info-label {
     flex: 0 0 250px;
     font-weight: bold;
-    color: #333;
+    color: var(--color-body-text);
 }
 
 .info-item .info-data {
     flex: 1;
-    color: #555;
+    color: var(--color-body-text-2);
     line-height: 1.6;
 }
 
@@ -54,13 +54,13 @@
 .info-data-list h4 {
     font-size: 16px;
     font-weight: bold;
-    color: #00479d;
+    color: var(--color-link-text);
     margin-top: 20px;
     margin-bottom: 10px;
 }
 
 .info-data-list strong {
-    color: #00479d;
+    color: var(--color-link-text);
 }
 
 .refund-list {
@@ -71,7 +71,7 @@
 .refund-list li {
     position: relative;
     margin-bottom: 5px;
-    color: #555;
+    color: var(--color-body-text-2);
 }
 
 .refund-list li::before {
@@ -81,6 +81,6 @@
 }
 
 .link {
-    color: #00479d;
+    color: var(--color-link-text);
     text-decoration: underline;
 }

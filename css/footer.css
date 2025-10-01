@@ -2,11 +2,11 @@
   フッター
 ==================================*/
 .footer {
-    background-color: #333; /* 軽いグレーの背景色 */
-    color: #555;
+    background-color: var(--color-accent); /* 軽いグレーの背景色 */
+    color: var(--color-accent-2);
     padding: 40px 20px;
     font-family: Arial, sans-serif;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid var(--color-background-border);
 }
 
 .footer-inner {
@@ -32,7 +32,7 @@
 .footer-section-title {
     font-size: 1.1rem;
     font-weight: bold;
-    color: #fff;
+    color: var(--color-body-text-dark);
     margin-bottom: 15px;
     border-bottom: 2px solid #ccc; /* セクションタイトルの下線 */
     padding-bottom: 5px;
@@ -50,7 +50,7 @@
 }
 
 .footer-links a {
-    color: #fff;
+    color: var(--color-body-text-dark);
     text-decoration: none;
     transition: color 0.3s ease;
     font-size: 0.95rem;
@@ -68,26 +68,22 @@
     align-items: center;
     flex-wrap: wrap;
     padding-top: 20px;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid var(--color-background-border);
 }
 
 .footer-copyright {
     font-size: 0.85rem;
-    color: #fff;
+    color: var(--color-body-text-dark);
     margin: 0;
 }
 
 /* SNSアイコンのスタイル */
 .footer-sns a {
-    background-color: #fff;
+    background-color: var(--color-background);
     padding: 18px 2px 0 3px;
     margin-left: 15px;
     border-radius: 10%;
     transition: color 0.3s ease;
-}
-
-.footer-sns a:hover {
-    color: #000;
 }
 
 /*==================================
@@ -97,7 +93,7 @@
     position: fixed;
     right: 20px;
     background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
+    color: var(--color-body-text-dark);
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -148,7 +144,7 @@
     }
     /* SNSアイコンのスタイル */
     .footer-sns a {
-        background-color: #fff;
+        background-color: var(--color-background);
         padding: 10px 3px 0 3px;
         margin-left: 15px;
         border-radius: 10%;

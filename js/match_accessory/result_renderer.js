@@ -1,11 +1,12 @@
 // result_renderer.js
-
 import { getCompatibilityData } from './match_api_client.js';
 import { 
     TVING_NOTES_DATA, MAGICONE_BK_NOTES_DATA, MAGICONE_RM_VTR_NOTES_DATA,
     CAMERA_SELECTOR_NOTES_DATA,
     STEERING_SWT_CTRL_NOTES_DATA
  } from './data_mapper.js';
+
+ const MATCH_API_URL = '../../api/get_products_compatibility.php';
 
 /**
  * 検索結果を処理してDOMに表示する関数
@@ -46,7 +47,7 @@ export async function handleSearchResults(params, headerData, pdfPath) {
     }
 
     try {
-        const partsData = await getCompatibilityData(params);
+        const partsData = await getCompatibilityData(MATCH_API_URL, params);
         
         if (partsData && Array.isArray(partsData) && partsData.length > 0) {
             if (messageContainer) messageContainer.style.display = 'none';
