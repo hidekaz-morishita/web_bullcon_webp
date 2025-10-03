@@ -22,7 +22,7 @@ main {
  */
 .product-sidebar-container {
     display: none; /* デフォルトは非表示 */
-    width: 300px;
+    width: 15vw;
     background-color: var(--color-background);
     border: 1px solid #e9e9e9;
     border-radius: 8px;
@@ -135,7 +135,7 @@ main {
 }
 
 /* PC表示のブレークポイント */
-@media (min-width: 1700px) {
+@media (min-width: 1500px) {
     .product-sidebar-container {
         display: block;
     }

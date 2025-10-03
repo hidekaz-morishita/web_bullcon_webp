@@ -5,12 +5,16 @@ import { exportTableToPdf } from './result_table_exporter.js';
 import { getCompatibilityData } from './match_api_client.js';
 
 const CAR_MODEL_API = '../../api/get_car_model.php';
+const MONITOR_NUMBER_LIST_API = '../../api/get_monitor_list.php';
 
 let carModelCache = null;
+let monitorNumberCache = null;
 
 // DOM読み込み後の初期処理
-document.addEventListener('DOMContentLoaded', () => {
-    initializeAndGetCarModel();
+document.addEventListener('DOMContentLoaded', async() => {
+    await initializeAndGetCarModel();
+    await initializeAndGetMonitorNumber();
+
     // フォームを初期描画
     // この時点ではformStateが空なので、製品選択のみが表示されます
     renderForm('form-container', {
@@ -52,4 +56,21 @@ export const initializeAndGetCarModel = async() => {
     carModelCache = carModel;
     
     return carModel;
+};
+
+export const initializeAndGetMonitorNumber = async() => {
+    // キャッシュが存在する場合は、即座にキャッシュデータを返す
+    if (monitorNumberCache) {
+        console.log("Using cached monitor number data.");
+        return monitorNumberCache;
+    }
+
+    // キャッシュが存在しない場合は、APIからデータを取得し、キャッシュする
+    console.log("Fetching monitor number data from API.");
+    const monitorNumList = await getCompatibilityData(MONITOR_NUMBER_LIST_API , "");
+    
+    // 取得したデータをキャッシュに保存
+    monitorNumberCache = monitorNumList;
+    
+    return monitorNumList;
 };

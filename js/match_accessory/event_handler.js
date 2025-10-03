@@ -1,8 +1,9 @@
 // event_handler.js
 
 import { renderForm, checkFieldsFilled } from './form_ui.js';
-import { PRODUCTS_DATA, DEALER_NAV } from './data_mapper.js';
+import { PRODUCTS_DATA } from './data_mapper.js';
 import { handleSearchResults } from './result_renderer.js';
+import { initializeAndGetMonitorNumber } from './match.js';
 
 let formState = {
     selectedProduct: null,
@@ -96,7 +97,7 @@ export function setupEventListeners() {
 
     formContainer.addEventListener('change', handleFormChange);
 
-    formContainer.addEventListener('input', (event) => {
+    formContainer.addEventListener('input', async(event) => {
         const target = event.target;
         if (target.id === 'product-code-input') {
             const inputValue = target.value;
@@ -112,7 +113,8 @@ export function setupEventListeners() {
 
             suggestionsList.innerHTML = '';
             
-            const allCodes = DEALER_NAV[formState.selectedMaker] || [];
+            const monitorList = await initializeAndGetMonitorNumber();
+            const allCodes = monitorList[formState.selectedMaker] || [];
             const matchedCodes = allCodes
                 .filter(item => item.product_code.toLowerCase().includes(inputValue.toLowerCase()))
                 .map(item => item.product_code);

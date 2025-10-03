@@ -16,8 +16,7 @@ class YearFuncProductsSearch implements ProductSearchInterface
         'magicone_rm_un' => 'magicone_rm_un_maker',
         'magicone_rm_ha' => 'magicone_rm_ha_maker',
         'magicone_vtr_hdmi' => 'magicone_vtr_hdmi_maker',
-        'camera_selector' => 'camera_selector',
-        'product_B' => 'smpl'
+        'camera_selector' => 'camera_selector'
     ];
 
     public function __construct($product, $maker, $model, $year, $month)

@@ -1,6 +1,6 @@
 // form_ui.js
-import { initializeAndGetCarModel } from './match.js';
-import { PRODUCTS_DATA, CAR_YEARS, BASIC_YEARS, MONTHS, DEALER_NAV } from './data_mapper.js';
+import { initializeAndGetCarModel, initializeAndGetMonitorNumber } from './match.js';
+import { PRODUCTS_DATA, CAR_YEARS, BASIC_YEARS, MONTHS } from './data_mapper.js';
 
 function populateOptions(selectElement, options, emptyOptionText) {
     if (!selectElement) {
@@ -33,6 +33,8 @@ async function generateSpecificProductForm (formContainer, productInfo, state) {
     const { selectedOptionType, selectedMaker, selectedModel, selectedYear, selectedMonth, selectedProductCode } = state;
 
     const carModel = await initializeAndGetCarModel();
+    const monitorList = await initializeAndGetMonitorNumber();
+    console.log(monitorList);
 
     /* 
      * maker: full
@@ -74,7 +76,7 @@ async function generateSpecificProductForm (formContainer, productInfo, state) {
         if (currentOptionType === 'maker') {
             makerOptions = Object.keys(carModel);
         } else {
-            makerOptions = Object.keys(DEALER_NAV);
+            makerOptions = Object.keys(monitorList);
         }
         populateOptions(document.getElementById('maker-select'), makerOptions, 'メーカーを選択してください');
         
@@ -123,7 +125,7 @@ async function generateSpecificProductForm (formContainer, productInfo, state) {
                 `;
                 formContainer.appendChild(yearGroup);
                 
-                const availableYears = DEALER_NAV[selectedMaker] ? [...new Set(DEALER_NAV[selectedMaker].map(item => item.year))] : [];
+                const availableYears = monitorList[selectedMaker] ? [...new Set(monitorList[selectedMaker].map(item => String(item.year)))] : [];
                 
                 const processedYears = BASIC_YEARS
                     .filter(year => availableYears.includes(year.match(/\d{4}/)?.[0] || year))
@@ -159,9 +161,9 @@ async function generateSpecificProductForm (formContainer, productInfo, state) {
                         productCodeGroup.appendChild(selectElement);
                         formContainer.appendChild(productCodeGroup);
                         
-                        const codes = DEALER_NAV[selectedMaker] || [];
+                        const codes = monitorList[selectedMaker] || [];
                         const filteredCodes = codes
-                            .filter(item => item.year === selectedYear)
+                            .filter(item => String(item.year) === selectedYear)
                             .map(item => item.product_code);
                         
                         populateOptions(selectElement, filteredCodes, '品番を選択してください');

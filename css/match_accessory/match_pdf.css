@@ -5,7 +5,6 @@
 ============================ */
 .table-container {
     width: 100%;
-    overflow-x: auto; /* 横スクロールを有効にする */
     margin: 30px 0;
 }
 
@@ -27,10 +26,28 @@
     margin-bottom: 0;
 }
 
+/* #top-scroller: 上部に表示するダミーのスクロールバー領域 */
+#top-scroller {
+    overflow-x: scroll;
+    overflow-y: hidden; /* 縦スクロールバーは不要 */
+    height: 15px; /* スクロールバーの標準的な高さに合わせる */
+    margin-bottom: -1px; /* テーブルとの境界線を埋めるために微調整 */
+    /* 背景を白にして、下のテーブルとの間に隙間が見えないようにする */
+    background-color: #f7f7f7; 
+}
+
+/* #top-scrollerの内部: スクロール可能な幅を定義する */
+#top-scroller > div {
+    /* スクロールバーが効くように、1pxの高さを持たせる */
+    height: 1px; 
+    min-width: 1px; 
+}
+
 /* 縦スクロールを制御するためのラッパー */
 .table-wrapper {
     max-height: 800px; /* テーブルボディの最大高さを設定 */
-    overflow-y: auto; /* このラッパーで縦スクロールを有効にする */
+    overflow-y: auto;
+    overflow-x: auto;
 }
 
 table {
