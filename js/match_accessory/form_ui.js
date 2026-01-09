@@ -87,7 +87,7 @@ async function generateSpecificProductForm (formContainer, productInfo, state) {
             <label>適合情報の入力方法</label>
             <div class="option-group">
                 <input type="radio" id="select-input" name="input-type" value="select">
-                <label for="select-input">ドロップダウンから選択</label>
+                <label for="select-input">選択肢から選ぶ</label>
                 <input type="radio" id="text-input" name="input-type" value="text">
                 <label for="text-input">${directInputLabelText}を直接入力</label>
             </div>
