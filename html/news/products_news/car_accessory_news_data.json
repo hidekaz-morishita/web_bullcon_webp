@@ -157,7 +157,7 @@
     "type": "新製品情報",
     "product": ["車速ドアロックシステム"], "car_models": [{"model_name":"N-BOX　R5/10～　（JF5.6）"}],
     "brand": ["ホンダ"],
-    "body": [{ "type":"html", "content": "<p><b>車速ドアロックシステム<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/sdlct/sdlct.htm\" target=\"_blank\">『SLD-CH01』</a></span></b></p>", "align": "right"}]
+    "body": [{ "type":"html", "content": "<p><b>車速ドアロックシステム<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/sdlct/sdlct.htm\" target=\"_blank\">『SDL-CH01』</a></span></b></p>", "align": "right"}]
   },
   {
     "date": "2024年5月31日",
@@ -199,7 +199,7 @@
     "brand": [],
     "body": [
       { "type": "paragraph", "content": "車内でスマートフォンやタブレットの充電ができるＵＳＢ電源増設ユニット"},
-      { "type":"html", "content": "<p><b><span style=\"color: blue;\"><a href=\"/html/products/eopdc/eopdc.htm\" target=\"_blank\">ＵＳＢ電源コンバーター トヨタCタイプ『ＥＯＰ－ＤＣ０２』</a></span></b></p>", "align": "right"}
+      { "type":"html", "content": "<p><b><span style=\"color: blue;\"><a href=\"/html/products/HDMI_USB/eopdc/eopdc.htm\" target=\"_blank\">ＵＳＢ電源コンバーター トヨタCタイプ『ＥＯＰ－ＤＣ０２』</a></span></b></p>", "align": "right"}
     ]
   },
   {
@@ -211,7 +211,7 @@
       {"model_name":"ヴェルファイア　R5/7～　（TAHA40W.45W）"},
       {"model_name":"ヴェルファイアハイブリッド　R5/7～（AAHH40W.45W）"}],
     "brand": ["トヨタ"],
-    "body": [{ "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/hlc/hlc.htm\" target=\"_blank\">『HLC-103』『HLC-103C』</a></span></b></p>", "align": "right"}]
+    "body": [{ "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/hlc/hlc.htm\" target=\"_blank\">『HLC-103』『HLC-103C』</a></span></b></p>", "align": "right"}]
   },
   {
     "date": "2023年8月25日",
@@ -239,7 +239,7 @@
     "product": ["ヘッドライトコントローラー"], "car_models": [{"model_name":"プリウス PHEV　R5/3～　（MXWH61）", "specification":"【ﾃﾞｨｽﾌﾟﾚｲｵｰﾃﾞｨｵ装着車】"}],
     "brand": ["トヨタ"],
     "body": [
-      { "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/hlc/hlc.htm\" target=\"_blank\">『HLC-103』『HLC-103C』</a></span></b></p>", "align": "right"}
+      { "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/hlc/hlc.htm\" target=\"_blank\">『HLC-103』『HLC-103C』</a></span></b></p>", "align": "right"}
     ]
   },
  {
@@ -264,7 +264,7 @@
     "type": "適合情報",
     "product": ["ヘッドライトコントローラー"], "car_models": [{"model_name":"プリウス　R5/1～　（MXWH60.65.ZVW60.65）"}],
     "brand": ["トヨタ"],
-    "body": [{ "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/hlc/hlc.htm\" target=\"_blank\">『HLC-103』『HLC-103C』</a></span></b></p>", "align": "right"}]
+    "body": [{ "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/hlc/hlc.htm\" target=\"_blank\">『HLC-103』『HLC-103C』</a></span></b></p>", "align": "right"}]
   },
   {
     "date": "2023年3月3日",
@@ -300,7 +300,7 @@
     "product": ["ヘッドライトコントローラー"], "car_models":[{"model_name":"クラウンクロスオーバー　R4/8～　（TZSH35.AZSH35）"}, 
     {"model_name":"レクサス　NX　R3/8～　（AAZA20.25 AAZH20.25.26）"}],
     "brand": ["トヨタ", "レクサス"],
-    "body": [{ "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/hlc/hlc.htm\" target=\"_blank\">『 HLC-103 』『 HLC-103C 』</a></span></b></p>", "align": "right"}]
+    "body": [{ "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/hlc/hlc.htm\" target=\"_blank\">『 HLC-103 』『 HLC-103C 』</a></span></b></p>", "align": "right"}]
   },
   {
     "date": "2022年12月20日",
@@ -323,9 +323,9 @@
     "brand": ["トヨタ"],
     "body" : [
      { "type": "paragraph", "content": "薄暮時や夜間の駐停車、信号待ちにヘッドライトを自動で消灯！サービスホールスイッチ付属でスマートな取り付けが可能。"},
-     { "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/hlc/hlc.htm\" target=\"_blank\">『HLC-102』『HLC-102C』</a></span></b></p>", "align": "right"},
-     { "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/hlc/hlc.htm\" target=\"_blank\">『HLC-103』『HLC-103C』</a></span></b></p>", "align": "right"},
-     { "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/hlc/hlc.htm\" target=\"_blank\">『HLC-104』『HLC-104C』</a></span></b></p>", "align": "right"}
+     { "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/hlc/hlc.htm\" target=\"_blank\">『HLC-102』『HLC-102C』</a></span></b></p>", "align": "right"},
+     { "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/hlc/hlc.htm\" target=\"_blank\">『HLC-103』『HLC-103C』</a></span></b></p>", "align": "right"},
+     { "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/hlc/hlc.htm\" target=\"_blank\">『HLC-104』『HLC-104C』</a></span></b></p>", "align": "right"}
     ]
   },
  {
@@ -341,7 +341,7 @@
     "type": "新製品情報",
     "product": ["USB/HDMI延長ケーブル"],
     "brand": ["トヨタ"],
-    "body": [{ "type":"html", "content": "<p><b>USB/HDMI延長ケーブル<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/eopspt/eopspt.htm\" target=\"_blank\">『 EOP-SP01TU 』</a></span></b></p>", "align": "right"}]
+    "body": [{ "type":"html", "content": "<p><b>USB/HDMI延長ケーブル<span style=\"color: blue;\"><a href=\"/html/products/HDMI_USB/eopspt/eopspt.htm\" target=\"_blank\">『 EOP-SP01TU 』</a></span></b></p>", "align": "right"}]
   },
    {
     "date": "2022年7月25日",
