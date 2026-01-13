@@ -448,8 +448,8 @@
               "url": "/html/products/AV_ACCESSORY/av-hdm01/av-hdm01.htm"
             },
             "sub_pages": [
-              { "name": "AV-HDM01", "url": "", "manual_url": "/pdf/products/AV_ACCESSORY/av-hdm01.pdf" },
-              { "name": "AV-HDM01DC", "url": "", "manual_url": "/pdf/products/AV_ACCESSORY/av-hdm01DC.pdf" }
+              { "name": "AV-HDM01", "url": "", "manual_url": "/pdf/products/AV_ACCESSORY/AV-HDM01.pdf" },
+              { "name": "AV-HDM01DC", "url": "", "manual_url": "/pdf/products/AV_ACCESSORY/AV-HDM01DC.pdf" }
             ]
           }
         ]
