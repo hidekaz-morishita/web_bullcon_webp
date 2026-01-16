@@ -32,7 +32,7 @@ export const PRODUCTS_DATA = {
                             {
                                 key: 'ft_auto_type', label: 'オートタイプ',
                                 priceKeys: { excl: 'ft_auto_price_excl_tax', incl: 'ft_auto_price_incl_tax' },
-                                option: { nav: 'ft_auto_navigation_control', vehicle_pos: 'ft_auto_vehicle_position' }
+                                option: { nav: 'ft_auto_navigation_control', vehicle_pos: 'ft_auto_vehicle_position', dvd: 'ft_led_sh_st_dvd_playback' }
                             },
                             {
                                 key: 'ft_led_switch_type', label: 'LEDスイッチ切替タイプ',
@@ -97,7 +97,7 @@ export const PRODUCTS_DATA = {
                             {
                                 key: 'ft_auto_type', label: 'オートタイプ',
                                 priceKeys: { excl: 'ft_auto_price_excl_tax', incl: 'ft_auto_price_incl_tax' },
-                                option: { nav: 'ft_auto_navigation_control', vehicle_pos: 'ft_auto_vehicle_position' }
+                                option: { nav: 'ft_auto_navigation_control', vehicle_pos: 'ft_auto_vehicle_position', dvd: 'ft_led_sh_st_dvd_playback' }
                             },
                             {
                                 key: 'ft_led_switch_type', label: 'LEDスイッチ切替タイプ',
