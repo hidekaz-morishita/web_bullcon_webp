@@ -693,6 +693,19 @@
               { "name": "SWC-PTC01", "url": "", "manual_url": "/pdf/products/TVing/tvswsize.pdf" },
               { "name": "SWC-PTC02", "url": "", "manual_url": "/pdf/products/TVing/tvswsize.pdf" }
             ]
+          },
+          {
+            "id": "led_sw",
+            "name": "小型LEDスイッチ",
+            "short_description": "対応製品に付属の「サービスホールスイッチ」を「小型LEDスイッチ」へ変更できます。",
+            "image_path": "/images/products/small_led_switch.jpg",
+            "main_page": {
+              "url": "/html/products/CAR_ACCESSORY/led_sw/led_sw.htm"
+            },
+            "sub_pages": [
+              { "name": "SW-BL001", "url": "", "manual_url": "/pdf/products/TVing/tvswsize.pdf" },
+              { "name": "SW-BL002", "url": "", "manual_url": "/pdf/products/TVing/tvswsize.pdf" }
+            ]
           }
         ]
       },

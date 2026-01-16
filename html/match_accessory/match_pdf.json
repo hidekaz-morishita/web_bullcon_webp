@@ -373,7 +373,7 @@
     "rows": [
       {
         "category": "サービスホール形状適合",
-        "category2": "-",
+        "category2": "<a href=\"../../html/products/CAR_ACCESSORY/led_sw/led_sw.htm\">サービスホール小型ＬＥＤスイッチ</a>も右記に同じ",
         "links": {
           "toyota": { "pdf": "../../pdf/products/CAR_ACCESSORY/hole_size_list_toyota.pdf" },
           "lexus": { "pdf": "../../pdf/products/CAR_ACCESSORY/hole_size_list_lexus.pdf" },
