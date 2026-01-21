@@ -1,5 +1,56 @@
 [
   {
+    "date": "2026年1月21日",
+    "type": "新製品情報",
+    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"ルークス　R7/11～　（BB1A.BB2A.BB5A.BB6A）"},
+    {"model_name":"ekスペース　R7/11～　（BA1A. BA5A）"},
+    {"model_name":"デリカミニ　R7/11～　（BA1A.BA2A.BA5A.BA6A）"}
+  ],
+    "brand": ["ニッサン", "ミツビシ"],
+    "body": [
+      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/swc-exc/swc-n008/swc-n008.htm\" target=\"_blank\">『SWC-N008』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年1月19日",
+    "type": "新製品情報",
+    "product": ["オプションコネクターハーネス"], 
+    "car_models":[{"model_name":"エクストレイル　R4/9～　（T33.SNT33）"},
+    {"model_name":"セレナ　R5/1～　（C28.FC28.GC28.GFC28）"},
+    {"model_name":"ノート　R3/1～　（E13.SNE13）"},
+    {"model_name":"ルークス　R7/11～　（BB1A.BB2A.BB5A.BB6A）"},
+    {"model_name":"ekスペース　R7/11～　（BA1A. BA5A）"},
+    {"model_name":"デリカミニ　R7/11～　（BA1A.BA2A.BA5A.BA6A）"}
+  ],
+    "brand": ["ニッサン", "ミツビシ"],
+    "body": [{ "type":"html", "content": "<p><b>オプションコネクターハーネス<span style=\"color: blue;\"><a href=\"/html/products/POWER/op_cn/op_cn.htm\" target=\"_blank\">『FC-N01（8ピン）』</a></span></b></p>", "align": "right"}]
+  },
+  {
+    "date": "2026年1月19日",
+    "type": "新製品情報",
+    "product": ["スーパーLEDルームランプⅡ"], 
+    "car_models":[{"model_name":"キャラバン　H24/6～　（E26　（GX））"}],
+    "brand": ["ニッサン"],
+    "body": [{ "type":"html", "content": "<p><b>スーパーLEDルームランプⅡ<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/super_led_roomlamp2/super_led_roomlamp2.htm\" target=\"_blank\">『 SLL-2010 』</a></span></b></p>", "align": "right"}]
+  },
+  {
+    "date": "2026年1月19日",
+    "type": "新製品情報",
+    "product": ["スーパーLEDルームランプⅡ"], 
+    "car_models":[{"model_name":"キャラバン　H24/6～　（E26　（DX/EX））"}],
+    "brand": ["ニッサン"],
+    "body": [{ "type":"html", "content": "<p><b>スーパーLEDルームランプⅡ<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/super_led_roomlamp2/super_led_roomlamp2.htm\" target=\"_blank\">『 SLL-2011 』</a></span></b></p>", "align": "right"}]
+  },
+  {
+    "date": "2026年1月7日",
+    "type": "適合情報",
+    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"N-ONE　R7/11～　（JG3 4）"}],
+    "brand": ["ホンダ"],
+    "body": [
+      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/swc-exc/swc-h006/swc-h006.htm\" target=\"_blank\">『SWC-H006』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
     "date": "2025年12月8日",
     "type": "適合情報",
     "product": ["フリーアイドリングストップ"], 
@@ -134,6 +185,16 @@
     "body": [{ "type":"html", "content": "<p><b>オプションコネクターハーネス<span style=\"color: blue;\"><a href=\"/html/products/POWER/op_cn/op_cn.htm\" target=\"_blank\">『FC-H03（6ピン）』</a></span></b></p>", "align": "right"}]
   },
   {
+    "date": "2024年7月19日",
+    "type": "適合情報",
+    "product": ["ステアリングスイッチ切替ユニット"], 
+    "car_models": [{"model_name":"ヴェゼル　R6/5～　（RV3.4）","specification":"ﾅﾋﾞ装着用ｽﾍﾟｼｬﾙﾊﾟｯｹｰｼﾞ付車"}, 
+    {"model_name":"ヴェゼル e:HEV　R6/5～　（RV5.6）","specification":"ﾅﾋﾞ装着用ｽﾍﾟｼｬﾙﾊﾟｯｹｰｼﾞ付車"}],
+    "brand": ["ホンダ"],
+    "body": [{ "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/swc-exc/swc-h006/swc-h006.htm\" target=\"_blank\">『SWC-H006』</a></span>(カメラ視点切替式)</b></p>", "align": "right"}
+    ]
+  },
+  {
     "date": "2024年6月17日",
     "type": "新製品情報",
     "product": ["スーパー LED ルームランプⅡ"],
@@ -167,6 +228,15 @@
     "body": [{ "type":"html", "content": "<p><b>オプションコネクターハーネス<span style=\"color: blue;\"><a href=\"/html/products/POWER/op_cn/op_cn.htm\" target=\"_blank\">『FC-H01（6ピン）』</a></span></b></p>", "align": "right"}]
   },
   {
+    "date": "2024年4月9日",
+    "type": "適合情報",
+    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"WR-V　R6/3～　（DG5）"}],
+    "brand": ["ホンダ"],
+    "body": [
+      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/swc-exc/swc-h006/swc-h006.htm\" target=\"_blank\">『SWC-H006』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
     "date": "2024年2月28日",
     "type": "適合情報",
     "product": ["車速ドアロックシステム"], "car_models": [
@@ -176,6 +246,17 @@
       {"model_name":"ヤリスクロスハイブリッド　R6/2～　（MXPJ10.15）"}],
     "brand": ["トヨタ"],
     "body": [{ "type":"html", "content": "<p><b>車速ドアロックシステム<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/sdlct/sdlct.htm\" target=\"_blank\">『SDL-CT08』</a></span></b></p>", "align": "right"}]
+  },
+  {
+    "date": "2024年2月16日",
+    "type": "新製品情報",
+    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [
+      {"model_name":"ステップワゴン / ステップワゴンe:HEV　R4/6～　（RP6.7.8）"},
+      {"model_name":"N-BOX　R5/10～　（JF5.6）"}],
+    "brand": ["ホンダ"],
+    "body": [
+      { "type":"html", "content": "<p><bステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/swc-exc/swc-h006/swc-h006.htm\" target=\"_blank\">『SWC-H006』</a></span></b></p>", "align": "right"}
+    ]
   },
   {
     "date": "2024年1月15日",
@@ -242,13 +323,32 @@
       { "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/hlc/hlc.htm\" target=\"_blank\">『HLC-103』『HLC-103C』</a></span></b></p>", "align": "right"}
     ]
   },
- {
+  {
     "date": "2023年6月19日",
     "type": "適合情報",
     "product": ["オプションコネクターハーネス"], "car_models": [{"model_name":"プリウス PHEV　R5/3～　（MXWH61）", "specification":"【ﾃﾞｨｽﾌﾟﾚｲｵｰﾃﾞｨｵ装着車】"}],
     "brand": ["トヨタ"],
     "body": [
       { "type":"html", "content": "<p><b>オプションコネクターハーネス<span style=\"color: blue;\"><a href=\"/html/products/POWER/op_cn/op_cn.htmm\" target=\"_blank\">『FC-T04（13ピン）』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2023年5月1日",
+    "type": "適合情報",
+    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"エクストレイル　R4/8～　（T33.SNT33）"}],
+    "brand": ["ニッサン"],
+    "body": [
+      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/swc-exc/swc-n005/swc-n005.htm\" target=\"_blank\">『SWC-N005』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2023年4月19日",
+    "type": "適合情報",
+    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"セレナ　R5/1～　（C28.FC28）"},
+     {"model_name":"セレナ　e-Power　（GC28.GFC28）　R5/1～"}],
+    "brand": ["ニッサン"],
+    "body": [
+      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/swc-exc/swc-n005/swc-n005.htm\" target=\"_blank\">『SWC-N005』</a></span></b></p>", "align": "right"}
     ]
   },
   {

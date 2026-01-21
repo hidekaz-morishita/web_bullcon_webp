@@ -162,10 +162,10 @@
       {"model_name":"ルークス　R7/11～　（BB1A　BB2A　BB5A　BB6A）",
     "specification":"FreeTVing【NissanConnectインフォテイメントシステム（12.3インチ）付車】"},
       {"model_name":"ルークス　R7/11～　（BB1A BB5A）",
-    "specification":"MAGICONE【オーディオレス+ディスプレイ付自動防眩インナーミラー+インテリジェントアラウンドビューモニター装着車】"}],
+    "specification":"MAGICONE【ｵｰﾃﾞｨｵﾚｽ+ﾃﾞｨｽﾌﾟﾚｲ付自動防眩ｲﾝﾅｰﾐﾗｰ+ｲﾝﾃﾘｼﾞｪﾝﾄｱﾗｳﾝﾄﾞﾋﾞｭｰﾓﾆﾀｰ装着車】"}],
     "brand": ["ニッサン"],
     "body": [
-      { "type":"html", "content": "<p><b>FreeTVing ｵｰﾄﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-206S』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-206S』</a></span></b></p>", "align": "right"},
       { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c13/av-c13.htm\" target=\"_blank\">『AV-C13』</a></span></b></p>", "align": "right"},
       { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c13fa/av-c13fa.htm\" target=\"_blank\">『AV-C13FA』</a></span></b></p>", "align": "right"}
     ]
@@ -911,14 +911,13 @@
   {
     "date": "2024年7月19日",
     "type": "適合情報",
-    "product": ["MAGICONE バックカメラ接続ユニット（カメラ視点固定式/カメラ切替式） / ステアリングスイッチ切替ユニット"], 
+    "product": ["MAGICONE バックカメラ接続ユニット（カメラ視点固定式/カメラ切替式）"], 
     "car_models": [{"model_name":"ヴェゼル　R6/5～　（RV3.4）","specification":"ﾅﾋﾞ装着用ｽﾍﾟｼｬﾙﾊﾟｯｹｰｼﾞ付車"}, 
     {"model_name":"ヴェゼル e:HEV　R6/5～　（RV5.6）","specification":"ﾅﾋﾞ装着用ｽﾍﾟｼｬﾙﾊﾟｯｹｰｼﾞ付車"}],
     "brand": ["ホンダ"],
     "body": [
       { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c61/av-c61.htm\" target=\"_blank\">『AV-C61』</a></span>(カメラ視点固定式)</b></p>", "align": "right"},
-      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c62/av-c62.htm\" target=\"_blank\">『AV-C62』</a></span>(カメラ視点切替式)</b></p>", "align": "right"},
-      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/swc-h006/swc-h006.htm\" target=\"_blank\">『SWC-H006』</a></span>(カメラ視点切替式)</b></p>", "align": "right"}
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c62/av-c62.htm\" target=\"_blank\">『AV-C62』</a></span>(カメラ視点切替式)</b></p>", "align": "right"}
     ]
   },
   {
@@ -1090,15 +1089,6 @@
   {
     "date": "2024年4月9日",
     "type": "適合情報",
-    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"WR-V　R6/3～　（DG5）"}],
-    "brand": ["ホンダ"],
-    "body": [
-      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/swc-h006/swc-h006.htm\" target=\"_blank\">『SWC-H006』</a></span></b></p>", "align": "right"}
-    ]
-  },
-  {
-    "date": "2024年4月9日",
-    "type": "適合情報",
     "product": ["FreeTVing『ホンダ　ディーラーオプション』"], 
     "car_models": [
       {"model_name":"ホンダディーラーオプション　2024年モデルナビゲーション","specification":"LXM-242ZFNi （9インチHonda CONNECTナビ）"},
@@ -1214,17 +1204,6 @@
     "brand": ["ミツビシ"],
     "body": [
       { "type":"html", "content": "<p><b>FreeTVing<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『ミツビシ　ディーラーオプション』</a></span></b></p>", "align": "right"}
-    ]
-  },
-  {
-    "date": "2024年2月16日",
-    "type": "新製品情報",
-    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [
-      {"model_name":"ステップワゴン / ステップワゴンe:HEV　R4/6～　（RP6.7.8）"},
-      {"model_name":"N-BOX　R5/10～　（JF5.6）"}],
-    "brand": ["ホンダ"],
-    "body": [
-      { "type":"html", "content": "<p><bステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/swc-exc/swc-h006/swc-h006.htm\" target=\"_blank\">『SWC-H006』</a></span></b></p>", "align": "right"}
     ]
   },
   {
@@ -1753,15 +1732,6 @@
     ]
   },
   {
-    "date": "2023年5月1日",
-    "type": "適合情報",
-    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"エクストレイル　R4/8～　（T33.SNT33）"}],
-    "brand": ["ニッサン"],
-    "body": [
-      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/swc-n005/swc-n005.htm\" target=\"_blank\">『SWC-N005』</a></span></b></p>", "align": "right"}
-    ]
-  },
-  {
     "date": "2023年4月19日",
     "type": "適合情報",
     "product": ["MAGICONE バックカメラ接続ユニット"], "car_models": [{"model_name":"セレナ　e-Power　R5/1～　（GC28.GFC28）","specification":"【インテリジェントアラウンドビューモニター装着車】"}],
@@ -1770,16 +1740,6 @@
       { "type": "html", "content": "インテリジェントアラウンドビューモニター映像を市販ナビゲーションに出力","align":"right"},
       { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c13/av-c13.htm\" target=\"_blank\">『AV-C13』</a></span></b></p>", "align": "right"},
       { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c13fa/av-c13fa.htm\" target=\"_blank\">『AV-C13FA』</a></span></b></p>", "align": "right"}
-    ]
-  },
-  {
-    "date": "2023年4月19日",
-    "type": "適合情報",
-    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"セレナ　R5/1～　（C28.FC28）"},
-     {"model_name":"セレナ　e-Power　（GC28.GFC28）　R5/1～"}],
-    "brand": ["ニッサン"],
-    "body": [
-      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/swc-n005/swc-n005.htm\" target=\"_blank\">『SWC-N005』</a></span></b></p>", "align": "right"}
     ]
   },
   {
