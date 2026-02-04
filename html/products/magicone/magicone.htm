@@ -43,7 +43,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             // --- Dynamic Content Switching Logic ---
             const params = new URLSearchParams(window.location.search);
-            const categories = ['bc_unit', 'bc_harness', 'vtr_harness', 'rm_unit', 'rm_harness'];
+            const categories = ['bc_unit', 'bc_harness', 'vtr_harness', 'rm_unit', 'rm_harness', 'op_parts'];
             let activeCategory = null;
 
             // Identify active category from URL
@@ -69,7 +69,8 @@
                     'bc_harness': 'バックカメラ接続ハーネス',
                     'vtr_harness': 'VTRハーネス',
                     'rm_unit': 'リアモニター接続ユニット',
-                    'rm_harness': 'リアモニター接続/増設ハーネス'
+                    'rm_harness': 'リアモニター接続/増設ハーネス',
+                    'op_parts': 'マジコネ オプションパーツ'
                 };
                 if (titleMap[activeCategory]) {
                     document.title = titleMap[activeCategory] + ' / Bullcon-フジ電機工業株式会社';
@@ -192,6 +193,15 @@
                     <span class="sub-text">・純正リアモニターが装着されている車両に、<span
                             class="red-wavy-underline"><b>さらにリアモニターを増設</b></span>出来ます。</span>
                 </div>
+                <div class="product-group" data-category="op_parts">
+                    <b>◆マジコネオプションパーツ</b><p>
+                    <span class="sub-text">
+                        ・<b>マジコネ映像増幅器</b><br>（マジコネから出力されるカメラ映像を明るく出来る。）<br>
+                        ・<b>パノラマモニター表示コントローラー</b><br>（Rレンジ以外でもパノラマモニター映像を表示させる。）<br>
+                        ・<b>サービスホールスイッチ</b><br>（マジコネの操作スイッチを【貼り付けタイプ】から【埋め込みタイプ】に変更）<br>
+                        ・<b>USB/HDMI延長ケーブル</b><br>（外部機器接続用のUSBやHDMIを、手が届く便利な場所に移設出来る。）<br>
+                        ・<b>USB変換ケーブル</b><br>（外部機器接続用のUSBポートを【タイプC】から【タイプA】に変換）</span></p>
+                </div>
             </div>
         </div>
 
@@ -276,7 +286,7 @@
         <div class="spacer-10"></div>
 
         <!-- Option Iframe -->
-        <div class="iframe-container product-group" data-category="rm_unit rm_harness">
+        <div class="iframe-container product-group" data-category="op_parts">
             <iframe src="./OPTION/magicone_op_link/magicone_op.htm" height="290" loading="lazy" scrolling="no"></iframe>
         </div>
 
