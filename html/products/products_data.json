@@ -372,7 +372,8 @@
               { "name": "AV-V07TC", "url": "/html/products/MAGICONE/VTR_H/av-v07tac/av-v07tac.htm", "manual_url": "/pdf/products/MAGICONE/AV-V07TC.pdf" },
               { "name": "AV-V07TMA", "url": "/html/products/MAGICONE/VTR_H/av-v07tmac/av-v07tmac.htm", "manual_url": "/pdf/products/MAGICONE/AV-V07TMA.pdf" },
               { "name": "AV-V07TMC", "url": "/html/products/MAGICONE/VTR_H/av-v07tmac/av-v07tmac.htm", "manual_url": "/pdf/products/MAGICONE/AV-V07TMC.pdf" },
-              { "name": "AV-DH06", "url": "/html/products/MAGICONE/VTR_H/av-dh06/av-dh06.htm", "manual_url": "/pdf/products/MAGICONE/AV-DH06.pdf" }
+              { "name": "AV-DH06", "url": "/html/products/MAGICONE/VTR_H/av-dh06/av-dh06.htm", "manual_url": "/pdf/products/MAGICONE/AV-DH06.pdf" },
+              { "name": "AV-DH08", "url": "/html/products/MAGICONE/VTR_H/av-dh08/av-dh08.htm", "manual_url": "/pdf/products/MAGICONE/AV-DH08.pdf" }
             ]
           },
           {
@@ -408,8 +409,26 @@
               { "name": "AV-R07", "url": "/html/products/MAGICONE/REAR_EX/av-r07/av-r07.htm", "manual_url": "/pdf/products/MAGICONE/AV-R07.pdf" },
               { "name": "AV-R08", "url": "/html/products/MAGICONE/REAR_EX/av-r08/av-r08.htm", "manual_url": "/pdf/products/MAGICONE/AV-R08.pdf" },
               { "name": "AV-R09", "url": "/html/products/MAGICONE/REAR_EX/av-r09/av-r09.htm", "manual_url": "/pdf/products/MAGICONE/AV-R09.pdf" },
-              { "name": "AV-R10", "url": "/html/products/MAGICONE/REAR_EX/av-r10/av-r10.htm", "manual_url": "/pdf/products/MAGICONE/AV-R10.pdf" },
-              { "name": "AV-SH01K", "url": "/html/products/MAGICONE/OPTION/av-sh01k/av-sh01k.htm", "manual_url": "/pdf/products/MAGICONE/AV-SH01K.pdf" }
+              { "name": "AV-R10", "url": "/html/products/MAGICONE/REAR_EX/av-r10/av-r10.htm", "manual_url": "/pdf/products/MAGICONE/AV-R10.pdf" }
+            ]
+          },
+          {
+            "id": "magicone_op_parts",
+            "name": "マジコネオプションパーツ",
+            "short_description": "マジコネ用オプションパーツです。",
+            "image_path": "/images/products/magicone_op_parts.jpg",
+            "main_page": {
+              "url": "/html/products/MAGICONE/magicone.htm?op_parts"
+            },
+            "sub_pages": [
+              { "name": "AV-AMP01", "url": "/html/products/MAGICONE/OPTION/av-amp01/av-amp01.htm", "manual_url": "/pdf/products/MAGICONE/AV-AMP01.pdf" },
+              { "name": "AV-FD01", "url": "/html/products/MAGICONE/OPTION/av-fd01/av-fd01.htm", "manual_url": "/pdf/products/MAGICONE/AV-FD01.pdf" },
+              { "name": "SW-PTA01/SW-PTC01", "url": "/html/products/CAR_ACCESSORY/hole_sw/hole_sw.htm", "manual_url": "" },
+              { "name": "AV-SH01K", "url": "/html/products/MAGICONE/OPTION/av-sh01k/av-sh01k.htm", "manual_url": "/pdf/products/MAGICONE/AV-SH01K.pdf" },
+              { "name": "EOP-SP01TA", "url": "/html/products/HDMI_USB/eopspt/eopsp01ta.htm", "manual_url": "/pdf/products/HDMI_USB/EOP-SP01TA.pdf" },
+              { "name": "EOP-SP01TC", "url": "/html/products/HDMI_USB/eopspt/eopsp01tc.htm", "manual_url": "/pdf/products/HDMI_USB/EOP-SP01TC.pdf" },
+              { "name": "EOP-SP01TU", "url": "/html/products/HDMI_USB/eopspt/eopsp01tu.htm", "manual_url": "/pdf/products/HDMI_USB/EOP-SP01TU.pdf" },
+              { "name": "EOP-USB-CA", "url": "/html/products/HDMI_USB/eopusbca/eopusbca.htm", "manual_url": "/pdf/products/HDMI_USB/EOP-USB-CA.pdf" }
             ]
           }
         ]
