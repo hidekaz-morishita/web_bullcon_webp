@@ -265,6 +265,13 @@ export function setupEventListeners() {
             }
 
             await handleSearch(formState, productInfo);
+
+            //
+            const scrollTarget = document.getElementById('export-pdf-button');
+            scrollTarget.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
         }
     });
 }
