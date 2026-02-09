@@ -1092,6 +1092,16 @@
             "sub_pages": [{ "name": "AV-DH06", "url": "", "manual_url": "/pdf/products/MAGICONE/AV-DH06.pdf" }]
           },
           {
+            "id": "av_dh08",
+            "name": "HDMI Type-Aハーネス",
+            "short_description": "【ＨＤＭＩタイプＥ端子】機器と【ＨＤＭＩタイプＡ端子】機器を接続できます。",
+            "image_path": "/images/products/hdmi_type-ae.jpg",
+            "main_page": {
+              "url": "/html/products/MAGICONE/VTR_H/av-dh08/av-dh08.htm?type-e"
+            },
+            "sub_pages": [{ "name": "AV-DH06", "url": "", "manual_url": "/pdf/products/MAGICONE/AV-DH08.pdf" }]
+          },
+          {
             "id": "eopdc",
             "name": "USB電源コンバータ",
             "short_description": "スマートフォン等を充電できるUSB電源増設ユニット",
