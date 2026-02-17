@@ -95,8 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // '全てを見る' リンクを追加 (オプション)
             if (category.products.length > 0) {
                 productGrid.innerHTML += `
-                    <a href="${category.url}" class="grid-view-all">全ての製品を見る &gt;</a>
-                `;
+                    <a href="/html/products/products.html?category=all" class="grid-view-all">全ての製品を見る &gt;</a>
+                `; // 26.2.17「すべての製品を見る」をカテゴリ内ではなく、広義で全てに変更する
             }
 
             // 隠しコンテナにカテゴリーごとの製品グリッドを追加
