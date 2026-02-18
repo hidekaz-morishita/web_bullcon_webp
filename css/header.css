@@ -356,6 +356,16 @@
   height: auto;
 }
 
+@media print {
+  .header.is-stuck {
+    position: static !important;
+    box-shadow: none !important;
+  }
+  .header-inner {
+    padding: 0 !important;
+  }
+}
+
 /*==================================
  Responsive Design (Mobile)
 ==================================*/

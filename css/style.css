@@ -151,6 +151,15 @@ a:hover {
     height: 10px;
 }
 
+@media print {
+  body {
+    padding-top:0 !important;
+  }
+  .container {
+    padding: 10px 0px 30px 20px !important;
+    }
+}
+
 /*==================================
   Responsive Design (Mobile)
 ==================================*/

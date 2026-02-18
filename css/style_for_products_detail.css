@@ -124,3 +124,12 @@ a:hover {
     transform: translateY(-5px); /* ホバーで少し大きく浮かせる */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* ホバー時に影を追加 */
 }
+
+@media print {
+  body {
+    padding-top:0 !important;
+  }
+  .container {
+    padding: 10px 0px 30px 20px !important;
+    }
+}
