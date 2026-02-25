@@ -439,6 +439,16 @@
         "url": "/html/products/products.html?category=av_accessory",
         "products": [
           {
+            "id": "Smartphone Mirroring cable",
+            "name": "スマートフォンミラーリングケーブル",
+            "short_description": "スマートフォンと車両のHDMIポートに接続するだけでスマートフォンの映像をミラーリング出来る。",
+            "image_path": "/images/products/av-hmc01.jpg",
+            "main_page": {
+              "url": "/html/products/AV_ACCESSORY/hmc/hmc01.htm"
+            },
+            "sub_pages": [{ "name": "AV-HMC01", "url": "", "manual_url": "/pdf/products/AV_ACCESSORY/AV-HMC01.pdf"}]
+          },
+          {
             "id": "car_hdmi_adapter",
             "name": "カーアダプター",
             "short_description": "CarPlay対応の純正ディスプレイオーディオやナビゲーションでHDMI接続を有する機器の映像を楽しめます。",

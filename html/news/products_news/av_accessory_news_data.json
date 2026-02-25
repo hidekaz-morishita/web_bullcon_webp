@@ -1,5 +1,89 @@
 [
   {
+    "date": "2026年2月20日",
+    "type": "新製品情報",
+    "product": ["スマートフォン ミラーリングケーブル"],
+    "brand": [],
+    "body": [
+      { "type": "image", "url": "/images/slide_banner/AV-HMC01_250-600.jpg", "alt": "ミラーリングケーブル"},
+      { "type": "html", "content": "<span style=\"color: red;\"\"font-size: 1.1rem;\">【2026年2月24日 販売開始】</spam>", "align": "center"},
+      { "type": "html", "content": "<span style=\"font-size:0.8em;\">【ディスプレイオーディオ】や【ナビゲーション】のHDMIポートに接続するだけでスマートフォン画面を車両ディスプレイにミラーリング</span>", "align": "right"},
+      { "type":"html", "content": "<p><b>スマートフォンミラーリングケーブル<span style=\"color: blue;\"><a href=\"/html/products/AV_ACCESSORY/hmc/hmc01.htm\" target=\"_blank\">『AV-HMC01』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年2月16日",
+    "type": "適合情報",
+    "product": ["DVD/CDプレーヤー"],
+    "car_models": [ {"model_name":"ハイエースコミューター 　R8/2～　(GDH223B.TRH223B.228B）", "specification":"【8インチディスプレイオーディオ付車】"},
+                    {"model_name":"ハイエースバン 　R8/2～　(GDH201V.211K.201K.221K.206V.216K.206K.226K.TRH200V.211K.200K）", "specification":"【8インチディスプレイオーディオPlus付車】【8インチディスプレイオーディオ付車】"},
+                    {"model_name":"ハイエースワゴン 　R8/2～　(TRH224W.214W.229W.219W223B.228B）", "specification":"【8インチディスプレイオーディオPlus付車】【8インチディスプレイオーディオ付車】"}],
+    "brand": ["トヨタ"],
+    "body": [
+    { "type":"html", "content": "<p><b>DVD/CDプレーヤー<span style=\"color: blue;\"><a href=\"/html/products/AV_ACCESSORY/cdv/cdv01.htm\" target=\"_blank\">『AV-CDV01』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年2月13日",
+    "type": "適合情報",
+    "product": ["FreeTVing"],
+    "car_models": [ {"model_name":"ハイエースコミューター 　R8/2～　(GDH223B.TRH223B.228B）", "specification":"【8インチディスプレイオーディオ付車】"},
+                    {"model_name":"ハイエースバン 　R8/2～　(GDH201V.211K.201K.221K.206V.216K.206K.226K.TRH200V.211K.200K）", "specification":"【8インチディスプレイオーディオPlus付車】【8インチディスプレイオーディオ付車】"},
+                    {"model_name":"ハイエースワゴン 　R8/2～　(TRH224W.214W.229W.219W223B.228B）", "specification":"【8インチディスプレイオーディオPlus付車】【8インチディスプレイオーディオ付車】"}],
+    "brand": ["トヨタ"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-111AS』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-111ASC』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing ｽﾃｱﾘﾝｸﾞｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-111AST』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年2月13日",
+    "type": "適合情報",
+    "product": ["FreeTVing"],
+    "car_models": [ 
+      {"model_name":"セレナ e-Power含む　R8/2～　（C28.FC28.GC28.GFC28）", "specification":"【NissanConnectインフォテイメントシステム(12.3インチ）付車】"}
+    ],
+    "brand": ["ニッサン"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-206S』</a></span></b></p>", "align": "right"} 
+    ]
+  },
+  {
+    "date": "2026年2月9日",
+    "type": "新製品情報",
+    "product": ["MAGICONE ≪HDMIタイプE/HDMIタイプA≫変換ハーネス"],
+    "brand": [],
+    "body": [
+      { "type": "image", "url": "/images/slide_banner/AV-DH08_250-600.jpg", "alt": "HDMI変換ハーネス"},
+      { "type": "html", "content": "<span style=\"color: red;\"\"font-size: 1.1rem;\">【2025年2月9日 販売開始】</spam>", "align": "center"},
+      { "type": "html", "content": "<span style=\"font-size:0.8em;\">【ＨＤＭＩタイプＥ端子】機器と【ＨＤＭＩタイプＡ端子】機器を接続できます。</span>", "align": "right"},
+      { "type":"html", "content": "<p><b>MAGICONE HDMIハーネス<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/VTR_H/av-dh08/av-dh08.htm\" target=\"_blank\">『AV-DH08』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年1月26日",
+    "type": "適合情報",
+    "product": ["FreeTVing"], "car_models": [{"model_name":"N-ONE e:　R7/9～　（JG5）"}],
+    "brand": ["ホンダ"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『FFT-236』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『MS-236』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年1月26日",
+    "type": "適合情報",
+    "product": ["MAGICONE バックカメラ接続ユニット"], 
+    "car_models": [{"model_name":"アルト　R7/8～　（HA97S）","specification":"【キーレスプッシュスタート + 全方位モニター用カメラパッケージ装着車】"}, 
+                   {"model_name":"ラパン　R7/9～　（HE93S）　","specification":"【全方位モニター用カメラパッケージ装着車】"}
+                  ],
+    "brand": ["スズキ"],
+    "body": [
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c58/av-c58.htm\" target=\"_blank\">『AV-C58』</a></span></b></p>", "align": "right"}
+    ]
+  },  
+    {
     "date": "2026年1月7日",
     "type": "適合情報",
     "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"N-ONE　R7/11～　（JG3 4）"}],
@@ -184,7 +268,7 @@
   {
     "date": "2025年11月7日",
     "type": "新製品情報",
-    "product": ["FreeTVing/TELENAVing"],
+    "product": ["FreeTVing"],
     "car_models": [ 
       {"model_name":"エクストレイル　R7/10～　（T33 SNT33）"}
     ],
