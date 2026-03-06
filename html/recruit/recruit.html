@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,12 +15,13 @@
 <!-- Google Analyticse計測用タグです。全てのページに埋め込んでください。 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0R1H3RK4W"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-X0R1H3RK4W');
+    gtag('config', 'G-X0R1H3RK4W');
 </script>
+
 <body>
     <div id="header-placeholder"></div>
 
@@ -30,20 +32,109 @@
                 <span class="section-title-jp">採用情報</span>
             </h2>
 
-            <div class="recruit-message">
-                <p>現在、募集は行っておりません。</p>
+            <div class="recruit-intro">
+                <p class="recruit-intro-text">
+                    フジ電機工業株式会社（Bullcon）では、共に未来を創る仲間を募集しています。<br>あなたの情熱とスキルを、自動車アフターパーツの世界で活かしてみませんか。</p>
+            </div>
+
+            <div class="recruit-card-grid">
+                <!-- 営業 -->
+                <a href="sales.html" class="recruit-card is-disabled">
+                    <div class="card-content">
+                        <div class="card-status-label">現在募集を行っておりません</div>
+                        <div class="card-tags">
+                            <span class="card-tag location">大阪（本社）</span>
+                            <span class="card-tag type">正社員</span>
+                        </div>
+                        <h3 class="card-title">営業</h3>
+                        <p class="card-excerpt">カーディーラーや用品店への自社製品の提案・販売促進、市場調査などを行います。</p>
+                        <span class="card-more">詳細を見る</span>
+                    </div>
+                </a>
+
+                <!-- 総務・経理 -->
+                <a href="admin_finance.html" class="recruit-card is-disabled">
+                    <div class="card-content">
+                        <div class="card-status-label">現在募集を行っておりません</div>
+                        <div class="card-tags">
+                            <span class="card-tag location">大阪（本社）</span>
+                            <span class="card-tag type">正社員</span>
+                        </div>
+                        <h3 class="card-title">総務・経理</h3>
+                        <p class="card-excerpt">給与計算、財務諸表作成、来客対応など社内の基盤を支える業務を担当します。</p>
+                        <span class="card-more">詳細を見る</span>
+                    </div>
+                </a>
+
+                <!-- 業務 -->
+                <a href="operations.html" class="recruit-card is-disabled">
+                    <div class="card-content">
+                        <div class="card-status-label">現在募集を行っておりません</div>
+                        <div class="card-tags">
+                            <span class="card-tag location">大阪（本社）</span>
+                            <span class="card-tag type">正社員</span>
+                        </div>
+                        <h3 class="card-title">業務</h3>
+                        <p class="card-excerpt">受注管理、在庫調整、出荷指示など、円滑な製品流通をコントロールする役割です。</p>
+                        <span class="card-more">詳細を見る</span>
+                    </div>
+                </a>
+
+                <!-- 製品調査 -->
+                <a href="product_research.html" class="recruit-card">
+                    <div class="card-content">
+                        <div class="card-status-label">現在募集を行っておりません</div>
+                        <div class="card-tags">
+                            <span class="card-tag location">大阪（本社）</span>
+                            <span class="card-tag type">正社員</span>
+                        </div>
+                        <h3 class="card-title">製品調査・企画</h3>
+                        <p class="card-excerpt">新型車の電気系統調査や、自社製品の適合確認など、技術的な検証を行います。</p>
+                        <span class="card-more">詳細を見る</span>
+                    </div>
+                </a>
+
+                <!-- 製造 -->
+                <a href="manufacturing.html" class="recruit-card">
+                    <div class="card-content">
+                        <div class="card-status-label">現在募集を行っておりません</div>
+                        <div class="card-tags">
+                            <span class="card-tag location">兵庫（春日工場）</span>
+                            <span class="card-tag type">正社員</span>
+                        </div>
+                        <h3 class="card-title">製造</h3>
+                        <p class="card-excerpt">自社工場での製品組み立て、検品、梱包など、高品質なものづくりを担います。</p>
+                        <span class="card-more">詳細を見る</span>
+                    </div>
+                </a>
+
+                <!-- 技術 -->
+                <a href="engineering.html" class="recruit-card is-disabled">
+                    <div class="card-content">
+                        <div class="card-status-label">現在募集を行っておりません</div>
+                        <div class="card-tags">
+                            <span class="card-tag location">兵庫（春日工場）</span>
+                            <span class="card-tag type">正社員</span>
+                        </div>
+                        <h3 class="card-title">技術（開発・設計）</h3>
+                        <p class="card-excerpt">新製品の回路設計、基板レイアウト、プログラム開発など、製品の核心を創ります。</p>
+                        <span class="card-more">詳細を見る</span>
+                    </div>
+                </a>
             </div>
 
             <div class="privacy-note">
-                <a href="../../html/privacy_policy/privacy_policy.html" class="privacy-link">※当社の個人情報の取扱いをご一読の上、お問い合わせください。</a>
+                <a href="../../html/privacy_policy/privacy_policy.html"
+                    class="privacy-link">※当社の個人情報の取扱いをご一読の上、お問い合わせください。</a>
             </div>
-            
+
         </div>
     </main>
 
-<div id="footer-placeholder"></div>
+    <div id="footer-placeholder"></div>
 
-<script src="../../js/header.js"></script>
-<script src="../../js/footer.js"></script>
+    <script src="../../js/header.js"></script>
+    <script src="../../js/footer.js"></script>
 </body>
+
 </html>
