@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="フジ電機工業株式会社（Bullcon）へのお問い合わせフォームです。製品や部品に関するご質問、資料請求はこちらから。ドメイン指定受信設定やプライバシーポリシーをご確認の上、必要事項をご記入ください。">
+    <meta name="description"
+        content="フジ電機工業株式会社（Bullcon）へのお問い合わせフォームです。製品や部品に関するご質問、資料請求はこちらから。ドメイン指定受信設定やプライバシーポリシーをご確認の上、必要事項をご記入ください。">
     <title>お問い合わせ | Bullcon - フジ電機工業株式会社</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/header.css">
     <link rel="stylesheet" href="../../css/footer.css">
     <link rel="stylesheet" href="../../css/contact/contact.css">
+    <style>
+        .error-message {
+            color: #ff0000;
+            font-size: 0.8em;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .input-area input.error,
+        .input-area textarea.error {
+            border-color: #ff0000;
+            background-color: #fff0f0;
+        }
+    </style>
 </head>
 <!-- Google tag (gtag.js) -->
 <!-- Google Analyticse計測用タグです。全てのページに埋め込んでください。 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0R1H3RK4W"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-X0R1H3RK4W');
+    gtag('config', 'G-X0R1H3RK4W');
 </script>
+
 <body>
     <div id="header-placeholder"></div>
 
@@ -32,27 +49,31 @@
 
             <section class="contact-section">
                 <p class="privacy-note">
-                    お問い合わせの際は、<a href="../../html/privacy_policy/privacy_policy.html" class="privacy-link">プライバシーポリシー</a>をご確認ください。
+                    お問い合わせの際は、<a href="../../html/privacy_policy/privacy_policy.html"
+                        class="privacy-link">プライバシーポリシー</a>をご確認ください。
                 </p>
 
-                <form action="https://www.fuji-denki.co.jp/cgi-bin/mpmail2/mpmail.cgi" method="post" class="contact-form">
+                <form id="contact-form" action="../../api/web_page/send_contact_mail.php" method="post"
+                    class="contact-form">
                     <div class="form-item">
                         <div class="label-area">
                             <label for="contact-type">お問い合わせ内容<br><span class="required-text"> （必須）</span></label>
                             <p class="sub-text">チェックしてください</p>
                         </div>
                         <div class="input-area">
-                            <label><input type="checkbox" name="naiyou" value="お問い合わせ">お問い合わせ</label>
-                            <label><input type="checkbox" name="naiyou" value="資料請求">資料請求（複数可）</label>
+                            <label><input type="checkbox" name="naiyou[]" value="お問い合わせ">お問い合わせ</label>
+                            <label><input type="checkbox" name="naiyou[]" value="資料請求">資料請求（複数可）</label>
+                            <div class="error-message" id="error-naiyou">お問い合わせ内容を選択してください。</div>
                         </div>
                     </div>
-                    
+
                     <div class="form-item">
                         <div class="label-area">
                             <label for="name">お名前<br><span class="required-text"> （必須）</span></label>
                         </div>
                         <div class="input-area">
-                            <input type="text" name="name" id="name" size="60">
+                            <input type="text" name="name" id="name" size="60" placeholder="例：山田 太郎">
+                            <div class="error-message" id="error-name">お名前を入力してください。</div>
                         </div>
                     </div>
 
@@ -61,8 +82,9 @@
                             <label for="kana">お名前（フリガナ）<br><span class="required-text"> （必須）</span></label>
                         </div>
                         <div class="input-area">
-                            <input type="text" name="kana" id="kana" size="60">
+                            <input type="text" name="kana" id="kana" size="60" placeholder="例：ヤマダ タロウ">
                             <p class="sub-text-kana">（カタカナでご記入下さい。）</p>
+                            <div class="error-message" id="error-kana">フリガナを全角カタカナで入力してください。</div>
                         </div>
                     </div>
 
@@ -71,8 +93,9 @@
                             <label for="zip">〒郵便番号<br><span class="required-text"> （必須）</span></label>
                         </div>
                         <div class="input-area">
-                            <input type="text" name="zip" id="zip" size="50">
+                            <input type="text" name="zip" id="zip" size="50" placeholder="例：1234567">
                             <p class="sub-text">（ハイフンなしの７桁の郵便番号）</p>
+                            <div class="error-message" id="error-zip">郵便番号を7桁の数字で入力してください。</div>
                         </div>
                     </div>
 
@@ -81,7 +104,9 @@
                             <label for="address">ご住所<br><span class="required-text"> （必須）</span></label>
                         </div>
                         <div class="input-area">
-                            <input type="text" name="adress" id="address" size="100">
+                            <input type="text" name="adress" id="address" size="100" placeholder="例：大阪府大阪市都島区片町1-6-16">
+                            <div class=" error-message" id="error-adress">ご住所を入力してください。
+                            </div>
                         </div>
                     </div>
 
@@ -91,19 +116,22 @@
                             <p class="sub-text">（携帯電話番号可）</p>
                         </div>
                         <div class="input-area">
-                            <input type="text" name="tel" id="tel" size="50">
+                            <input type="text" name="tel" id="tel" size="50" placeholder="例：06-1234-5678">
                             <p class="sub-text">（－ ハイフンが必要）</p>
                         </div>
                     </div>
-                    
+
                     <div class="form-item">
                         <div class="label-area">
                             <label for="mailaddress">メールアドレス<br><span class="required-text"> （必須）</span></label>
                         </div>
                         <div class="input-area mail-address">
-                            <input type="text" name="mailaddress" id="mailaddress" size="80">
-                            <p class="required-confirm-text">（ 確認のためにもう一度入力して下さい。）</p>
-                            <input type="text" name="mailaddress2" size="80" placeholder="（確認）">
+                            <input type="text" name="mailaddress" id="mailaddress" size="80"
+                                placeholder="例：example@fuji-denki.co.jp">
+                            <div class="error-message" id="error-mailaddress">有効なメールアドレスを入力してください。</div>
+                            <p class="required-confirm-text">（ 確認のためもう一度入力して下さい。）</p>
+                            <input type="text" name="mailaddress2" id="mailaddress2" size="80" placeholder="（確認用）">
+                            <div class="error-message" id="error-mailaddress2">メールアドレスが一致しません。</div>
                         </div>
                     </div>
 
@@ -114,46 +142,54 @@
                         </div>
                         <div class="input-area">
                             <textarea name="opinion" id="opinion" rows="10" cols="80"></textarea>
+                            <div class="error-message" id="error-opinion">内容を入力してください。</div>
                         </div>
                     </div>
-                    
+
                     <div class="form-buttons">
-                        <input type="submit" name="submitButtonName" value="確認" class="submit-button">
-                        <input type="reset" name="SubmitButtonName" value="クリア" class="reset-button">
+                        <input type="submit" value="確認" class="submit-button">
+                        <input type="reset" value="クリア" class="reset-button">
                     </div>
-                    
+
                     <div class="important-notes">
                         <p>●E-mailアドレスが間違っている場合、当社よりお客様に送信する事が出来ませんので、必ず、半角英数でご記入下さいますようお願いいたします。<br>
-                        ●迷惑メールの対策などでドメイン指定を行っている場合、メールが受信できない場合がございます。「@fuji-denki.co.jp」を受信設定して下さい。<br>
-                        ドメイン指定の解除方法について詳しくは、下記の「ドメイン指定受信について」をご確認下さい。</p>
-                        
+                            ●迷惑メールの対策などでドメイン指定を行っている場合、メールが受信できない場合がございます。「@fuji-denki.co.jp」を受信設定して下さい。<br>
+                            ドメイン指定の解除方法について詳しくは、下記の「ドメイン指定受信について」をご確認下さい。</p>
+
                         <p class="note-title">ドメイン指定受信について</p>
                         <p>当サイトからのメールが届かない場合、以下の内容をお確かめ下さい。<br>
-                        キャリアメールのドメイン指定受信をご利用されている方は、メールを受信できるよう設定が必要です。<br>
-                        以下の指定解除方法を参考に、ドメイン指定解除をご設定ください｡<br>
-                        【指定するドメイン名】@fuji-denki.co.jp</p>
-                        
+                            キャリアメールのドメイン指定受信をご利用されている方は、メールを受信できるよう設定が必要です。<br>
+                            以下の指定解除方法を参考に、ドメイン指定解除をご設定ください｡<br>
+                            【指定するドメイン名】@fuji-denki.co.jp</p>
+
                         <div class="carrier-notes">
                             <p>【各キャリアごとのドメイン指定解除方法】</p>
                             <p>■docomoの場合<br>
-                            1.上記ドメイン名をコピーします。<br>
-                            2.「dメニュー」→「お客様サポート」→「メール設定」に移動します。<br>
-                            3.「個別に受信したいドメインまたはアドレスを登録」にて、コピーしたドメインを入力した後、画面下の「登録」を選択します。<br>
-                            <a href="https://www.docomo.ne.jp/info/spam_mail/spmode/domain/" target="_blank">・SPモードからの設定</a> ※外部サイトにリンクします。<br></p>
-                            
+                                1.上記ドメイン名をコピーします。<br>
+                                2.「dメニュー」→「お客様サポート」→「メール設定」に移動します。<br>
+                                3.「個別に受信したいドメインまたはアドレスを登録」にて、コピーしたドメインを入力した後、画面下の「登録」を選択します。<br>
+                                <a href="https://www.docomo.ne.jp/info/spam_mail/spmode/domain/"
+                                    target="_blank">・SPモードからの設定</a>
+                                ※外部サイトにリンクします。<br>
+                            </p>
+
                             <p>■auの場合<br>
-                            ≪Androidご利用の場合≫<br>
-                            1.上記ドメイン名をコピーします。<br>
-                            2.「Eメールアプリ」を起動→「Eメール設定」→「アドレス 変更・その他の設定」→「受信リスト・アドレス帳受信設定へ」にて有効を行います。<br>
-                            3.コピーしたドメインを貼り付け、『ドメイン一致』を選択し、「変更」ボタンを押します。<br>
-                            4.受信リスト設定　変更確認画面にて、「OK」ボタンを押します。<br>
-                            <a href="https://www.au.com/support/service/mobile/trouble/mail/email/filter/detail/domain/" target="_blank">・特定のメールアドレスからのメールを受信したい（受信リスト設定）</a> ※外部サイトにリンクします。<br></p>
+                                ≪Androidご利用の場合≫<br>
+                                1.上記ドメイン名をコピーします。<br>
+                                2.「Eメールアプリ」を起動→「Eメール設定」→「アドレス 変更・その他の設定」→「受信リスト・アドレス帳受信設定へ」にて有効を行います。<br>
+                                3.コピーしたドメインを貼り付け、『ドメイン一致』を選択し、「変更」ボタンを押します。<br>
+                                4.受信リスト設定　変更確認画面にて、「OK」ボタンを押します。<br>
+                                <a href="https://www.au.com/support/service/mobile/trouble/mail/email/filter/detail/domain/"
+                                    target="_blank">・特定のメールアドレスからのメールを受信したい（受信リスト設定）</a> ※外部サイトにリンクします。<br>
+                            </p>
 
                             <p>■SoftBankの場合<br>
-                            1.上記ドメイン名をコピーします。<br>
-                            2.「My SoftBank」→「メール設定（SMS／MMS）」→「迷惑メールブロックの設定変更」→「個別設定」に移動します。<br>
-                            3.「受信許可･拒否設定」→「受信許可リスト設定」→コピーしたドメインを貼り付け→「設定」ボタンを押します。<br>
-                            <a href="https://www.softbank.jp/mobile/support/mail/antispam/email-i/white/" target="_blank">・迷惑メールの個別設定をする</a> ※外部サイトにリンクします。</p>
+                                1.上記ドメイン名をコピーします。<br>
+                                2.「My SoftBank」→「メール設定（SMS／MMS）」→「迷惑メールブロックの設定変更」→「個別設定」に移動します。<br>
+                                3.「受信許可･拒否設定」→「受信許可リスト設定」→コピーしたドメインを貼り付け→「設定」ボタンを押します。<br>
+                                <a href="https://www.softbank.jp/mobile/support/mail/antispam/email-i/white/"
+                                    target="_blank">・迷惑メールの個別設定をする</a> ※外部サイトにリンクします。
+                            </p>
                         </div>
                     </div>
                 </form>
@@ -161,9 +197,11 @@
         </div>
     </main>
 
-<div id="footer-placeholder"></div>
+    <div id="footer-placeholder"></div>
 
-<script src="../../js/header.js"></script>
-<script src="../../js/footer.js"></script>
+    <script src="../../js/header.js"></script>
+    <script src="../../js/footer.js"></script>
+    <script src="../../js/contact/contact.js"></script>
 </body>
+
 </html>
