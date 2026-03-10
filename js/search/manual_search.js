@@ -18,20 +18,28 @@ export function initializeManualSearch() {
         dataPath: '../products/products_data.json',
         isManualSearch: true,
         filterLogic: (query, searchData) => {
-            const lowerCaseQuery = query.toLowerCase();
+            const keywords = query.toLowerCase().split(/\s+/).filter(k => k.length > 0);
+            if (keywords.length === 0) return [];
+
             let tempResults = [];
             const categories = searchData.products_data && Array.isArray(searchData.products_data.categories)
                 ? searchData.products_data.categories
                 : [];
+
             categories.forEach(category => {
                 const products = Array.isArray(category.products) ? category.products : [];
                 products.forEach(item => {
+                    const itemName = (item.name || '').toLowerCase();
                     if (item.sub_pages) {
-                        const matchingSubPages = item.sub_pages.filter(sub_page =>
-                            sub_page.name && sub_page.name.toLowerCase().includes(lowerCaseQuery)
-                        );
-                        matchingSubPages.forEach(sub_page => {
-                            if (sub_page.manual_url || item.url) {
+                        item.sub_pages.forEach(sub_page => {
+                            const subName = (sub_page.name || '').toLowerCase();
+
+                            // すべてのキーワードが商品名またはサブページ名に含まれているか（AND検索）
+                            const isMatch = keywords.every(word =>
+                                itemName.includes(word) || subName.includes(word)
+                            );
+
+                            if (isMatch && (sub_page.manual_url || item.url)) {
                                 tempResults.push({
                                     name: sub_page.name,
                                     manual_url: sub_page.manual_url,
@@ -53,7 +61,7 @@ export function initializeManualSearch() {
 
             searchInput.insertAdjacentElement('afterend', autocompleteList);
 
-            searchInput.addEventListener('input', function() {
+            searchInput.addEventListener('input', function () {
                 const query = this.value;
                 if (!query) {
                     autocompleteList.innerHTML = '';
@@ -61,7 +69,11 @@ export function initializeManualSearch() {
                 }
 
                 let filteredSuggestions = [];
-                const lowerCaseQuery = query.toLowerCase();
+                const searchKeywords = query.toLowerCase().split(/\s+/).filter(k => k.length > 0);
+                if (searchKeywords.length === 0) {
+                    autocompleteList.innerHTML = '';
+                    return;
+                }
 
                 const categories = searchData.products_data && Array.isArray(searchData.products_data.categories)
                     ? searchData.products_data.categories
@@ -70,9 +82,15 @@ export function initializeManualSearch() {
                 categories.forEach(category => {
                     const products = Array.isArray(category.products) ? category.products : [];
                     products.forEach(item => {
+                        const itemName = (item.name || '').toLowerCase();
                         if (item.sub_pages) {
                             item.sub_pages.forEach(sub_page => {
-                                if (sub_page.name && sub_page.name.toLowerCase().includes(lowerCaseQuery) && (sub_page.manual_url || item.url)) {
+                                const subName = (sub_page.name || '').toLowerCase();
+                                const isMatch = searchKeywords.every(word =>
+                                    itemName.includes(word) || subName.includes(word)
+                                );
+
+                                if (isMatch && (sub_page.manual_url || item.url)) {
                                     filteredSuggestions.push(sub_page.name);
                                 }
                             });
