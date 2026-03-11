@@ -1,5 +1,55 @@
 [
   {
+    "date": "2026年3月10日",
+    "type": "適合情報",
+    "product": ["MAGICONE バックカメラ接続ユニット"],
+    "car_models": [ 
+      {"model_name":"セレナ（e-Power除く）　改良後　R8/2～　（C28　FC28）","specification":"【オーディオレス+インテリジェントアラウンドビューモニター装着車】"},
+      {"model_name":"セレナ　e-Power　改良後　R8/2～　（GC28　GFC28）","specification":"【オーディオレス+インテリジェントアラウンドビューモニター装着車】"}],
+    "brand": ["ニッサン"],
+    "body": [
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c13/av-c13.htm\" target=\"_blank\">『AV-C13』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c13fa/av-c13fa.htm\" target=\"_blank\">『AV-C13FA』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年3月9日",
+    "type": "適合追加情報",
+    "product": ["MAGICONE バックカメラ接続ユニット"], 
+    "car_models": [
+      {"model_name":"ダイナカーゴ　1.0ton　R8/1～（GDY232.282）","specification":"【バックカメラ付インナーミラー装着車】"}
+                  ],
+    "brand": ["トヨタ"],
+    "body": [
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c63/av-c63.htm\" target=\"_blank\">『AV-C63』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c63ext/av-c63ext.htm\" target=\"_blank\">『AV-C63EXT』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年3月5日",
+    "type": "適合情報",
+    "product": ["MAGICONE バックカメラ接続ユニット"], 
+    "car_models": [{"model_name":"デリカD:5　R8/1～　（CV1W）","specification":"【マルチアラウンドモニター付車】"}
+                  ],
+    "brand": ["ミツビシ"],
+    "body": [
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c25/av-c25.htm\" target=\"_blank\">『AV-C25』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年2月24日",
+    "type": "適合情報",
+    "product": ["MAGICONE バックカメラ接続ユニット"], 
+    "car_models": [
+      {"model_name":"デュトロ　1.5ton　R5/8～（GDY231.232.281.282）","specification":"【バックカメラ付インナーミラー装着車】"}, 
+      {"model_name":"デュトロ　2.0ton　R5/10～（XZC600.605.610.630.640.645.655.675.710.<br>XZU600.605.610.620.630.640.645.650.655.675.684.695.700.710.720.730.775）","specification":"【バックカメラ＆デジタルインナーミラー装着車】"}],
+    "brand": ["日野"],
+    "body": [
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c63/av-c63.htm\" target=\"_blank\">『AV-C63』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c63ext/av-c63ext.htm\" target=\"_blank\">『AV-C63EXT』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
     "date": "2026年2月20日",
     "type": "新製品情報",
     "product": ["スマートフォン ミラーリングケーブル"],

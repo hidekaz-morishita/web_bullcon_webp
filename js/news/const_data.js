@@ -9,7 +9,8 @@ export const BRAND_STYLE = {
     'スズキ': { color: '#00A0E9', borderColor: '#00A0E9' },
     'ダイハツ': { color: '#0065B3', borderColor: '#0065B3' },
     'マツダ': { color: '#B31E27', borderColor: '#B31E27' }, 
-    'イスズ': { color: '#CC0000', borderColor: '#CC0000' }, 
+    'イスズ': { color: '#CC0000', borderColor: '#CC0000' },
+    '日野': { color: '#C0C0C0', borderColor: '#C0C0C0' }, 
 };
 
 export const NEWS_TYPE_STYLE = {

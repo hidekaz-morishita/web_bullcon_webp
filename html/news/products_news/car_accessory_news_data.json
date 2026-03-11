@@ -1,5 +1,14 @@
 [
   {
+    "date": "2026年2月16日",
+    "type": "適合情報",
+    "product": ["オートドアミラーコントローラー"],
+    "car_models": [ {"model_name":"ハイエースコミューター 　R8/2～　(GDH223B.TRH223B.228B）"},
+                    {"model_name":"ハイエースバン 　R8/2～　(GDH201V.211K.201K.221K.206V.216K.206K.226K.TRH200V.211K.200K）"},
+                    {"model_name":"ハイエースワゴン 　R8/2～　(TRH224W.214W.229W.219W223B.228B）"}],
+    "brand": ["トヨタ"],
+    "body": [{ "type":"html", "content": "<p><b>オートドアミラーコントローラー<br><span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/door_mirror/door_mirror.htm\" target=\"_blank\">『ADM-102・ADL-11・ADK-98』</a></span></b></p>", "align": "right"}]
+  },{
     "date": "2026年1月21日",
     "type": "新製品情報",
     "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"ルークス　R7/11～　（BB1A.BB2A.BB5A.BB6A）"},
