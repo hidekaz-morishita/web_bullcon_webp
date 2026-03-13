@@ -125,6 +125,15 @@ a:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* ホバー時に影を追加 */
 }
 
+.clickable-img {
+    cursor: pointer;
+    transition: opacity 0.3s; /* ふわっと変化させる */
+}
+
+.clickable-img:hover {
+    opacity: 0.7; /* 少し透明にする */
+}
+
 @media print {
   body {
     padding-top:0 !important;
