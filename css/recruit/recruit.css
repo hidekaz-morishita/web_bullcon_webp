@@ -152,7 +152,7 @@
 }
 
 .recruit-section {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 
 .recruit-section-title {
@@ -181,6 +181,11 @@
     background-color: #fafafa;
     color: var(--color-body-text);
     font-weight: bold;
+}
+
+.link-to-engage {
+    text-align: right;
+    padding-right: 5%;
 }
 
 /* フッターに戻るボタン */
