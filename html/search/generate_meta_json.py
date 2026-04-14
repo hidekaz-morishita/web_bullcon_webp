@@ -136,7 +136,15 @@ def main():
         'sph_notice.htm',
         'cdv01_spec.htm',
         'av-c64.html',
-        'steering_sw_exc.htm'
+        'av-c66.html',
+        'av-c67.html',
+        'steering_sw_exc.htm',
+        'operations.html',
+        'product_research.html',
+        'manufacturing.html',
+        'engineering.html',
+        'admin_finance.html',
+        'sales.html'
     }
     
     # 製品データJSONを読み込み、URLとnameをマッピング

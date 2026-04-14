@@ -38,6 +38,76 @@
                 <div class="content-wrapper">
                     <div class="form-area" id="form-container"></div>
                     <button id="export-pdf-button" style="display: none;" disabled>検索結果をPDFで出力</button>
+
+                    <!-- PDF保存設定モーダル -->
+                    <dialog id="pdf-export-dialog" aria-labelledby="pdf-dialog-title">
+                        <div class="pdf-dialog-inner">
+                            <h3 id="pdf-dialog-title" class="pdf-dialog-title">PDF保存設定</h3>
+
+                            <!-- 設定・プレビューの横並びコンテンツ -->
+                            <div class="pdf-dialog-content">
+
+                                <!-- 左: 設定パネル -->
+                                <div class="pdf-dialog-settings">
+                                    <div class="pdf-dialog-body">
+                                        <div class="pdf-dialog-field">
+                                            <span class="pdf-dialog-label">用紙の向き</span>
+                                            <div class="pdf-orientation-options">
+                                                <label class="pdf-radio-label">
+                                                    <input type="radio" name="pdf-orientation" value="landscape" checked>
+                                                    <span class="pdf-radio-icon">&#128395;</span>
+                                                    横向き（推奨）
+                                                </label>
+                                                <label class="pdf-radio-label">
+                                                    <input type="radio" name="pdf-orientation" value="portrait">
+                                                    <span class="pdf-radio-icon">&#128396;</span>
+                                                    縦向き
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="pdf-dialog-field">
+                                            <label for="pdf-format-select" class="pdf-dialog-label">用紙サイズ</label>
+                                            <select id="pdf-format-select" class="pdf-dialog-select">
+                                                <option value="a4" selected>A4</option>
+                                                <option value="a3">A3</option>
+                                                <option value="letter">レター (Letter)</option>
+                                            </select>
+                                        </div>
+                                        <div class="pdf-dialog-field">
+                                            <label for="pdf-filename-input" class="pdf-dialog-label">ファイル名</label>
+                                            <div class="pdf-filename-wrapper">
+                                                <input type="text" id="pdf-filename-input" class="pdf-dialog-input" value="compatibility_result" placeholder="ファイル名">
+                                                <span class="pdf-filename-ext">.pdf</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 右: プレビューパネル（初期非表示、preview-activeクラスで表示） -->
+                                <div class="pdf-preview-panel" id="pdf-preview-panel">
+                                    <div class="pdf-preview-header">
+                                        <span class="pdf-preview-title">プレビュー</span>
+                                        <span class="pdf-preview-note">実際の印刷と異なる場合があります</span>
+                                    </div>
+                                    <div class="pdf-preview-frame-wrapper" id="pdf-preview-frame-wrapper">
+                                        <iframe id="pdf-preview-frame" title="PDFプレビュー"></iframe>
+                                        <!-- ローディングオーバーレイ（JSで制御） -->
+                                        <div class="pdf-preview-loading" id="pdf-preview-loading" style="display: none;">
+                                            <div class="pdf-preview-spinner"></div>
+                                            <span>プレビューを生成中...</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- /.pdf-dialog-content -->
+
+                            <div class="pdf-dialog-footer">
+                                <button id="pdf-dialog-cancel" class="pdf-btn pdf-btn-cancel">キャンセル</button>
+                                <button id="pdf-dialog-preview" class="pdf-btn pdf-btn-preview">プレビュー</button>
+                                <button id="pdf-dialog-save" class="pdf-btn pdf-btn-save">PDFを保存</button>
+                            </div>
+                        </div>
+                    </dialog>
                     
                     <button id="show-saved-items-button">保存した適合情報を表示</button>
                     <dialog id="saved-items-dialog">

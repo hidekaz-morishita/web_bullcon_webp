@@ -7,17 +7,23 @@ document.addEventListener('DOMContentLoaded', () => {
         tabId: 'site-search',
         dataPath: './search_data.json',
         filterLogic: (query, searchData) => {
-            const lowerCaseQuery = query.toLowerCase();
+            const keywords = query.toLowerCase().split(/\s+/).filter(k => k.length > 0);
+            if (keywords.length === 0) return [];
+
             const filtered = searchData.filter(item => {
-                return (
-                    (item.title && item.title.toLowerCase().includes(lowerCaseQuery)) ||
-                    (item.keywords && item.keywords.toLowerCase().includes(lowerCaseQuery)) ||
-                    (item.description && item.description.toLowerCase().includes(lowerCaseQuery))
+                const title = (item.title || '').toLowerCase();
+                const kws = (item.keywords || '').toLowerCase();
+                const desc = (item.description || '').toLowerCase();
+
+                // すべてのキーワードがどこか（タイトル、キーワード、ディスクリプション）に含まれているか
+                return keywords.every(word =>
+                    title.includes(word) || kws.includes(word) || desc.includes(word)
                 );
             });
+
             return filtered.sort((a, b) => {
-                const aTitleMatch = a.title && a.title.toLowerCase().includes(lowerCaseQuery);
-                const bTitleMatch = b.title && b.title.toLowerCase().includes(lowerCaseQuery);
+                const aTitleMatch = keywords.some(word => (a.title || '').toLowerCase().includes(word));
+                const bTitleMatch = keywords.some(word => (b.title || '').toLowerCase().includes(word));
                 return (aTitleMatch && !bTitleMatch) ? -1 : (!aTitleMatch && bTitleMatch) ? 1 : 0;
             });
         },

@@ -3,23 +3,22 @@ const html2canvas = window.html2canvas;
 const jsPDF = window.jspdf ? window.jspdf.jsPDF : null;
 
 // キャプチャの高さが確定するのを待つための遅延時間 (ミリ秒)
-const CAPTURE_DELAY_MS = 100; 
+const CAPTURE_DELAY_MS = 100;
 
 // PDF出力用の圧縮スタイルを緩和し、視認性を重視
 const PDF_COMPRESSION_STYLE = `
-    /* 【新規追加】ラッパー全体にパディングを適用し、PDF端からの余白を確保 */
+    /* ラッパー全体にパディングを適用し、PDF端からの余白を確保 */
     #pdf-capture-wrapper {
-        padding: 10px !important; 
+        padding: 10px !important;
     }
-
-    /* テーブル全体の文字サイズを緩和 (8pt -> 10pt) */
+    /* テーブル全体の文字サイズを緩和 */
     #pdf-capture-wrapper, #pdf-capture-wrapper table, #pdf-capture-wrapper p, #pdf-capture-wrapper li {
         font-size: 10pt !important;
         line-height: 1.3 !important;
     }
     /* セル（th, td）のパディングを適度に削減 */
     #pdf-capture-wrapper th, #pdf-capture-wrapper td {
-        padding: 4px 6px !important; /* 上下左右のパディングを調整 */
+        padding: 4px 6px !important;
     }
     /* テーブルのボーダー間隔を詰める */
     #pdf-capture-wrapper table {
@@ -33,200 +32,186 @@ const PDF_COMPRESSION_STYLE = `
     }
 `;
 
+// ------------------------------------
+// 内部共通関数
+// ------------------------------------
+
 /**
- * 適合結果テーブルと注意事項を統合して画像としてキャプチャし、PDFに出力
- * * @param {string} tableContainerId - テーブルコンテナのID ('results-table-container')
+ * テーブル要素をhtml2canvasでキャプチャする内部共通関数
+ * @param {string} tableContainerId - テーブルコンテナのID
+ * @returns {Promise<{canvas: HTMLCanvasElement, cleanup: Function}>}
  */
-export async function exportTableToPdf(tableContainerId) {
-    const originalTableContainer = document.getElementById(tableContainerId);
-    const originalNotesContainer = document.getElementById('notes-list-container');
-    
-    // ------------------------------------
-    // 1. ライブラリと要素の確認
-    // ------------------------------------
+async function _captureTableToCanvas(tableContainerId) {
     if (!html2canvas || !jsPDF) {
-        console.error('PDF出力ライブラリがロードされていません。');
-        console.log('PDF出力ライブラリがロードされていません。ライブラリのロードを確認してください。');
-        return;
+        throw new Error('PDF出力ライブラリがロードされていません。ライブラリのロードを確認してください。');
     }
+
+    const originalTableContainer = document.getElementById(tableContainerId);
     if (!originalTableContainer) {
-        console.error(`ERROR: ターゲット要素 (#${tableContainerId}) が見つかりません。`);
-        console.log('PDF出力に失敗しました: テーブルコンテナが見つかりません。');
-        return;
+        throw new Error(`ターゲット要素 (#${tableContainerId}) が見つかりません。`);
     }
 
     const tableElement = originalTableContainer.querySelector('table');
     if (!tableElement) {
-        console.error('ERROR: 内部の<table>要素が見つかりません。');
-        console.log('PDF出力に失敗しました: 内部の<table>タグを確認してください。');
-        return;
+        throw new Error('内部の<table>要素が見つかりません。');
     }
 
+    const originalNotesContainer = document.getElementById('notes-list-container');
     const tableHeader = tableElement.querySelector('thead');
-    const exportButton = document.getElementById('export-pdf-button');
-    
-    let originalTableContainerStyles = null;
-    let originalHeaderPosition = 'static';
-    let originalBodyOverflowX = 'auto';
-    let tempWrapper = null;
-    let originalWrapperLeft = '0'; // 画面外移動前の状態保存用
 
-    // 処理中にボタンを無効化
-    if (exportButton) exportButton.disabled = true;
-    
-    try {
-        
-        // ------------------------------------
-        // 2. スタイル変更前の状態を保存と一時解除
-        // ------------------------------------
-        
-        // コンテナのスタイルを保存 (スクロール解除用)
-        originalTableContainerStyles = {
-            overflowY: originalTableContainer.style.overflowY,
-            overflowX: originalTableContainer.style.overflowX,
-            maxHeight: originalTableContainer.style.maxHeight,
-            width: originalTableContainer.style.width,
-            maxWidth: originalTableContainer.style.maxWidth
-        };
-        
-        // bodyのoverflow-x (横スクロール解除用)
-        originalBodyOverflowX = document.body.style.overflowX;
-        document.body.style.overflowX = 'visible';
-        
-        // 固定ヘッダーの解除
-        if (tableHeader) {
-            originalHeaderPosition = tableHeader.style.position;
-            tableHeader.style.position = 'static';
-        }
+    // スタイル変更前の状態を保存
+    const originalBodyOverflowX = document.body.style.overflowX;
+    const originalHeaderPosition = tableHeader ? tableHeader.style.position : null;
 
-        // ------------------------------------
-        // 3. 一時的な統合ラッパーの作成と配置
-        // ------------------------------------
-        
-        tempWrapper = document.createElement('div');
-        tempWrapper.id = 'pdf-capture-wrapper';
-        
-        // 圧縮用のスタイルを一時ラッパーに追加
-        const styleElement = document.createElement('style');
-        styleElement.textContent = PDF_COMPRESSION_STYLE;
-        tempWrapper.appendChild(styleElement);
-        
-        // テーブル本体をクローンして追加
-        const clonedTable = tableElement.cloneNode(true);
-        tempWrapper.appendChild(clonedTable);
-        
-        // 注意事項（notes）をクローンして追加
-        if (originalNotesContainer) {
-            const clonedNotes = originalNotesContainer.cloneNode(true);
-            tempWrapper.appendChild(clonedNotes);
-        }
-        
-        // 一時ラッパーをDOMに追加し、画面外に配置
-        document.body.appendChild(tempWrapper);
+    // bodyのoverflow-xを解除
+    document.body.style.overflowX = 'visible';
 
-        tempWrapper.style.position = 'absolute';
-        originalWrapperLeft = tempWrapper.style.left; // 後のクリーンアップ用に現在のleft値を保存
-        tempWrapper.style.left = '-9999px'; // 画面外に移動
-        tempWrapper.style.top = '0';
-        tempWrapper.style.zIndex = '9999'; 
-        
-        tempWrapper.style.overflow = 'visible'; // スクロールを無効化
-        tempWrapper.style.maxWidth = 'none';
-        tempWrapper.style.maxHeight = 'none';
-        
-        // ラッパーの幅を fit-content に戻す
-        tempWrapper.style.width = 'fit-content'; 
-        
-        // --- レイアウト計算完了のための遅延 ---
-        await new Promise(resolve => setTimeout(resolve, CAPTURE_DELAY_MS));
-        
-        // ------------------------------------
-        // 4. Canvasへのキャプチャ
-        // ------------------------------------
-        
-        // 描画が確定した後の寸法を取得 (コンテンツ全体の幅と高さ)
-        // 圧縮スタイルとパディングが適用された後の最小幅がここで確定する
-        const captureWidth = tempWrapper.offsetWidth;
-        const captureHeight = tempWrapper.scrollHeight; 
+    // 固定ヘッダーの解除
+    if (tableHeader) {
+        tableHeader.style.position = 'static';
+    }
 
-        // 確実なキャプチャのため、実際の幅をピクセルで固定
-        tempWrapper.style.width = `${captureWidth}px`; 
+    // 一時的な統合ラッパーを作成
+    const tempWrapper = document.createElement('div');
+    tempWrapper.id = 'pdf-capture-wrapper';
 
-        const canvasOptions = {
-            scale: 2, // 高解像度化
-            useCORS: true,
-            allowTaint: true,
-            letterRendering: true,
-            width: captureWidth, 
-            height: captureHeight,
-            // 画面外に配置しているため、スクロールしないようx/yオフセットは不要
-        };
+    const styleElement = document.createElement('style');
+    styleElement.textContent = PDF_COMPRESSION_STYLE;
+    tempWrapper.appendChild(styleElement);
 
-        // キャプチャ対象を統合ラッパーに変更
-        const canvas = await html2canvas(tempWrapper, canvasOptions);
-        const imgData = canvas.toDataURL('image/jpeg', 0.98);
+    // テーブルをクローンして追加
+    tempWrapper.appendChild(tableElement.cloneNode(true));
 
-        // ------------------------------------
-        // 5. PDF生成ロジック (A4横向き、ページ分割)
-        // ------------------------------------
-        
-        const pdf = new jsPDF({
-            orientation: 'landscape',
-            unit: 'mm',
-            format: 'a4'
-        });
+    // 注意事項をクローンして追加
+    if (originalNotesContainer) {
+        tempWrapper.appendChild(originalNotesContainer.cloneNode(true));
+    }
 
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = pdf.internal.pageSize.getHeight();
+    // 画面外に配置
+    Object.assign(tempWrapper.style, {
+        position: 'absolute',
+        left: '-9999px',
+        top: '0',
+        zIndex: '9999',
+        overflow: 'visible',
+        maxWidth: 'none',
+        maxHeight: 'none',
+        width: 'fit-content',
+    });
+    document.body.appendChild(tempWrapper);
 
-        const canvasWidth = canvas.width;
-        const canvasHeight = canvas.height;
-        const ratio = canvasHeight / canvasWidth;
+    // レイアウト計算完了のための遅延
+    await new Promise(resolve => setTimeout(resolve, CAPTURE_DELAY_MS));
 
-        // 画像の幅をPDF幅いっぱいに設定。これでテーブルがPDFにフィットする
-        const imgWidth = pdfWidth; 
-        const imgHeight = imgWidth * ratio; // PDF幅に合わせた画像の高さ
+    const captureWidth = tempWrapper.offsetWidth;
+    const captureHeight = tempWrapper.scrollHeight;
+    tempWrapper.style.width = `${captureWidth}px`;
 
-        let heightLeft = imgHeight;
-        let position = 0; // ページのY軸オフセット
+    const canvas = await html2canvas(tempWrapper, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        letterRendering: true,
+        width: captureWidth,
+        height: captureHeight,
+    });
 
-        // 画像の高さがPDFページの高さより大きい場合、ページを分割して出力
-        while (heightLeft > 0) {
-            if (position !== 0) {
-                pdf.addPage();
-            }
-
-            // Y座標を負にして画像を上方向にシフトさせる
-            pdf.addImage(imgData, 'JPEG', 0, -position, imgWidth, imgHeight);
-
-            heightLeft -= pdfHeight;
-            position += pdfHeight;
-        }
-
-        pdf.save('compatibility_result.pdf');
-
-    } catch (error) {
-        console.error('PDF生成中にエラーが発生しました:', error);
-        console.log('PDF生成中にエラーが発生しました。コンソールを確認してください。');
-    } finally {
-        // ------------------------------------
-        // 6. 元のスタイルに戻す (クリーンアップ)
-        // ------------------------------------
-        
-        // bodyのoverflow-xを元に戻す
+    // クリーンアップ関数（呼び出し元が責任を持って実行する）
+    const cleanup = () => {
         document.body.style.overflowX = originalBodyOverflowX;
-
-        // 固定ヘッダーの復元
-        if (tableHeader) {
+        if (tableHeader && originalHeaderPosition !== null) {
             tableHeader.style.position = originalHeaderPosition;
         }
-        
-        // 一時ラッパーが作成されていた場合、DOMから削除する
-        // スタイルタグもここで削除される
-        if (tempWrapper && tempWrapper.parentNode) {
+        if (tempWrapper.parentNode) {
             tempWrapper.parentNode.removeChild(tempWrapper);
         }
-        
+    };
+
+    return { canvas, cleanup };
+}
+
+/**
+ * canvasからjsPDFインスタンスを生成する内部関数
+ * @param {HTMLCanvasElement} canvas
+ * @param {{ orientation?: string, format?: string }} options
+ * @returns {object} jsPDF インスタンス
+ */
+function _buildPdfFromCanvas(canvas, { orientation = 'landscape', format = 'a4' } = {}) {
+    const pdf = new jsPDF({ orientation, unit: 'mm', format });
+
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = pdf.internal.pageSize.getHeight();
+    const imgData = canvas.toDataURL('image/jpeg', 0.98);
+
+    const ratio = canvas.height / canvas.width;
+    const imgWidth = pdfWidth;
+    const imgHeight = imgWidth * ratio;
+
+    let heightLeft = imgHeight;
+    let position = 0;
+
+    while (heightLeft > 0) {
+        if (position !== 0) pdf.addPage();
+        pdf.addImage(imgData, 'JPEG', 0, -position, imgWidth, imgHeight);
+        heightLeft -= pdfHeight;
+        position += pdfHeight;
+    }
+
+    return pdf;
+}
+
+// ------------------------------------
+// 公開API
+// ------------------------------------
+
+/**
+ * 適合結果テーブルと注意事項を統合してPDFとして保存する
+ * @param {string} tableContainerId - テーブルコンテナのID ('result' など)
+ * @param {object} [options] - PDF出力オプション
+ * @param {string} [options.orientation='landscape'] - 用紙の向き ('landscape' | 'portrait')
+ * @param {string} [options.format='a4'] - 用紙サイズ ('a4' | 'a3' | 'letter')
+ * @param {string} [options.filename='compatibility_result'] - 保存ファイル名（拡張子なし）
+ */
+export async function exportTableToPdf(tableContainerId, options = {}) {
+    const {
+        orientation = 'landscape',
+        format = 'a4',
+        filename = 'compatibility_result',
+    } = options;
+
+    const exportButton = document.getElementById('export-pdf-button');
+    if (exportButton) exportButton.disabled = true;
+
+    let cleanup = null;
+    try {
+        const { canvas, cleanup: _cleanup } = await _captureTableToCanvas(tableContainerId);
+        cleanup = _cleanup;
+        const pdf = _buildPdfFromCanvas(canvas, { orientation, format });
+        pdf.save(`${filename}.pdf`);
+    } catch (error) {
+        console.error('PDF生成中にエラーが発生しました:', error);
+    } finally {
+        if (cleanup) cleanup();
         if (exportButton) exportButton.disabled = false;
+    }
+}
+
+/**
+ * 適合結果テーブルのPDFプレビュー用 Blob URL を生成して返す
+ * ※ 返却したURLは不要になったタイミングで URL.revokeObjectURL() で解放すること
+ * @param {string} tableContainerId - テーブルコンテナのID ('result' など)
+ * @param {object} [options] - PDF出力オプション
+ * @param {string} [options.orientation='landscape'] - 用紙の向き ('landscape' | 'portrait')
+ * @param {string} [options.format='a4'] - 用紙サイズ ('a4' | 'a3' | 'letter')
+ * @returns {Promise<string>} PDFのBlob URL
+ */
+export async function generatePdfPreviewUrl(tableContainerId, options = {}) {
+    const { orientation = 'landscape', format = 'a4' } = options;
+    const { canvas, cleanup } = await _captureTableToCanvas(tableContainerId);
+    try {
+        const pdf = _buildPdfFromCanvas(canvas, { orientation, format });
+        return pdf.output('bloburl');
+    } finally {
+        cleanup();
     }
 }

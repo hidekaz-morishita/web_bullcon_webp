@@ -41,6 +41,10 @@
     margin-bottom: 20px;
 }
 
+.text-color-red {
+    color: red;
+}
+
 .border-bottom {
     border-bottom: 1px solid #ddd; /* 下線の色と太さを指定 */
     margin: 20px 0; /* 上下の余白を指定 */

@@ -1,5 +1,65 @@
 [
   {
+    "date": "2026年2月16日",
+    "type": "適合情報",
+    "product": ["オートドアミラーコントローラー"],
+    "car_models": [ {"model_name":"ハイエースコミューター 　R8/2～　(GDH223B.TRH223B.228B）"},
+                    {"model_name":"ハイエースバン 　R8/2～　(GDH201V.211K.201K.221K.206V.216K.206K.226K.TRH200V.211K.200K）"},
+                    {"model_name":"ハイエースワゴン 　R8/2～　(TRH224W.214W.229W.219W223B.228B）"}],
+    "brand": ["トヨタ"],
+    "body": [{ "type":"html", "content": "<p><b>オートドアミラーコントローラー<br><span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/door_mirror/door_mirror.htm\" target=\"_blank\">『ADM-102・ADL-11・ADK-98』</a></span></b></p>", "align": "right"}]
+  },{
+    "date": "2026年1月21日",
+    "type": "新製品情報",
+    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"ルークス　R7/11～　（BB1A.BB2A.BB5A.BB6A）"},
+    {"model_name":"ekスペース　R7/11～　（BA1A. BA5A）"},
+    {"model_name":"デリカミニ　R7/11～　（BA1A.BA2A.BA5A.BA6A）"}
+  ],
+    "brand": ["ニッサン", "ミツビシ"],
+    "body": [
+      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/swc-exc/swc-n008/swc-n008.htm\" target=\"_blank\">『SWC-N008』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年1月19日",
+    "type": "新製品情報",
+    "product": ["オプションコネクターハーネス"], 
+    "car_models":[{"model_name":"エクストレイル　R4/9～　（T33.SNT33）"},
+    {"model_name":"セレナ　R5/1～　（C28.FC28.GC28.GFC28）"},
+    {"model_name":"ノート　R3/1～　（E13.SNE13）"},
+    {"model_name":"ルークス　R7/11～　（BB1A.BB2A.BB5A.BB6A）"},
+    {"model_name":"ekスペース　R7/11～　（BA1A. BA5A）"},
+    {"model_name":"デリカミニ　R7/11～　（BA1A.BA2A.BA5A.BA6A）"}
+  ],
+    "brand": ["ニッサン", "ミツビシ"],
+    "body": [{ "type":"html", "content": "<p><b>オプションコネクターハーネス<span style=\"color: blue;\"><a href=\"/html/products/POWER/op_cn/fc-n01/fc-n01.htm\" target=\"_blank\">『FC-N01（8ピン）』</a></span></b></p>", "align": "right"}]
+  },
+  {
+    "date": "2026年1月19日",
+    "type": "新製品情報",
+    "product": ["スーパーLEDルームランプⅡ"], 
+    "car_models":[{"model_name":"キャラバン　H24/6～　（E26　（GX））"}],
+    "brand": ["ニッサン"],
+    "body": [{ "type":"html", "content": "<p><b>スーパーLEDルームランプⅡ<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/super_led_roomlamp2/super_led_roomlamp2.htm\" target=\"_blank\">『 SLL-2010 』</a></span></b></p>", "align": "right"}]
+  },
+  {
+    "date": "2026年1月19日",
+    "type": "新製品情報",
+    "product": ["スーパーLEDルームランプⅡ"], 
+    "car_models":[{"model_name":"キャラバン　H24/6～　（E26　（DX/EX））"}],
+    "brand": ["ニッサン"],
+    "body": [{ "type":"html", "content": "<p><b>スーパーLEDルームランプⅡ<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/super_led_roomlamp2/super_led_roomlamp2.htm\" target=\"_blank\">『 SLL-2011 』</a></span></b></p>", "align": "right"}]
+  },
+  {
+    "date": "2026年1月7日",
+    "type": "適合情報",
+    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"N-ONE　R7/11～　（JG3 4）"}],
+    "brand": ["ホンダ"],
+    "body": [
+      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/swc-exc/swc-h006/swc-h006.htm\" target=\"_blank\">『SWC-H006』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
     "date": "2025年12月8日",
     "type": "適合情報",
     "product": ["フリーアイドリングストップ"], 
@@ -134,6 +194,16 @@
     "body": [{ "type":"html", "content": "<p><b>オプションコネクターハーネス<span style=\"color: blue;\"><a href=\"/html/products/POWER/op_cn/op_cn.htm\" target=\"_blank\">『FC-H03（6ピン）』</a></span></b></p>", "align": "right"}]
   },
   {
+    "date": "2024年7月19日",
+    "type": "適合情報",
+    "product": ["ステアリングスイッチ切替ユニット"], 
+    "car_models": [{"model_name":"ヴェゼル　R6/5～　（RV3.4）","specification":"ﾅﾋﾞ装着用ｽﾍﾟｼｬﾙﾊﾟｯｹｰｼﾞ付車"}, 
+    {"model_name":"ヴェゼル e:HEV　R6/5～　（RV5.6）","specification":"ﾅﾋﾞ装着用ｽﾍﾟｼｬﾙﾊﾟｯｹｰｼﾞ付車"}],
+    "brand": ["ホンダ"],
+    "body": [{ "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/swc-exc/swc-h006/swc-h006.htm\" target=\"_blank\">『SWC-H006』</a></span>(カメラ視点切替式)</b></p>", "align": "right"}
+    ]
+  },
+  {
     "date": "2024年6月17日",
     "type": "新製品情報",
     "product": ["スーパー LED ルームランプⅡ"],
@@ -157,7 +227,7 @@
     "type": "新製品情報",
     "product": ["車速ドアロックシステム"], "car_models": [{"model_name":"N-BOX　R5/10～　（JF5.6）"}],
     "brand": ["ホンダ"],
-    "body": [{ "type":"html", "content": "<p><b>車速ドアロックシステム<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/sdlct/sdlct.htm\" target=\"_blank\">『SLD-CH01』</a></span></b></p>", "align": "right"}]
+    "body": [{ "type":"html", "content": "<p><b>車速ドアロックシステム<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/sdlct/sdlct.htm\" target=\"_blank\">『SDL-CH01』</a></span></b></p>", "align": "right"}]
   },
   {
     "date": "2024年5月31日",
@@ -165,6 +235,15 @@
     "product": ["オプションコネクターハーネス"], "car_models": [{"model_name":"N-BOX　R5/10～　（JF5.6）"}],
     "brand": ["ホンダ"],
     "body": [{ "type":"html", "content": "<p><b>オプションコネクターハーネス<span style=\"color: blue;\"><a href=\"/html/products/POWER/op_cn/op_cn.htm\" target=\"_blank\">『FC-H01（6ピン）』</a></span></b></p>", "align": "right"}]
+  },
+  {
+    "date": "2024年4月9日",
+    "type": "適合情報",
+    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"WR-V　R6/3～　（DG5）"}],
+    "brand": ["ホンダ"],
+    "body": [
+      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/swc-exc/swc-h006/swc-h006.htm\" target=\"_blank\">『SWC-H006』</a></span></b></p>", "align": "right"}
+    ]
   },
   {
     "date": "2024年2月28日",
@@ -176,6 +255,17 @@
       {"model_name":"ヤリスクロスハイブリッド　R6/2～　（MXPJ10.15）"}],
     "brand": ["トヨタ"],
     "body": [{ "type":"html", "content": "<p><b>車速ドアロックシステム<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/sdlct/sdlct.htm\" target=\"_blank\">『SDL-CT08』</a></span></b></p>", "align": "right"}]
+  },
+  {
+    "date": "2024年2月16日",
+    "type": "新製品情報",
+    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [
+      {"model_name":"ステップワゴン / ステップワゴンe:HEV　R4/6～　（RP6.7.8）"},
+      {"model_name":"N-BOX　R5/10～　（JF5.6）"}],
+    "brand": ["ホンダ"],
+    "body": [
+      { "type":"html", "content": "<p><bステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/swc-exc/swc-h006/swc-h006.htm\" target=\"_blank\">『SWC-H006』</a></span></b></p>", "align": "right"}
+    ]
   },
   {
     "date": "2024年1月15日",
@@ -199,7 +289,7 @@
     "brand": [],
     "body": [
       { "type": "paragraph", "content": "車内でスマートフォンやタブレットの充電ができるＵＳＢ電源増設ユニット"},
-      { "type":"html", "content": "<p><b><span style=\"color: blue;\"><a href=\"/html/products/eopdc/eopdc.htm\" target=\"_blank\">ＵＳＢ電源コンバーター トヨタCタイプ『ＥＯＰ－ＤＣ０２』</a></span></b></p>", "align": "right"}
+      { "type":"html", "content": "<p><b><span style=\"color: blue;\"><a href=\"/html/products/HDMI_USB/eopdc/eopdc.htm\" target=\"_blank\">ＵＳＢ電源コンバーター トヨタCタイプ『ＥＯＰ－ＤＣ０２』</a></span></b></p>", "align": "right"}
     ]
   },
   {
@@ -211,7 +301,7 @@
       {"model_name":"ヴェルファイア　R5/7～　（TAHA40W.45W）"},
       {"model_name":"ヴェルファイアハイブリッド　R5/7～（AAHH40W.45W）"}],
     "brand": ["トヨタ"],
-    "body": [{ "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/hlc/hlc.htm\" target=\"_blank\">『HLC-103』『HLC-103C』</a></span></b></p>", "align": "right"}]
+    "body": [{ "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/hlc/hlc.htm\" target=\"_blank\">『HLC-103』『HLC-103C』</a></span></b></p>", "align": "right"}]
   },
   {
     "date": "2023年8月25日",
@@ -239,16 +329,35 @@
     "product": ["ヘッドライトコントローラー"], "car_models": [{"model_name":"プリウス PHEV　R5/3～　（MXWH61）", "specification":"【ﾃﾞｨｽﾌﾟﾚｲｵｰﾃﾞｨｵ装着車】"}],
     "brand": ["トヨタ"],
     "body": [
-      { "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/hlc/hlc.htm\" target=\"_blank\">『HLC-103』『HLC-103C』</a></span></b></p>", "align": "right"}
+      { "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/hlc/hlc.htm\" target=\"_blank\">『HLC-103』『HLC-103C』</a></span></b></p>", "align": "right"}
     ]
   },
- {
+  {
     "date": "2023年6月19日",
     "type": "適合情報",
     "product": ["オプションコネクターハーネス"], "car_models": [{"model_name":"プリウス PHEV　R5/3～　（MXWH61）", "specification":"【ﾃﾞｨｽﾌﾟﾚｲｵｰﾃﾞｨｵ装着車】"}],
     "brand": ["トヨタ"],
     "body": [
       { "type":"html", "content": "<p><b>オプションコネクターハーネス<span style=\"color: blue;\"><a href=\"/html/products/POWER/op_cn/op_cn.htmm\" target=\"_blank\">『FC-T04（13ピン）』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2023年5月1日",
+    "type": "適合情報",
+    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"エクストレイル　R4/8～　（T33.SNT33）"}],
+    "brand": ["ニッサン"],
+    "body": [
+      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/swc-exc/swc-n005/swc-n005.htm\" target=\"_blank\">『SWC-N005』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2023年4月19日",
+    "type": "適合情報",
+    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"セレナ　R5/1～　（C28.FC28）"},
+     {"model_name":"セレナ　e-Power　（GC28.GFC28）　R5/1～"}],
+    "brand": ["ニッサン"],
+    "body": [
+      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/swc-exc/swc-n005/swc-n005.htm\" target=\"_blank\">『SWC-N005』</a></span></b></p>", "align": "right"}
     ]
   },
   {
@@ -264,7 +373,7 @@
     "type": "適合情報",
     "product": ["ヘッドライトコントローラー"], "car_models": [{"model_name":"プリウス　R5/1～　（MXWH60.65.ZVW60.65）"}],
     "brand": ["トヨタ"],
-    "body": [{ "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/hlc/hlc.htm\" target=\"_blank\">『HLC-103』『HLC-103C』</a></span></b></p>", "align": "right"}]
+    "body": [{ "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/hlc/hlc.htm\" target=\"_blank\">『HLC-103』『HLC-103C』</a></span></b></p>", "align": "right"}]
   },
   {
     "date": "2023年3月3日",
@@ -300,7 +409,7 @@
     "product": ["ヘッドライトコントローラー"], "car_models":[{"model_name":"クラウンクロスオーバー　R4/8～　（TZSH35.AZSH35）"}, 
     {"model_name":"レクサス　NX　R3/8～　（AAZA20.25 AAZH20.25.26）"}],
     "brand": ["トヨタ", "レクサス"],
-    "body": [{ "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/hlc/hlc.htm\" target=\"_blank\">『 HLC-103 』『 HLC-103C 』</a></span></b></p>", "align": "right"}]
+    "body": [{ "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/hlc/hlc.htm\" target=\"_blank\">『 HLC-103 』『 HLC-103C 』</a></span></b></p>", "align": "right"}]
   },
   {
     "date": "2022年12月20日",
@@ -323,9 +432,9 @@
     "brand": ["トヨタ"],
     "body" : [
      { "type": "paragraph", "content": "薄暮時や夜間の駐停車、信号待ちにヘッドライトを自動で消灯！サービスホールスイッチ付属でスマートな取り付けが可能。"},
-     { "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/hlc/hlc.htm\" target=\"_blank\">『HLC-102』『HLC-102C』</a></span></b></p>", "align": "right"},
-     { "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/hlc/hlc.htm\" target=\"_blank\">『HLC-103』『HLC-103C』</a></span></b></p>", "align": "right"},
-     { "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/LED_BULB/hlc/hlc.htm\" target=\"_blank\">『HLC-104』『HLC-104C』</a></span></b></p>", "align": "right"}
+     { "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/hlc/hlc.htm\" target=\"_blank\">『HLC-102』『HLC-102C』</a></span></b></p>", "align": "right"},
+     { "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/hlc/hlc.htm\" target=\"_blank\">『HLC-103』『HLC-103C』</a></span></b></p>", "align": "right"},
+     { "type":"html", "content": "<p><b>ヘッドライトコントローラー<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/hlc/hlc.htm\" target=\"_blank\">『HLC-104』『HLC-104C』</a></span></b></p>", "align": "right"}
     ]
   },
  {
@@ -341,7 +450,7 @@
     "type": "新製品情報",
     "product": ["USB/HDMI延長ケーブル"],
     "brand": ["トヨタ"],
-    "body": [{ "type":"html", "content": "<p><b>USB/HDMI延長ケーブル<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/eopspt/eopspt.htm\" target=\"_blank\">『 EOP-SP01TU 』</a></span></b></p>", "align": "right"}]
+    "body": [{ "type":"html", "content": "<p><b>USB/HDMI延長ケーブル<span style=\"color: blue;\"><a href=\"/html/products/HDMI_USB/eopspt/eopspt.htm\" target=\"_blank\">『 EOP-SP01TU 』</a></span></b></p>", "align": "right"}]
   },
    {
     "date": "2022年7月25日",

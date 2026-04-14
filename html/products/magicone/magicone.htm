@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 
 <head>
@@ -43,7 +43,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             // --- Dynamic Content Switching Logic ---
             const params = new URLSearchParams(window.location.search);
-            const categories = ['bc_unit', 'bc_harness', 'vtr_harness', 'rm_unit', 'rm_harness'];
+            const categories = ['bc_unit', 'bc_harness', 'vtr_harness', 'rm_unit', 'rm_harness', 'op_parts'];
             let activeCategory = null;
 
             // Identify active category from URL
@@ -69,10 +69,16 @@
                     'bc_harness': 'バックカメラ接続ハーネス',
                     'vtr_harness': 'VTRハーネス',
                     'rm_unit': 'リアモニター接続ユニット',
-                    'rm_harness': 'リアモニター接続/増設ハーネス'
+                    'rm_harness': 'リアモニター接続/増設ハーネス',
+                    'op_parts': 'マジコネ オプションパーツ'
                 };
                 if (titleMap[activeCategory]) {
                     document.title = titleMap[activeCategory] + ' / Bullcon-フジ電機工業株式会社';
+                }
+            } else {
+                const defaultElement = document.querySelector('.default-invisible');
+                if (defaultElement) {
+                    defaultElement.classList.add('hidden-category');
                 }
             }
             // ---------------------------------------
@@ -109,17 +115,12 @@
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-213571806-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'UA-213571806-1');
-    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0R1H3RK4W"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
+        gtag('config', 'UA-213571806-1');
         gtag('config', 'G-X0R1H3RK4W');
     </script>
 
@@ -138,18 +139,18 @@
     <main class="page-container">
         <!-- Row 13: 3 images side by side -->
         <div class="image-row">
-            <img src="images/magicone_r13_c1.gif" alt="">
-            <img src="images/magicone_r13_c17.gif" alt="">
+            <img src="images/magicone_r13_c1.webp" alt="" loading="lazy">
+            <img src="images/magicone_r13_c17.webp" alt="" loading="lazy">
         </div>
 
         <!-- Separator / Header -->
-        <img src="images/magicone_r15_c1.gif" alt="" style="width: 100%;">
+        <img src="images/magicone_r15_c1.webp" alt="" style="width: 100%;" loading="lazy">
         <div class="spacer-20"></div>
 
         <!-- Product Description Area -->
         <div class="product-description">
             <div class="product-image">
-                <img src="images/magicone_r17_c1.gif" alt="">
+                <img src="images/magicone_r17_c1.webp" alt="" loading="lazy">
             </div>
             <div class="product-text">
                 <div class="product-group" data-category="bc_unit">
@@ -192,6 +193,15 @@
                     <span class="sub-text">・純正リアモニターが装着されている車両に、<span
                             class="red-wavy-underline"><b>さらにリアモニターを増設</b></span>出来ます。</span>
                 </div>
+                <div class="product-group" data-category="op_parts">
+                    <b>◆マジコネオプションパーツ</b><p>
+                    <span class="sub-text">
+                        ・<b>マジコネ映像増幅器</b><br>（マジコネから出力されるカメラ映像を明るく出来る。）<br>
+                        ・<b>パノラマモニター表示コントローラー</b><br>（Rレンジ以外でもパノラマモニター映像を表示させる。）<br>
+                        ・<b>サービスホールスイッチ</b><br>（マジコネの操作スイッチを【貼り付けタイプ】から【埋め込みタイプ】に変更）<br>
+                        ・<b>USB/HDMI延長ケーブル</b><br>（外部機器接続用のUSBやHDMIを、手が届く便利な場所に移設出来る。）<br>
+                        ・<b>USB変換ケーブル</b><br>（外部機器接続用のUSBポートを【タイプC】から【タイプA】に変換）</span></p>
+                </div>
             </div>
         </div>
 
@@ -199,16 +209,21 @@
 
         <!-- Catalog Link Row -->
         <div class="image-row">
-            <img src="images/magicone_r19_c1.gif" alt="">
+            <img src="images/magicone_r19_c1.webp" alt="" loading="lazy">
             <a href="../../../pdf/products/MAGICONE/magicone_catalog.pdf" target="_blank">
-                <img src="images/magicone_r19_c24.gif" alt="Catalog">
+                <img src="images/magicone_r19_c24.webp" alt="Catalog" loading="lazy">
             </a>
         </div>
 
         <!-- Connection Unit Iframe -->
-        <div class="iframe-container">
+        <div class="iframe-container product-group" data-category="bc_unit bc_harness op_parts">
             <!-- Using loading="lazy" for native lazy loading support -->
             <iframe src="magicone_conf_link/CUW.htm" height="329" loading="lazy" scrolling="no"></iframe>
+        </div>
+
+        <div class="iframe-container product-group default-invisible" data-category="vtr_harness rm_unit rm_harness">
+            <!-- Using loading="lazy" for native lazy loading support -->
+            <iframe src="magicone_conf_link/VROP.htm" height="329" loading="lazy" scrolling="no"></iframe>
         </div>
 
         <!-- Separator -->
@@ -237,9 +252,9 @@
         <div class="spacer-20"></div>
 
         <div class="image-row">
-            <img src="images/magicone_r22_c1.gif" alt="">
+            <img src="images/magicone_r22_c1.webp" alt="" loading="lazy">
             <a href="../../../pdf/products/MAGICONE/magicone_price.pdf" target="_blank">
-                <img src="images/magicone_r22_c24.gif" alt="">
+                <img src="images/magicone_r22_c24.webp" alt="" loading="lazy">
             </a>
         </div>
 
@@ -276,7 +291,7 @@
         <div class="spacer-10"></div>
 
         <!-- Option Iframe -->
-        <div class="iframe-container product-group" data-category="rm_unit rm_harness">
+        <div class="iframe-container product-group" data-category="op_parts">
             <iframe src="./OPTION/magicone_op_link/magicone_op.htm" height="290" loading="lazy" scrolling="no"></iframe>
         </div>
 
@@ -367,28 +382,28 @@
         </div>
 
         <div class="spacer-40"></div>
-        <img src="images/magicone_r36_c1.gif" alt="" style="width: 100%;">
+        <img src="images/magicone_r36_c1.webp" alt="" style="width: 100%;" loading="lazy">
         <div class="spacer-35"></div>
 
         <!-- Related Products Graphic Links -->
         <div class="magicone-footer-links">
             <div class="footer-link-item">
-                <a href="../CAMERA/av-fbc/av-fbc.htm" target="_self"><img src="images/av-fbc_link.gif" alt="AV-FBC"></a>
+                <a href="../CAMERA/av-fbc/av-fbc.htm" target="_self"><img src="images/av-fbc_link.webp" alt="AV-FBC" loading="lazy"></a>
             </div>
             <div class="footer-link-item">
-                <a href="../MONITER/av-m0.htm" target="_self"><img src="images/av-m0_link.gif" alt="AV-M0"></a>
+                <a href="../MONITER/av-m0.htm" target="_self"><img src="images/av-m0_link.webp" alt="AV-M0" loading="lazy"></a>
             </div>
             <div class="footer-link-item">
-                <a href="../AV_ACCESSORY/av-hdm01/av-hdm01.htm" target="_self"><img src="images/hdm01_link.gif"
-                        alt="AV-HDM01"></a>
+                <a href="../AV_ACCESSORY/av-hdm01/av-hdm01.htm" target="_self"><img src="images/hdm01_link.webp"
+                        alt="AV-HDM01" loading="lazy"></a>
             </div>
             <!-- Breaking to new line? Original was table rows. -->
             <div class="footer-link-item">
-                <a href="../TVing/TVing.htm" target="_self"><img src="images/TVing_link.gif" alt="TVing"></a>
+                <a href="../TVing/TVing.htm" target="_self"><img src="images/TVing_link.webp" alt="TVing" loading="lazy"></a>
             </div>
             <div class="footer-link-item">
-                <a href="../CAR_ACCESSORY/hole_sw/hole_sw.htm" target="_self"><img src="images/magicone_r41_c14.gif"
-                        alt="Hole Switch"></a>
+                <a href="../CAR_ACCESSORY/hole_sw/hole_sw.htm" target="_self"><img src="images/magicone_r41_c14.webp"
+                        alt="Hole Switch" loading="lazy"></a>
             </div>
             <!-- There was an empty cell in the original table, flexbox simply flows them. -->
         </div>

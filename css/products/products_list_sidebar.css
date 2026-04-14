@@ -238,6 +238,12 @@
     transform: translateY(-8px) rotate(-45deg);
 }
 
+@media print {
+    .product-sidebar-container {
+        box-shadow: none !important;
+    }
+}
+
 @media (max-width: 600px) {
     .product-sidebar-container {
         /* モバイルでは画面幅いっぱいに広げる */

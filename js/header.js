@@ -14,35 +14,39 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
     ])
-    .then(([headerHtml, productsData]) => {
-        const headerPlaceholder = document.getElementById('header-placeholder');
-        if (headerPlaceholder) {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(headerHtml, 'text/html');
-            const headerContent = doc.body.innerHTML;
-            headerPlaceholder.innerHTML = headerContent;
+        .then(([headerHtml, productsData]) => {
+            const headerPlaceholder = document.getElementById('header-placeholder');
+            if (headerPlaceholder) {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(headerHtml, 'text/html');
+                const headerContent = doc.body.innerHTML;
+                headerPlaceholder.innerHTML = headerContent;
 
-            // 製品情報メガメニューをJSONデータから動的に生成 (2分割対応)
-            buildProductMegaMenu(productsData);
+                // 製品情報メガメニューをJSONデータから動的に生成 (2分割対応)
+                buildProductMegaMenu(productsData);
 
-            // ヘッダーの全機能の初期化
-            initializeHeaderFunctions();
-        } else {
-            console.error("Error: Element with id 'header-placeholder' not found.");
-        }
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-        const headerPlaceholder = document.getElementById('header-placeholder');
-        if (headerPlaceholder) {
-            headerPlaceholder.innerHTML = '<p>ヘッダーの読み込みに失敗しました。</p>';
-        }
-    });
+                // ヘッダーの全機能の初期化
+                initializeHeaderFunctions();
+            } else {
+                console.error("Error: Element with id 'header-placeholder' not found.");
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            const headerPlaceholder = document.getElementById('header-placeholder');
+            if (headerPlaceholder) {
+                headerPlaceholder.innerHTML = '<p>ヘッダーの読み込みに失敗しました。</p>';
+            }
+        });
+
+    // 全製品データを保持する変数
+    let cachedProductsData = null;
 
     //==================================
-    // 製品情報メガメニューをJSONから生成する関数 (2分割対応)
+    // 製品情報メガメニューをJSONから生成する関数 (リストのみ先に生成)
     //==================================
     function buildProductMegaMenu(data) {
+        cachedProductsData = data; // データをキャッシュ
         const productDropdown = document.getElementById('product-dropdown');
         if (!productDropdown) return;
 
@@ -51,24 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 既存の動的コンテンツをクリア
         mainList.innerHTML = '';
-        
-        // 隠しデータコンテナを作成/取得 (製品グリッドHTMLを格納する)
-        let dataContainer = document.getElementById('product-data-container');
-        if (!dataContainer) {
-            dataContainer = document.createElement('div');
-            dataContainer.style.display = 'none';
-            dataContainer.id = 'product-data-container';
-            productDropdown.appendChild(dataContainer);
-        } else {
-            dataContainer.innerHTML = ''; // 既存のデータをクリア
-        }
 
-        // メインリストと製品グリッドHTMLを構築
+        // カテゴリーリストのみを構築
         data.products_data.categories.forEach(category => {
-            // --- 左側リストの項目を構築 ---
             const listItem = document.createElement('li');
-            listItem.classList.add('has-sub-list'); 
-            listItem.setAttribute('data-category-id', category.id); // カテゴリーIDをデータ属性として追加
+            listItem.classList.add('has-sub-list');
+            listItem.setAttribute('data-category-id', category.id);
 
             const categoryLink = document.createElement('a');
             categoryLink.href = category.url;
@@ -76,34 +68,39 @@ document.addEventListener('DOMContentLoaded', () => {
             listItem.appendChild(categoryLink);
 
             mainList.appendChild(listItem);
-
-            // --- 右側グリッド表示用のHTMLを隠しコンテナに格納 ---
-            const productGrid = document.createElement('div');
-            productGrid.classList.add('product-grid-view'); // グリッド表示用のクラス
-            productGrid.id = `product-grid-${category.id}`; // カテゴリーIDでグリッドを識別
-
-            category.products.forEach(product => {
-                // グリッド内の製品アイテムHTMLを構築 (画像とタイトル)
-                productGrid.innerHTML += `
-                    <a href="${product.main_page.url}" class="grid-item" data-product-id="${product.id}">
-                        <img src="${product.image_path}" alt="${product.name}">
-                        <p class="grid-product-title">${product.name}</p>
-                    </a>
-                `;
-            });
-            
-            // '全てを見る' リンクを追加 (オプション)
-            if (category.products.length > 0) {
-                productGrid.innerHTML += `
-                    <a href="${category.url}" class="grid-view-all">全ての製品を見る &gt;</a>
-                `;
-            }
-
-            // 隠しコンテナにカテゴリーごとの製品グリッドを追加
-            dataContainer.appendChild(productGrid);
         });
     }
-    
+
+    //==================================
+    // 指定されたカテゴリーの製品グリッドを動的に生成・表示する関数
+    //==================================
+    function loadProductsForCategory(categoryId, container) {
+        if (!cachedProductsData) return;
+
+        const category = cachedProductsData.products_data.categories.find(c => c.id === categoryId);
+        if (!category) return;
+
+        // グリッド表示のHTMLを構築 (ここで初めて <img> タグが作られ、リクエストが発生する)
+        let html = '<div class="product-grid-view animate-fade-in">';
+        category.products.forEach(product => {
+            html += `
+                <a href="${product.main_page.url}" class="grid-item" data-product-id="${product.id}">
+                    <img src="${product.image_path}" alt="${product.name}" loading="lazy">
+                    <p class="grid-product-title">${product.name}</p>
+                </a>
+            `;
+        });
+
+        if (category.products.length > 0) {
+            html += `
+                <a href="/html/products/products.html?category=all" class="grid-view-all">全ての製品を見る &gt;</a>
+            `;
+        }
+        html += '</div>';
+
+        container.innerHTML = html;
+    }
+
     //==================================
     // ヘッダー関連の機能を初期化する関数
     //==================================
@@ -151,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
             overlay.addEventListener('click', closeMenu);
         }
     }
-    
+
     //==================================
     // メガメニューの機能を初期化する関数 (クリック開閉に改修)
     //==================================
@@ -180,8 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
             navItem.addEventListener('click', (event) => {
                 // ドロップダウンを持つ nav-item のリンククリックは、デフォルトの遷移を阻止する
                 // （ドロップダウンを開閉するためのクリックに専念させる）
-                event.preventDefault(); 
-                
+                event.preventDefault();
+
                 if (!targetDropdown) return;
 
                 const isCurrentlyOpen = targetDropdown.classList.contains('is-visible');
@@ -202,27 +199,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     targetDropdown.classList.add('is-visible');
                     navItem.classList.add('is-active');
                     activeDropdown = targetDropdown;
-                    
+
                     if (targetDropdown.id === 'product-dropdown') {
                         // 製品メニューが開いたとき、最初のカテゴリの製品グリッドをロードする
                         const productDropdown = document.getElementById('product-dropdown');
                         const firstCategoryItem = productDropdown.querySelector('.dropdown-list li.has-sub-list');
-                        
+
                         // 初回開いたときのみ、最初のカテゴリの製品をロード
                         if (firstCategoryItem) {
                             const categoryId = firstCategoryItem.getAttribute('data-category-id');
                             const productGridContainer = productDropdown.querySelector('.sub-dropdown-list-container');
-                            const productGrid = document.getElementById(`product-grid-${categoryId}`);
-                            
+
                             // 既にホバー状態がない場合のみ実行（冗長なロードを防ぐ）
                             if (!firstCategoryItem.classList.contains('is-hovered')) {
                                 productDropdown.querySelectorAll('.dropdown-list li').forEach(li => li.classList.remove('is-hovered'));
                                 firstCategoryItem.classList.add('is-hovered');
-                                if (productGrid) {
-                                    productGridContainer.innerHTML = productGrid.outerHTML;
-                                } else {
-                                    productGridContainer.innerHTML = '';
-                                }
+
+                                // 動的にロード
+                                loadProductsForCategory(categoryId, productGridContainer);
                             }
                         }
                         adjustDropdownBorderHeight(targetDropdown);
@@ -235,36 +229,28 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetDropdown && targetDropdown.id === 'product-dropdown') {
                 const productCategories = targetDropdown.querySelector('.dropdown-list');
                 const productGridContainer = targetDropdown.querySelector('.sub-dropdown-list-container');
-                
+
                 if (productCategories && productGridContainer) {
                     const listItemsWithSublist = productCategories.querySelectorAll('.has-sub-list');
-                    
+
                     listItemsWithSublist.forEach(listItem => {
-                        // マウスホバーイベントを削除し、クリックイベントを追加
-                        listItem.removeEventListener('mouseenter', listItem.mouseenterHandler);
-                        
                         // カテゴリ項目内のリンクにクリックイベントを追加
                         const categoryLink = listItem.querySelector('a');
                         if (categoryLink) {
-                             categoryLink.addEventListener('click', (e) => {
+                            categoryLink.addEventListener('click', (e) => {
                                 // ページ遷移を阻止
-                                e.preventDefault(); 
+                                e.preventDefault();
                                 e.stopPropagation(); // 親のnavItemクリックイベントに伝播しないようにする
 
                                 // 全てのカテゴリからアクティブ状態を削除
                                 productCategories.querySelectorAll('li').forEach(li => li.classList.remove('is-hovered'));
                                 // 現在クリックされたカテゴリにアクティブ状態を追加
                                 listItem.classList.add('is-hovered');
-                                
-                                const categoryId = listItem.getAttribute('data-category-id');
-                                const productGrid = document.getElementById(`product-grid-${categoryId}`);
 
-                                if (productGrid) {
-                                    productGridContainer.innerHTML = productGrid.outerHTML;
-                                } else {
-                                    productGridContainer.innerHTML = '';
-                                }
-                                
+                                const categoryId = listItem.getAttribute('data-category-id');
+                                // 動的にロード
+                                loadProductsForCategory(categoryId, productGridContainer);
+
                                 // ボーダーの高さを調整
                                 adjustDropdownBorderHeight(targetDropdown);
                             });
@@ -281,8 +267,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function adjustDropdownBorderHeight(dropdownMenu) {
         const leftContainer = dropdownMenu.querySelector('.dropdown-list-container');
         // middleContainerを製品グリッドコンテナとして再定義
-        const middleContainer = dropdownMenu.querySelector('.sub-dropdown-list-container'); 
-        
+        const middleContainer = dropdownMenu.querySelector('.sub-dropdown-list-container');
+
         if (leftContainer && middleContainer) {
             leftContainer.style.height = 'auto';
             middleContainer.style.height = 'auto';
@@ -293,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const middleHeight = middleContainer.offsetHeight;
 
                 const maxHeight = Math.max(leftHeight, middleHeight);
-                
+
                 leftContainer.style.minHeight = `${maxHeight}px`;
                 middleContainer.style.minHeight = `${maxHeight}px`;
             }, 0); // ゼロ遅延で実行
@@ -315,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const updateHeaderState = () => {
             const currentScrollY = window.scrollY;
-            const headerHeight = mainHeader.offsetHeight; 
+            const headerHeight = mainHeader.offsetHeight;
 
             // ヘッダーの高さ分を超えて、さらにこのピクセル数スクロールしたら非表示にする閾値
             const SCROLL_THRESHOLD = 50;
@@ -354,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 初期化時にも一度実行
         updateHeaderState();
     }
-    
+
     //==================================
     // 製品ページの機能
     //==================================
@@ -390,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    window.addEventListener('popstate', function() {
+    window.addEventListener('popstate', function () {
         const urlParams = new URLSearchParams(window.location.search);
         const category = urlParams.get('category') || 'all';
         filterProducts(category);
@@ -413,7 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const selectedCategory = link.getAttribute('data-category');
             filterProducts(selectedCategory);
-            
+
             const parentContainer = link.closest('.category-list-container');
             if (parentContainer) {
                 const title = parentContainer.querySelector('.category-title');

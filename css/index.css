@@ -39,14 +39,16 @@
     align-items: center;
 }
 
-.hero-slider, .hero-slider-mobile {
+.hero-slider,
+.hero-slider-mobile {
     position: relative;
     align-self: center;
     width: 100%;
     overflow: hidden;
 }
 
-.slider-item, .slider-item-mobile {
+.slider-item,
+.slider-item-mobile {
     position: absolute;
     top: 0;
     left: 0;
@@ -59,7 +61,8 @@
     transition: opacity 1s ease-in-out;
 }
 
-.slider-item a, .slider-item-mobile a {
+.slider-item a,
+.slider-item-mobile a {
     position: absolute;
     top: 0;
     left: 0;
@@ -70,7 +73,8 @@
 }
 
 /* 💡 JavaScriptで付与される.activeクラスでスライドを表示する */
-.slider-item.active, .slider-item-mobile.active {
+.slider-item.active,
+.slider-item-mobile.active {
     opacity: 1;
 }
 
@@ -183,12 +187,15 @@
 /* JavaScriptで新しく追加された<span>要素にスタイルを適用 */
 .announcements-list .announcement-date {
     display: inline-block;
-    min-width: 110px; /* 日付の表示幅を確保 */
-    margin-right: 30px; /* 空白を広げる */
+    min-width: 110px;
+    /* 日付の表示幅を確保 */
+    margin-right: 30px;
+    /* 空白を広げる */
     color: var(--color-accent-2);
     font-size: var(--font-size-body-text);
     font-weight: bold;
-    flex-shrink: 0; /* タイトルが長くなっても幅を保持 */
+    flex-shrink: 0;
+    /* タイトルが長くなっても幅を保持 */
 }
 
 /*==================================
@@ -212,7 +219,7 @@
     border: none;
 }
 
-#products-list{
+#products-list {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -237,7 +244,7 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 5px;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 }
 
 /* タイトルコンテナ */
@@ -250,6 +257,7 @@
     gap: 10px;
     font-size: var(--font-size-h2);
 }
+
 .product-names {
     list-style: none;
     padding: 0;
@@ -259,6 +267,7 @@
     font-weight: bold;
     font-size: var(--font-size-body-text);
 }
+
 .product-names li {
     margin-bottom: 0;
     line-height: 1.5;
@@ -285,7 +294,7 @@
 }
 
 .product-info-body {
-    display: flex; 
+    display: flex;
     border-top: 1px dotted var(--color-background-border);
     flex-direction: column;
 }
@@ -293,7 +302,7 @@
 .context-group {
     display: flex;
     justify-content: space-between;
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
 }
 
 .car-model-info-group {
@@ -333,16 +342,20 @@
     align-self: flex-start;
     flex-direction: column;
 }
+
 .car-model-label {
-    font-size: var(--font-size-caption);;
+    font-size: var(--font-size-caption);
+    ;
     font-weight: bold;
     color: var(--color-accent-2);
     flex-shrink: 0;
 }
+
 .car-model {
     display: flex;
     flex-direction: column;
 }
+
 .plane-text,
 .model-name {
     font-size: var(--font-size-body-text);
@@ -350,6 +363,7 @@
     line-height: 1.1;
     flex-grow: 1;
 }
+
 .specification {
     margin-left: 20px;
     font-size: var(--font-size-caption);
@@ -377,11 +391,13 @@
     padding: 10px 0 0 0;
     align-self: flex-end;
 }
+
 .product-fulltext-body p,
 .product-fulltext-body div,
 .product-fulltext-body ul {
     margin-bottom: 6px;
 }
+
 .product-fulltext-body ul {
     padding-left: 20px;
 }
@@ -437,7 +453,7 @@
 .products-item .products-text-content {
     font-weight: 700;
     font-size: var(--font-size-body-text);
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
 }
 
 .button-container {
@@ -446,12 +462,40 @@
 }
 
 .access-counter {
-    text-align: end;
+    text-align: right;
+    margin-top: 20px;
+    padding: 15px;
+    border-top: 1px solid var(--color-background-border);
 }
 
-.access-counter img {
-    height: 100%;
-    width: auto;
+.counter-display {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.counter-item {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.counter-item.total {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+.counter-label {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.counter-num {
+    font-variant-numeric: tabular-nums;
 }
 
 /*==================================
@@ -462,8 +506,10 @@
 @media (min-width: 600px) {
     .hero-slider {
         display: block;
-        padding-top: 25.52%; /* 1920:490 = 3.918... -> 100:25.52 */
+        padding-top: 25.52%;
+        /* 1920:490 = 3.918... -> 100:25.52 */
     }
+
     .hero-slider-mobile {
         display: none;
     }
@@ -472,56 +518,71 @@
 /* モバイル表示 (600px以下) */
 @media (max-width: 600px) {
     .container {
-        margin-top: 40px; /*topページだけデザイン調整のためContainer marginを上書き*/
+        margin-top: 40px;
+        /*topページだけデザイン調整のためContainer marginを上書き*/
     }
+
     .hero-slider {
         display: none;
     }
+
     .hero-slider-mobile {
         padding-top: 50.66%;
     }
+
     .hero-pagination {
         bottom: -20px;
         gap: 15px;
     }
+
     .pagination-dot {
         width: 10px;
         height: 10px;
     }
+
     .products-news-section {
         padding: 0;
     }
+
     .products-showcase {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .products-item .products-text-content {
         font-weight: 700;
     }
+
     .product-item {
         padding: 10px;
         margin-bottom: 10px;
     }
+
     .product-info-header {
         flex-direction: row;
         align-items: flex-start;
         gap: 10px;
     }
+
     .product-date {
         margin-right: auto;
         order: 1;
     }
+
     .product-title {
         width: 100%;
         order: 3;
         margin: 0;
     }
+
     .product-info-body {
         flex-direction: column;
     }
+
     .context-group {
         display: flex;
         flex-direction: column;
     }
+
     .type-and-badge-container {
         width: auto;
         order: 2;
@@ -532,13 +593,16 @@
         margin-top: 10px;
         margin-right: 10px;
     }
+
     .product-fulltext-body {
         padding-top: 10px;
         margin-top: 10px;
     }
+
     .product-fulltext-body ul {
         padding-left: 15px;
     }
+
     .product-fulltext-body img {
         height: auto;
         width: 100%;
@@ -551,9 +615,11 @@
     0% {
         box-shadow: 0 0 5px rgba(231, 76, 60, 0.4), 0 0 10px rgba(231, 76, 60, 0.2);
     }
+
     50% {
         box-shadow: 0 0 15px rgba(231, 76, 60, 0.8), 0 0 25px rgba(231, 76, 60, 0.5);
     }
+
     100% {
         box-shadow: 0 0 5px rgba(231, 76, 60, 0.4), 0 0 10px rgba(231, 76, 60, 0.2);
     }

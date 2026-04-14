@@ -1,0 +1,584 @@
+[
+    {
+        "type": "category",
+        "categoryName": "フリーテレビング / テレナビング シリーズ"
+    },
+    {
+    "productName": "FreeTVing / TELENAVing",
+    "productLink": "../../html/products/TVing/TVing.htm",
+    "rows": [
+      {
+        "category": "メーカーオプション",
+        "category2": "R1(2019)年5月 <b>以降</b> 登録車",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/TVing/TVing_New_m_toyota.pdf" },
+          "lexus": { "pdf": "../../pdf/products/TVing/TVing_New_m_lexus.pdf" },
+          "nissan": { "pdf": "../../pdf/products/TVing/TVing_New_m_nissan.pdf" },
+          "honda": { "pdf": "../../pdf/products/TVing/TVing_New_m_honda.pdf" },
+          "mitsubishi": { "pdf": "../../pdf/products/TVing/TVing_New_m_mitsubishi.pdf" },
+          "subaru": { "pdf": "../../pdf/products/TVing/TVing_New_m_subaru.pdf" },
+          "suzuki": { "pdf": "../../pdf/products/TVing/TVing_New_m_suzuki.pdf" },
+          "daihatsu": { "pdf": "../../pdf/products/TVing/TVing_New_m_daihatsu.pdf" },
+          "mazda": { "pdf": "../../pdf/products/TVing/TVing_New_m_mazda.pdf" },
+          "isuzu": { "pdf": "-" }
+        }
+      },
+      {
+        "category": "ディーラーオプション",
+        "category2": "R1(2019)年5月 <b>以降</b> 登録車",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/TVing/TVing_New_d_toyota.pdf" },
+          "lexus": { "pdf": "-" },
+          "nissan": { "pdf": "../../pdf/products/TVing/TVing_New_d_nissan.pdf" },
+          "honda": { "pdf": "../../pdf/products/TVing/TVing_New_d_honda.pdf" },
+          "mitsubishi": { "pdf": "../../pdf/products/TVing/TVing_New_d_mitsubishi.pdf" },
+          "subaru": { "pdf": "../../pdf/products/TVing/TVing_New_d_subaru.pdf" },
+          "suzuki": { "pdf": "../../pdf/products/TVing/TVing_New_d_suzuki.pdf" },
+          "daihatsu": { "pdf": "../../pdf/products/TVing/TVing_New_d_daihatsu.pdf" },
+          "mazda": { "pdf": "-" },
+          "isuzu": { "pdf": "-" }
+        }
+      },  
+      {
+        "category": "メーカーオプション",
+        "category2": "H31(2019)年4月 <b>以前</b> 登録車",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/TVing/TVing_Old_m_toyota.pdf" },
+          "lexus": { "pdf": "../../pdf/products/TVing/TVing_Old_m_lexus.pdf" },
+          "nissan": { "pdf": "../../pdf/products/TVing/TVing_Old_m_nissan.pdf" },
+          "honda": { "pdf": "../../pdf/products/TVing/TVing_Old_m_honda.pdf" },
+          "mitsubishi": { "pdf": "../../pdf/products/TVing/TVing_Old_m_mitsubishi.pdf" },
+          "subaru": { "pdf": "../../pdf/products/TVing/TVing_Old_m_subaru.pdf" },
+          "suzuki": { "pdf": "../../pdf/products/TVing/TVing_Old_m_suzuki.pdf" },
+          "daihatsu": { "pdf": "../../pdf/products/TVing/TVing_Old_m_daihatsu.pdf" },
+          "mazda": { "pdf": "../../pdf/products/TVing/TVing_Old_m_mazda.pdf" },
+          "isuzu": { "pdf": "-" }
+        }
+      },
+      {
+        "category": "ディーラーオプション",
+        "category2": "H31(2019)年4月 <b>以前</b> 登録車",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/TVing/TVing_Old_d_toyota.pdf" },
+          "lexus": { "pdf": "-" },
+          "nissan": { "pdf": "../../pdf/products/TVing/TVing_Old_d_nissan.pdf" },
+          "honda": { "pdf": "../../pdf/products/TVing/TVing_Old_d_honda.pdf" },
+          "mitsubishi": { "pdf": "../../pdf/products/TVing/TVing_Old_d_mitsubishi.pdf" },
+          "subaru": { "pdf": "../../pdf/products/TVing/TVing_Old_d_subaru.pdf" },
+          "suzuki": { "pdf": "../../pdf/products/TVing/TVing_Old_d_suzuki.pdf" },
+          "daihatsu": { "pdf": "../../pdf/products/TVing/TVing_Old_d_daihatsu.pdf" },
+          "mazda": { "pdf": "../../pdf/products/TVing/TVing_Old_d_mazda.pdf" },
+          "isuzu": { "pdf": "-" }
+        }
+      }
+    ]
+  },
+  {
+    "type": "category",
+    "categoryName": "MAGICONE シリーズ"
+  },
+  {
+    "productName": "MAGICONE",
+    "productLink": "../../html/products/MAGICONE/magicone.htm",
+    "rows": [
+      {
+        "category": "メーカーオプション",
+        "category2": "バックカメラ接続 ユニット/ハーネス",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/MAGICONE/magicone_c_m_toyota.pdf" },
+          "lexus": { "pdf": "-" },
+          "nissan": { "pdf": "../../pdf/products/MAGICONE/magicone_c_m_nissan.pdf" },
+          "honda": { "pdf": "../../pdf/products/MAGICONE/magicone_c_m_honda.pdf" },
+          "mitsubishi": { "pdf": "../../pdf/products/MAGICONE/magicone_c_m_mitsubishi.pdf" },
+          "subaru": { "pdf": "../../pdf/products/MAGICONE/magicone_c_m_subaru.pdf" },
+          "suzuki": { "pdf": "../../pdf/products/MAGICONE/magicone_c_m_suzuki.pdf" },
+          "daihatsu": { "pdf": "../../pdf/products/MAGICONE/magicone_c_m_daihatsu.pdf" },
+          "mazda": { "pdf": "../../pdf/products/MAGICONE/magicone_c_m_mazda.pdf" },
+          "isuzu": { "pdf": "../../pdf/products/MAGICONE/magicone_c_m_isuzu.pdf" }
+        }
+      },
+      {
+        "category": "メーカーオプション",
+        "category2": "VTR/HDMI ハーネス<br>リアモニター増設・出力 ハーネス/ユニット",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/MAGICONE/magicone_r_m_toyota.pdf" },
+          "lexus": { "pdf": "../../pdf/products/MAGICONE/magicone_r_m_lexus.pdf" },
+          "nissan": { "pdf": "../../pdf/products/MAGICONE/magicone_r_m_nissan.pdf" },
+          "honda": { "pdf": "../../pdf/products/MAGICONE/magicone_r_m_honda.pdf" },
+          "mitsubishi": { "pdf": "-" },
+          "subaru": { "pdf": "-" },
+          "suzuki": { "pdf": "-" },
+          "daihatsu": { "pdf": "-" },
+          "mazda": { "pdf": "-" },
+          "isuzu": { "pdf": "-" }
+        }
+      },
+      {
+        "category": "ディーラーオプション",
+        "category2": "バックカメラ接続 ユニット/ハーネス",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/MAGICONE/magicone_c_d_toyota.pdf" },
+          "lexus": { "pdf": "-" },
+          "nissan": { "pdf": "../../pdf/products/MAGICONE/magicone_c_d_nissan.pdf" },
+          "honda": { "pdf": "../../pdf/products/MAGICONE/magicone_c_d_honda.pdf" },
+          "mitsubishi": { "pdf": "../../pdf/products/MAGICONE/magicone_c_d_mitsubishi.pdf" },
+          "subaru": { "pdf": "-" },
+          "suzuki": { "pdf": "../../pdf/products/MAGICONE/magicone_c_d_suzuki.pdf" },
+          "daihatsu": { "pdf": "../../pdf/products/MAGICONE/magicone_c_d_daihatsu.pdf" },
+          "mazda": { "pdf": "../../pdf/products/MAGICONE/magicone_c_d_mazda.pdf" },
+          "isuzu": { "pdf": "-" }
+        }
+      },
+      {
+        "category": "ディーラーオプション",
+        "category2": "VTR/HDMI ハーネス<br>リアモニター増設・出力 ハーネス/ユニット",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/MAGICONE/magicone_r_d_toyota.pdf" },
+          "lexus": { "pdf": "-" },
+          "nissan": { "pdf": "../../pdf/products/MAGICONE/magicone_r_d_nissan.pdf" },
+          "honda": { "pdf": "../../pdf/products/MAGICONE/magicone_r_d_honda.pdf" },
+          "mitsubishi": { "pdf": "../../pdf/products/MAGICONE/magicone_r_d_mitsubishi.pdf" },
+          "subaru": { "pdf": "-" },
+          "suzuki": { "pdf": "-" },
+          "daihatsu": { "pdf": "../../pdf/products/MAGICONE/magicone_r_d_daihatsu.pdf" },
+          "mazda": { "pdf": "-" },
+          "isuzu": { "pdf": "-" }
+        }
+      }
+    ]
+  },
+  {
+    "type": "category",
+    "categoryName": "LEDランプ"
+  },
+  {
+    "productName": "LEDヘッドランプ",
+    "productLink": "../../html/products/LED_BULB/glh-h/glh-h.htm",
+    "rows": [
+      {
+        "category": "車種別バルブ形状一覧",
+        "category2": "<a href=\"../../html/products/LED_BULB/glh-h/glh-h.htm\">LEDヘッドランプ グロリアス Hｼﾘｰｽﾞ</a><br><a href=\"../../html/products/LED_BULB/glh-dsr/glh-dsr.htm\">LEDヘッドランプ グロリアス Dｼﾘｰｽﾞ</a><br><a href=\"../../html/products/LED_BULB/blh_head/blh_head.htm\">LED ヘッドランプコンフォート</a><br><a href=\"../../html/products/LED_BULB/clh_head/clh_head.htm\">LED ヘッドランプコンフォート2</a><br>も右記に同じ",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/LED_BULB/bulb_toyota.pdf" },
+          "lexus": { "pdf": "../../pdf/products/LED_BULB/bulb_lexus.pdf" },
+          "nissan": { "pdf": "../../pdf/products/LED_BULB/bulb_nissan.pdf" },
+          "honda": { "pdf": "../../pdf/products/LED_BULB/bulb_honda.pdf" },
+          "mitsubishi": { "pdf": "../../pdf/products/LED_BULB/bulb_mitsubishi.pdf" },
+          "subaru": { "pdf": "../../pdf/products/LED_BULB/bulb_subaru.pdf" },
+          "suzuki": { "pdf": "../../pdf/products/LED_BULB/bulb_suzuki.pdf" },
+          "daihatsu": { "pdf": "../../pdf/products/LED_BULB/bulb_daihatsu.pdf"},
+          "mazda": { "pdf": "../../pdf/products/LED_BULB/bulb_mazda.pdf" },
+          "isuzu": { "pdf": "-" }
+        }
+      }
+    ]
+  },
+  {
+    "productName": "スーパーLEDルームランプ2",
+    "productLink": "../../html/products/LED_BULB/super_led_roomlamp2/super_led_roomlamp2.htm",
+    "rows": [
+      {
+        "category": "車種別",
+        "category2": "-",
+        "links": {
+          "note": "適合は製品詳細ページをご確認ください",
+          "link": "../../html/products/LED_BULB/super_led_roomlamp2/super_led_roomlamp2.htm"
+        }
+      }
+    ]
+  },
+  {
+    "type": "category",
+    "categoryName": "AVアクセサリー"
+  },
+  {
+    "productName": "DVD・CDプレイヤー",
+    "productLink": "../../html/products/AV_ACCESSORY/cdv/cdv01.htm",
+    "rows": [
+      {
+        "category": "動作確認車種",
+        "category2": "-",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/AV_ACCESSORY/cdv01-toyota.pdf" },
+          "lexus": { "pdf": "../../pdf/products/AV_ACCESSORY/cdv01-lexus.pdf" },
+          "nissan": { "pdf": "動作未確認" },
+          "honda": { "pdf": "動作未確認" },
+          "mitsubishi": { "pdf": "動作未確認" },
+          "subaru": { "pdf": "動作未確認" },
+          "suzuki": { "pdf": "動作未確認" },
+          "daihatsu": { "pdf": "動作未確認" },
+          "mazda": { "pdf": "動作未確認" },
+          "isuzu": { "pdf": "動作未確認" }
+        }
+      }
+    ]
+  },
+  {
+    "productName": "ステアリングスイッチ 切替ユニット/コントローラー",
+    "productLink": "../../html/products/AV_ACCESSORY/swc-exc/swc-exc.htm",
+    "rows": [
+      {
+        "category": "動作確認車種",
+        "category2": "-",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/AV_ACCESSORY/swc_m_toyota.pdf" },
+          "lexus": { "pdf": "../../pdf/products/AV_ACCESSORY/swc_m_lexus.pdf" },
+          "nissan": { "pdf": "../../pdf/products/AV_ACCESSORY/swc_m_nissan.pdf" },
+          "honda": { "pdf": "../../pdf/products/AV_ACCESSORY/swc_m_honda.pdf" },
+          "mitsubishi": { "pdf": "-" },
+          "subaru": { "pdf": "-" },
+          "suzuki": { "pdf": "-" },
+          "daihatsu": { "pdf": "-" },
+          "mazda": { "pdf": "-" },
+          "isuzu": { "pdf": "-" }
+        }
+      }
+    ]
+  },
+  {
+    "productName": "サービスホールスイッチ",
+    "productLink": "../../html/products/AV_ACCESSORY/hole_sw/hole_sw.htm",
+    "rows": [
+      {
+        "category": "サービスホール形状適合",
+        "category2": "-",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/AV_ACCESSORY/hole_size_list_toyota.pdf" },
+          "lexus": { "pdf": "../../pdf/products/AV_ACCESSORY/hole_size_list_lexus.pdf" },
+          "nissan": { "pdf": "-" },
+          "honda": { "pdf": "-" },
+          "mitsubishi": { "pdf": "-" },
+          "subaru": { "pdf": "../../pdf/products/AV_ACCESSORY/hole_size_list_subaru.pdf" },
+          "suzuki": { "pdf": "../../pdf/products/AV_ACCESSORY/hole_size_list_suzuki.pdf" },
+          "daihatsu": { "pdf": "../../pdf/products/AV_ACCESSORY/hole_size_list_daihatsu.pdf" },
+          "mazda": { "pdf": "-" },
+          "isuzu": { "pdf": "-" }
+        }
+      }
+    ]
+  },
+  {
+    "type": "category",
+    "categoryName": "カーアクセサリー"
+  },
+  {
+    "productName": "オートライトユニット ライトクルー",
+    "productLink": "../../html/products/CAR_ACCESSORY/light_crew/light_crew.htm",
+    "rows": [
+      {
+        "category": "動作確認車種",
+        "category2": "-",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/CAR_ACCESSORY/light_crew_toyota.pdf" },
+          "lexus": { "pdf": "-" },
+          "nissan": { "pdf": "../../pdf/products/CAR_ACCESSORY/light_crew_nissan.pdf" },
+          "honda": { "pdf": "../../pdf/products/CAR_ACCESSORY/light_crew_honda.pdf" },
+          "mitsubishi": { "pdf": "../../pdf/products/CAR_ACCESSORY/light_crew_mitsubishi.pdf" },
+          "subaru": { "pdf": "../../pdf/products/CAR_ACCESSORY/light_crew_subaru.pdf" },
+          "suzuki": { "pdf": "../../pdf/products/CAR_ACCESSORY/light_crew_suzuki.pdf" },
+          "daihatsu": { "pdf": "../../pdf/products/CAR_ACCESSORY/light_crew_daihatsu.pdf"},
+          "mazda": { "pdf": "../../pdf/products/CAR_ACCESSORY/light_crew_mazda.pdf" },
+          "isuzu": { "pdf": "-" }
+        }
+      }
+    ]
+  },
+  {
+    "productName": "オートドアミラーコントローラー",
+    "productLink": "../../html/products/CAR_ACCESSORY/door_mirror/door_mirror.htm",
+    "rows": [
+      {
+        "category": "動作確認車種",
+        "category2": "-",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/CAR_ACCESSORY/controller_toyota.pdf" },
+          "lexus": { "pdf": "../../pdf/products/CAR_ACCESSORY/controller_lexus.pdf" },
+          "nissan": { "pdf": "../../pdf/products/CAR_ACCESSORY/controller_nissan.pdf" },
+          "honda": { "pdf": "../../pdf/products/CAR_ACCESSORY/controller_honda.pdf" },
+          "mitsubishi": { "pdf": "-" },
+          "subaru": { "pdf": "../../pdf/products/CAR_ACCESSORY/controller_subaru.pdf" },
+          "suzuki": { "pdf": "../../pdf/products/CAR_ACCESSORY/controller_suzuki.pdf" },
+          "daihatsu": { "pdf": "../../pdf/products/CAR_ACCESSORY/controller_daihatsu.pdf" },
+          "mazda": { "pdf": "../../pdf/products/CAR_ACCESSORY/controller_mazda.pdf" },
+          "isuzu": { "pdf": "-" }
+        }
+      }
+    ]
+  },
+  {
+    "productName": "ヘッドライトコントローラー",
+    "productLink": "../../html/products/CAR_ACCESSORY/hlc/hlc.htm",
+    "rows": [
+      {
+        "category": "動作確認車種",
+        "category2": "-",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/CAR_ACCESSORY/HLC_fix.pdf" },
+          "lexus": { "pdf": "../../pdf/products/CAR_ACCESSORY/HLC_fix.pdf" },
+          "nissan": { "pdf": "-" },
+          "honda": { "pdf": "-" },
+          "mitsubishi": { "pdf": "-" },
+          "subaru": { "pdf": "-" },
+          "suzuki": { "pdf": "-" },
+          "daihatsu": { "pdf": "-" },
+          "mazda": { "pdf": "-" },
+          "isuzu": { "pdf": "-" }
+        }
+      }
+    ]
+  },
+  {
+    "productName": "フリーアイドリングストップ",
+    "productLink": "../../html/products/CAR_ACCESSORY/fis/fis.htm",
+    "rows": [
+      {
+        "category": "動作確認車種",
+        "category2": "-",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/CAR_ACCESSORY/fis_fix_toyota.pdf" },
+          "lexus": { "pdf": "-" },
+          "nissan": { "pdf": "../../pdf/products/CAR_ACCESSORY/fis_fix_nissan.pdf" },
+          "honda": { "pdf": "../../pdf/products/CAR_ACCESSORY/fis_fix_honda.pdf" },
+          "mitsubishi": { "pdf": "../../pdf/products/CAR_ACCESSORY/fis_fix_mitsubishi.pdf" },
+          "subaru": { "pdf": "../../pdf/products/CAR_ACCESSORY/fis_fix_subaru.pdf" },
+          "suzuki": { "pdf": "../../pdf/products/CAR_ACCESSORY/fis_fix_suzuki.pdf" },
+          "daihatsu": { "pdf": "../../pdf/products/CAR_ACCESSORY/fis_fix_daihatsu.pdf" },
+          "mazda": { "pdf": "-" },
+          "isuzu": { "pdf": "-" }
+        }
+      }
+    ]
+  },
+  {
+    "productName": "ユーロブリンカーシステム",
+    "productLink": "../../html/products/CAR_ACCESSORY/ebs/ebs.htm",
+    "rows": [
+      {
+        "category": "動作確認車種",
+        "category2": "-",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/CAR_ACCESSORY/ebs_fit.pdf" },
+          "lexus": { "pdf": "../../pdf/products/CAR_ACCESSORY/ebs_fit.pdf" },
+          "nissan": { "pdf": "-" },
+          "honda": { "pdf": "-" },
+          "mitsubishi": { "pdf": "-" },
+          "subaru": { "pdf": "-" },
+          "suzuki": { "pdf": "-" },
+          "daihatsu": { "pdf": "-" },
+          "mazda": { "pdf": "-" },
+          "isuzu": { "pdf": "-" }
+        }
+      }
+    ]
+  },
+  {
+    "productName": "車速ドアロックシステム",
+    "productLink": "../../html/products/CAR_ACCESSORY/sdlct/sdlct.htm",
+    "rows": [
+      {
+        "category": "動作確認車種",
+        "category2": "-",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/CAR_ACCESSORY/sdlct.pdf" },
+          "lexus": { "pdf": "-" },
+          "nissan": { "pdf": "-" },
+          "honda": { "pdf": "../../pdf/products/CAR_ACCESSORY/shasoku_dousa_honda.pdf" },
+          "mitsubishi": { "pdf": "-" },
+          "subaru": { "pdf": "-" },
+          "suzuki": { "pdf": "-" },
+          "daihatsu": { "pdf": "-" },
+          "mazda": { "pdf": "-" },
+          "isuzu": { "pdf": "-" }
+        }
+      }
+    ]
+  },
+  {
+    "productName": "車速感応式ドアロックシステム",
+    "productLink": "../../html/products/CAR_ACCESSORY/speed_auto_lock/speed_auto_lock.htm",
+    "rows": [
+      {
+        "category": "動作確認車種",
+        "category2": "-",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/CAR_ACCESSORY/sdlct.pdf" },
+          "lexus": { "pdf": "-" },
+          "nissan": { "pdf": "../../pdf/products/CAR_ACCESSORY/shasoku_nissan.pdf" },
+          "honda": { "pdf": "../../pdf/products/CAR_ACCESSORY/shasoku_dousa_honda.pdf" },
+          "mitsubishi": { "pdf": "../../pdf/products/CAR_ACCESSORY/shasoku_dousa_mitsubishi.pdf" },
+          "subaru": { "pdf": "../../pdf/products/CAR_ACCESSORY/shasoku_dousa_subaru.pdf" },
+          "suzuki": { "pdf": "../../pdf/products/CAR_ACCESSORY/shasoku_dousa_suzuki.pdf" },
+          "daihatsu": { "pdf": "../../pdf/products/CAR_ACCESSORY/shasoku_dousa_daihatsu.pdf" },
+          "mazda": { "pdf": "../../pdf/products/CAR_ACCESSORY/shasoku_dousa_mazda.pdf" },
+          "isuzu": { "pdf": "-" }
+        }
+      }
+    ]
+  },
+  {
+    "productName": "ブレーキ4灯化ユニット",
+    "productLink": "../../html/products/CAR_ACCESSORY/brake4/brake4.htm",
+    "rows": [
+      {
+        "category": "車種別",
+        "category2": "-",
+        "links": {
+          "note": "適合は製品詳細ページをご確認ください",
+          "link": "../../html/products/CAR_ACCESSORY/brake4/brake4.htm"
+        }
+      }
+    ]
+  },
+  {
+    "type": "category",
+    "categoryName": "カメラ"
+  },
+  {
+    "productName": "カメラセレクター",
+    "productLink": "../../html/products/CAMERA/AV-CS-Link/AV-CS-Link.htm",
+    "rows": [
+      {
+        "category": "車種別",
+        "category2": "-",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/CAMERA/AV-CSml.pdf" },
+          "lexus": { "pdf": "-" },
+          "nissan": { "pdf": "-" },
+          "honda": { "pdf": "-" },
+          "mitsubishi": { "pdf": "-" },
+          "subaru": { "pdf": "-" },
+          "suzuki": { "pdf": "-" },
+          "daihatsu": { "pdf": "-" },
+          "mazda": { "pdf": "-" },
+          "isuzu": { "pdf": "-" }
+        }
+      }
+    ]
+  },
+  {
+    "type": "category",
+    "categoryName": "HDMI・USB関連"
+  },
+  {
+    "productName": "USB・HDMI延長ケーブル(SPｼﾘｰｽﾞ)",
+    "productLink": "../../html/products/HDMI_USB/eopspt/eopspt.htm",
+    "rows": [
+      {
+        "category": "サービスホール形状適合",
+        "category2": "-",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/AV_ACCESSORY/hole_size_list_toyota.pdf" },
+          "lexus": { "pdf": "../../pdf/products/AV_ACCESSORY/hole_size_list_lexus.pdf" },
+          "nissan": { "pdf": "-" },
+          "honda": { "pdf": "-" },
+          "mitsubishi": { "pdf": "-" },
+          "subaru": { "pdf": "../../pdf/products/AV_ACCESSORY/hole_size_list_subaru.pdf" },
+          "suzuki": { "pdf": "../../pdf/products/AV_ACCESSORY/hole_size_list_suzuki.pdf" },
+          "daihatsu": { "pdf": "../../pdf/products/AV_ACCESSORY/hole_size_list_daihatsu.pdf" },
+          "mazda": { "pdf": "-" },
+          "isuzu": { "pdf": "-" }
+        }
+      }
+    ]
+  },
+  {
+    "productName": "USB・HDMI延長ケーブル(HZｼﾘｰｽﾞ)",
+    "productLink": "../../html/products/HDMI_USB/eophzt/eophz.htm",
+    "rows": [
+      {
+        "category": "車種別",
+        "category2": "-",
+        "links": {
+          "note": "適合は製品詳細ページをご確認ください",
+          "link": "../../html/products/HDMI_USB/eophzt/eophz.htm"
+        }
+      }
+    ]
+  },
+  {
+    "productName": "HDMI Type-Eハーネス",
+    "productLink": "../../html/products/MAGICONE/VTR_H/av-dh06/av-dh06.htm",
+    "rows": [
+      {
+        "category": "適合ナビ メーカーオプション",
+        "category2": "-",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/MAGICONE/magicone_r_m_toyota.pdf" },
+          "lexus": { "pdf": "-" },
+          "nissan": { "pdf": "-" },
+          "honda": { "pdf": "-" },
+          "mitsubishi": { "pdf": "-" },
+          "subaru": { "pdf": "-" },
+          "suzuki": { "pdf": "-" },
+          "daihatsu": { "pdf": "-" },
+          "mazda": { "pdf": "-" },
+          "isuzu": { "pdf": "-" }
+        }
+      },
+      {
+        "category": "適合ナビ ディーラーオプション",
+        "category2": "-",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/MAGICONE/magicone_r_d_toyota.pdf" },
+          "lexus": { "pdf": "-" },
+          "nissan": { "pdf": "../../pdf/products/MAGICONE/magicone_r_d_nissan.pdf" },
+          "honda": { "pdf": "../../pdf/products/MAGICONE/magicone_r_d_honda.pdf" },
+          "mitsubishi": { "pdf": "-" },
+          "subaru": { "pdf": "-" },
+          "suzuki": { "pdf": "-" },
+          "daihatsu": { "pdf": "../../pdf/products/MAGICONE/magicone_r_d_daihatsu.pdf" },
+          "mazda": { "pdf": "-" },
+          "isuzu": { "pdf": "-" }
+        }
+      }
+    ]
+  },
+  {
+    "productName": "USB電源コンバータ",
+    "productLink": "../../html/products/HDMI_USB/eopdc/eopdc.htm",
+    "rows": [
+      {
+        "category": "サービスホール形状適合",
+        "category2": "-",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/AV_ACCESSORY/hole_size_list_toyota.pdf" },
+          "lexus": { "pdf": "../../pdf/products/AV_ACCESSORY/hole_size_list_lexus.pdf" },
+          "nissan": { "pdf": "-" },
+          "honda": { "pdf": "-" },
+          "mitsubishi": { "pdf": "-" },
+          "subaru": { "pdf": "../../pdf/products/AV_ACCESSORY/hole_size_list_subaru.pdf" },
+          "suzuki": { "pdf": "../../pdf/products/AV_ACCESSORY/hole_size_list_suzuki.pdf" },
+          "daihatsu": { "pdf": "../../pdf/products/AV_ACCESSORY/hole_size_list_daihatsu.pdf" },
+          "mazda": { "pdf": "-" },
+          "isuzu": { "pdf": "-" }
+        }
+      }
+    ]
+  },
+  {
+    "type": "category",
+    "categoryName": "電源関連"
+  },
+  {
+    "productName": "オプションコネクターハーネス",
+    "productLink": "../../html/products/POWER/op_cn/op_cn.htm",
+    "rows": [
+      {
+        "category": "車種別",
+        "category2": "-",
+        "links": {
+          "toyota": { "pdf": "../../pdf/products/POWER/op_cn_toyota.pdf" },
+          "lexus": { "pdf": "../../pdf/products/POWER/op_cn_lexus.pdf" },
+          "nissan": { "pdf": "-" },
+          "honda": { "pdf": "../../pdf/products/POWER/op_cn_honda.pdf" },
+          "mitsubishi": { "pdf": "-" },
+          "subaru": { "pdf": "-" },
+          "suzuki": { "pdf": "-" },
+          "daihatsu": { "pdf": "-" },
+          "mazda": { "pdf": "-" },
+          "isuzu": { "pdf": "-" }
+        }
+      }
+    ]
+  }
+]

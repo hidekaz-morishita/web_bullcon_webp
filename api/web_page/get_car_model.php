@@ -42,6 +42,7 @@ $desiredMakerOrder = [
     'ダイハツ',
     'マツダ',
     'イスズ',
+    'ヒノ'
 ];
 
 try {

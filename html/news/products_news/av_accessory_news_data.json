@@ -1,31 +1,243 @@
 [
   {
-    "date": "2025年12月15日",
+    "date": "2026年4月10日",
     "type": "新製品情報",
-    "product": ["FreeTVing"], "car_models": [
-      {"model_name":"ニッサン　ディーラーオプション","specification":"2025年モデル/2023年モデル/2022年モデル/2021年モデル"}
-    ],
-    "brand": ["ニッサン"],
+    "product": ["マジコネ バックカメラ接続ユニット"], 
+    "car_models":[
+      {"plane_text":"ディーラーオプション　バックアイカメラ装着車 ≪５極コネクター仕様車≫"},
+      {"model_name":"スイフト　R7/12～　（ZCEDS.ZDEDS.ZCDDS.ZDDDS）"}],
+    "brand": ["スズキ"],
     "body": [
-      { "type":"html", "content": "<p><b>FreeTVing<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『MS-225』</a></span></b></p>", "align": "right"}
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c67/av-c67.htm\" target=\"_blank\">『AV-C67』</a></span></b></p>", "align": "right"},
+      { "type": "html", "content": "※【ﾃﾞｨｰﾗｰｵﾌﾟｼｮﾝ ﾊﾞｯｸｱｲｶﾒﾗ≪RCAﾋﾟﾝﾌﾟﾗｸﾞ仕様車≫】には取り付けできません。", "align": "right"}
     ]
   },
   {
-    "date": "2025年12月15日",
-    "type": "新製品情報",
-    "product": ["FreeTVing"], "car_models": [
-      {"model_name":"ミツビシ　ディーラーオプション","specification":"2025年モデル"}
+    "date": "2026年4月6日",
+    "type": "適合情報",
+    "product": ["FreeTVing"],
+    "car_models": [ 
+      {"model_name":"リーフ　R8/1～　（ZE2）", "specification":"【NissanConnectインフォテイメントシステム(12.3インチ）付車】"}
     ],
+    "brand": ["ニッサン"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-206S』</a></span></b></p>", "align": "right"} 
+    ]
+  },
+  {
+    "date": "2026年4月3日",
+    "type": "適合情報",
+    "product": ["FreeTVing"], "car_models": [
+      {"model_name":"ホンダディーラーオプション　2026年モデルナビゲーション", "specification":"LXM-264ZFLi （11.4インチHonda CONNECTナビ）"},
+      {"model_name":"ホンダディーラーオプション　2026年モデルナビゲーション", "specification":"LXM-262ZFNi （9インチHonda CONNECTナビ/プレミアムインターナビ）"}
+    ],
+    "brand": ["ホンダ"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『FFT-236』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『MS-236』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年4月2日",
+    "type": "適合情報",
+    "product": ["FreeTVing"], 
+    "car_models": [
+      {"model_name":"CR-V e:HEV　R8/2～　（RS5.6）", "specification": "【Google搭載9インチHonda CONNECTディスプレー付車】"},
+      {"model_name":"プレリュード　R7/9～　（BF1）", "specification":"【Google搭載9インチHonda CONNECTディスプレー付車】"}],
+    "brand": ["ホンダ"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing ｵｰﾄﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『FFT-240』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『MS-240』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>TELENAVing ｵｰﾄﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-309』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>TELENAVing TV切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-309S』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年3月27日",
+    "type": "適合情報",
+    "product": ["FreeTVing / MAGICONE バックカメラ接続ハーネス"], 
+    "car_models": [
+        {"plane_text":"【ニッサンディーラーオプション　2025年モデル】"},
+        {"model_name":" NJ1 ","specification":"【7インチディスプレイオーディオ】"}],
+    "brand": ["ニッサン"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing ｵｰﾄﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『FFT-225』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『MS-225』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ハーネス<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c55/av-c55.htm\" target=\"_blank\">『AV-C55』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年3月26日",
+    "type": "適合情報",
+    "product": ["FreeTVing"], "car_models": [
+      {"model_name":"ヤリス　R8/3～　（MXPA10.15.KSP210）","specification":"【10.5インチ/8インチディスプレイオーディオPlus】【8インチディスプレイオーディオ】装着車"}, 
+      {"model_name":"ヤリスハイブリッド　R8/3～　（MXPH14.17）","specification":"【10.5インチ/8インチディスプレイオーディオPlus】【8インチディスプレイオーディオ】装着車"}, 
+      {"model_name":"ヤリスクロス　R8/3～　（MXPB10.15）","specification":"【10.5インチ/8インチディスプレイオーディオPlus】【8インチディスプレイオーディオ】装着車"}, 
+      {"model_name":"ヤリスクロスハイブリッド　R8/3～　（MXPJ10.15）","specification":"【10.5インチ/8インチディスプレイオーディオPlus】【8インチディスプレイオーディオ】装着車"}],
+    "brand": ["トヨタ"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-111AS』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-111ASC』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing ｽﾃｱﾘﾝｸﾞｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-111AST』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年3月10日",
+    "type": "適合情報",
+    "product": ["MAGICONE バックカメラ接続ユニット"],
+    "car_models": [ 
+      {"model_name":"セレナ（e-Power除く）　改良後　R8/2～　（C28　FC28）","specification":"【オーディオレス+インテリジェントアラウンドビューモニター装着車】"},
+      {"model_name":"セレナ　e-Power　改良後　R8/2～　（GC28　GFC28）","specification":"【オーディオレス+インテリジェントアラウンドビューモニター装着車】"}],
+    "brand": ["ニッサン"],
+    "body": [
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c13/av-c13.htm\" target=\"_blank\">『AV-C13』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c13fa/av-c13fa.htm\" target=\"_blank\">『AV-C13FA』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年3月9日",
+    "type": "適合追加情報",
+    "product": ["MAGICONE バックカメラ接続ユニット"], 
+    "car_models": [
+      {"model_name":"ダイナカーゴ　1.0ton　R8/1～（GDY232.282）","specification":"【バックカメラ付インナーミラー装着車】"}
+                  ],
+    "brand": ["トヨタ"],
+    "body": [
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c63/av-c63.htm\" target=\"_blank\">『AV-C63』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c63ext/av-c63ext.htm\" target=\"_blank\">『AV-C63EXT』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年3月5日",
+    "type": "適合情報",
+    "product": ["MAGICONE バックカメラ接続ユニット"], 
+    "car_models": [{"model_name":"デリカD:5　R8/1～　（CV1W）","specification":"【マルチアラウンドモニター付車】"}
+                  ],
     "brand": ["ミツビシ"],
     "body": [
-      { "type":"html", "content": "<p><b>FreeTVing<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『MS-225』</a></span></b></p>", "align": "right"}
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c25/av-c25.htm\" target=\"_blank\">『AV-C25』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年2月24日",
+    "type": "適合情報",
+    "product": ["MAGICONE バックカメラ接続ユニット"], 
+    "car_models": [
+      {"model_name":"デュトロ　1.5ton　R5/8～（GDY231.232.281.282）","specification":"【バックカメラ付インナーミラー装着車】"}, 
+      {"model_name":"デュトロ　2.0ton　R5/10～（XZC600.605.610.630.640.645.655.675.710.<br>XZU600.605.610.620.630.640.645.650.655.675.684.695.700.710.720.730.775）","specification":"【バックカメラ＆デジタルインナーミラー装着車】"}],
+    "brand": ["日野"],
+    "body": [
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c63/av-c63.htm\" target=\"_blank\">『AV-C63』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c63ext/av-c63ext.htm\" target=\"_blank\">『AV-C63EXT』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年2月20日",
+    "type": "新製品情報",
+    "product": ["スマートフォン ミラーリングケーブル"],
+    "brand": [],
+    "body": [
+      { "type": "image", "url": "/images/slide_banner/AV-HMC01_250-600.webp", "alt": "ミラーリングケーブル"},
+      { "type": "html", "content": "<span style=\"color: red;\"\"font-size: 1.1rem;\">【2026年2月24日 販売開始】</spam>", "align": "center"},
+      { "type": "html", "content": "<span style=\"font-size:0.8em;\">【ディスプレイオーディオ】や【ナビゲーション】のHDMIポートに接続するだけでスマートフォン画面を車両ディスプレイにミラーリング</span>", "align": "right"},
+      { "type":"html", "content": "<p><b>スマートフォンミラーリングケーブル<span style=\"color: blue;\"><a href=\"/html/products/AV_ACCESSORY/hmc/hmc01.htm\" target=\"_blank\">『AV-HMC01』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年2月16日",
+    "type": "適合情報",
+    "product": ["DVD/CDプレーヤー"],
+    "car_models": [ {"model_name":"ハイエースコミューター 　R8/2～　(GDH223B.TRH223B.228B）", "specification":"【8インチディスプレイオーディオ付車】"},
+                    {"model_name":"ハイエースバン 　R8/2～　(GDH201V.211K.201K.221K.206V.216K.206K.226K.TRH200V.211K.200K）", "specification":"【8インチディスプレイオーディオPlus付車】【8インチディスプレイオーディオ付車】"},
+                    {"model_name":"ハイエースワゴン 　R8/2～　(TRH224W.214W.229W.219W223B.228B）", "specification":"【8インチディスプレイオーディオPlus付車】【8インチディスプレイオーディオ付車】"}],
+    "brand": ["トヨタ"],
+    "body": [
+    { "type":"html", "content": "<p><b>DVD/CDプレーヤー<span style=\"color: blue;\"><a href=\"/html/products/AV_ACCESSORY/cdv/cdv01.htm\" target=\"_blank\">『AV-CDV01』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年2月13日",
+    "type": "適合情報",
+    "product": ["FreeTVing"],
+    "car_models": [ {"model_name":"ハイエースコミューター 　R8/2～　(GDH223B.TRH223B.228B）", "specification":"【8インチディスプレイオーディオ付車】"},
+                    {"model_name":"ハイエースバン 　R8/2～　(GDH201V.211K.201K.221K.206V.216K.206K.226K.TRH200V.211K.200K）", "specification":"【8インチディスプレイオーディオPlus付車】【8インチディスプレイオーディオ付車】"},
+                    {"model_name":"ハイエースワゴン 　R8/2～　(TRH224W.214W.229W.219W223B.228B）", "specification":"【8インチディスプレイオーディオPlus付車】【8インチディスプレイオーディオ付車】"}],
+    "brand": ["トヨタ"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-111AS』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-111ASC』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing ｽﾃｱﾘﾝｸﾞｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-111AST』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年2月13日",
+    "type": "適合情報",
+    "product": ["FreeTVing"],
+    "car_models": [ 
+      {"model_name":"セレナ e-Power含む　R8/2～　（C28.FC28.GC28.GFC28）", "specification":"【NissanConnectインフォテイメントシステム(12.3インチ）付車】"}
+    ],
+    "brand": ["ニッサン"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-206S』</a></span></b></p>", "align": "right"} 
+    ]
+  },
+  {
+    "date": "2026年2月9日",
+    "type": "新製品情報",
+    "product": ["MAGICONE ≪HDMIタイプE/HDMIタイプA≫変換ハーネス"],
+    "brand": [],
+    "body": [
+      { "type": "image", "url": "/images/slide_banner/AV-DH08_250-600.webp", "alt": "HDMI変換ハーネス"},
+      { "type": "html", "content": "<span style=\"color: red;\"\"font-size: 1.1rem;\">【2025年2月9日 販売開始】</spam>", "align": "center"},
+      { "type": "html", "content": "<span style=\"font-size:0.8em;\">【ＨＤＭＩタイプＥ端子】機器と【ＨＤＭＩタイプＡ端子】機器を接続できます。</span>", "align": "right"},
+      { "type":"html", "content": "<p><b>MAGICONE HDMIハーネス<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/VTR_H/av-dh08/av-dh08.htm\" target=\"_blank\">『AV-DH08』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年1月26日",
+    "type": "適合情報",
+    "product": ["FreeTVing"], "car_models": [{"model_name":"N-ONE e:　R7/9～　（JG5）"}],
+    "brand": ["ホンダ"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing ｵｰﾄﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『FFT-236』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『MS-236』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年1月26日",
+    "type": "適合情報",
+    "product": ["MAGICONE バックカメラ接続ユニット"], 
+    "car_models": [{"model_name":"アルト　R7/8～　（HA97S）","specification":"【キーレスプッシュスタート + 全方位モニター用カメラパッケージ装着車】"}, 
+                   {"model_name":"ラパン　R7/9～　（HE93S）　","specification":"【全方位モニター用カメラパッケージ装着車】"}
+                  ],
+    "brand": ["スズキ"],
+    "body": [
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c58/av-c58.htm\" target=\"_blank\">『AV-C58』</a></span></b></p>", "align": "right"}
+    ]
+  },  
+    {
+    "date": "2026年1月7日",
+    "type": "適合情報",
+    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"N-ONE　R7/11～　（JG3 4）"}],
+    "brand": ["ホンダ"],
+    "body": [
+      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/CAR_ACCESSORY/swc-exc/swc-h006/swc-h006.htm\" target=\"_blank\">『SWC-H006』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年1月7日",
+    "type": "適合情報",
+    "product": ["FreeTVing"], "car_models": [{"model_name":"GT-R　H28/8～R7/8　（R35）","specification":"【2025モデル含む】"}],
+    "brand": ["ニッサン"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『FFT-220』</a></span></b></p>", "align": "right"}
     ]
   },
   {
     "date": "2025年12月8日",
     "type": "適合情報",
     "product": ["MAGICONE バックカメラ接続ユニット"], "car_models": [
-      {"model_name":"プロボックスバン　R7/12～　（NCP160V165V）","specification":"【バックモニター内蔵自動防眩インナーミラー付車】"},
+      {"model_name":"プロボックスバン　R7/12～　（NCP160V 165V）","specification":"【バックモニター内蔵自動防眩インナーミラー付車】"},
       {"model_name":"プロボックスバンハイブリッド　R7/12～　（NHP160V）","specification":"【バックモニター内蔵自動防眩インナーミラー付車】"}],
     "brand": ["トヨタ"],
     "body": [
@@ -36,7 +248,7 @@
     "date": "2025年12月8日",
     "type": "適合情報",
     "product": ["MAGICONE バックカメラ接続ユニット"], "car_models": [
-      {"model_name":"プロボックスバン　R7/12～　（NCP160V165V）","specification":"【バックモニター内蔵自動防眩インナーミラー付 + 「NMZK-W75DE」装着車】"},
+      {"model_name":"プロボックスバン　R7/12～　（NCP160V 165V）","specification":"【バックモニター内蔵自動防眩インナーミラー付 + 「NMZK-W75DE」装着車】"},
       {"model_name":"プロボックスバンハイブリッド　R7/12～　（NHP160V）","specification":"【バックモニター内蔵自動防眩インナーミラー付 + 「NMZK-W75DE」装着車】"}],
     "brand": ["トヨタ"],
     "body": [
@@ -78,7 +290,8 @@
         {"model_name":" DJ1 ","specification":"【9インチディスプレイオーディオ】"}],
     "brand": ["ニッサン"],
     "body": [
-      { "type":"html", "content": "<p><b>FreeTVing<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『FFT-225』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing ｵｰﾄﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『FFT-225』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『MS-225』</a></span></b></p>", "align": "right"},
       { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ハーネス<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c55/av-c55.htm\" target=\"_blank\">『AV-C55』</a></span></b></p>", "align": "right"}
     ]
   },
@@ -139,7 +352,7 @@
     "product": ["カーアダプター"],
     "brand": [],
     "body": [
-      { "type": "image", "url": "/images/slide_banner/AV-CHA01_250-600.jpg", "alt": "カーHDMIアダプター"},
+      { "type": "image", "url": "/images/slide_banner/AV-CHA01_250-600.webp", "alt": "カーHDMIアダプター"},
       { "type": "html", "content": "<span style=\"color: red;\"\"font-size: 1.1rem;\">【2025年11月17日 販売開始】</spam>", "align": "center"},
       { "type": "html", "content": "車両のUSBポートに接続するだけで<br>CarPlay対応ディスプレイオーディオやナビゲーションでHDMI機器が楽しめる。"},
       { "type": "html", "content": "<p><b>カーHDMIアダプター<span style=\"color: blue;\"><a href=\"/html/products/AV_ACCESSORY/cha/cha01.htm\" target=\"_blank\">『AV-CHA01』</a></span></b></p>", "align": "right"}
@@ -166,10 +379,10 @@
       {"model_name":"ルークス　R7/11～　（BB1A　BB2A　BB5A　BB6A）",
     "specification":"FreeTVing【NissanConnectインフォテイメントシステム（12.3インチ）付車】"},
       {"model_name":"ルークス　R7/11～　（BB1A BB5A）",
-    "specification":"MAGICONE【オーディオレス+ディスプレイ付自動防眩インナーミラー+インテリジェントアラウンドビューモニター装着車】"}],
+    "specification":"MAGICONE【ｵｰﾃﾞｨｵﾚｽ+ﾃﾞｨｽﾌﾟﾚｲ付自動防眩ｲﾝﾅｰﾐﾗｰ+ｲﾝﾃﾘｼﾞｪﾝﾄｱﾗｳﾝﾄﾞﾋﾞｭｰﾓﾆﾀｰ装着車】"}],
     "brand": ["ニッサン"],
     "body": [
-      { "type":"html", "content": "<p><b>FreeTVing ｵｰﾄﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-206S』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-206S』</a></span></b></p>", "align": "right"},
       { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c13/av-c13.htm\" target=\"_blank\">『AV-C13』</a></span></b></p>", "align": "right"},
       { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c13fa/av-c13fa.htm\" target=\"_blank\">『AV-C13FA』</a></span></b></p>", "align": "right"}
     ]
@@ -182,13 +395,14 @@
     "brand": ["ニッサン"],
     "body": [
       { "type":"html", "content": "<p><b>FreeTVing ｵｰﾄﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『FFT-225』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『MS-225』</a></span></b></p>", "align": "right"},
       { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ハーネス<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c55/av-c55.htm\" target=\"_blank\">『AV-C55』</a></span></b></p>", "align": "right"}
     ]
   },
   {
     "date": "2025年11月7日",
     "type": "新製品情報",
-    "product": ["FreeTVing/TELENAVing"],
+    "product": ["FreeTVing"],
     "car_models": [ 
       {"model_name":"エクストレイル　R7/10～　（T33 SNT33）"}
     ],
@@ -793,7 +1007,7 @@
     "product": ["DVD/CDプレーヤー"],
     "brand": [],
     "body": [
-      { "type": "image", "url": "/images/slide_banner/AV-CDV01_250-600.jpg", "alt": "dvd/cdプレイヤー"},
+      { "type": "image", "url": "/images/slide_banner/AV-CDV01_250-600.webp", "alt": "dvd/cdプレイヤー"},
       { "type": "html", "content": "車両のUSBポートに接続するだけで<br>純正ディスプレイオーディオでCD/DVDが楽しめる。<br>薄型・軽量のポータブルプレーヤー"},
       { "type":"html", "content": "<p><b>DVD/CDプレーヤー<span style=\"color: blue;\"><a href=\"/html/products/AV_ACCESSORY/cdv/cdv01.htm\" target=\"_blank\">『AV-CDV01』</a></span></b></p>", "align": "right"}
     ]
@@ -915,14 +1129,13 @@
   {
     "date": "2024年7月19日",
     "type": "適合情報",
-    "product": ["MAGICONE バックカメラ接続ユニット（カメラ視点固定式/カメラ切替式） / ステアリングスイッチ切替ユニット"], 
+    "product": ["MAGICONE バックカメラ接続ユニット（カメラ視点固定式/カメラ切替式）"], 
     "car_models": [{"model_name":"ヴェゼル　R6/5～　（RV3.4）","specification":"ﾅﾋﾞ装着用ｽﾍﾟｼｬﾙﾊﾟｯｹｰｼﾞ付車"}, 
     {"model_name":"ヴェゼル e:HEV　R6/5～　（RV5.6）","specification":"ﾅﾋﾞ装着用ｽﾍﾟｼｬﾙﾊﾟｯｹｰｼﾞ付車"}],
     "brand": ["ホンダ"],
     "body": [
       { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c61/av-c61.htm\" target=\"_blank\">『AV-C61』</a></span>(カメラ視点固定式)</b></p>", "align": "right"},
-      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c62/av-c62.htm\" target=\"_blank\">『AV-C62』</a></span>(カメラ視点切替式)</b></p>", "align": "right"},
-      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/swc-h006/swc-h006.htm\" target=\"_blank\">『SWC-H006』</a></span>(カメラ視点切替式)</b></p>", "align": "right"}
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c62/av-c62.htm\" target=\"_blank\">『AV-C62』</a></span>(カメラ視点切替式)</b></p>", "align": "right"}
     ]
   },
   {
@@ -1094,15 +1307,6 @@
   {
     "date": "2024年4月9日",
     "type": "適合情報",
-    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"WR-V　R6/3～　（DG5）"}],
-    "brand": ["ホンダ"],
-    "body": [
-      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/swc-h006/swc-h006.htm\" target=\"_blank\">『SWC-H006』</a></span></b></p>", "align": "right"}
-    ]
-  },
-  {
-    "date": "2024年4月9日",
-    "type": "適合情報",
     "product": ["FreeTVing『ホンダ　ディーラーオプション』"], 
     "car_models": [
       {"model_name":"ホンダディーラーオプション　2024年モデルナビゲーション","specification":"LXM-242ZFNi （9インチHonda CONNECTナビ）"},
@@ -1218,17 +1422,6 @@
     "brand": ["ミツビシ"],
     "body": [
       { "type":"html", "content": "<p><b>FreeTVing<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『ミツビシ　ディーラーオプション』</a></span></b></p>", "align": "right"}
-    ]
-  },
-  {
-    "date": "2024年2月16日",
-    "type": "新製品情報",
-    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [
-      {"model_name":"ステップワゴン / ステップワゴンe:HEV　R4/6～　（RP6.7.8）"},
-      {"model_name":"N-BOX　R5/10～　（JF5.6）"}],
-    "brand": ["ホンダ"],
-    "body": [
-      { "type":"html", "content": "<p><bステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/swc-h006/swc-h006.htm\" target=\"_blank\">『SWC-H006』</a></span></b></p>", "align": "right"}
     ]
   },
   {
@@ -1525,7 +1718,7 @@
     "brand": ["トヨタ"],
     "body": [
       { "type": "html", "content": "USBポートとHDMIポートを手の届く場所へ移設できる延長ケーブル<br>車両ＵＳＢパネルにＨＤＭＩ機能をプラス、ＨＤＭＩ-ＡtoＥタイプケーブル付属で<br>ＨＤＭＩ-Ｅタイプ対応ナビゲーションへダイレクト接続が可能。<br>純正のような見た目と使い心地。"},
-      { "type":"html", "content": "<p><b>MAGICONE HDMIハーネス（トヨタUSBパネルタイプ）<span style=\"color: blue;\"><a href=\"/html/products/eophzt/eophz.htm\" target=\"_blank\">『EOP-HZ02TU』</a></span></b></p>", "align": "right"}
+      { "type":"html", "content": "<p><b>MAGICONE HDMIハーネス（トヨタUSBパネルタイプ）<span style=\"color: blue;\"><a href=\"/html/products/HDMI_USB/eophzt/eophz.htm\" target=\"_blank\">『EOP-HZ02TU』</a></span></b></p>", "align": "right"}
     ]
   },
   {
@@ -1757,15 +1950,6 @@
     ]
   },
   {
-    "date": "2023年5月1日",
-    "type": "適合情報",
-    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"エクストレイル　R4/8～　（T33.SNT33）"}],
-    "brand": ["ニッサン"],
-    "body": [
-      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/swc-n005/swc-n005.htm\" target=\"_blank\">『SWC-N005』</a></span></b></p>", "align": "right"}
-    ]
-  },
-  {
     "date": "2023年4月19日",
     "type": "適合情報",
     "product": ["MAGICONE バックカメラ接続ユニット"], "car_models": [{"model_name":"セレナ　e-Power　R5/1～　（GC28.GFC28）","specification":"【インテリジェントアラウンドビューモニター装着車】"}],
@@ -1774,16 +1958,6 @@
       { "type": "html", "content": "インテリジェントアラウンドビューモニター映像を市販ナビゲーションに出力","align":"right"},
       { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c13/av-c13.htm\" target=\"_blank\">『AV-C13』</a></span></b></p>", "align": "right"},
       { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c13fa/av-c13fa.htm\" target=\"_blank\">『AV-C13FA』</a></span></b></p>", "align": "right"}
-    ]
-  },
-  {
-    "date": "2023年4月19日",
-    "type": "適合情報",
-    "product": ["ステアリングスイッチ切替ユニット"], "car_models": [{"model_name":"セレナ　R5/1～　（C28.FC28）"},
-     {"model_name":"セレナ　e-Power　（GC28.GFC28）　R5/1～"}],
-    "brand": ["ニッサン"],
-    "body": [
-      { "type":"html", "content": "<p><b>ステアリングスイッチ切替ユニット<span style=\"color: blue;\"><a href=\"/html/products/swc-n005/swc-n005.htm\" target=\"_blank\">『SWC-N005』</a></span></b></p>", "align": "right"}
     ]
   },
   {

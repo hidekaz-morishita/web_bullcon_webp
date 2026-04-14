@@ -1,7 +1,7 @@
 // match.js
 import { renderForm } from './form_ui.js';
 import { setupEventListeners } from './event_handler.js';
-import { exportTableToPdf } from './result_table_exporter.js'; 
+import { exportTableToPdf, generatePdfPreviewUrl } from './result_table_exporter.js';
 import { getCompatibilityData } from './match_api_client.js';
 
 const CAR_MODEL_API = '../../api/web_page/get_car_model.php';
@@ -36,12 +36,113 @@ document.addEventListener('DOMContentLoaded', async() => {
     setupEventListeners();
 
     // 適合結果テーブルのPDF出力ボタンのイベント処理
-    const exportButton = document.getElementById('export-pdf-button');
-    
-    if (exportButton) {
+    const exportButton    = document.getElementById('export-pdf-button');
+    const pdfDialog       = document.getElementById('pdf-export-dialog');
+    const pdfDialogCancel = document.getElementById('pdf-dialog-cancel');
+    const pdfDialogPreview = document.getElementById('pdf-dialog-preview');
+    const pdfDialogSave   = document.getElementById('pdf-dialog-save');
+    const pdfPreviewFrame = document.getElementById('pdf-preview-frame');
+    const pdfPreviewLoading = document.getElementById('pdf-preview-loading');
+
+    let currentPreviewUrl = null; // 現在のプレビューBlobURL（不要になったら解放する）
+
+    /** モーダルを閉じ、プレビュー状態をリセットする */
+    const closePdfDialog = () => {
+        pdfDialog.close();
+        pdfDialog.classList.remove('preview-active');
+        pdfPreviewFrame.src = '';
+        _removeStaleOverlay();
+        if (currentPreviewUrl) {
+            URL.revokeObjectURL(currentPreviewUrl);
+            currentPreviewUrl = null;
+        }
+    };
+
+    /** staleオーバーレイを追加する（設定変更後にプレビューが古いことを示す） */
+    const _showStaleOverlay = () => {
+        const wrapper = document.getElementById('pdf-preview-frame-wrapper');
+        if (!wrapper || wrapper.querySelector('.pdf-preview-stale')) return;
+        const overlay = document.createElement('div');
+        overlay.className = 'pdf-preview-stale';
+        overlay.innerHTML = '<span class="pdf-preview-stale-icon">&#8635;</span><span>設定が変更されました。<br>「プレビュー」ボタンで更新してください。</span>';
+        wrapper.appendChild(overlay);
+    };
+
+    /** staleオーバーレイを削除する */
+    const _removeStaleOverlay = () => {
+        const wrapper = document.getElementById('pdf-preview-frame-wrapper');
+        wrapper?.querySelector('.pdf-preview-stale')?.remove();
+    };
+
+    if (exportButton && pdfDialog) {
+
+        // ボタン押下でモーダルを開く
         exportButton.addEventListener('click', () => {
-            // PDF出力処理を別ファイルに委譲
-            exportTableToPdf('result');
+            pdfDialog.showModal();
+        });
+
+        // キャンセルでモーダルを閉じる
+        pdfDialogCancel.addEventListener('click', closePdfDialog);
+
+        // Escキーでモーダルを閉じた場合もリセット
+        pdfDialog.addEventListener('close', () => {
+            pdfDialog.classList.remove('preview-active');
+            pdfPreviewFrame.src = '';
+            _removeStaleOverlay();
+            if (currentPreviewUrl) {
+                URL.revokeObjectURL(currentPreviewUrl);
+                currentPreviewUrl = null;
+            }
+        });
+
+        // 設定変更時にstaleオーバーレイを表示
+        pdfDialog.addEventListener('change', () => {
+            if (pdfDialog.classList.contains('preview-active')) {
+                _showStaleOverlay();
+            }
+        });
+
+        // 「プレビュー」ボタン
+        pdfDialogPreview.addEventListener('click', async () => {
+            const orientation = document.querySelector('input[name="pdf-orientation"]:checked')?.value || 'landscape';
+            const format = document.getElementById('pdf-format-select')?.value || 'a4';
+
+            // プレビューパネルを展開してローディング表示
+            pdfDialog.classList.add('preview-active');
+            pdfPreviewFrame.src = '';
+            _removeStaleOverlay();
+            pdfPreviewLoading.style.display = 'flex';
+            pdfDialogPreview.disabled = true;
+
+            // 前のBlobURLを解放
+            if (currentPreviewUrl) {
+                URL.revokeObjectURL(currentPreviewUrl);
+                currentPreviewUrl = null;
+            }
+
+            try {
+                const blobUrl = await generatePdfPreviewUrl('result', { orientation, format });
+                currentPreviewUrl = blobUrl;
+                pdfPreviewFrame.src = blobUrl;
+            } catch (error) {
+                console.error('プレビュー生成エラー:', error);
+            } finally {
+                pdfPreviewLoading.style.display = 'none';
+                pdfDialogPreview.disabled = false;
+            }
+        });
+
+        // 「PDFを保存」ボタン
+        pdfDialogSave.addEventListener('click', async () => {
+            const orientation = document.querySelector('input[name="pdf-orientation"]:checked')?.value || 'landscape';
+            const format = document.getElementById('pdf-format-select')?.value || 'a4';
+            const rawFilename = document.getElementById('pdf-filename-input')?.value.trim() || 'compatibility_result';
+
+            closePdfDialog();
+
+            pdfDialogSave.disabled = true;
+            await exportTableToPdf('result', { orientation, format, filename: rawFilename });
+            pdfDialogSave.disabled = false;
         });
     }
 });

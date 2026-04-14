@@ -415,3 +415,342 @@ label {
         font-size: var(--font-size-mobile-table);
     }
 }
+
+/* ========================================= */
+/* PDF保存設定モーダル                         */
+/* ========================================= */
+
+/* --- ダイアログ本体 --- */
+#pdf-export-dialog {
+    border: none;
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+    max-width: 440px;
+    width: 90%;
+    /* プレビュー展開時のアニメーション */
+    transition: max-width 0.3s ease;
+    overflow: hidden; /* border-radiusをiframeに適用するため */
+}
+
+#pdf-export-dialog.preview-active {
+    max-width: 960px;
+    width: 96vw;
+}
+
+#pdf-export-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(2px);
+}
+
+/* --- 内部Flex構造 --- */
+.pdf-dialog-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+.pdf-dialog-title {
+    margin: 0;
+    padding: 18px 24px 15px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: var(--color-accent-2);
+    border-bottom: 1px solid #e9ecef;
+    flex-shrink: 0;
+}
+
+/* 設定列とプレビュー列を横並びにするコンテナ */
+.pdf-dialog-content {
+    display: flex;
+    min-height: 0;
+}
+
+/* --- 左: 設定パネル --- */
+.pdf-dialog-settings {
+    width: 380px;
+    min-width: 340px;
+    flex-shrink: 0;
+}
+
+.pdf-dialog-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 24px;
+}
+
+.pdf-dialog-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pdf-dialog-label {
+    display: block;
+    font-weight: bold;
+    font-size: var(--font-size-caption);
+    color: var(--color-body-text);
+    margin-bottom: 0;
+}
+
+/* 向き選択: カード型ラジオボタン */
+.pdf-orientation-options {
+    display: flex;
+    gap: 10px;
+}
+
+.pdf-radio-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    padding: 10px 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: var(--font-size-caption);
+    font-weight: normal;
+    color: var(--color-body-text);
+    transition: border-color 0.2s, background-color 0.2s;
+    user-select: none;
+}
+
+.pdf-radio-label:has(input:checked) {
+    border-color: var(--color-submit-button);
+    background-color: rgba(0, 123, 255, 0.06);
+}
+
+.pdf-radio-label input[type="radio"] {
+    display: none;
+}
+
+.pdf-radio-icon {
+    font-size: 1.1rem;
+}
+
+/* 用紙サイズ選択 */
+.pdf-dialog-select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-background-border);
+    border-radius: 8px;
+    font-size: var(--font-size-body-text);
+    color: var(--color-body-text);
+    background-color: #fcfcfc;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.pdf-dialog-select:focus {
+    outline: none;
+    border-color: var(--color-submit-button);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+/* ファイル名入力 */
+.pdf-filename-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-background-border);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fcfcfc;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pdf-filename-wrapper:focus-within {
+    border-color: var(--color-submit-button);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+.pdf-dialog-input {
+    flex: 1;
+    padding: 10px 12px;
+    border: none;
+    outline: none;
+    font-size: var(--font-size-body-text);
+    color: var(--color-body-text);
+    background: transparent;
+    box-sizing: border-box;
+}
+
+.pdf-filename-ext {
+    padding: 10px 12px 10px 4px;
+    font-size: var(--font-size-body-text);
+    color: #868e96;
+    white-space: nowrap;
+    user-select: none;
+}
+
+/* --- 右: プレビューパネル --- */
+.pdf-preview-panel {
+    display: none; /* 初期非表示 */
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    border-left: 1px solid #e9ecef;
+}
+
+/* preview-activeクラスで展開 */
+#pdf-export-dialog.preview-active .pdf-preview-panel {
+    display: flex;
+}
+
+.pdf-preview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    flex-shrink: 0;
+}
+
+.pdf-preview-title {
+    font-weight: bold;
+    font-size: var(--font-size-caption);
+    color: var(--color-body-text);
+}
+
+.pdf-preview-note {
+    font-size: 0.72rem;
+    color: #adb5bd;
+}
+
+/* iframeを囲むラッパー（ローディングオーバーレイの基点） */
+.pdf-preview-frame-wrapper {
+    flex: 1;
+    position: relative;
+    min-height: 420px;
+    background: #dee2e6;
+}
+
+#pdf-preview-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* ローディングオーバーレイ */
+.pdf-preview-loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background: rgba(248, 249, 250, 0.92);
+    color: var(--color-body-text);
+    font-size: var(--font-size-caption);
+    z-index: 10;
+}
+
+/* 設定変更後のstaleオーバーレイ */
+.pdf-preview-stale {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.82);
+    color: #6c757d;
+    font-size: var(--font-size-caption);
+    text-align: center;
+    padding: 20px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.pdf-preview-stale-icon {
+    font-size: 2rem;
+    opacity: 0.6;
+}
+
+/* スピナーアニメーション */
+.pdf-preview-spinner {
+    width: 34px;
+    height: 34px;
+    border: 3px solid #dee2e6;
+    border-top-color: var(--color-submit-button);
+    border-radius: 50%;
+    animation: pdf-spin 0.75s linear infinite;
+}
+
+@keyframes pdf-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* --- フッターボタン --- */
+.pdf-dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 14px 24px 18px;
+    border-top: 1px solid #e9ecef;
+    flex-shrink: 0;
+}
+
+.pdf-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: var(--font-size-body-text);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.pdf-btn:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+.pdf-btn-cancel {
+    background-color: #e9ecef;
+    color: var(--color-body-text);
+}
+
+.pdf-btn-cancel:hover {
+    background-color: #dee2e6;
+}
+
+.pdf-btn-preview {
+    background-color: #f1f3f5;
+    color: var(--color-body-text);
+    border: 1px solid #ced4da;
+}
+
+.pdf-btn-preview:hover:not(:disabled) {
+    background-color: #e9ecef;
+}
+
+.pdf-btn-preview:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.pdf-btn-save {
+    background-color: var(--color-submit-button);
+    color: #fff;
+}
+
+.pdf-btn-save:hover:not(:disabled) {
+    background-color: var(--color-submit-button-hovar);
+}
+
+.pdf-btn-save:disabled {
+    background-color: var(--color-disabled-button);
+    cursor: not-allowed;
+}
+

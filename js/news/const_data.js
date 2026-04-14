@@ -9,10 +9,12 @@ export const BRAND_STYLE = {
     'スズキ': { color: '#00A0E9', borderColor: '#00A0E9' },
     'ダイハツ': { color: '#0065B3', borderColor: '#0065B3' },
     'マツダ': { color: '#B31E27', borderColor: '#B31E27' }, 
-    'イスズ': { color: '#CC0000', borderColor: '#CC0000' }, 
+    'イスズ': { color: '#CC0000', borderColor: '#CC0000' },
+    '日野': { color: '#C0C0C0', borderColor: '#C0C0C0' }, 
 };
 
 export const NEWS_TYPE_STYLE = {
     '新製品情報': { color: '#FF8C00', borderColor: '#FF8C00' }, // オレンジ
     '適合情報': { color: '#6A5ACD', borderColor: '#6A5ACD' }, // スレートブルー
+    '適合追加情報': { color: '#483D8B', borderColor: '#483D8B' }, // ダークスレートブルー
 };
