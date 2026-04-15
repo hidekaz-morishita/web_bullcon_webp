@@ -35,3 +35,4 @@ return [
     // クリーンアップの実行確率（100リクエストに1回）
     'cleanup_probability' => 100,
 ];
+
