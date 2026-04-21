@@ -416,7 +416,11 @@
             "id": "magicone_op_parts",
             "name": "マジコネオプションパーツ",
             "short_description": "マジコネ用オプションパーツです。",
+<<<<<<< HEAD
             "image_path": "/images/products/magicone_op_parts.webp",
+=======
+            "image_path": "/images/products/magicone_op_parts.jpg",
+>>>>>>> target/fix
             "main_page": {
               "url": "/html/products/MAGICONE/magicone.htm?op_parts"
             },
@@ -442,7 +446,11 @@
             "id": "Smartphone Mirroring cable",
             "name": "スマートフォンミラーリングケーブル",
             "short_description": "スマートフォンと車両のHDMIポートに接続するだけでスマートフォンの映像をミラーリング出来る。",
+<<<<<<< HEAD
             "image_path": "/images/products/av-hmc01.webp",
+=======
+            "image_path": "/images/products/av-hmc01.jpg",
+>>>>>>> target/fix
             "main_page": {
               "url": "/html/products/AV_ACCESSORY/hmc/hmc01.htm"
             },
@@ -728,7 +736,11 @@
             "id": "led_sw",
             "name": "小型LEDスイッチ",
             "short_description": "対応製品に付属の「サービスホールスイッチ」を「小型LEDスイッチ」へ変更できます。",
+<<<<<<< HEAD
             "image_path": "/images/products/small_led_switch.webp",
+=======
+            "image_path": "/images/products/small_led_switch.jpg",
+>>>>>>> target/fix
             "main_page": {
               "url": "/html/products/CAR_ACCESSORY/led_sw/led_sw.htm"
             },
@@ -1105,7 +1117,11 @@
             "id": "av_dh08",
             "name": "HDMI Type-Aハーネス",
             "short_description": "【ＨＤＭＩタイプＥ端子】機器と【ＨＤＭＩタイプＡ端子】機器を接続できます。",
+<<<<<<< HEAD
             "image_path": "/images/products/hdmi_type-ae.webp",
+=======
+            "image_path": "/images/products/hdmi_type-ae.jpg",
+>>>>>>> target/fix
             "main_page": {
               "url": "/html/products/MAGICONE/VTR_H/av-dh08/av-dh08.htm?type-e"
             },

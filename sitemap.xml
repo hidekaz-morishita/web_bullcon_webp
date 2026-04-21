@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.fuji-denki.co.jp/</loc><priority>1.0</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/topics/topics.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/conformity/conformity.html</loc><priority>1.0</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/manual/manual.html</loc><priority>0.9</priority></url>
+
+  <url><loc>https://www.fuji-denki.co.jp/html/products/TVing/TVing.html</loc><priority>0.9</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/TVing/tving_auto.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/TVing/tving_switch.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/TVing/tving_tele.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/TVing/tving_tele_sd.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/TVing/tving_tele_da.html</loc><priority>0.7</priority></url>
+
+  <url><loc>https://www.fuji-denki.co.jp/html/products/MAGICONE/magicone.html</loc><priority>0.9</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/MAGICONE/av-c.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/MAGICONE/av-v.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/MAGICONE/av-r.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/MAGICONE/av-dh.html</loc><priority>0.7</priority></url>
+
+  <url><loc>https://www.fuji-denki.co.jp/html/products/CAR_ACCESSORY/car_accessory.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/CAR_ACCESSORY/light_crew/light_crew.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/CAR_ACCESSORY/door_mirror/door_mirror.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/CAR_ACCESSORY/speed_auto_lock/speed_auto_lock.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/CAR_ACCESSORY/answer_system/answer_system.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/CAR_ACCESSORY/one_touch/one_touch.html</loc><priority>0.7</priority></url>
+
+  <url><loc>https://www.fuji-denki.co.jp/html/products/LED_BULB/led_bulb.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/LED_BULB/led_bulb_revo/led_bulb_revo.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/LED_BULB/super_led_roomlamp/super_led_roomlamp.html</loc><priority>0.7</priority></url>
+
+  <url><loc>https://www.fuji-denki.co.jp/html/products/AV_ACCESSORY/av_accessory.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/CAMERA/camera.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/MONITOR/monitor.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/HDMI_USB/hdmi_usb.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/products/OPTION/option.html</loc><priority>0.6</priority></url>
+
+  <url><loc>https://www.fuji-denki.co.jp/html/company/company.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/contact/contact.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/recruit/recruit.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/site_map/site_map.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/privacy_policy/privacy_policy.html</loc><priority>0.3</priority></url>
+  <url><loc>https://www.fuji-denki.co.jp/html/tsuhan/tsuhan_houki.html</loc><priority>0.3</priority></url>
+</urlset>

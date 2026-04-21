@@ -89,6 +89,7 @@ export const PRODUCTS_DATA = {
                         label: 'モニター情報', subHeaders: [
                             { key: 'year', label: 'モデル年' },
                             { key: 'monitor_number', label: 'モニター型番' },
+                            { key: 'maker', label: 'メーカー' },
                             { key: 'specification', label: '特徴' },
                         ]
                     },
@@ -197,6 +198,7 @@ export const PRODUCTS_DATA = {
                         label: '車両情報', subHeaders: [
                             { key: 'year', label: 'モデル年' },
                             { key: 'monitor_number', label: 'モニター型番' },
+                            { key: 'maker', label: 'メーカー' },
                             { key: 'specification', label: '仕様' },
                         ]
                     },
@@ -278,6 +280,7 @@ export const PRODUCTS_DATA = {
                         label: '車両情報', subHeaders: [
                             { key: 'year', label: 'モデル年' },
                             { key: 'monitor_number', label: 'モニター型番' },
+                            { key: 'maker', label: 'メーカー' },
                             { key: 'specification', label: '仕様' },
                         ]
                     },
@@ -409,6 +412,7 @@ export const PRODUCTS_DATA = {
                         label: '車両情報', subHeaders: [
                             { key: 'year', label: 'モデル年' },
                             { key: 'monitor_number', label: 'モニター型番' },
+                            { key: 'maker', label: 'メーカー' },
                             { key: 'specification', label: '仕様' },
                         ]
                     },
@@ -507,6 +511,7 @@ export const PRODUCTS_DATA = {
                         label: '車両情報', subHeaders: [
                             { key: 'year', label: 'モデル年' },
                             { key: 'monitor_number', label: 'モニター型番' },
+                            { key: 'maker', label: 'メーカー' },
                             { key: 'specification', label: '仕様' },
                         ]
                     },

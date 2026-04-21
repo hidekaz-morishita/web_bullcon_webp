@@ -1,5 +1,6 @@
 [
   {
+<<<<<<< HEAD
     "date": "2026年4月21日",
     "type": "適合情報",
     "product": ["FreeTVing"], "car_models": [
@@ -107,6 +108,21 @@
     ]
   },
   {
+=======
+    "date": "2026年3月10日",
+    "type": "適合情報",
+    "product": ["MAGICONE バックカメラ接続ユニット"],
+    "car_models": [ 
+      {"model_name":"セレナ（e-Power除く）　改良後　R8/2～　（C28　FC28）","specification":"【オーディオレス+インテリジェントアラウンドビューモニター装着車】"},
+      {"model_name":"セレナ　e-Power　改良後　R8/2～　（GC28　GFC28）","specification":"【オーディオレス+インテリジェントアラウンドビューモニター装着車】"}],
+    "brand": ["ニッサン"],
+    "body": [
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c13/av-c13.htm\" target=\"_blank\">『AV-C13』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c13fa/av-c13fa.htm\" target=\"_blank\">『AV-C13FA』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+>>>>>>> target/fix
     "date": "2026年3月9日",
     "type": "適合追加情報",
     "product": ["MAGICONE バックカメラ接続ユニット"], 
@@ -149,7 +165,11 @@
     "product": ["スマートフォン ミラーリングケーブル"],
     "brand": [],
     "body": [
+<<<<<<< HEAD
       { "type": "image", "url": "/images/slide_banner/AV-HMC01_250-600.webp", "alt": "ミラーリングケーブル"},
+=======
+      { "type": "image", "url": "/images/slide_banner/AV-HMC01_250-600.jpg", "alt": "ミラーリングケーブル"},
+>>>>>>> target/fix
       { "type": "html", "content": "<span style=\"color: red;\"\"font-size: 1.1rem;\">【2026年2月24日 販売開始】</spam>", "align": "center"},
       { "type": "html", "content": "<span style=\"font-size:0.8em;\">【ディスプレイオーディオ】や【ナビゲーション】のHDMIポートに接続するだけでスマートフォン画面を車両ディスプレイにミラーリング</span>", "align": "right"},
       { "type":"html", "content": "<p><b>スマートフォンミラーリングケーブル<span style=\"color: blue;\"><a href=\"/html/products/AV_ACCESSORY/hmc/hmc01.htm\" target=\"_blank\">『AV-HMC01』</a></span></b></p>", "align": "right"}
@@ -199,7 +219,11 @@
     "product": ["MAGICONE ≪HDMIタイプE/HDMIタイプA≫変換ハーネス"],
     "brand": [],
     "body": [
+<<<<<<< HEAD
       { "type": "image", "url": "/images/slide_banner/AV-DH08_250-600.webp", "alt": "HDMI変換ハーネス"},
+=======
+      { "type": "image", "url": "/images/slide_banner/AV-DH08_250-600.jpg", "alt": "HDMI変換ハーネス"},
+>>>>>>> target/fix
       { "type": "html", "content": "<span style=\"color: red;\"\"font-size: 1.1rem;\">【2025年2月9日 販売開始】</spam>", "align": "center"},
       { "type": "html", "content": "<span style=\"font-size:0.8em;\">【ＨＤＭＩタイプＥ端子】機器と【ＨＤＭＩタイプＡ端子】機器を接続できます。</span>", "align": "right"},
       { "type":"html", "content": "<p><b>MAGICONE HDMIハーネス<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/VTR_H/av-dh08/av-dh08.htm\" target=\"_blank\">『AV-DH08』</a></span></b></p>", "align": "right"}
@@ -211,7 +235,11 @@
     "product": ["FreeTVing"], "car_models": [{"model_name":"N-ONE e:　R7/9～　（JG5）"}],
     "brand": ["ホンダ"],
     "body": [
+<<<<<<< HEAD
       { "type":"html", "content": "<p><b>FreeTVing ｵｰﾄﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『FFT-236』</a></span></b></p>", "align": "right"},
+=======
+      { "type":"html", "content": "<p><b>FreeTVing<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『FFT-236』</a></span></b></p>", "align": "right"},
+>>>>>>> target/fix
       { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『MS-236』</a></span></b></p>", "align": "right"}
     ]
   },
