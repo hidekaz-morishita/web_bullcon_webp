@@ -31,7 +31,7 @@
     height: auto;
 }
 
-/* Section specific spacers (replacing spacer.gif) */
+/* Section specific spacers (replacing spacer.webp) */
 .spacer-10 {
     height: 10px;
 }
@@ -166,7 +166,7 @@
 .separator-gray-3 {
     height: 3px;
     background-color: #ededed;
-    /* Approximate color from gif context or standard gray spacer */
+    /* Approximate color from.webp context or standard gray spacer */
     border-bottom: 1px solid #ccc;
     /* Optional definition if it was a line */
     width: 100%;
