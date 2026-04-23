@@ -103,7 +103,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-<<<<<<< HEAD
-
-=======
->>>>>>> target/fix

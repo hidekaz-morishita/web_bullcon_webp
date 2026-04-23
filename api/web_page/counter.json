@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "total": 1108030,
     "today": 40,
     "weekly": 283,
@@ -51,16 +50,4 @@
         "118.243.223.166",
         "180.32.253.171"
     ]
-=======
-    "total": 1100422,
-    "today": 0,
-    "weekly": 0,
-    "monthly": 0,
-    "yearly": 0,
-    "last_date": "2026-03-08",
-    "last_week": "2026-10",
-    "last_month": "2026-03",
-    "last_year": "2026",
-    "ips": []
->>>>>>> target/fix
 }
