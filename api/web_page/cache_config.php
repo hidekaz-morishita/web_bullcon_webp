@@ -16,6 +16,9 @@ return [
     // キャッシュファイルの保存先ディレクトリ
     'cache_dir' => __DIR__ . '/../../cache/web_page/',
     
+    // テスト環境用キャッシュディレクトリ
+    'test_cache_dir' => __DIR__ . '/../../web_test/cache/web_page/',
+    
     // 各エンドポイントのTTL設定（秒単位）
     'ttl' => [
         'car_model' => 604800,      // 1週間

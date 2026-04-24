@@ -172,31 +172,38 @@ class CacheManager {
      */
     public static function clear($pattern = null) {
         $config = self::loadConfig();
-        $dir = $config['cache_dir'];
         
-        if (!is_dir($dir)) {
-            return 0;
+        // 処理対象のディレクトリリストを作成
+        $dirs = [$config['cache_dir']];
+        if (!empty($config['test_cache_dir'])) {
+            $dirs[] = $config['test_cache_dir'];
         }
         
-        $count = 0;
-        $files = glob($dir . '*.json');
+        $totalCount = 0;
         
-        foreach ($files as $file) {
-            $basename = basename($file);
-            
-            // .cache_stats.json は削除しない
-            if ($basename === '.cache_stats.json') {
+        foreach ($dirs as $dir) {
+            if (!is_dir($dir)) {
                 continue;
             }
             
-            if ($pattern === null || strpos($basename, $pattern) !== false) {
-                if (@unlink($file)) {
-                    $count++;
+            $files = glob($dir . '*.json');
+            foreach ($files as $file) {
+                $basename = basename($file);
+                
+                // .cache_stats.json は削除しない
+                if ($basename === '.cache_stats.json') {
+                    continue;
+                }
+                
+                if ($pattern === null || strpos($basename, $pattern) !== false) {
+                    if (@unlink($file)) {
+                        $totalCount++;
+                    }
                 }
             }
         }
         
-        return $count;
+        return $totalCount;
     }
     
     /**
@@ -206,41 +213,48 @@ class CacheManager {
      */
     public static function cleanup() {
         $config = self::loadConfig();
-        $dir = $config['cache_dir'];
         
-        if (!is_dir($dir)) {
-            return 0;
+        // 処理対象のディレクトリリストを作成
+        $dirs = [$config['cache_dir']];
+        if (!empty($config['test_cache_dir'])) {
+            $dirs[] = $config['test_cache_dir'];
         }
         
-        $count = 0;
-        $files = glob($dir . '*.json');
+        $totalCount = 0;
         $currentTime = time();
         
-        foreach ($files as $file) {
-            $basename = basename($file);
-            
-            // .cache_stats.json は削除しない
-            if ($basename === '.cache_stats.json') {
+        foreach ($dirs as $dir) {
+            if (!is_dir($dir)) {
                 continue;
             }
             
-            // ファイル名からキャッシュタイプを推測してTTLを取得
-            $ttl = 86400; // デフォルト24時間
-            foreach ($config['ttl'] as $type => $typeTtl) {
-                if (strpos($basename, $type) !== false) {
-                    $ttl = $typeTtl;
-                    break;
+            $files = glob($dir . '*.json');
+            foreach ($files as $file) {
+                $basename = basename($file);
+                
+                // .cache_stats.json は削除しない
+                if ($basename === '.cache_stats.json') {
+                    continue;
                 }
-            }
-            
-            if (self::isExpired($file, $ttl)) {
-                if (@unlink($file)) {
-                    $count++;
+                
+                // ファイル名からキャッシュタイプを推測してTTLを取得
+                $ttl = 86400; // デフォルト24時間
+                foreach ($config['ttl'] as $type => $typeTtl) {
+                    if (strpos($basename, $type) !== false) {
+                        $ttl = $typeTtl;
+                        break;
+                    }
+                }
+                
+                if (self::isExpired($file, $ttl)) {
+                    if (@unlink($file)) {
+                        $totalCount++;
+                    }
                 }
             }
         }
         
-        return $count;
+        return $totalCount;
     }
     
     /**
