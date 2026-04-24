@@ -1,6 +1,4 @@
-*.pdf
-*.webpf
-*.webp
-*.png
-*.jpeg
-*.jpg
+#バイナリもgit管理してしまう
+
+#サーバー生成ファイル群
+/api/web_page/counter.json

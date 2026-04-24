@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     contentWrapper.appendChild(mainTag);
     
     // products_data.jsonから製品データを読み込む
-    fetch('/web_test/html/products/products_data.json')
+    fetch('/html/products/products_data.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const categoryName = document.createElement('strong');
                 categoryName.textContent = category.name;
                 const categoryToggleBtn = document.createElement('img');
-                categoryToggleBtn.src = '/web_test/images/common/right_arrow_icon.png';
+                categoryToggleBtn.src = '/images/common/right_arrow_icon.png';
                 categoryToggleBtn.alt = 'トグル';
                 categoryToggleBtn.className = 'toggle-btn';
                 categoryHeader.appendChild(categoryName);
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (product.sub_pages && product.sub_pages.length > 0) {
                         const productToggleBtn = document.createElement('img');
-                        productToggleBtn.src = '/web_test/images/common/right_arrow_icon.png';
+                        productToggleBtn.src = '/images/common/right_arrow_icon.png';
                         productToggleBtn.alt = 'トグル';
                         productToggleBtn.className = 'toggle-btn sub-toggle-btn';
                         productDiv.appendChild(productToggleBtn);
