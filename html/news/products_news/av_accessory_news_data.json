@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026年4月27日",
+    "type": "適合情報",
+    "product": ["FreeTVing"], "car_models": [
+      {"model_name":"ホンダディーラーオプション　2026年モデルナビゲーション", "specification":"VXM-264ZFEi （8インチHonda CONNECTナビ/ベーシックインターナビ）"}
+    ],
+    "brand": ["ホンダ"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『FFT-236』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『MS-236』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
     "date": "2026年4月24日",
     "type": "適合情報",
     "product": ["FreeTVing"], 
