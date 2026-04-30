@@ -577,7 +577,7 @@
             "id": "fis",
             "name": "フリーアイドリングストップ",
             "short_description": "アイドリングストップ機能のキャンセル操作を自動化します。",
-            "image_path": "/images/products/free_idling_strop.webp",
+            "image_path": "/images/products/free_idling_stop.webp",
             "main_page": {
               "url": "/html/products/CAR_ACCESSORY/fis/fis.htm"
             },
