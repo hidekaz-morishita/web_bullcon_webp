@@ -67,7 +67,7 @@
     "type": "適合情報",
     "product": ["FreeTVing"],
     "car_models": [ 
-      {"model_name":"リーフ　R8/1～　（ZE2）", "specification":"【NissanConnectインフォテイメントシステム(12.3インチ）付車】"}
+      {"model_name":"リーフ　R8/1～　（ZE2）", "specification":"【NissanConnectインフォテイメントシステム(Google搭載12.3インチ）付車】"}
     ],
     "brand": ["ニッサン"],
     "body": [
@@ -224,7 +224,7 @@
     "type": "適合情報",
     "product": ["FreeTVing"],
     "car_models": [ 
-      {"model_name":"セレナ e-Power含む　R8/2～　（C28.FC28.GC28.GFC28）", "specification":"【NissanConnectインフォテイメントシステム(12.3インチ）付車】"}
+      {"model_name":"セレナ e-Power含む　R8/2～　（C28.FC28.GC28.GFC28）", "specification":"【NissanConnectインフォテイメントシステム(Google搭載12.3インチ）付車】"}
     ],
     "brand": ["ニッサン"],
     "body": [
@@ -427,7 +427,7 @@
     "product": ["FreeTVing / MAGICONE バックカメラ接続ハーネス"],
     "car_models": [ 
       {"model_name":"ルークス　R7/11～　（BB1A　BB2A　BB5A　BB6A）",
-    "specification":"FreeTVing【NissanConnectインフォテイメントシステム（12.3インチ）付車】"},
+    "specification":"FreeTVing【NissanConnectインフォテイメントシステム（Googleビルトイン12.3インチ）付車】"},
       {"model_name":"ルークス　R7/11～　（BB1A BB5A）",
     "specification":"MAGICONE【ｵｰﾃﾞｨｵﾚｽ+ﾃﾞｨｽﾌﾟﾚｲ付自動防眩ｲﾝﾅｰﾐﾗｰ+ｲﾝﾃﾘｼﾞｪﾝﾄｱﾗｳﾝﾄﾞﾋﾞｭｰﾓﾆﾀｰ装着車】"}],
     "brand": ["ニッサン"],
@@ -454,7 +454,8 @@
     "type": "新製品情報",
     "product": ["FreeTVing"],
     "car_models": [ 
-      {"model_name":"エクストレイル　R7/10～　（T33 SNT33）"}
+      {"model_name":"エクストレイル　R7/10～　（T33 SNT33）",
+    "specification":"MAGICONE【Google搭載インフォテイメントシステム（12.3インチ）付車】"}      
     ],
     "brand": ["ニッサン"],
     "body": [
