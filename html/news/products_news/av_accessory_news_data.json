@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026年5月7日",
+    "type": "適合情報",
+    "product": ["MAGICONE バックカメラ接続ユニット"], 
+    "car_models": [{"model_name":"ワゴンＲ　R7/12～　（MH95S）","specification":"【全方位モニター用カメラパッケージ・スズキコネクト対応通信機装着車】"}
+                  ],
+    "brand": ["スズキ"],
+    "body": [
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c58/av-c58.htm\" target=\"_blank\">『AV-C58』</a></span></b></p>", "align": "right"}
+    ]
+  }, 
+  {
     "date": "2026年4月27日",
     "type": "適合情報",
     "product": ["FreeTVing"], "car_models": [
