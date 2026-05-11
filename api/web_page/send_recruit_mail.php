@@ -9,13 +9,13 @@
 session_start();
 
 // フォームから送信されたデータの取得
-$naiyou      = isset($_POST['naiyou']) ? $_POST['naiyou'] : '';
-$job_type    = isset($_POST['job_type']) ? $_POST['job_type'] : '';
-$name        = isset($_POST['name']) ? $_POST['name'] : '';
-$kana        = isset($_POST['kana']) ? $_POST['kana'] : '';
-$zip         = isset($_POST['zip']) ? $_POST['zip'] : '';
-$address     = isset($_POST['adress']) ? $_POST['adress'] : ''; // HTML側がadressになっているため合わせる
-$tel         = isset($_POST['tel']) ? $_POST['tel'] : '';
+$naiyou = isset($_POST['naiyou']) ? $_POST['naiyou'] : '';
+$job_type = isset($_POST['job_type']) ? $_POST['job_type'] : '';
+$name = isset($_POST['name']) ? $_POST['name'] : '';
+$kana = isset($_POST['kana']) ? $_POST['kana'] : '';
+$zip = isset($_POST['zip']) ? $_POST['zip'] : '';
+$address = isset($_POST['adress']) ? $_POST['adress'] : ''; // HTML側がadressになっているため合わせる
+$tel = isset($_POST['tel']) ? $_POST['tel'] : '';
 $mailaddress = isset($_POST['mailaddress']) ? $_POST['mailaddress'] : '';
 
 // --- バリデーション ---
@@ -63,7 +63,8 @@ if (!empty($errors)) {
 }
 
 // --- メール送信設定 ---
-$to = 'bullcon_recruit@fuji-denki.co.jp';
+//$to = 'taku-yamaoka@fuji-denki.co.jp'; // 仮のアドレス
+$to = 'bullcon_recruit@fuji-denki.co.jp'; // 本番アドレス
 $subject = "【採用お問い合わせ】{$job_type} / {$name}様より";
 
 $body = "採用お問い合わせフォームより以下の内容で送信されました。\n\n";
@@ -90,7 +91,37 @@ mb_internal_encoding("UTF-8");
 
 // メール送信実行
 if (mb_send_mail($to, $subject, $body, $headers)) {
-    // 成功時：サンクスページへ遷移（本来はファイルを作るが、一旦簡易遷移）
+
+    // --- お客様への自動返信メール ---
+    $auto_subject = "【Bullcon】採用お問い合わせを受け付けました";
+
+    $auto_body = "{$name} 様\n\n";
+    $auto_body .= "この度は採用についてお問い合わせいただきありがとうございます。\n";
+    $auto_body .= "以下の内容で受け付けいたしました。\n\n";
+    $auto_body .= "--------------------------------------------------\n";
+    $auto_body .= "お問い合わせ項目: {$naiyou}\n";
+    $auto_body .= "希望職種: {$job_type}\n";
+    $auto_body .= "お名前: {$name}\n";
+    $auto_body .= "フリガナ: {$kana}\n";
+    $auto_body .= "郵便番号: {$zip}\n";
+    $auto_body .= "ご住所: {$address}\n";
+    $auto_body .= "電話番号: {$tel}\n";
+    $auto_body .= "メールアドレス: {$mailaddress}\n";
+    $auto_body .= "--------------------------------------------------\n\n";
+    $auto_body .= "担当者より改めてご連絡いたしますので、しばらくお待ちください。\n\n";
+    $auto_body .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
+    $auto_body .= "株式会社富士電機株式会社 Bullcon 採用担当\n";
+    $auto_body .= "E-mail: bullcon_recruit@fuji-denki.co.jp\n";
+    $auto_body .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
+    $auto_body .= "※このメールは自動送信されています。このメールへの返信はできません。\n";
+
+    $auto_headers = "From: " . mb_encode_mimeheader("Bullcon採用担当") . " <bullcon_recruit@fuji-denki.co.jp>\r\n";
+    $auto_headers .= "Reply-To: bullcon_recruit@fuji-denki.co.jp\r\n";
+    $auto_headers .= "X-Mailer: PHP/" . phpversion();
+
+    mb_send_mail($mailaddress, $auto_subject, $auto_body, $auto_headers);
+
+    // 成功時：サンクスページへ遷移
     header("Location: ../../html/contact/thanks_recruit.html");
     exit;
 } else {

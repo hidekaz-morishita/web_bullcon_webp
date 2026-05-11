@@ -8,14 +8,14 @@
 session_start();
 
 // フォームから送信されたデータの取得
-$naiyou      = isset($_POST['naiyou']) ? $_POST['naiyou'] : []; // チェックボックスなので配列を想定
-$name        = isset($_POST['name']) ? $_POST['name'] : '';
-$kana        = isset($_POST['kana']) ? $_POST['kana'] : '';
-$zip         = isset($_POST['zip']) ? $_POST['zip'] : '';
-$address     = isset($_POST['adress']) ? $_POST['adress'] : '';
-$tel         = isset($_POST['tel']) ? $_POST['tel'] : '';
+$naiyou = isset($_POST['naiyou']) ? $_POST['naiyou'] : []; // チェックボックスなので配列を想定
+$name = isset($_POST['name']) ? $_POST['name'] : '';
+$kana = isset($_POST['kana']) ? $_POST['kana'] : '';
+$zip = isset($_POST['zip']) ? $_POST['zip'] : '';
+$address = isset($_POST['adress']) ? $_POST['adress'] : '';
+$tel = isset($_POST['tel']) ? $_POST['tel'] : '';
 $mailaddress = isset($_POST['mailaddress']) ? $_POST['mailaddress'] : '';
-$opinion     = isset($_POST['opinion']) ? $_POST['opinion'] : '';
+$opinion = isset($_POST['opinion']) ? $_POST['opinion'] : '';
 
 // --- バリデーション ---
 $errors = [];
@@ -58,8 +58,8 @@ if (!empty($errors)) {
 }
 
 // --- メール送信設定 ---
-// TODO: ここを業務部のメールアドレスに変更してください
-$to = 'bullcon@fuji-denki.co.jp'; // 仮のアドレス
+//$to = 'taku-yamaoka@fuji-denki.co.jp'; // 仮のアドレス
+$to = 'bullcon@fuji-denki.co.jp'; // 本番アドレス
 $subject = "【お問い合わせ】{$name}様より";
 
 $naiyou_text = is_array($naiyou) ? implode(', ', $naiyou) : $naiyou;
@@ -84,6 +84,38 @@ mb_language("Japanese");
 mb_internal_encoding("UTF-8");
 
 if (mb_send_mail($to, $subject, $body, $headers)) {
+
+    // --- お客様への自動返信メール ---
+    $auto_subject = "【Bullcon】お問い合わせを受け付けました";
+
+    $naiyou_text_auto = is_array($naiyou) ? implode(', ', $naiyou) : $naiyou;
+
+    $auto_body = "{$name} 様\n\n";
+    $auto_body .= "この度はお問い合わせいただきありがとうございます。\n";
+    $auto_body .= "以下の内容で受け付けいたしました。\n\n";
+    $auto_body .= "--------------------------------------------------\n";
+    $auto_body .= "お問い合わせ内容: {$naiyou_text_auto}\n";
+    $auto_body .= "お名前: {$name}\n";
+    $auto_body .= "フリガナ: {$kana}\n";
+    $auto_body .= "郵便番号: {$zip}\n";
+    $auto_body .= "ご住所: {$address}\n";
+    $auto_body .= "電話番号: {$tel}\n";
+    $auto_body .= "メールアドレス: {$mailaddress}\n";
+    $auto_body .= "--------------------------------------------------\n\n";
+    $auto_body .= "内容:\n" . $opinion . "\n\n";
+    $auto_body .= "担当者より改めてご連絡いたしますので、しばらくお待ちください。\n\n";
+    $auto_body .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
+    $auto_body .= "Bullcon 業務用お問い合わせ窓口\n";
+    $auto_body .= "E-mail: bullcon@fuji-denki.co.jp\n";
+    $auto_body .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
+    $auto_body .= "※このメールは自動送信されています。このメールへの返信はできません。\n";
+
+    $auto_headers = "From: " . mb_encode_mimeheader("Bullconお問い合わせ窓口") . " <bullcon@fuji-denki.co.jp>\r\n";
+    $auto_headers .= "Reply-To: bullcon@fuji-denki.co.jp\r\n";
+    $auto_headers .= "X-Mailer: PHP/" . phpversion();
+
+    mb_send_mail($mailaddress, $auto_subject, $auto_body, $auto_headers);
+
     // 成功時：既存のcontact.htmlの構造に合わせ、サンクスページがあればそこへ
     header("Location: ../../html/contact/thanks.html"); // 既存のthanksがあれば活用、なければ新規作成
     exit;
