@@ -8,13 +8,13 @@
 session_start();
 
 // フォームから送信されたデータの取得
-$name        = isset($_POST['name']) ? $_POST['name'] : '';
-$kana        = isset($_POST['kana']) ? $_POST['kana'] : '';
-$applicant   = isset($_POST['name2']) ? $_POST['name2'] : '';
-$zip         = isset($_POST['zip']) ? $_POST['zip'] : '';
-$address     = isset($_POST['adress']) ? $_POST['adress'] : '';
-$tel         = isset($_POST['tel']) ? $_POST['tel'] : '';
-$route       = isset($_POST['route']) ? $_POST['route'] : '';
+$name = isset($_POST['name']) ? $_POST['name'] : '';
+$kana = isset($_POST['kana']) ? $_POST['kana'] : '';
+$applicant = isset($_POST['name2']) ? $_POST['name2'] : '';
+$zip = isset($_POST['zip']) ? $_POST['zip'] : '';
+$address = isset($_POST['adress']) ? $_POST['adress'] : '';
+$tel = isset($_POST['tel']) ? $_POST['tel'] : '';
+$route = isset($_POST['route']) ? $_POST['route'] : '';
 $mailaddress = isset($_POST['mailaddress']) ? $_POST['mailaddress'] : '';
 
 // --- バリデーション ---
@@ -58,7 +58,8 @@ if (!empty($errors)) {
 }
 
 // --- メール送信設定 ---
-$to = 'touroku@fuji-denki.co.jp';
+//$to = 'taku-yamaoka@fuji-denki.co.jp'; // 仮のアドレス
+$to = 'touroku@fuji-denki.co.jp'; // 本番アドレス
 $subject = "【ID登録申請】{$name}様より";
 
 $body = "閲覧ID登録申請フォームより以下の内容で送信されました。\n\n";
@@ -81,8 +82,37 @@ mb_language("Japanese");
 mb_internal_encoding("UTF-8");
 
 if (mb_send_mail($to, $subject, $body, $headers)) {
+
+    // --- お客様への自動返信メール ---
+    $auto_subject = "【Bullcon】ID登録申請を受け付けました";
+
+    $auto_body = "{$name} 様\n\n";
+    $auto_body .= "この度は閲覧ID登録のお申請ありがとうございます。\n";
+    $auto_body .= "以下の内容で受け付けいたしました。\n\n";
+    $auto_body .= "--------------------------------------------------\n";
+    $auto_body .= "店舗名（法人名）: {$name}\n";
+    $auto_body .= "店舗名（フリガナ）: {$kana}\n";
+    $auto_body .= "申請者名: {$applicant}\n";
+    $auto_body .= "郵便番号: {$zip}\n";
+    $auto_body .= "ご住所: {$address}\n";
+    $auto_body .= "電話番号: {$tel}\n";
+    $auto_body .= "製品の仕入先名: {$route}\n";
+    $auto_body .= "メールアドレス: {$mailaddress}\n";
+    $auto_body .= "--------------------------------------------------\n\n";
+    $auto_body .= "内容を確認の上、担当者より改めてご連絡いたします。しばらくお待ちください。\n\n";
+    $auto_body .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
+    $auto_body .= "Bullcon ID登録申請窓口\n";
+    $auto_body .= "E-mail: touroku@fuji-denki.co.jp\n";
+    $auto_body .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
+    $auto_body .= "※このメールは自動送信されています。このメールへの返信はできません。\n";
+
+    $auto_headers = "From: " . mb_encode_mimeheader("BullconID登録申請窓口") . " <touroku@fuji-denki.co.jp>\r\n";
+    $auto_headers .= "Reply-To: touroku@fuji-denki.co.jp\r\n";
+    $auto_headers .= "X-Mailer: PHP/" . phpversion();
+
+    mb_send_mail($mailaddress, $auto_subject, $auto_body, $auto_headers);
+
     // 成功時：既存のthanksがあれば活用、なければ新規作成
-    // 分かりやすくするためにcontact用のthanks.htmlへ飛ばすか、専用を作る
     header("Location: ../../html/contact/thanks.html");
     exit;
 } else {
