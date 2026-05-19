@@ -22,7 +22,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.STAGING_SERVER_DIR }}
-          # 🛑 重いフォルダやファイルを自動アップロードから除外
+          # 🛑 容量が大きすぎるフォルダ・ファイルをすべて完全に除外
           exclude: |
             **/.git*
             **/.git*/**
@@ -30,6 +30,8 @@ jobs:
             **/wp/**
             **/wp_shop/**
             **/wp_test/**
+            **/pdf/**
+            **/images/**
 
       # --- 2回目：main宛てに飛ばした場合 ---
       - name: Deploy to Production
@@ -48,3 +50,5 @@ jobs:
             **/wp/**
             **/wp_shop/**
             **/wp_test/**
+            **/pdf/**
+            **/images/**
