@@ -22,7 +22,10 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.STAGING_SERVER_DIR }}
-          # 🛑 容量が大きすぎるフォルダ・ファイルをすべて完全に除外
+          port: 21
+          timeout: 600000
+          state-name: .ftp-deploy-sync-state-test.json
+          # 🛑 images と pdf を両方除外して、極限まで軽量化
           exclude: |
             **/.git*
             **/.git*/**
@@ -42,7 +45,10 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.PROD_SERVER_DIR }}
-          # 🛑 本番環境用にも同じ除外設定を適用
+          port: 21
+          timeout: 600000
+          state-name: .ftp-deploy-sync-state.json
+          # 🛑 本番環境用も同様に両方除外
           exclude: |
             **/.git*
             **/.git*/**
