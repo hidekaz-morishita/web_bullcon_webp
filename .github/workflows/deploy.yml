@@ -25,8 +25,7 @@ jobs:
           port: 21
           timeout: 600000
           state-name: .ftp-deploy-sync-state-test.json
-          # ⚡ 日付のズレを無視し、ファイルサイズが同じなら「同期済み」とみなす魔法のオプション
-          dangerous-clean-by-file-size: true
+          # ⚙️ キャッシュやシステム関連だけを弾き、画像やPDFは同期対象にする
           exclude: |
             **/.git*
             **/.git*/**
@@ -47,8 +46,7 @@ jobs:
           port: 21
           timeout: 600000
           state-name: .ftp-deploy-sync-state-test.json
-          # ⚡ 日付のズレを無視し、ファイルサイズが同じなら「同期済み」とみなす魔法のオプション
-          dangerous-clean-by-file-size: true
+          # ⚙️ キャッシュやシステム関連だけを弾き、画像やPDFは同期対象にする
           exclude: |
             **/.git*
             **/.git*/**
