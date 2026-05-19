@@ -26,6 +26,7 @@ jobs:
           timeout: 600000
           state-name: .ftp-deploy-sync-state-test.json
           # ⚙️ キャッシュやシステム関連だけを弾き、画像やPDFは同期対象にする
+          # ⚙️ 余分なシステム・キャッシュ関連だけを除外
           exclude: |
             **/.git*
             **/.git*/**
@@ -47,6 +48,7 @@ jobs:
           timeout: 600000
           state-name: .ftp-deploy-sync-state-test.json
           # ⚙️ キャッシュやシステム関連だけを弾き、画像やPDFは同期対象にする
+          # ⚙️ 余分なシステム・キャッシュ関連だけを除外
           exclude: |
             **/.git*
             **/.git*/**
