@@ -25,7 +25,8 @@ jobs:
           port: 21
           timeout: 600000
           state-name: .ftp-deploy-sync-state-test.json
-          # 🛑 images と pdf を両方除外して、極限まで軽量化
+          # ⚡ 日付のズレを無視し、ファイルサイズが同じなら「同期済み」とみなす魔法のオプション
+          dangerous-clean-by-file-size: true
           exclude: |
             **/.git*
             **/.git*/**
@@ -42,11 +43,12 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.PROD_SERVER_DIR }}
+          server-dir: ${{ secrets.STAGING_SERVER_DIR }}
           port: 21
           timeout: 600000
-          state-name: .ftp-deploy-sync-state.json
-          # 🛑 本番環境用も同様に両方除外
+          state-name: .ftp-deploy-sync-state-test.json
+          # ⚡ 日付のズレを無視し、ファイルサイズが同じなら「同期済み」とみなす魔法のオプション
+          dangerous-clean-by-file-size: true
           exclude: |
             **/.git*
             **/.git*/**
