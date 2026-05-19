@@ -1,9 +1,8 @@
-name: Zenlogic Direct Deploy
+name: Zenlogic Git-FTP Deploy
 
 on:
   push:
     branches:
-      - main
       - test
 
 jobs:
@@ -12,47 +11,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 過去のGit履歴をすべて読み込む（差分計算に必須）
 
-      # --- 1回目：test宛てに飛ばした場合 ---
       - name: Deploy to Staging (Test)
-        if: github.ref == 'refs/heads/test'
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5 # 💡今回だけ、サーバーに「ここが基準だよ」というスタンプ（.git-ftp.log）を爆速で書き込むための身代わり
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.STAGING_SERVER_DIR }}
           port: 21
-          timeout: 600000
-          state-name: .ftp-deploy-sync-state-test.json
-          # ⚙️ キャッシュやシステム関連だけを弾き、画像やPDFは同期対象にする
-          # ⚙️ 余分なシステム・キャッシュ関連だけを除外
+          state-name: .git-ftp.log
+          # 🛑 重い画像やPDF、HTMLを今回は「すべて除外」して、スタンプだけを一瞬で設置する
           exclude: |
-            **/.git*
-            **/.git*/**
-            **/cache/**
-            **/wp/**
-            **/wp_shop/**
-            **/wp_test/**
-
-      # --- 2回目：main宛てに飛ばした場合 ---
-      - name: Deploy to Production
-        if: github.ref == 'refs/heads/main'
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.STAGING_SERVER_DIR }}
-          port: 21
-          timeout: 600000
-          state-name: .ftp-deploy-sync-state-test.json
-          # ⚙️ キャッシュやシステム関連だけを弾き、画像やPDFは同期対象にする
-          # ⚙️ 余分なシステム・キャッシュ関連だけを除外
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/cache/**
-            **/wp/**
-            **/wp_shop/**
-            **/wp_test/**
+            **/*
