@@ -3,26 +3,66 @@ name: Zenlogic Git-FTP Deploy
 on:
   push:
     branches:
-      - test
+      - test   # 🟢 testブランチにプッシュされたらテスト環境へ
+      - main   # 🔴 mainブランチにプッシュされたら本番環境へ
 
 jobs:
-  deploy:
+  # ==========================================
+  # ① テスト環境へのデプロイ（testブランチ用）
+  # ==========================================
+  deploy-staging:
+    if: github.ref == 'refs/heads/test'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # 過去のGit履歴をすべて読み込む（差分計算に必須）
+          fetch-depth: 0
 
       - name: Deploy to Staging (Test)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5 # 💡今回だけ、サーバーに「ここが基準だよ」というスタンプ（.git-ftp.log）を爆速で書き込むための身代わり
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.STAGING_SERVER_DIR }}
+          server-dir: ${{ secrets.STAGING_SERVER_DIR }} # 👉 /htdocs/ikou_ssl/web_test/
           port: 21
           state-name: .git-ftp.log
-          # 🛑 重い画像やPDF、HTMLを今回は「すべて除外」して、スタンプだけを一瞬で設置する
           exclude: |
-            **/*
+            **/.git*
+            **/.git*/**
+            **/cache/**
+            **/wp/**
+            **/wp_shop/**
+            **/wp_test/**
+
+  # ==========================================
+  # ② 本番環境へのデプロイ（mainブランチ用）
+  # ==========================================
+  deploy-production:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Deploy to Production (Main)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.PROD_SERVER_DIR }} # 👉 /htdocs/ikou_ssl/
+          port: 21
+          state-name: .git-ftp.log # ⚠️ 本番環境の初回動かす前に注意点あり（下記参照）
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/cache/**
+            **/wp/**
+            **/wp_shop/**
+            **/wp_test/**
+            /web_test/** # 🛑 本番環境を汚さないよう、テストフォルダだけ追加で除外
+            **/* # 👈 これを1回目だけ一時的に追記
