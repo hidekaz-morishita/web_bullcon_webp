@@ -56,7 +56,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.PROD_SERVER_DIR }} # 👉 /htdocs/ikou_ssl/
           port: 21
-          state-name: .git-ftp.log # ⚠️ 本番環境の初回動かす前に注意点あり（下記参照）
+          state-name: .git-ftp.log
+          sync-meta: true # 👈 一時的にこの行を追加して、同期履歴を強制作成する
           exclude: |
             **/.git*
             **/.git*/**
