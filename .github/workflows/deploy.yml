@@ -34,7 +34,9 @@ jobs:
             **/wp_shop/**
             **/wp_test/**
             **/pdf/**
-            **/images/**
+            **/webp/**
+            **/gif/**
+            **/jpg/**
 
       # --- 2回目：main宛てに飛ばした場合 ---
       - name: Deploy to Production
@@ -57,4 +59,6 @@ jobs:
             **/wp_shop/**
             **/wp_test/**
             **/pdf/**
-            **/images/**
+            **/webp/**
+            **/gif/**
+            **/jpg/**
