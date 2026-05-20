@@ -1,32 +1,34 @@
-name: Zenlogic Direct Deploy
+name: Zenlogic Git-FTP Deploy
 
 on:
   push:
     branches:
-      - main
-      - test
+      - test   # 🟢 testブランチにプッシュされたらテスト環境へ
+      - main   # 🔴 mainブランチにプッシュされたら本番環境へ
 
 jobs:
-  deploy:
+  # ==========================================
+  # ① テスト環境へのデプロイ（testブランチ用）
+  # ==========================================
+  deploy-staging:
+    if: github.ref == 'refs/heads/test'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      # --- 1回目：test宛てに飛ばした場合 ---
       - name: Deploy to Staging (Test)
-        if: github.ref == 'refs/heads/test'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.STAGING_SERVER_DIR }}
+          server-dir: ${{ secrets.STAGING_SERVER_DIR }} # 👉 /htdocs/ikou_ssl/web_test/
           port: 21
-          timeout: 600000
-          state-name: .ftp-deploy-sync-state-test.json
-          # ⚙️ キャッシュやシステム関連だけを弾き、画像やPDFは同期対象にする
-          # ⚙️ 余分なシステム・キャッシュ関連だけを除外
+          state-name: .git-ftp.log
+          arguments: --no-all-matching # 👈 【超重要】これを追加！
           exclude: |
             **/.git*
             **/.git*/**
@@ -35,20 +37,28 @@ jobs:
             **/wp_shop/**
             **/wp_test/**
 
-      # --- 2回目：main宛てに飛ばした場合 ---
-      - name: Deploy to Production
-        if: github.ref == 'refs/heads/main'
+  # ==========================================
+  # ② 本番環境へのデプロイ（mainブランチ用）
+  # ==========================================
+  deploy-production:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Deploy to Production (Main)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.STAGING_SERVER_DIR }}
+          server-dir: ${{ secrets.PROD_SERVER_DIR }} # 👉 /htdocs/ikou_ssl/
           port: 21
-          timeout: 600000
-          state-name: .ftp-deploy-sync-state-test.json
-          # ⚙️ キャッシュやシステム関連だけを弾き、画像やPDFは同期対象にする
-          # ⚙️ 余分なシステム・キャッシュ関連だけを除外
+          state-name: .git-ftp.log
+          arguments: --no-all-matching # 👈 【超重要】これを追加！
           exclude: |
             **/.git*
             **/.git*/**
@@ -56,3 +66,4 @@ jobs:
             **/wp/**
             **/wp_shop/**
             **/wp_test/**
+            /web_test/** # 🛑 本番環境を汚さないよう、テストフォルダだけ追加で除外
