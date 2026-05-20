@@ -1,15 +1,12 @@
-name: Zenlogic Git-FTP Deploy
+name: Zenlogic Git-FTP Deploy (Staging Test Only)
 
 on:
   push:
     branches:
-      - test   # 🟢 testブランチにプッシュされたらテスト環境へ
-      - main   # 🔴 mainブランチにプッシュされたら本番環境へ
+      - test   # 🟢 testブランチにプッシュされた時だけ安全に検証
 
 jobs:
-  # ① テスト環境へのデプロイ
   deploy-staging:
-    if: github.ref == 'refs/heads/test'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -17,47 +14,19 @@ jobs:
         with:
           fetch-depth: 0
 
+      # 1. 今回のプッシュで「追加・変更されたファイル」のリストを純粋に調べる
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v44
+
+      # 2. その変更されたファイルだけを、FileZillaと同じようにFTPで直接上書きする
       - name: Deploy to Staging (Test)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5 # 👈 元の使い慣れたツールに戻します！
+        if: steps.changed-files.outputs.any_changed == 'true'
+        uses: Millby/ftp-action@v1.1.3 # 👈 過去の成否ログを一切読み書きしない純粋ツール
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
           server-dir: ${{ secrets.STAGING_SERVER_DIR }}
-          port: 21
-          dangerous-clean-slate: true # 👈 【超重要】これを入れると大捜索をパスして数秒で終わります
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/cache/**
-            **/wp/**
-            **/wp_shop/**
-            **/wp_test/**
-
-  # ② 本番環境へのデプロイ
-  deploy-production:
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Deploy to Production (Main)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5 # 👈 元の使い慣れたツールに戻します！
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.PROD_SERVER_DIR }}
-          port: 21
-          dangerous-clean-slate: true # 👈 【超重要】これを入れると大捜索をパスして数秒で終わります
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/cache/**
-            **/wp/**
-            **/wp_shop/**
-            **/wp_test/**
-            /web_test/**
+          file-list: ${{ steps.changed-files.outputs.all_changed_files }}
