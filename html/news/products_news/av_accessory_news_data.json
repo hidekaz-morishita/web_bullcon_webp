@@ -1,4 +1,32 @@
 [
+    {
+    "date": "2026年5月20日",
+    "type": "適合情報",
+    "product": ["＜一部改良後＞FreeTVing"],
+    "car_models": [
+      {"plane_text":"【10.5インチ ディスプレイオーディオPlus装着車】<br>【8インチ ディスプレイオーディオ装着車】"},
+      {"model_name":"ヴォクシーハイブリッド　R8/5～　＜一部改良後＞　（ZWR90W.95W）"},
+      {"model_name":"ノアハイブリッド　R8/5～　＜一部改良後＞　（ZWR90W.95W）"}],
+    "brand": ["トヨタ"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-111AS』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-111ASC』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing ｽﾃｱﾘﾝｸﾞｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-111AST』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年5月20日",
+    "type": "適合情報",
+    "product": ["DVD/CDプレーヤー"],
+    "car_models": [
+      {"plane_text":"【ﾒｰｶｰｵﾌﾟｼｮﾝDVDﾌﾟﾚｰﾔｰ非装着 10.5インチ ディスプレイオーディオPlus 装着車】<br>【ﾒｰｶｰｵﾌﾟｼｮﾝDVDﾌﾟﾚｰﾔｰ非装着 8インチ ディスプレイオーディオ 装着車】"},
+      {"model_name":"ヴォクシーハイブリッド　R8/5～　＜一部改良後＞　（ZWR90W.95W）"},
+      {"model_name":"ノアハイブリッド　R8/5～　＜一部改良後＞　（ZWR90W.95W）"}],
+    "brand": ["トヨタ"],
+    "body": [
+      { "type":"html", "content": "<p><b>DVD/CDプレーヤー<span style=\"color: blue;\"><a href=\"/html/products/AV_ACCESSORY/cdv/cdv01.htm\" target=\"_blank\">『AV-CDV01』</a></span></b></p>", "align": "right"}
+    ]
+  },
   {
     "date": "2026年5月18日",
     "type": "適合情報",
