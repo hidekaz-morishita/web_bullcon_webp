@@ -14,19 +14,30 @@ jobs:
         with:
           fetch-depth: 0
 
-      # 1. 今回のプッシュで「追加・変更されたファイル」のリストを純粋に調べる
+      # ① 今回のプッシュで「追加・変更されたファイル」だけを正確にリストアップ
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v44
 
-      # 2. その変更されたファイルだけを、FileZillaと同じようにFTPで直接上書きする
+      # ② 変更されたファイルを、Linux標準のFTP機能でテスト環境へダイレクト上書き
       - name: Deploy to Staging (Test)
         if: steps.changed-files.outputs.any_changed == 'true'
-        uses: Millby/ftp-action@v1.1.3 # 👈 過去の成否ログを一切読み書きしない純粋ツール
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
-          server-dir: ${{ secrets.STAGING_SERVER_DIR }}
-          file-list: ${{ steps.changed-files.outputs.all_changed_files }}
+        run: |
+          # 転送するファイルを一時的なフォルダに集める
+          mkdir -p deploy_tmp
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            if [ -f "$file" ]; then
+              mkdir -p "deploy_tmp/$(dirname "$file")"
+              cp "$file" "deploy_tmp/$file"
+            fi
+          done
+
+          # Linux標準のFTPコマンド（lftp）をインストールして高速上書き転送（タイポ修正済）
+          sudo apt-get update && sudo apt-get install lftp -y
+          lftp -c "
+          open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp://${{ secrets.FTP_SERVER }}
+          set ftp:ssl-allow no
+          cd ${{ secrets.STAGING_SERVER_DIR }}
+          mirror -R deploy_tmp/ .
+          quit
+          "
