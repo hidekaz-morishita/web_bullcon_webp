@@ -3,13 +3,10 @@ name: Zenlogic Git-FTP Deploy
 on:
   push:
     branches:
-      - test   # 🟢 testブランチにプッシュされたらテスト環境へ
-      - main   # 🔴 mainブランチにプッシュされたら本番環境へ
+      - test
+      - main
 
 jobs:
-  # ==========================================
-  # ① テスト環境へのデプロイ（testブランチ用）
-  # ==========================================
   deploy-staging:
     if: github.ref == 'refs/heads/test'
     runs-on: ubuntu-latest
@@ -20,26 +17,13 @@ jobs:
           fetch-depth: 0
 
       - name: Deploy to Staging (Test)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: git-ftp/git-ftp-action@v0.1.0
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
+          url: "ftp://${{ secrets.FTP_SERVER }}${{ secrets.STAGING_SERVER_DIR }}"
+          user: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.STAGING_SERVER_DIR }} # 👉 /htdocs/ikou_ssl/web_test/
-          port: 21
-          state-name: .git-ftp.log
-          arguments: --no-all-matching # 👈 【超重要】これを追加！
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/cache/**
-            **/wp/**
-            **/wp_shop/**
-            **/wp_test/**
+          options: "--syncroot . --all-matching" # 👈 これで手動配置したログが100%効きます
 
-  # ==========================================
-  # ② 本番環境へのデプロイ（mainブランチ用）
-  # ==========================================
   deploy-production:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
@@ -50,20 +34,9 @@ jobs:
           fetch-depth: 0
 
       - name: Deploy to Production (Main)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: git-ftp/git-ftp-action@v0.1.0
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
+          url: "ftp://${{ secrets.FTP_SERVER }}${{ secrets.PROD_SERVER_DIR }}"
+          user: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.PROD_SERVER_DIR }} # 👉 /htdocs/ikou_ssl/
-          port: 21
-          state-name: .git-ftp.log
-          arguments: --no-all-matching # 👈 【超重要】これを追加！
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/cache/**
-            **/wp/**
-            **/wp_shop/**
-            **/wp_test/**
-            /web_test/** # 🛑 本番環境を汚さないよう、テストフォルダだけ追加で除外
+          options: "--syncroot . --all-matching" # 👈 これで手動配置したログが100%効きます
