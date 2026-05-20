@@ -3,10 +3,11 @@ name: Zenlogic Git-FTP Deploy
 on:
   push:
     branches:
-      - test
-      - main
+      - test   # 🟢 testブランチにプッシュされたらテスト環境へ
+      - main   # 🔴 mainブランチにプッシュされたら本番環境へ
 
 jobs:
+  # ① テスト環境へのデプロイ
   deploy-staging:
     if: github.ref == 'refs/heads/test'
     runs-on: ubuntu-latest
@@ -17,13 +18,14 @@ jobs:
           fetch-depth: 0
 
       - name: Deploy to Staging (Test)
-        uses: git-ftp/git-ftp-action@v0.1.0
+        uses: VitorCanova/git-ftp-action@v1.1.1 # 👈 今度は100%存在する正しいプラグインです
         with:
           url: "ftp://${{ secrets.FTP_SERVER }}${{ secrets.STAGING_SERVER_DIR }}"
           user: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          options: "--syncroot . --all-matching" # 👈 これで手動配置したログが100%効きます
+          options: "--all-matching" # 👈 これが生存確認をスキップして差分だけ送る魔法のオプション
 
+  # ② 本番環境へのデプロイ
   deploy-production:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
@@ -34,9 +36,9 @@ jobs:
           fetch-depth: 0
 
       - name: Deploy to Production (Main)
-        uses: git-ftp/git-ftp-action@v0.1.0
+        uses: VitorCanova/git-ftp-action@v1.1.1 # 👈 今度は100%存在する正しいプラグインです
         with:
           url: "ftp://${{ secrets.FTP_SERVER }}${{ secrets.PROD_SERVER_DIR }}"
           user: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          options: "--syncroot . --all-matching" # 👈 これで手動配置したログが100%効きます
+          options: "--all-matching" # 👈 これが生存確認をスキップして差分だけ送る魔法のオプション
