@@ -18,12 +18,21 @@ jobs:
           fetch-depth: 0
 
       - name: Deploy to Staging (Test)
-        uses: VitorCanova/git-ftp-action@v1.1.1 # 👈 今度は100%存在する正しいプラグインです
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5 # 👈 元の使い慣れたツールに戻します！
         with:
-          url: "ftp://${{ secrets.FTP_SERVER }}${{ secrets.STAGING_SERVER_DIR }}"
-          user: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          options: "--all-matching" # 👈 これが生存確認をスキップして差分だけ送る魔法のオプション
+          server-dir: ${{ secrets.STAGING_SERVER_DIR }}
+          port: 21
+          dangerous-clean-slate: true # 👈 【超重要】これを入れると大捜索をパスして数秒で終わります
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/cache/**
+            **/wp/**
+            **/wp_shop/**
+            **/wp_test/**
 
   # ② 本番環境へのデプロイ
   deploy-production:
@@ -36,9 +45,19 @@ jobs:
           fetch-depth: 0
 
       - name: Deploy to Production (Main)
-        uses: VitorCanova/git-ftp-action@v1.1.1 # 👈 今度は100%存在する正しいプラグインです
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5 # 👈 元の使い慣れたツールに戻します！
         with:
-          url: "ftp://${{ secrets.FTP_SERVER }}${{ secrets.PROD_SERVER_DIR }}"
-          user: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          options: "--all-matching" # 👈 これが生存確認をスキップして差分だけ送る魔法のオプション
+          server-dir: ${{ secrets.PROD_SERVER_DIR }}
+          port: 21
+          dangerous-clean-slate: true # 👈 【超重要】これを入れると大捜索をパスして数秒で終わります
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/cache/**
+            **/wp/**
+            **/wp_shop/**
+            **/wp_test/**
+            /web_test/**
