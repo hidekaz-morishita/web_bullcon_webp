@@ -1,12 +1,17 @@
-name: Zenlogic Git-FTP Deploy (Staging Test Only)
+name: Zenlogic Git-FTP Deploy (Full Automation)
 
 on:
   push:
     branches:
-      - test   # 🟢 testブランチにプッシュされた時だけ安全に検証
+      - test   # 🟢 testブランチにプッシュされたらテスト環境へデプロイ
+      - main   # 🔴 mainブランチにプッシュされたら本番環境へデプロイ
 
 jobs:
+  # ==========================================
+  # ① テスト環境へのデプロイ（testブランチ用）
+  # ==========================================
   deploy-staging:
+    if: github.ref == 'refs/heads/test'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -14,16 +19,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      # ① 今回のプッシュで「追加・変更されたファイル」だけを正確にリストアップ
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v44
 
-      # ② 変更されたファイルを、Linux標準のFTP機能でテスト環境へダイレクト上書き
       - name: Deploy to Staging (Test)
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
-          # 転送するファイルを一時的なフォルダに集める
           mkdir -p deploy_tmp
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             if [ -f "$file" ]; then
@@ -32,12 +34,47 @@ jobs:
             fi
           done
 
-          # Linux標準のFTPコマンド（lftp）をインストールして高速上書き転送（タイポ修正済）
           sudo apt-get update && sudo apt-get install lftp -y
           lftp -c "
           open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp://${{ secrets.FTP_SERVER }}
           set ftp:ssl-allow no
           cd ${{ secrets.STAGING_SERVER_DIR }}
+          mirror -R deploy_tmp/ .
+          quit
+          "
+
+  # ==========================================
+  # ② 本番環境へのデプロイ（mainブランチ用）
+  # ==========================================
+  deploy-production:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v44
+
+      - name: Deploy to Production (Main)
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          mkdir -p deploy_tmp
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            if [ -f "$file" ]; then
+              mkdir -p "deploy_tmp/$(dirname "$file")"
+              cp "$file" "deploy_tmp/$file"
+            fi
+          done
+
+          sudo apt-get update && sudo apt-get install lftp -y
+          lftp -c "
+          open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp://${{ secrets.FTP_SERVER }}
+          set ftp:ssl-allow no
+          cd ${{ secrets.PROD_SERVER_DIR }}
           mirror -R deploy_tmp/ .
           quit
           "

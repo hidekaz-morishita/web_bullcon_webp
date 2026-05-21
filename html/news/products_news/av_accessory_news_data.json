@@ -1,5 +1,18 @@
 [
-    {
+  {
+    "date": "2026年5月21日",
+    "type": "適合情報",
+    "product": ["MAGICONE バックカメラ接続ユニット"],
+    "car_models": [
+      {"model_name":"ダイナ カーゴ　2.0ton　R8/4～　<br>（XZU606.646.653K.656.676.686.696.703.711.713.721.723.731.733.766）　<br>","specification":"【バックカメラ＆デジタルインナーミラー装着車（全車標準装備）】"}
+    ],
+    "brand": ["トヨタ"],
+    "body": [
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c63/av-c63.htm\" target=\"_blank\">『AV-C63』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c63ext/av-c63ext.htm\" target=\"_blank\">『AV-C63EXT』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
     "date": "2026年5月20日",
     "type": "適合情報",
     "product": ["＜一部改良後＞FreeTVing"],
