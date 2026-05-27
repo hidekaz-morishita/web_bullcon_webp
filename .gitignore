@@ -2,3 +2,5 @@
 
 #サーバー生成ファイル群
 /api/web_page/counter.json
+*.ffs_db
+.github/workflows/deploy - copy.yml
