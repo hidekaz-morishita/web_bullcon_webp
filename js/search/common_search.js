@@ -1,3 +1,12 @@
+export function normalizeString(str) {
+    if (!str) return '';
+    return String(str).replace(/[！-～]/g, function(s) {
+        return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+    }).replace(/　/g, ' ')
+      .replace(/[ー‐‑‒–—―−-]/g, '')
+      .toLowerCase();
+}
+
 export function setupSearch(options) { const { tabId, dataPath, filterLogic, onDataLoaded, isManualSearch = false} = options; const tabContent = document.getElementById(tabId); const form = tabContent.querySelector('.search-form'); const input = tabContent.querySelector(isManualSearch ? '#manual-search-input' : '#site-search-input'); const resultsList = tabContent.querySelector('.results-list'); const noResultsMessage = tabContent.querySelector('.no-results'); const urlParams = new URLSearchParams(window.location.search); const initialQuery = urlParams.get('q'); if (initialQuery && !isManualSearch) { input.value = initialQuery; } let searchData = null; fetch(dataPath)
 .then(response => { if (!response.ok) { throw new Error('Network response was not ok'); } return response.json(); })
 .then(data => { searchData = data; console.log(`LOG: Data loaded for ${tabId}.`); onDataLoaded(searchData, input, performSearch); if (initialQuery) { performSearch(initialQuery); } })

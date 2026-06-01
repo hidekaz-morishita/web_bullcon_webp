@@ -1,19 +1,19 @@
 // search/site-search.js
 
-import { setupSearch } from './common_search.js';
+import { setupSearch, normalizeString } from './common_search.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     setupSearch({
         tabId: 'site-search',
         dataPath: './search_data.json',
         filterLogic: (query, searchData) => {
-            const keywords = query.toLowerCase().split(/\s+/).filter(k => k.length > 0);
+            const keywords = normalizeString(query).split(/\s+/).filter(k => k.length > 0);
             if (keywords.length === 0) return [];
 
             const filtered = searchData.filter(item => {
-                const title = (item.title || '').toLowerCase();
-                const kws = (item.keywords || '').toLowerCase();
-                const desc = (item.description || '').toLowerCase();
+                const title = normalizeString(item.title);
+                const kws = normalizeString(item.keywords);
+                const desc = normalizeString(item.description);
 
                 // すべてのキーワードがどこか（タイトル、キーワード、ディスクリプション）に含まれているか
                 return keywords.every(word =>
@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             return filtered.sort((a, b) => {
-                const aTitleMatch = keywords.some(word => (a.title || '').toLowerCase().includes(word));
-                const bTitleMatch = keywords.some(word => (b.title || '').toLowerCase().includes(word));
+                const aTitleMatch = keywords.some(word => normalizeString(a.title).includes(word));
+                const bTitleMatch = keywords.some(word => normalizeString(b.title).includes(word));
                 return (aTitleMatch && !bTitleMatch) ? -1 : (!aTitleMatch && bTitleMatch) ? 1 : 0;
             });
         },
