@@ -1,6 +1,6 @@
 // search/manual-search.js
 
-import { setupSearch } from './common_search.js';
+import { setupSearch, normalizeString } from './common_search.js';
 
 export function initializeManualSearch() {
     if (document.getElementById('manual-search-autocomplete-list')) {
@@ -18,7 +18,7 @@ export function initializeManualSearch() {
         dataPath: '../products/products_data.json',
         isManualSearch: true,
         filterLogic: (query, searchData) => {
-            const keywords = query.toLowerCase().split(/\s+/).filter(k => k.length > 0);
+            const keywords = normalizeString(query).split(/\s+/).filter(k => k.length > 0);
             if (keywords.length === 0) return [];
 
             let tempResults = [];
@@ -29,10 +29,10 @@ export function initializeManualSearch() {
             categories.forEach(category => {
                 const products = Array.isArray(category.products) ? category.products : [];
                 products.forEach(item => {
-                    const itemName = (item.name || '').toLowerCase();
+                    const itemName = normalizeString(item.name);
                     if (item.sub_pages) {
                         item.sub_pages.forEach(sub_page => {
-                            const subName = (sub_page.name || '').toLowerCase();
+                            const subName = normalizeString(sub_page.name);
 
                             // すべてのキーワードが商品名またはサブページ名に含まれているか（AND検索）
                             const isMatch = keywords.every(word =>
@@ -69,7 +69,7 @@ export function initializeManualSearch() {
                 }
 
                 let filteredSuggestions = [];
-                const searchKeywords = query.toLowerCase().split(/\s+/).filter(k => k.length > 0);
+                const searchKeywords = normalizeString(query).split(/\s+/).filter(k => k.length > 0);
                 if (searchKeywords.length === 0) {
                     autocompleteList.innerHTML = '';
                     return;
@@ -82,10 +82,10 @@ export function initializeManualSearch() {
                 categories.forEach(category => {
                     const products = Array.isArray(category.products) ? category.products : [];
                     products.forEach(item => {
-                        const itemName = (item.name || '').toLowerCase();
+                        const itemName = normalizeString(item.name);
                         if (item.sub_pages) {
                             item.sub_pages.forEach(sub_page => {
-                                const subName = (sub_page.name || '').toLowerCase();
+                                const subName = normalizeString(sub_page.name);
                                 const isMatch = searchKeywords.every(word =>
                                     itemName.includes(word) || subName.includes(word)
                                 );
@@ -106,10 +106,24 @@ export function initializeManualSearch() {
                 autocompleteList.innerHTML = '';
                 filteredSuggestions.forEach(item => {
                     const b = document.createElement("div");
-                    const index = item.toLowerCase().indexOf(lowerCaseQuery);
-                    b.innerHTML = item.substr(0, index);
-                    b.innerHTML += "<strong>" + item.substr(index, query.length) + "</strong>";
-                    b.innerHTML += item.substr(index + query.length);
+                    const charsForRegex = normalizeString(query).replace(/\s+/g, '').split('');
+                    if (charsForRegex.length > 0) {
+                        const escapedChars = charsForRegex.map(c => c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+                        const regexPattern = escapedChars.join('[ー‐‑‒–—―−\\s-]*');
+                        const regex = new RegExp(regexPattern, 'i');
+                        const match = item.match(regex);
+                        if (match) {
+                            const index = match.index;
+                            const matchLength = match[0].length;
+                            b.innerHTML = item.substr(0, index);
+                            b.innerHTML += "<strong>" + item.substr(index, matchLength) + "</strong>";
+                            b.innerHTML += item.substr(index + matchLength);
+                        } else {
+                            b.innerHTML = item;
+                        }
+                    } else {
+                        b.innerHTML = item;
+                    }
                     b.innerHTML += `<input type='hidden' value='${item}'>`;
                     b.addEventListener("click", () => {
                         searchInput.value = item;
