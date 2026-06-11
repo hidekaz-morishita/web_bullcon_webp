@@ -1,5 +1,57 @@
 [
   {
+    "date": "2026年6月11日",
+    "type": "適合情報",
+    "product": ["FreeTVing"], 
+    "car_models": [
+        {"plane_text":"【スズキディーラーオプション　2026年モデルナビゲーション】全方位モニター装着車"},
+        {"model_name":"99098-65Q36-P03（CN-HZ8A5ZAA）","specification":"【8インチスタンダードモデル】"}
+    ],
+    "brand": ["スズキ"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『FFT-231』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『MS-231』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年6月11日",
+    "type": "適合情報",
+    "product": ["FreeTVing"], 
+    "car_models": [
+        {"plane_text":"【スズキディーラーオプション　2026年モデルナビゲーション】全方位非装着車"},
+        {"model_name":"99098-65Q36-P03（CN-HZ8A5ZAA）","specification":"【8インチスタンダードモデル】"}
+    ],
+    "brand": ["スズキ"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『FFT-194』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年6月11日",
+    "type": "新製品情報",
+    "product": ["マジコネ バックカメラ接続ユニット"], 
+    "car_models":[
+      {"plane_text":"ディーラーオプション　バックアイカメラ装着車 ≪５極コネクター仕様車≫"},
+      {"model_name":"ワゴンR　R7/12～　（MH85S.MH95S）"}],
+    "brand": ["スズキ"],
+    "body": [
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c67/av-c67.htm\" target=\"_blank\">『AV-C67』</a></span></b></p>", "align": "right"},
+      { "type": "html", "content": "※【ﾃﾞｨｰﾗｰｵﾌﾟｼｮﾝ ﾊﾞｯｸｱｲｶﾒﾗ≪RCAﾋﾟﾝﾌﾟﾗｸﾞ仕様車≫】には取り付けできません。", "align": "right"}
+    ]
+  },
+  {
+    "date": "2026年6月11日",
+    "type": "新製品情報",
+    "product": ["マジコネ バックカメラ接続ユニット"], 
+    "car_models":[
+      {"plane_text":"バックアイカメラ・スズキコネクト対応通信機装着車"},
+      {"model_name":"ワゴンR　R7/12～　（MH85S.MH95S）"}],
+    "brand": ["スズキ"],
+    "body": [
+      { "type":"html", "content": "<p><b>MAGICONE バックカメラ接続ユニット<span style=\"color: blue;\"><a href=\"/html/products/MAGICONE/BACK_CAMERA/av-c66/av-c66.htm\" target=\"_blank\">『AV-C66』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
     "date": "2026年6月4日",
     "type": "適合情報",
     "product": ["FreeTVing"],
