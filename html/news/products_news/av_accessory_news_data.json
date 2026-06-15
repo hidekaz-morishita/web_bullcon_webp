@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026年6月15日",
+    "type": "適合情報",
+    "product": ["FreeTVing/TELENAVing"], "car_models": [{"model_name":"ハスラー　R8/6～　（MR52S　MR92S）","specification":"【全方位モニター付メモリーナビゲーション（9インチHDディスプレイ）装着車】"}],
+    "brand": ["スズキ"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『FFT-231』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『MS-231』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>TELENAVing<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『BTN-S31』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>TELENAVing<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『BTN-S31C』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
     "date": "2026年6月11日",
     "type": "適合情報",
     "product": ["FreeTVing"], 
