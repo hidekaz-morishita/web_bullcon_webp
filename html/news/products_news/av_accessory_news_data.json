@@ -1,5 +1,67 @@
 [
   {
+    "date": "2026年6月24日",
+    "type": "適合情報",
+    "product": ["FreeTVing"], "car_models": [
+        {"model_name":"アルファード　R8/6～　＜一部改良後＞　（AAHH40W.45W）","specification":"【14インチディスプレイオーディオ（コネクティッドナビ対応）Plus付車<br>LCA（レーンチェンジアシスト）非装着車】"}, 
+        {"model_name":"アルファードハイブリッド　R8/6～　＜一部改良後＞　（AAHH40W.45W）","specification":"【14インチディスプレイオーディオ（コネクティッドナビ対応）Plus付車<br>LCA（レーンチェンジアシスト）非装着車】"}
+    ],
+    "brand": ["トヨタ"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『MS-235』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『MS-235C』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-107AS』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-107ASC』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-107AST』</a></span></b></p>", "align": "right"}
+    ]
+  },
+{
+    "date": "2026年6月24日",
+    "type": "適合情報",
+    "product": ["FreeTVing"], "car_models": [
+        {"model_name":"アルファード　R8/6～　＜一部改良後＞　（AAHH40W.45W）","specification":"【14インチディスプレイオーディオ（コネクティッドナビ対応）Plus付車<br>LCA（レーンチェンジアシスト）装着車】"}, 
+        {"model_name":"アルファードハイブリッド　R8/6～　＜一部改良後＞　（AAHH40W.45W）","specification":"【14インチディスプレイオーディオ（コネクティッドナビ対応）Plus付車<br>LCA（レーンチェンジアシスト）装着車】"},
+        {"model_name":"ヴェルファイア　R8/6～　＜一部改良後＞　（TAHA40W.45W）","specification":"【14インチディスプレイオーディオ（コネクティッドナビ対応）Plus付車<br>LCA（レーンチェンジアシスト）装着車】"},
+        {"model_name":"ヴェルファイアハイブリッド　R8/6～　＜一部改良後＞　（AAHH40W.45W）","specification":"【14インチディスプレイオーディオ（コネクティッドナビ対応）Plus付車<br>LCA（レーンチェンジアシスト）装着車】"}
+    ],
+    "brand": ["トヨタ"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-109AS』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-109ASC』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-109AST』</a></span></b></p>", "align": "right"}
+    ]
+  },
+{
+    "date": "2026年6月24日",
+    "type": "適合情報",
+    "product": ["FreeTVing"], 
+    "car_models": [
+      {"model_name":"アルファード PHEV　R8/6～　(AGH40W.45W.AAHH40W.45W.AAHP45W）", "specification": "【14インチディスプレイオーディオPlus付車<br>LCA（レーンチェンジアシスト）装着車"},
+      {"model_name":"ヴェルファイアPHEV　R8/6～（TAHA40W.45W.AAHH40W.45W.AAHP45W）", "specification": "【14インチディスプレイオーディオPlus付車<br>LCA（レーンチェンジアシスト）装着車"}],
+    "brand": ["トヨタ"],
+    "body": [
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-109AS』</a></span></b></p>", "align": "right"},
+      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-109AST』</a></span></b></p>", "align": "right"}
+    ]
+  },
+{
+    "date": "2026年6月24日",
+    "type": "適合情報",
+    "product": ["DVD/CDプレーヤー"],
+    "car_models": [
+        {"plane_text":"※以下、メーカーオプションDVDプレーヤー非装着車"},
+        {"model_name":"アルファード　R8/6～　＜一部改良後＞　（AAHH40W.45W）","specification":"【14インチディスプレイオーディオ（コネクティッドナビ対応）付車】"},
+        {"model_name":"アルファードハイブリッド　R8/6～　＜一部改良後＞　（AAHH40W.45W）","specification":"【14インチディスプレイオーディオ（コネクティッドナビ対応）付車】"},
+        {"model_name":"アルファードハイブリッド エグゼクティブラウンジ　R8/6～　＜一部改良後＞　（AAHH40W.45W）","specification":"【14インチディスプレイオーディオ（コネクティッドナビ対応）付車】"},
+        {"model_name":"ヴェルファイア　R8/6～　＜一部改良後＞（TAHA40W.45W）","specification":"【14インチディスプレイオーディオ（コネクティッドナビ対応）付車】"},
+        {"model_name":"ヴェルファイアハイブリッド　R8/6～　＜一部改良後＞（AAHH40W.45W）","specification":"【14インチディスプレイオーディオ（コネクティッドナビ対応）付車】"},
+        {"model_name":"ヴェルファイアハイブリッド エグゼクティブラウンジ　R8/6～　＜一部改良後＞　（AAHH40W.45W）","specification":"【14インチディスプレイオーディオ（コネクティッドナビ対応）付車】"}],
+    "brand": ["トヨタ"],
+    "body": [
+      { "type":"html", "content": "<p><b>DVD/CDプレーヤー<span style=\"color: blue;\"><a href=\"/html/products/AV_ACCESSORY/cdv/cdv01.htm\" target=\"_blank\">『AV-CDV01』</a></span></b></p>", "align": "right"}
+    ]
+  },
+  {
     "date": "2026年6月15日",
     "type": "適合情報",
     "product": ["FreeTVing/TELENAVing"], "car_models": [{"model_name":"ハスラー　R8/6～　（MR52S　MR92S）","specification":"【全方位モニター付メモリーナビゲーション（9インチHDディスプレイ）装着車】"}],
