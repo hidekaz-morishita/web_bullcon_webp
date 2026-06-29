@@ -1,19 +1,17 @@
 [
   {
-    "date": "2026年6月24日",
+    "date": "2026年6月29日",
     "type": "適合情報",
     "product": ["FreeTVing"], "car_models": [
-        {"model_name":"アルファード　R8/6～　＜一部改良後＞　（AAHH40W.45W）","specification":"【14インチディスプレイオーディオ（コネクティッドナビ対応）Plus付車<br>LCA（レーンチェンジアシスト）非装着車】"}, 
-        {"model_name":"アルファードハイブリッド　R8/6～　＜一部改良後＞　（AAHH40W.45W）","specification":"【14インチディスプレイオーディオ（コネクティッドナビ対応）Plus付車<br>LCA（レーンチェンジアシスト）非装着車】"}
+        {"model_name":"ランドクルーザーFJ　R8/5～　（TRJ240W）","specification":"【12.3インチディスプレイオーディオ"}, 
+        {"model_name":"ランドクルーザ250　R8/4～　（TRJ250W）","specification":"【12.3インチディスプレイオーディオ"}
     ],
     "brand": ["トヨタ"],
     "body": [
-      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-107AS』</a></span></b></p>", "align": "right"},
-      { "type":"html", "content": "<p><b>FreeTVing ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-107ASC』</a></span></b></p>", "align": "right"},
-      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-107AST』</a></span></b></p>", "align": "right"}
+      { "type":"html", "content": "<p><b>FreeTVing ｽﾃｱﾘﾝｸﾞｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-111AST』</a></span></b></p>", "align": "right"}
     ]
-  },
-{
+  },  
+  {
     "date": "2026年6月24日",
     "type": "適合情報",
     "product": ["FreeTVing"], "car_models": [
@@ -26,7 +24,7 @@
     "body": [
       { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-109AS』</a></span></b></p>", "align": "right"},
       { "type":"html", "content": "<p><b>FreeTVing ｻｰﾋﾞｽﾎｰﾙｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-109ASC』</a></span></b></p>", "align": "right"},
-      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-109AST』</a></span></b></p>", "align": "right"}
+      { "type":"html", "content": "<p><b>FreeTVing ｽﾃｱﾘﾝｸﾞｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-109AST』</a></span></b></p>", "align": "right"}
     ]
   },
 {
@@ -39,7 +37,7 @@
     "brand": ["トヨタ"],
     "body": [
       { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-109AS』</a></span></b></p>", "align": "right"},
-      { "type":"html", "content": "<p><b>FreeTVing LEDｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-109AST』</a></span></b></p>", "align": "right"}
+      { "type":"html", "content": "<p><b>FreeTVing ｽﾃｱﾘﾝｸﾞｽｲｯﾁ切替ﾀｲﾌﾟ<span style=\"color: blue;\"><a href=\"/html/products/TVing/TVing.htm\" target=\"_blank\">『CTN-109AST』</a></span></b></p>", "align": "right"}
     ]
   },
 {
